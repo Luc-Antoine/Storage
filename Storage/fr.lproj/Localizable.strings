@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  Storage
+
+  Created by Luc-Antoine Dupont on 17/07/2017.
+  Copyright © 2017 Luc-Antoine Dupont. All rights reserved.
+*/
+
+"explainTextCategory" = "Ajoutez une catégorie en indiquant son nom. Pour effacer le nom d'une catégorie, utilisez le bouton \"Reset\". Pour créer une catégorie, utilisez le bouton \"Create\".";
+"explainTextItem" = "Ajoutez un objet en indiquant son nom. Pour effacer le nom d'un objet, utilisez le bouton \"Reset\". Pour créer un objet, utilisez le bouton \"Create\".";
+"Edit" = "Editer";
+"Cancel" = "Annuler";
+"Add" = "Ajouter";
+"Search" = "Recherche";
+"Add annotation" = "Ajouter une annotation";
+
+//Notifications
+"Alert" = "Alerte !";
+"Register" = "S'inscrire";
+"Enteremail" = "Entrer votre email";
+"Enterpassword" = "Entrer votre mot de passe";
+"Data lost" = "Toutes les données vont être effacées !";
+"Annotation lost" = "Cette annotation va être effacée !";
+"Coordinates Error" = "Vous ne pouvez pas avoir deux annnotations au même endroit. Vous pouvez zoomer pour choisir un autre emplacement sur la carte.";
+"web page" = "";
+"Open" = "Ouvrir";
+"Lock" = "Fermer";
+"Delete" = "Effacer";
+"Filter" = "Filtrer";

@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  Storage
+
+  Created by Luc-Antoine Dupont on 17/07/2017.
+  Copyright © 2017 Luc-Antoine Dupont. All rights reserved.
+*/
+
+"explainTextCategory" = "Add a category with its name. To clear the text field, use the \"Reset\" button. To save hte category, use the \"Create\" button.";
+"explainTextItem" = "Add an item with its name. To clear the text field, use the \"Reset\" button. To create the category, use the \"Create\" button.";
+
+//Notifications
+"Alert" = "Alert !";
+"Register" = "Register";
+"Enteremail" = "Enter your email";
+"Enterpassword" = "Enter your password";
+"Data lost" = "All data will be lost !";
+"Annotation lost" = "This annotation will be lost !";
+"Coordinates Error" = "You must choice coordinates before add an annotation !";
+"web page" = "A web page will be show !";
+"Open" = "Open";
+"Lock" = "Lock";
+"Delete" = "Delete";
+"Filter" = "Filter";
