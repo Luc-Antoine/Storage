@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CategorySettings: UIView {
+class CategoriesSettingsView: UIView {
     
-    var controller: CategoryController?
+    var controller: CategoriesController?
     
     var settingSegmentedIndex: Int = 3
     
@@ -21,21 +21,19 @@ class CategorySettings: UIView {
         switch settings.selectedSegmentIndex {
         case 0:
             controller?.removeSettingsContainer()
-            controller?.instantiateCategoryEdit()
+            controller?.instantiateCategoriesEditView()
             settings.selectedSegmentIndex = UISegmentedControl.noSegment
-            controller?.categoryTableViewEditing()
+            controller?.categoriesTableViewEditing()
             break
         case 1:
             controller?.removeSettingsContainer()
-            controller?.instantiateCategorySort()
+            controller?.instantiateCategoriesSortView()
             settings.selectedSegmentIndex = UISegmentedControl.noSegment
-            controller?.categoryTableViewSorting()
             break
         case 2:
             controller?.removeSettingsContainer()
-            controller?.instantiateCategorySearch()
+            controller?.instantiateCategoriesSearchView()
             settings.selectedSegmentIndex = UISegmentedControl.noSegment
-            controller?.categoryTableViewSearching()
             break
         default:
             break

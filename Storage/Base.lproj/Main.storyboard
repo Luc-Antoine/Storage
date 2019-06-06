@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="barTintColor" red="0.027451172471046448" green="0.35294109582901001" blue="0.67450958490371704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,10 +40,10 @@
         <!--Category-->
         <scene sceneID="tOw-Sc-ew3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-kh-VX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Category" id="z96-tk-epK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="vEz-6L-4bB"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-kh-VX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1821" y="148"/>
         </scene>

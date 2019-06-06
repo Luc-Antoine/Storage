@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Category View Controller-->
+        <!--Category-->
         <scene sceneID="Ysf-su-jzf">
             <objects>
-                <viewController storyboardIdentifier="CategoryViewController" id="J5F-wb-Uc5" customClass="CategoryViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesViewController" id="J5F-wb-Uc5" customClass="CategoriesViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aVH-IY-Sfz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FsR-11-vFi"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Category" id="M44-o3-M0K">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="eyW-9S-t03">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Add" id="J9N-iP-dp5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addOrDeleteAction" destination="J5F-wb-Uc5" id="LwY-xI-flY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="J9N-iP-dp5" id="dzz-GW-vll"/>
                         <outlet property="settingsContainer" destination="Q1I-Ci-sps" id="KnC-MU-5sg"/>
                         <outlet property="tableViewContainer" destination="jAy-7G-CFE" id="2Sj-ZG-fhG"/>
                     </connections>
@@ -47,14 +59,15 @@
             </objects>
             <point key="canvasLocation" x="96" y="107"/>
         </scene>
-        <!--Category Table View Controller-->
+        <!--Categories Table View Controller-->
         <scene sceneID="r9C-li-cfn">
             <objects>
-                <tableViewController storyboardIdentifier="CategoryTableViewController" id="TDU-Ng-cdx" customClass="CategoryTableViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CategoriesTableViewController" id="TDU-Ng-cdx" customClass="CategoriesTableViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="evS-9j-bTB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="CXO-we-Ung" customClass="CategoryCell" customModule="Storage" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -66,7 +79,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Euz-KU-Nmf">
                                             <rect key="frame" x="15" y="4.5" width="238" height="34.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2h-ff-hTz">
@@ -106,13 +119,15 @@
             </objects>
             <point key="canvasLocation" x="836" y="107"/>
         </scene>
-        <!--Category Navigation Controller-->
+        <!--Categories Navigation Controller-->
         <scene sceneID="g5u-5I-7vx">
             <objects>
-                <navigationController id="YlA-cC-tuf" customClass="CategoryNavigationController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HJC-V6-Ves">
+                <navigationController id="YlA-cC-tuf" customClass="CategoriesNavigationController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="HJC-V6-Ves">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwU-pA-JgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,4 +135,7 @@
             <point key="canvasLocation" x="-628" y="107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add" width="18" height="18"/>
+    </resources>
 </document>

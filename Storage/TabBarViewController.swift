@@ -10,7 +10,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    weak private var categoryViewController: CategoryViewController?
+    weak private var categoryViewController: CategoriesViewController?
     
     private let tabbarMarcin = TabBarController()
 
@@ -24,7 +24,7 @@ class TabBarViewController: UITabBarController {
     // MARK: - Instantiate Functions
     
     func instantiateItems() {
-        let firstViewController = CategoryNavigationController()
+        let firstViewController = CategoriesNavigationController()
         //firstViewController.firstViewController = .CategoryViewController
         firstViewController.tabBarItem = UITabBarItem(title: "Objet", image: UIImage(named: "RussianDolls"), tag: 0)
         let secondController = instantiateCalculatorViewController()

@@ -1,5 +1,5 @@
 //
-//  CAtegoryFilter.swift
+//  CAtegoriesFilter.swift
 //  Storage
 //
 //  Created by Luc-Antoine Dupont on 02/06/2019.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class CategoryFilter: UIView {
+class CategoriesFilterView: UIView {
     
-    var controller: CategoryController?
+    var controller: CategoriesController?
     
     @IBAction func removeView() {
         controller?.removeSettingsContainer()
-        controller?.instantiateCategorySettings()
+        controller?.instantiateCategoriesSettingsView()
     }
     
 }

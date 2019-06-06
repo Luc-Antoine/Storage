@@ -12,19 +12,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CategorySearch" customModule="Storage" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CategoriesSearchView" customModule="Storage" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-xv-hak">
-                    <rect key="frame" x="60" y="25" width="200" height="30"/>
-                    <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-xv-hak">
+                    <rect key="frame" x="60" y="26" width="200" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="eOE-2s-xBu"/>
+                    </constraints>
+                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="textFieldChanged:" destination="iN0-l3-epB" eventType="editingChanged" id="1vr-ge-qy7"/>
+                    </connections>
                 </textField>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-bJ-GPc">
                     <rect key="frame" x="270" y="25" width="30" height="30"/>
-                    <state key="normal" title="End"/>
+                    <state key="normal" title="End">
+                        <color key="titleColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxa-El-DlD">
                     <rect key="frame" x="20" y="25" width="30" height="30"/>

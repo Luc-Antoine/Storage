@@ -189,59 +189,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Storage/DataBase.swift"
-            timestampString = "561077901.0212981"
+            timestampString = "581516771.92325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "setTitleFeature(category:titleFeature:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Storage.DataBase.setTitleFeature(category: Storage.Category, titleFeature: Swift.String) -&gt; ()"
-                  moduleName = "Storage"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luc-antoinedupont/Documents/Mes%20projets/Storage/Storage/DataBase.swift"
-                  timestampString = "555537055.290406"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;Storage.Category&gt;) -&gt; () in Storage.DataBase.setTitleFeature(category: Storage.Category, titleFeature: Swift.String) -&gt; ()"
-                  moduleName = "Storage"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luc-antoinedupont/Documents/Mes%20projets/Storage/Storage/DataBase.swift"
-                  timestampString = "555537055.29186"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Storage/DataBase.swift"
-            timestampString = "561077901.021616"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "setFeature(item:feature:)"
             landmarkType = "7">
             <Locations>
@@ -285,11 +237,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Storage/DataBase.swift"
-            timestampString = "561077901.021812"
+            timestampString = "581516771.923557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "setFeature(category:feature:)"
             landmarkType = "7">
             <Locations>
@@ -333,7 +285,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Storage/ListItemViewController.swift"
-            timestampString = "555552624.597225"
+            timestampString = "581516771.923754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "518"
@@ -348,46 +300,62 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Storage/CategoryViewController.swift"
-            timestampString = "581168343.237744"
+            filePath = "Storage/CategoryTableViewController.swift"
+            timestampString = "581458182.22594"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "CategoryViewController"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "CategoriesTableViewController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Storage.CategoryViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Storage.CategoryViewController"
-                  moduleName = "Storage"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luc-antoinedupont/Documents/Projets/Storage/Storage/CategoryViewController.swift"
-                  timestampString = "578395457.49191"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "372">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Storage.CategoryViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Storage.CategoryViewController&gt;"
-                  moduleName = "Storage"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luc-antoinedupont/Documents/Projets/Storage/Storage/CategoryViewController.swift"
-                  timestampString = "578395457.493578"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "320">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/NavigationController.swift"
+            timestampString = "581264593.798099"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "NavigationController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/NavigationController.swift"
+            timestampString = "581264593.7983969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/CategoryViewController2.swift"
+            timestampString = "581507639.95491"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "cancelEditCategory()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -397,12 +365,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Storage/CategoryTableViewController.swift"
-            timestampString = "581168343.237807"
+            timestampString = "581459147.226675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "scrolling(row:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/CategoryViewController2.swift"
+            timestampString = "581507639.954964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/CategoryViewController2.swift"
+            timestampString = "581507639.955003"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "tableView(_:didDeselectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/CategoryViewController2.swift"
+            timestampString = "581507639.955038"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "updateCategory(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -413,28 +429,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Storage/CategoryController.swift"
-            timestampString = "581247253.332823"
+            timestampString = "581505065.781755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "sortCategories(category:categorySort:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Storage/CategoryController.swift"
-            timestampString = "581247253.333161"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "instantiateCategorySort()"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "instantiateCategoriesFilterView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

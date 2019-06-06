@@ -12,25 +12,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CategorySettings" customModule="Storage" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CategoriesSettingsView" customModule="Storage" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Nc8-4b-JId">
-                    <rect key="frame" x="20" y="25" width="280" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Nc8-4b-JId">
+                    <rect key="frame" x="20" y="26" width="280" height="29"/>
                     <segments>
                         <segment title="Edit"/>
                         <segment title="Sort"/>
                         <segment title="Search"/>
-                        <segment title="Filter"/>
                     </segments>
+                    <color key="tintColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="settingsDisplay:" destination="iN0-l3-epB" eventType="valueChanged" id="f3Z-EY-Lcs"/>
                     </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nc8-4b-JId" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="1fu-Jq-hiS"/>
+                <constraint firstItem="Nc8-4b-JId" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Eqe-2K-Wtk"/>
+                <constraint firstItem="Nc8-4b-JId" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ICM-l6-0jn"/>
+                <constraint firstAttribute="trailing" secondItem="Nc8-4b-JId" secondAttribute="trailing" constant="20" id="seE-rc-ljV"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>

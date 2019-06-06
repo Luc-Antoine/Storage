@@ -11,9 +11,6 @@ import CoreData
 
 class DataBase {
     
-    //let test = AppDelegate.self
-    
-    let appDelegate = UIApplication.shared.delegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let preferences = Preferences()
     
@@ -22,7 +19,7 @@ class DataBase {
     }
     
     func addCategory(categoryName: String) {
-        DispatchQueue.global(qos: .userInteractive).async {
+        //DispatchQueue.global(qos: .userInteractive).async {
             let newCategory = self.newObject(forEntity: "Category")
             let id_category: Int = self.preferences.getPreferences(key: "id_category")
             newCategory.setValue(categoryName, forKey: "name")
@@ -35,8 +32,6 @@ class DataBase {
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
-            
-        }
     }
     
     func addItem(category: Category, itemName: String) {
@@ -61,15 +56,14 @@ class DataBase {
     // MARK: - Update Functions
     
     func setCategory(category: Category, newName: String) {
-        getCategory(predicateFormat: "id == \(category.id)", completion: { results in
-            guard results.count > 0 else { return }
-            results[0].setValue(newName.noSpaceToLast(), forKey: "name")
-            do {
-                try self.context.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        })
+        let categories = getCategories(predicateFormat: "id == \(category.id)")
+        guard categories.count > 0 else { return }
+        categories[0].setValue(newName.noSpaceToLast(), forKey: "name")
+        do {
+            try self.context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     func setItem(item: Item, newName: String) {
@@ -85,29 +79,29 @@ class DataBase {
     }
     
     func setFeature(category: Category, newName: String) {
-        getCategory(predicateFormat: "id == \(category.id)", completion: { results in
-            for result in results {
-                result.setValue(newName, forKey: "titleFeature")
-            }
-            do {
-                try self.context.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        })
+        let categories = getCategories(predicateFormat: "id == \(category.id)")
+        guard categories.count > 0 else { return }
+        for category in categories {
+            category.setValue(newName, forKey: "titleFeature")
+        }
+        do {
+            try self.context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     // MARK: - Favorites Functions
     
     func setFavorites(category: Category, favorites: Bool) {
-        getCategory(predicateFormat: "id == \(category.id)", completion: { result in
-            category.setValue(!result.first!.favorites, forKey: "favorites")
-            do {
-                try self.context.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        })
+        let categories: [Category] = getCategories(predicateFormat: "id == \(category.id)")
+        guard categories.count > 0 else { return }
+        category.setValue(categories.first!.favorites, forKey: "favorites")
+        do {
+            try self.context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     func setFavorites(item: Item, favorites: Bool) {
@@ -124,16 +118,16 @@ class DataBase {
     // MARK: - Titlefeature and feature Functions
     
     func setTitleFeature(category: Category, titleFeature: String) {
-        getCategory(predicateFormat: "id == \(category.id)", completion: { results in
-            for result in results {
-                result.setValue(titleFeature, forKey: "titleFeature")
-            }
-            do {
-                try self.context.save()
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
-            }
-        })
+        let categories: [Category] = getCategories(predicateFormat: "id == \(category.id)")
+        guard categories.count > 0 else { return }
+        for category in categories {
+            category.setValue(titleFeature, forKey: "titleFeature")
+        }
+        do {
+            try self.context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
     
     func setFeature(item: Item, feature: String) {
@@ -164,18 +158,14 @@ class DataBase {
     
     // MARK: - Delete Functions
     
-    func deleteCategory(categories: [Category], completion: @escaping (_ success: Bool) -> ()) {
-        DispatchQueue.global(qos: .userInteractive).async {
-            do {
-                for i in 0..<categories.count {
-                    self.context.delete(categories[i])
-                    try self.context.save()
-                }
-                completion(true)
-            } catch let error as NSError {
-                print("Could not save. \(error), \(error.userInfo)")
+    func delete(_ categories: [Category]) throws {
+        do {
+            for category in categories {
+                self.context.delete(category)
+                try self.context.save()
             }
-            completion(false)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
@@ -196,17 +186,17 @@ class DataBase {
     
     // MARK: - Get Functions
     
-    func getCategory(completion: @escaping ([Category]) -> ()) {
+    func getCategories() -> [Category] {
         var results: [Category] = []
         do {
             results = try context.fetch(Category.fetchRequest())
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        completion(results)
+        return results
     }
     
-    func getCategory(predicateFormat: String, completion: @escaping ([Category]) -> ()) {
+    func getCategories(predicateFormat: String) -> [Category] {
         let predicate = NSPredicate(format: predicateFormat)
         let request = NSFetchRequest<Category>(entityName: "Category")
         request.predicate = predicate
@@ -216,7 +206,7 @@ class DataBase {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        completion(results)
+        return results
     }
     
     func getItem(predicateFormat: String, completion: @escaping ([Item]) -> ()) {
