@@ -11,8 +11,6 @@ import UIKit
 class TabBarViewController: UITabBarController {
     
     weak private var categoryViewController: CategoriesViewController?
-    
-    private let tabbarMarcin = TabBarController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +23,11 @@ class TabBarViewController: UITabBarController {
     
     func instantiateItems() {
         let firstViewController = CategoriesNavigationController()
-        //firstViewController.firstViewController = .CategoryViewController
         firstViewController.tabBarItem = UITabBarItem(title: "Objet", image: UIImage(named: "RussianDolls"), tag: 0)
         let secondController = instantiateCalculatorViewController()
-        secondController.tabBarItem = UITabBarItem(title: "Calc", image: UIImage(named: "Calculator"), tag: 0)
-        let firdController = ListAnnotationTableViewController()
-        firdController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Mappin"), tag: 0)
+        secondController.tabBarItem = UITabBarItem(title: "Calc", image: UIImage(named: "Calculator"), tag: 1)
+        let firdController = MapNavigationController()
+        firdController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Mappin"), tag: 2)
         
         viewControllers = [firstViewController, secondController, firdController]
     }
@@ -40,7 +37,8 @@ class TabBarViewController: UITabBarController {
         return storyboard.instantiateViewController(withIdentifier: "CalculatorViewController") as! CalculatorViewController
     }
     
-    func instantiateListAnnotationTableViewController() {
-        //let storyboard = UIStoryboard(name: "Calculator", bundle: nil)
+    func instantiateListAnnotationTableViewController() -> ListAnnotationTableViewController {
+        let storyboard = UIStoryboard(name: "Map", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "ListAnnotationTableViewController") as! ListAnnotationTableViewController
     }
 }

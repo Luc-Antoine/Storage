@@ -10,7 +10,7 @@ import UIKit
 
 class CategoriesSortView: UIView {
     
-    var controller: CategoriesController?
+    weak var controller: CategoriesController?
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
@@ -42,4 +42,7 @@ class CategoriesSortView: UIView {
         controller!.sortCategories()
     }
     
+    func viewDidAppear() {
+        sortSegmentedControl.selectedSegmentIndex = controller!.categoriesSort.rawValue
+    }
 }

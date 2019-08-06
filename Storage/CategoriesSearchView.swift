@@ -10,10 +10,10 @@ import UIKit
 
 class CategoriesSearchView: UIView {
     
+    weak var controller: CategoriesController?
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
-    
-    var controller: CategoriesController?
     
     @IBAction func removeView() {
         searchTextField.resignFirstResponder()
@@ -25,5 +25,11 @@ class CategoriesSearchView: UIView {
     @IBAction func textFieldChanged(_ sender: Any) {
         guard searchTextField.text != nil else { return }
         controller?.textFieldDidResearching(searchTextField.text!)
+    }
+    
+    func viewDidAppear() {
+        searchTextField.delegate = controller?.categoriesTableViewController
+        searchTextField.borderDesign()
+        searchTextField.becomeFirstResponder()
     }
 }

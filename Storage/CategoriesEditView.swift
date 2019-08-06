@@ -10,20 +10,25 @@ import UIKit
 
 class CategoriesEditView: UIView {
     
-    var controller: CategoriesController?
+    weak var controller: CategoriesController?
     
     @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var editTexrField: UITextField!
+    @IBOutlet weak var editTextField: UITextField!
     
     @IBAction func removeView() {
-        editTexrField.resignFirstResponder()
+        editTextField.resignFirstResponder()
         controller?.categoriesTableViewEndEditing()
         controller?.removeSettingsContainer()
         controller?.instantiateCategoriesSettingsView()
     }
     
     @IBAction func textFieldChanged(_ sender: Any) {
-        guard editTexrField.text != nil else { return }
-        controller?.textFieldDidResearching(editTexrField.text!)
+        guard editTextField.text != nil else { return }
+        controller?.textFieldDidResearching(editTextField.text!)
+    }
+    
+    func viewDidAppear() {
+        editTextField.delegate = controller!.categoriesTableViewController
+        editTextField.borderDesign()
     }
 }

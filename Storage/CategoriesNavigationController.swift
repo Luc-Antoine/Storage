@@ -10,7 +10,6 @@ import UIKit
 
 class CategoriesNavigationController: UINavigationController {
     
-    weak private var categoriesViewController: CategoriesViewController?
     private let styleCSS = StyleCSS()
 
     override func viewDidLoad() {
@@ -18,18 +17,10 @@ class CategoriesNavigationController: UINavigationController {
 
         styleCSS.tabBarColor()
         styleCSS.navigationBarColor()
-        instantaiteCategoriesController()
+        instantiateCategoriesController()
     }
     
-    func instantiateCategoriesViewController() {
-        let storyboard = UIStoryboard(name: "Categories", bundle: nil)
-        categoriesViewController = (storyboard.instantiateViewController(withIdentifier: "CategoriesViewController") as! CategoriesViewController)
-        self.addChild(categoriesViewController!)
-        categoriesViewController!.view.frame.size = self.view.frame.size
-        self.navigationController?.pushViewController(categoriesViewController!, animated: true)
-    }
-    
-    func instantaiteCategoriesController() {
+    func instantiateCategoriesController() {
         let categoriesController = CategoriesController()
         categoriesController.instantiateCategoriesViewController(navigationController: self)
     }

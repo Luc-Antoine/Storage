@@ -8,14 +8,11 @@
 
 import UIKit
 
-class CategoriesController {
+class CategoriesController: UIController {
     
     weak var navigationController: UINavigationController?
     weak var categoriesViewController: CategoriesViewController?
     weak var categoriesTableViewController: CategoriesTableViewController?
-    weak var categoriesSettings: CategoriesSettingsView?
-    
-    var settingsUIView: UIView?
     
     var categoriesSort: ArrayDisplay.Sort = .increasing
     var categories: [Category] = []
@@ -27,55 +24,41 @@ class CategoriesController {
     // MARK: - Instantiate Functions
     
     func instantiateCategoriesViewController(navigationController: UINavigationController) {
+        categoriesViewController = instantiate("CategoriesViewController", storyboard: "Categories", bundle: nil)
+        push(navigationController, viewController: categoriesViewController!)
         self.navigationController = navigationController
-        let storyboard = UIStoryboard(name: "Categories", bundle: nil)
-        let categoriesViewController = (storyboard.instantiateViewController(withIdentifier: "CategoriesViewController") as! CategoriesViewController)
-        categoriesViewController.controller = self
-        self.categoriesViewController = categoriesViewController
+        categoriesViewController!.controller = self
         navigationBarDesign()
-        navigationController.pushViewController(categoriesViewController, animated: true)
     }
     
     func instantiateCategoriesTableViewController(categoriesViewController: CategoriesViewController, container: UIView) {
-        let storyboard = UIStoryboard(name: "Categories", bundle: nil)
-        categoriesTableViewController = (storyboard.instantiateViewController(withIdentifier: "CategoriesTableViewController") as! CategoriesTableViewController)
+        categoriesTableViewController = instantiate("CategoriesTableViewController", storyboard: "Categories", bundle: nil)
+        child(categoriesViewController, child: categoriesTableViewController!, container: categoriesViewController.tableViewContainer)
         categoriesTableViewController!.controller = self
-        categoriesViewController.addChild(categoriesTableViewController!)
-        categoriesTableViewController!.view.frame.size = categoriesViewController.tableViewContainer.frame.size
-        categoriesViewController.tableViewContainer.addSubview(categoriesTableViewController!.view)
         getCategory()
     }
     
     func instantiateItemsViewController(category: Category) {
-        let storyboard = UIStoryboard(name: "Collector", bundle: nil)
-        let itemsViewController = storyboard.instantiateViewController(withIdentifier: "ItemsViewController") as! ListItemViewController
-        itemsViewController.categorySelected = category
-        navigationController!.pushViewController(itemsViewController, animated: true)
+        let itemsController = ItemsController()
+        itemsController.instantiateItemsViewContainer(categoriesViewContainer: categoriesViewController!)
+        itemsController.categorySelected = category
     }
     
     // MARK: - Category Table View Settings
     
     func instantiateCategoriesSettingsView() {
-        let views = Bundle.main.loadNibNamed("CategoriesSettingsView", owner: nil, options: nil)
-        let categoriesSettingsView = views?.first as! CategoriesSettingsView
-        self.categoriesSettings = categoriesSettingsView
+        let categoriesSettingsView: CategoriesSettingsView = instantiate("CategoriesSettingsView", owner: nil, options: nil)
+        child(categoriesSettingsView, container: categoriesViewController!.settingsContainer)
         categoriesSettingsView.controller = self
-        settingsUIView = categoriesSettingsView
-        categoriesSettingsView.frame.size = categoriesViewController!.settingsContainer.frame.size
-        categoriesViewController?.settingsContainer.addSubview(categoriesSettingsView)
     }
     
     // MARK: - Category Table View Editing
     
     func instantiateCategoriesEditView() {
-        let views = Bundle.main.loadNibNamed("CategoriesEditView", owner: nil, options: nil)
-        let categoriesEditView = views?.first as! CategoriesEditView
-        categoriesEditView.editTexrField.delegate = categoriesTableViewController
-        categoriesEditView.editTexrField.borderDesign()
+        let categoriesEditView: CategoriesEditView = instantiate("CategoriesEditView", owner: nil, options: nil)
+        child(categoriesEditView, container: categoriesViewController!.settingsContainer)
         categoriesEditView.controller = self
-        settingsUIView = categoriesEditView
-        categoriesEditView.frame.size = categoriesViewController!.settingsContainer.frame.size
-        categoriesViewController?.settingsContainer.addSubview(categoriesEditView)
+        categoriesEditView.viewDidAppear()
     }
     
     func categoriesTableViewEditing() {
@@ -88,41 +71,22 @@ class CategoriesController {
         categoriesTableViewController?.tableViewEndEditing()
     }
     
-    // MARK: - Category Table View Filtering
-    
-    func instantiateCategoriesFilterView() {
-        let views = Bundle.main.loadNibNamed("CategoriesFilterView", owner: nil, options: nil)
-        let categoriesFilterView = views?.first as! CategoriesFilterView
-        categoriesFilterView.controller = self
-        settingsUIView = categoriesFilterView
-        categoriesFilterView.frame.size = categoriesViewController!.settingsContainer.frame.size
-        categoriesViewController?.settingsContainer.addSubview(categoriesFilterView)
-    }
-    
     // MARK: - Category Table View Searching
     
     func instantiateCategoriesSearchView() {
-        let views = Bundle.main.loadNibNamed("CategoriesSearchView", owner: nil, options: nil)
-        let categoriesSearchView = views?.first as! CategoriesSearchView
-        categoriesSearchView.searchTextField.delegate = categoriesTableViewController
-        categoriesSearchView.searchTextField.borderDesign()
+        let categoriesSearchView: CategoriesSearchView = instantiate("CategoriesSearchView", owner: nil, options: nil)
+        child(categoriesSearchView, container: categoriesViewController!.settingsContainer)
         categoriesSearchView.controller = self
-        settingsUIView = categoriesSearchView
-        categoriesSearchView.frame.size = categoriesViewController!.settingsContainer.frame.size
-        categoriesViewController?.settingsContainer.addSubview(categoriesSearchView)
-        categoriesSearchView.searchTextField.becomeFirstResponder()
+        categoriesSearchView.viewDidAppear()
     }
     
     // MARK: - Category Table View Sorting
     
     func instantiateCategoriesSortView() {
-        let views = Bundle.main.loadNibNamed("CategoriesSortView", owner: nil, options: nil)
-        let categoriesSortView = views?.first as! CategoriesSortView
-        categoriesSortView.sortSegmentedControl.selectedSegmentIndex = categoriesSort.rawValue
+        let categoriesSortView: CategoriesSortView = instantiate("CategoriesSortView", owner: nil, options: nil)
+        child(categoriesSortView, container: categoriesViewController!.settingsContainer)
         categoriesSortView.controller = self
-        settingsUIView = categoriesSortView
-        categoriesSortView.frame.size = categoriesViewController!.settingsContainer.frame.size
-        categoriesViewController?.settingsContainer.addSubview(categoriesSortView)
+        categoriesSortView.viewDidAppear()
     }
     
     func sortCategories() {
@@ -149,14 +113,10 @@ class CategoriesController {
     // MARK: - Category Add
     
     func instantiateCategoriesAddView() {
-        let views = Bundle.main.loadNibNamed("CategoriesAddView", owner: nil, options: nil)
-        let categoriesAddView = views?.first as! CategoriesAddView
-        categoriesAddView.nameCategoryTextField.borderDesign()
+        let categoriesAddView: CategoriesAddView = instantiate("CategoriesAddView", owner: nil, options: nil)
+        child(categoriesAddView, container: categoriesViewController!.settingsContainer)
         categoriesAddView.controller = self
-        settingsUIView = categoriesAddView
-        categoriesAddView.frame.size = categoriesViewController!.settingsContainer.frame.size
-        categoriesViewController?.settingsContainer.addSubview(categoriesAddView)
-        categoriesAddView.nameCategoryTextField.becomeFirstResponder()
+        categoriesAddView.viewDidAppear()
     }
     
     // UITextField Functions
@@ -169,7 +129,6 @@ class CategoriesController {
     
     func removeSettingsContainer() {
         categoriesViewController?.settingsContainer.subviews.first!.removeFromSuperview()
-        settingsUIView = nil
     }
     
     // MARK: - Categories Functions
@@ -212,7 +171,7 @@ class CategoriesController {
         let nav = navigationController?.navigationBar
         nav?.isTranslucent = false
         //nav?.barTintColor = UIColor(red: 49/255, green: 140/255, blue: 231/255, alpha: 1)
-        nav?.barTintColor = UIColor(red: 7/255, green: 90/255, blue: 172/255, alpha: 1)
-        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        //nav?.barTintColor = UIColor(red: 7/255, green: 90/255, blue: 172/255, alpha: 1)
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 7/255, green: 90/255, blue: 172/255, alpha: 1)]
     }
 }

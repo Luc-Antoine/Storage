@@ -10,8 +10,8 @@ import UIKit
 
 class ListAnnotationTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var allAnnotations: [NSDictionary] = [NSDictionary]()
     var annotation: [Annotation] = []
     var annotationSort: ArrayDisplay.Sort = .increasing
@@ -52,7 +52,8 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         searchBar.addTarget(self, action: #selector(beginResearching(_:)), for: .editingChanged)
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 23.0), NSAttributedString.Key.foregroundColor: UIColor.white]
+        //navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 23.0), NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationBarDesign()
         design()
     }
     
@@ -317,6 +318,8 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
         }
     }
     
+    // MARK: - Design Functions
+    
     private func design() {
         containerView.isHidden = true
         editView.isHidden = true
@@ -328,6 +331,12 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
     
     private func deselectSearchBar() {
         searchBar.resignFirstResponder()
+    }
+    
+    func navigationBarDesign() {
+        let nav = navigationController?.navigationBar
+        nav?.isTranslucent = false
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 7/255, green: 90/255, blue: 172/255, alpha: 1)]
     }
 }
 

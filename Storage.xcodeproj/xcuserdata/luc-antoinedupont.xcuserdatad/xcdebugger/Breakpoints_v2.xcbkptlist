@@ -111,7 +111,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Storage/AllFeaturesViewController.swift"
-            timestampString = "555594094.045277"
+            timestampString = "582239052.978282"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -285,7 +285,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Storage/ListItemViewController.swift"
-            timestampString = "581516771.923754"
+            timestampString = "583057687.151145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "518"
@@ -435,6 +435,22 @@
             startingLineNumber = "92"
             endingLineNumber = "92"
             landmarkName = "instantiateCategoriesFilterView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/ListItemViewController.swift"
+            timestampString = "583057687.1516401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "550"
+            endingLineNumber = "550"
+            landmarkName = "sortItem()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

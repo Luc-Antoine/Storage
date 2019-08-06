@@ -10,7 +10,7 @@ import UIKit
 
 class CategoriesSettingsView: UIView {
     
-    var controller: CategoriesController?
+    weak var controller: CategoriesController?
     
     var settingSegmentedIndex: Int = 3
     

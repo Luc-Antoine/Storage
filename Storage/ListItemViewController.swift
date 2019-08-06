@@ -14,7 +14,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
         case items, filtereditems, researchingitems, titlefeatures, features, filtersediting
     }
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var items: [Item] = []
     var listItem: [String] = []
     var titleFeatures: [String] = []

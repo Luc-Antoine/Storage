@@ -369,7 +369,7 @@ class ListFeatureViewController: UIViewController, UITableViewDataSource, UITabl
         containerView.isHidden = true
         editView.isHidden = true
         addView.isHidden = true
-        styleCSS.buttonLikeSegmentedControl(buttons: [editButton])
+        //styleCSS.buttonLikeSegmentedControl(buttons: [editButton])
         styleCSS.borderTextField(textFields: [addBar, editBar])
         viewTableView.keyboardDismissMode = .onDrag
         viewTableView.keyboardDismissMode = .interactive

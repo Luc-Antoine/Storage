@@ -383,8 +383,6 @@ class CommentAnnotationCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var annotationComment: UITextView!
     
-    private let styleCSS = StyleCSS()
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
         scrollToElementEditingDelegate?.scrollToElementEditing(indexPath: IndexPath(row: 3, section: 0))
     }
@@ -398,7 +396,7 @@ class CommentAnnotationCell: UITableViewCell, UITextViewDelegate {
         annotationComment.text = comment
         commentAnnotationDelegate?.setCommentAnnotation(textView: annotationComment)
         borderUITextView(textView: annotationComment)
-        styleCSS.borderTextView(textView: annotationComment)
+        annotationComment.border()
     }
     
     func borderUITextView(textView: UITextView) {

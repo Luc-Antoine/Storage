@@ -10,7 +10,7 @@ import UIKit
 
 class CategoriesAddView: UIView {
     
-    var controller: CategoriesController?
+    weak var controller: CategoriesController?
     
     @IBOutlet weak var BackButton: UIButton!
     @IBOutlet weak var confirmeButton: UIButton!
@@ -27,6 +27,11 @@ class CategoriesAddView: UIView {
         guard newCategoryName != "" else { return }
         controller?.addCategory(newCategoryName: newCategoryName!)
         nameCategoryTextField.text = ""
+    }
+    
+    func viewDidAppear() {
+        nameCategoryTextField.becomeFirstResponder()
+        nameCategoryTextField.border()
     }
     
 }

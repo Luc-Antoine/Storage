@@ -319,7 +319,7 @@
         <!--Item List-->
         <scene sceneID="BBT-04-ZRy">
             <objects>
-                <viewController storyboardIdentifier="ItemsViewController" id="6gS-4b-NZ5" customClass="ListItemViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListItemViewController" id="6gS-4b-NZ5" customClass="ListItemViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PhV-uV-Gu7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -370,7 +370,7 @@
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aOy-4c-YDD">
                                                         <rect key="frame" x="60" y="30" width="255" height="30"/>
-                                                        <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -399,7 +399,7 @@
                                                     </button>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-yk-xqd">
                                                         <rect key="frame" x="60" y="30" width="255" height="30"/>
-                                                        <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -477,7 +477,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="gM0-Zj-pt5"/>
                                                         </constraints>
                                                         <state key="normal" title="Ok">
-                                                            <color key="titleColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="confirmAddItem:" destination="6gS-4b-NZ5" eventType="touchUpInside" id="2Hq-NE-h1Q"/>
@@ -485,7 +485,7 @@
                                                     </button>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eO3-Ch-vYE">
                                                         <rect key="frame" x="60" y="30" width="255" height="30"/>
-                                                        <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                        <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -524,7 +524,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zu5-NL-saK">
                                         <rect key="frame" x="0.0" y="90.5" width="375" height="512.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="separatorColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="fAk-co-lx3" customClass="CellItem" customModule="Storage" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -536,7 +536,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzz-qC-T7c">
                                                             <rect key="frame" x="15" y="4.5" width="293" height="34.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                            <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4z-JC-haW">
@@ -576,7 +576,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wc3-sz-cjO">
                                                             <rect key="frame" x="15" y="4.5" width="345" height="34.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -602,7 +602,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="859-AN-Nad">
                                                             <rect key="frame" x="15" y="4.5" width="345" height="34.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -628,7 +628,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cne-6R-6CL">
                                                             <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -673,11 +673,11 @@
                         <viewLayoutGuide key="safeArea" id="Qzd-hE-gZN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Item List" id="Snv-aV-ior">
-                        <barButtonItem key="backBarButtonItem" title=" " id="3Nu-bX-Qgb">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="backBarButtonItem" title=" Back" id="3Nu-bX-Qgb">
+                            <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Add" id="foR-JQ-Jsu">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addAndDeleteItem:" destination="6gS-4b-NZ5" id="VUv-Su-dQJ"/>
                             </connections>
@@ -725,10 +725,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7L-GR-8mW">
-                                                <rect key="frame" x="131.5" y="26" width="112.5" height="38"/>
+                                                <rect key="frame" x="127.5" y="25" width="120" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="6PL-OL-ORp"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="fUN-Qt-byY"/>
+                                                </constraints>
                                                 <color key="tintColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
-                                                <state key="normal" title="Edit">
-                                                    <color key="titleColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                <state key="normal" title="Edit" backgroundImage="UIButton">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="editFeature" destination="fFR-lb-OLc" eventType="touchUpInside" id="Sw1-QN-gbS"/>
@@ -736,8 +740,6 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="P7L-GR-8mW" firstAttribute="width" secondItem="rqX-Wh-C4m" secondAttribute="width" multiplier="0.3" id="G9G-r6-acr"/>
-                                            <constraint firstItem="P7L-GR-8mW" firstAttribute="height" secondItem="rqX-Wh-C4m" secondAttribute="height" multiplier="0.42" id="bb5-4a-M0k"/>
                                             <constraint firstItem="P7L-GR-8mW" firstAttribute="centerX" secondItem="rqX-Wh-C4m" secondAttribute="centerX" id="gMl-tX-dqT"/>
                                             <constraint firstItem="P7L-GR-8mW" firstAttribute="centerY" secondItem="rqX-Wh-C4m" secondAttribute="centerY" id="yoV-Za-Xi5"/>
                                         </constraints>
@@ -837,7 +839,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zer-ur-rCj">
                                         <rect key="frame" x="0.0" y="90.5" width="375" height="512.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="separatorColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="FeatureCell" id="WaO-ee-hOV" customClass="CellFeature" customModule="Storage" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="88"/>
@@ -852,7 +854,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl1-NW-grY">
                                                                     <rect key="frame" x="15" y="0.0" width="292.5" height="35.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="textColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="C3J-lL-LFY">
@@ -867,9 +869,7 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cd0-sr-Lhy">
                                                                     <rect key="frame" x="317.5" y="0.0" width="37.5" height="35.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                    <state key="normal" title="&gt;">
-                                                                        <color key="titleColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
-                                                                    </state>
+                                                                    <state key="normal" title="&gt;"/>
                                                                     <connections>
                                                                         <action selector="showFeatureList" destination="WaO-ee-hOV" eventType="touchUpInside" id="tEV-pk-6js"/>
                                                                         <segue destination="CUn-v3-sdl" kind="show" identifier="AllFeatures" id="yuh-5Z-daX"/>
@@ -935,8 +935,11 @@
                         <viewLayoutGuide key="safeArea" id="gn6-ic-is7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feature" id="Ok1-af-6JZ">
-                        <barButtonItem key="backBarButtonItem" title=" " id="eC0-1Z-eOt"/>
+                        <barButtonItem key="backBarButtonItem" title=" Back" id="eC0-1Z-eOt">
+                            <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Add" id="qaF-b6-ox3">
+                            <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addAndDeleteFeature:" destination="fFR-lb-OLc" id="Tyx-Rr-G3l"/>
                             </connections>
@@ -1005,7 +1008,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="43S-zm-PjD">
                                 <rect key="frame" x="0.0" y="90.5" width="375" height="512.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="allFeaturesCell" id="fGX-Kh-65n" customClass="AllFeaturesCell" customModule="Storage" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1020,7 +1023,7 @@
                                                         <constraint firstAttribute="height" constant="44" id="OAu-gq-SMc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1069,8 +1072,7 @@
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" translucent="NO" id="Jem-ts-i9x">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.19215686269999999" green="0.54901960780000003" blue="0.90588235289999997" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1091,8 +1093,9 @@
     </scenes>
     <resources>
         <image name="Add" width="18" height="18"/>
-        <image name="CancelButton" width="22" height="22"/>
+        <image name="CancelButton" width="18" height="18"/>
         <image name="RussianDolls" width="28" height="28"/>
+        <image name="UIButton" width="120" height="40"/>
     </resources>
-    <color key="tintColor" red="0.19215686274509802" green="0.5490196078431373" blue="0.90588235294117647" alpha="1" colorSpace="deviceRGB"/>
+    <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

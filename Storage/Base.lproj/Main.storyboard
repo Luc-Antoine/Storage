@@ -18,55 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.027451172471046448" green="0.35294109582901001" blue="0.67450958490371704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" red="0.78651035283905224" green="0.79610140931372542" blue="0.80334775837418293" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="value" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
-                    <connections>
-                        <segue destination="CdN-aS-Dem" kind="relationship" relationship="viewControllers" id="3XH-pd-btr"/>
-                        <segue destination="dKj-rZ-Iop" kind="relationship" relationship="viewControllers" id="gdb-oB-eBW"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="08g-bS-oVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="493.60000000000002" y="148.87556221889056"/>
         </scene>
-        <!--Category-->
-        <scene sceneID="tOw-Sc-ew3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Category" id="z96-tk-epK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vEz-6L-4bB"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qhi-kh-VX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1821" y="148"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="Pf8-xK-dXz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="dKj-rZ-Iop" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Ps4-Vv-Wfw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hvE-cK-Ram" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="494" y="971"/>
-        </scene>
-        <!--Calculator-->
-        <scene sceneID="Jck-ns-3qb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Calculator" id="CdN-aS-Dem" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HOW-37-4QL"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hQn-3m-pja" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1821" y="686"/>
-        </scene>
     </scenes>
-    <color key="tintColor" red="0.19215686274509802" green="0.5490196078431373" blue="0.90588235294117647" alpha="1" colorSpace="deviceRGB"/>
+    <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

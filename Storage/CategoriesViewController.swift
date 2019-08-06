@@ -57,15 +57,6 @@ class CategoriesViewController: UIViewController {
         styleCSS.navigationBarColor()
     }
     
-    private func design() {
-//        containerView.isHidden = true
-//        editView.isHidden = true
-//        searchView.isHidden = true
-//        sortView.isHidden = true
-//        addView.isHidden = true
-//        styleCSS.borderTextField(textFields: [searchBar, addBar, editBar])
-    }
-    
     private func firstTime() {
         controller!.firstTime()
     }

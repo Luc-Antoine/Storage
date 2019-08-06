@@ -28,7 +28,8 @@ class StyleCSS {
         for textField in textFields {
             textField.layer.borderWidth = 1.0
             textField.layer.cornerRadius = 5.0
-            textField.layer.borderColor = UIColor(red: 49/255, green: 140/255, blue: 231/255, alpha: 1).cgColor
+            //textField.layer.borderColor = UIColor(red: 49/255, green: 140/255, blue: 231/255, alpha: 1).cgColor
+            textField.layer.borderColor = UIColor(red: 7/255, green: 90/255, blue: 172/255, alpha: 1).cgColor
         }
     }
     
@@ -39,10 +40,10 @@ class StyleCSS {
     }
     
     public func tabBarColor() {
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        //UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
     }
     
     public func navigationBarColor() {
-        UINavigationBar.appearance().barTintColor = UIColor(red: 49/255, green: 140/255, blue: 231/255, alpha: 1)
+        //UINavigationBar.appearance().barTintColor = UIColor(red: 49/255, green: 140/255, blue: 231/255, alpha: 1)
     }
 }

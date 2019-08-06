@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,8 +16,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UItextFieldBackground" translatesAutoresizingMaskIntoConstraints="NO" id="98z-jf-6df">
+                    <rect key="frame" x="60" y="26" width="200" height="28"/>
+                </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vNe-E3-BJx">
                     <rect key="frame" x="60" y="26" width="200" height="28"/>
+                    <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="799-yc-NRf"/>
                     </constraints>
@@ -42,21 +46,26 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="98z-jf-6df" firstAttribute="top" secondItem="vNe-E3-BJx" secondAttribute="top" id="2Nv-nn-heo"/>
                 <constraint firstItem="jK5-sS-1rY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Eqc-St-VY1"/>
+                <constraint firstItem="98z-jf-6df" firstAttribute="trailing" secondItem="vNe-E3-BJx" secondAttribute="trailing" id="LzM-Ji-w2w"/>
+                <constraint firstItem="98z-jf-6df" firstAttribute="bottom" secondItem="vNe-E3-BJx" secondAttribute="bottom" id="Ool-e9-zIi"/>
                 <constraint firstItem="vNe-E3-BJx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ouz-DB-aFN"/>
                 <constraint firstItem="jK5-sS-1rY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="PiG-81-RAk"/>
                 <constraint firstItem="vNe-E3-BJx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YfQ-eD-w9R"/>
+                <constraint firstItem="98z-jf-6df" firstAttribute="leading" secondItem="vNe-E3-BJx" secondAttribute="leading" id="utF-d8-NOu"/>
                 <constraint firstItem="vNe-E3-BJx" firstAttribute="leading" secondItem="jK5-sS-1rY" secondAttribute="trailing" constant="10" id="xEo-rr-zHx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="closeButton" destination="jK5-sS-1rY" id="c11-Ip-NBl"/>
-                <outlet property="editTexrField" destination="vNe-E3-BJx" id="UdY-ph-ZTy"/>
+                <outlet property="editTextField" destination="vNe-E3-BJx" id="uQ0-fe-7Fc"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="CancelButton" width="22" height="22"/>
+        <image name="CancelButton" width="18" height="18"/>
+        <image name="UItextFieldBackground" width="500" height="50"/>
     </resources>
 </document>
