@@ -22,7 +22,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
     var features: [String] = []
     var categorySelected: Category?
     var titleFeatureSelected: String = ""
-    var itemSort: ArrayDisplay.Sort = .increasing
+    var itemSort: Sort = .increasing
     var modified: Bool = false
     var itemsSelected: [Item] = []
     var filteredItem: [Item] = []
@@ -81,7 +81,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
                 self.sortItem()
             }
         })
-        titleFeatures = categorySelected!.titleFeature!.components(separatedBy: ",")
+//        titleFeatures = categorySelected!.titleFeature.components(separatedBy: ",")
         updateView()
     }
     
@@ -101,32 +101,32 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Feature" {
-            closeSettingsDisplay()
-            let index = tableView.indexPathForSelectedRow?.row
-            let destination = segue.destination as! ListFeatureViewController
-            destination.categorySelected = categorySelected!
-            destination.items = items
-            destination.itemSelected = items[tableView.indexPathForSelectedRow!.row]
-            destination.allTitlesAndFeatures = allFeatures
-            switch dataAsked {
-            case .items:
-                destination.itemSelected = items[index!]
-                break
-            case .filtereditems:
-                destination.itemSelected = filteredItem[index!]
-                break
-            case .researchingitems:
-                destination.itemSelected = researchingItem[index!]
-                break
-            case .titlefeatures:
-                break
-            case .features:
-                break
-            case .filtersediting:
-                break
-            }
-        }
+//        if segue.identifier == "Feature" {
+//            closeSettingsDisplay()
+//            let index = tableView.indexPathForSelectedRow?.row
+//            let destination = segue.destination as! ListFeatureViewController
+//            destination.categorySelected = categorySelected!
+//            destination.items = items
+//            destination.itemSelected = items[tableView.indexPathForSelectedRow!.row]
+//            destination.allTitlesAndFeatures = allFeatures
+//            switch dataAsked {
+//            case .items:
+//                destination.itemSelected = items[index!]
+//                break
+//            case .filtereditems:
+//                destination.itemSelected = filteredItem[index!]
+//                break
+//            case .researchingitems:
+//                destination.itemSelected = researchingItem[index!]
+//                break
+//            case .titlefeatures:
+//                break
+//            case .features:
+//                break
+//            case .filtersediting:
+//                break
+//            }
+//        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -371,7 +371,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
             let itemCell: Item = items[indexPath.row]
             cell.thisItem = itemCell
             cell.configureCell(with: itemCell, index: indexPath.row)
-            if itemCell.favorites == true {
+            if itemCell.favorite == true {
                 cell.colorFavorites()
             } else {
                 cell.colorCell()
@@ -382,7 +382,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
             let itemCell: Item = filteredItem[indexPath.row]
             cell.thisItem = itemCell
             cell.configureCell(with: itemCell, index: indexPath.row)
-            if itemCell.favorites == true {
+            if itemCell.favorite == true {
                 cell.colorFavorites()
             } else {
                 cell.colorCell()
@@ -393,7 +393,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
             let itemCell: Item = researchingItem[indexPath.row]
             cell.thisItem = itemCell
             cell.configureCell(with: itemCell, index: indexPath.row)
-            if itemCell.favorites == true {
+            if itemCell.favorite == true {
                 cell.colorFavorites()
             } else {
                 cell.colorCell()
@@ -484,7 +484,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
             researchingItem = listItem
         } else {
             researchingItem = listItem.filter({ (results) -> Bool in
-                return results.name!.lowercased().contains(self.searchBar.text!.lowercased())
+                return results.name.lowercased().contains(self.searchBar.text!.lowercased())
             })
         }
         sortItem()
@@ -512,7 +512,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
             allFeatureSet[titleFeature] = []
         }
         for i in 0..<items.count {
-            let itemfeatures: [String] = items[i].features!.components(separatedBy: ",")
+            let itemfeatures: [String] = [] // items[i].features.components(separatedBy: ",")
             for j in 0..<itemfeatures.count {
                 if itemfeatures[j] != "" {
                     allFeatureSet[titleFeatures[j]]?.insert(itemfeatures[j]) // ERROR !!!!!
@@ -525,9 +525,9 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func getFilteredItem() {
-        filteredItem = items.filter({ (results) -> Bool in
-            return results.features!.findOccurrencesOf(items: filters)
-        })
+//        filteredItem = items.filter({ (results) -> Bool in
+//            return results.features.findOccurrencesOf(items: filters)
+//        })
     }
     
     // MARK: - Others Functions
@@ -551,31 +551,31 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
         if filteredItem.count > 0 {
             switch itemSort {
             case .increasing:
-                filteredItem = filteredItem.sorted(by: { $0.name!.lowercased() < $1.name!.lowercased() })
+                filteredItem = filteredItem.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 break
             case .decreasing:
-                filteredItem = filteredItem.sorted(by: { $0.name!.lowercased() > $1.name!.lowercased() })
+                filteredItem = filteredItem.sorted(by: { $0.name.lowercased() > $1.name.lowercased() })
                 break
             case .favoritesFirst:
-                filteredItem = filteredItem.sorted(by: { $0.favorites && !$1.favorites })
+                filteredItem = filteredItem.sorted(by: { $0.favorite && !$1.favorite })
                 break
             case .favoritesLast:
-                filteredItem = filteredItem.sorted(by: { !$0.favorites && $1.favorites })
+                filteredItem = filteredItem.sorted(by: { !$0.favorite && $1.favorite })
                 break
             }
         } else {
             switch itemSort {
             case .increasing:
-                items = items.sorted(by: { $0.name!.lowercased() < $1.name!.lowercased() })
+                items = items.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 break
             case .decreasing:
-                items = items.sorted(by: { $0.name!.lowercased() > $1.name!.lowercased() })
+                items = items.sorted(by: { $0.name.lowercased() > $1.name.lowercased() })
                 break
             case .favoritesFirst:
-                items = items.sorted(by: { $0.favorites && !$1.favorites })
+                items = items.sorted(by: { $0.favorite && !$1.favorite })
                 break
             case .favoritesLast:
-                items = items.sorted(by: { !$0.favorites && $1.favorites })
+                items = items.sorted(by: { !$0.favorite && $1.favorite })
                 break
             }
         }
@@ -609,7 +609,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func design() {
-        title = categorySelected!.name!
+        title = categorySelected!.name
         containerView.isHidden = true
         editView.isHidden = true
         searchView.isHidden = true
@@ -651,7 +651,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
 // MARK: - CellItem
 
 class CellItem: UITableViewCell {
-    static let identifier = "ItemCell"
+    //static let identifier = "ItemCell"
     var thisItem: Item?
     var favorites: Bool = false
     
@@ -666,8 +666,8 @@ class CellItem: UITableViewCell {
     }
     
     func configureCell(with cell: Item, index: Int) {
-        nameItem.text = cell.name!
-        favorites = cell.favorites
+        nameItem.text = cell.name
+        favorites = cell.favorite
     }
     
     func colorCell() {
@@ -680,7 +680,6 @@ class CellItem: UITableViewCell {
 }
 
 class CellItemTitleFeatures: UITableViewCell {
-    static let identifier = "ItemTitleFeaturesCell"
     
     @IBOutlet weak var titleFeature: UILabel!
     
@@ -690,7 +689,6 @@ class CellItemTitleFeatures: UITableViewCell {
 }
 
 class CellItemFeatures: UITableViewCell {
-    static let identifier: String = "ItemFeaturesCell"
     
     @IBOutlet weak var feature: UILabel!
     
@@ -700,7 +698,6 @@ class CellItemFeatures: UITableViewCell {
 }
 
 class CellFilters: UITableViewCell {
-    static let identifier = "FiltersCell"
     
     @IBOutlet weak var filter: UILabel!
     

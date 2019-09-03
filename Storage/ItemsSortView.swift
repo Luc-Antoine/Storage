@@ -17,7 +17,7 @@ class ItemsSortView: UIView {
     
     @IBAction func removeView() {
         controller?.removeSettingsContainer()
-        controller?.instantiateItemsSettingsController()
+        controller?.instantiateItemsSettingsView()
     }
     
     @IBAction func sortChoice() {
@@ -38,5 +38,9 @@ class ItemsSortView: UIView {
             break
         }
         controller!.sortItem()
+    }
+    
+    func viewDidAppear() {
+        sortSegmentedControl.selectedSegmentIndex = controller!.itemSort.rawValue
     }
 }

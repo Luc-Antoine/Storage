@@ -11,34 +11,39 @@ import UIKit
 class ItemsSettingsView: UIView {
     
     var controller: ItemsController?
-    var settingsController: ItemsSettingsController?
     
     var settingSegmentedIndex: Int = 3
     
     @IBOutlet weak var settings: UISegmentedControl!
+    
+    func viewDidAppear() {
+        let filters: Int = controller!.featuresFilteredByItem.count
+        guard filters > 0 else { return }
+        settings.setTitle(NSLocalizedString("Filter", comment: "") + "(\(filters))", forSegmentAt: 3)
+    }
     
     @IBAction func settingsDisplay(_ sender: Any) {
         settingSegmentedIndex = settings.selectedSegmentIndex
         switch settings.selectedSegmentIndex {
         case 0:
             controller?.removeSettingsContainer()
-            settingsController?.instantiateEditView()
+            controller?.instantiateEditView()
             settings.selectedSegmentIndex = UISegmentedControl.noSegment
 //            controller?.categoriesTableViewEditing()
             break
         case 1:
             controller?.removeSettingsContainer()
-            settingsController?.instantiateSortView()
+            controller?.instantiateSortView()
             settings.selectedSegmentIndex = UISegmentedControl.noSegment
             break
         case 2:
             controller?.removeSettingsContainer()
-            settingsController?.instantiateSearchView()
+            controller?.instantiateSearchView()
             settings.selectedSegmentIndex = UISegmentedControl.noSegment
             break
         case 3:
             controller?.removeSettingsContainer()
-            settingsController?.instantiateSearchView()
+            controller?.instantiateFilterView()
             settings.selectedSegmentIndex = UISegmentedControl.noSegment
             break
         default:

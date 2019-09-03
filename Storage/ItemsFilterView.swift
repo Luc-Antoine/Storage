@@ -13,9 +13,22 @@ class ItemsFilterView: UIView {
     var controller: ItemsController?
     
     @IBOutlet weak var filterTextField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var validateButton: UIButton!
+    
+    @IBAction func confirm() {
+        guard controller!.nameFeaturesFiltered.count > 0 else { return }
+        controller!.filters()
+    }
     
     @IBAction func removeView() {
-        controller?.removeSettingsContainer()
-        controller?.instantiateItemsSettingsController()
+        controller!.resetFilters()
+        controller!.removeSettingsContainer()
+        controller!.instantiateItemsSettingsView()
+    }
+    
+    func viewDidAppear() {
+        cancelButton.border()
+        validateButton.border()
     }
 }

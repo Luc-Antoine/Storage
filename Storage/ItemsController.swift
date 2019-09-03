@@ -10,25 +10,30 @@ import UIKit
 
 class ItemsController: UIController {
     
-    enum DataAsked {
-        case items, filtereditems, researchingitems, titlefeatures, features, filtersediting
+    weak var itemsViewController: ItemsViewController?
+    weak var itemsTableViewContoller: ItemsTableViewController?
+    weak var itemsSettingsView: ItemsSettingsView?
+    
+    enum KindItem {
+        case items, filteredItems, researchingItems, nameFeatures, features, filtersEditing
     }
     
-    var dataAsked: DataAsked = .items
+    var kindItem: KindItem = .items
+    var navBarItemFilter: NavBarItemFilter? = .add
     var items: [Item] = []
+    var nameFeatures: [NameFeature] = []
+    var nameFeaturesFiltered: [NameFeature] = []
+    var features: [Feature] = []
+    var featuresFilteredByItem: [Feature] = []
+    var featuresFilteredByName: [Feature] = []
+    var featuresFiltered: [Feature] = []
     var itemsSelected: [Item] = []
-    var filteredItem: [Item] = []
-    var researchingItem: [Item] = []
-    var titleFeatures: [String] = []
-    var allFeatures: [String:[String]] = [:]
-    var titleFeatureSelected: String = ""
-    var filters: [String] = []
+    var itemsFiltered: [Item] = []
+    var researchingItems: [Item] = []
     
-    var listItem: [String] = []
-    var features: [String] = []
-    var categorySelected: Category?
-    var itemSort: ArrayDisplay.Sort = .increasing
-    var modified: Bool = false
+    var category: Category?
+    var itemSort: Sort = .increasing
+    var isEditing: Bool = false
     var searchActive: Bool = false
     var viewHeight: CGFloat = 0
     var settingSegmentedIndex: Int = 3
@@ -36,67 +41,169 @@ class ItemsController: UIController {
     
     var filtersSelected: [String] = []
     
-    let itemsSettingsController = ItemsSettingsController()
-    weak var itemsViewController: ItemsViewController?
-    weak var itemsTableViewContoller: ItemsTableViewController?
+    internal let dataBase = DataBase()
     
-    // MARK: - Instantiate Functions
+    // MARK: - Edit Function
     
-    func instantiateItemsViewContainer(categoriesViewContainer: CategoriesViewController) {
-        itemsViewController = instantiate("ItemsViewController", storyboard: "Items", bundle: nil)
-        push(categoriesViewContainer.navigationController!, viewController: itemsViewController!)
-        itemsViewController!.controller = self
+    func itemsTableViewEditing() {
+        itemsTableViewContoller!.tableViewEditing()
     }
     
-    func instantiateItemsTableViewController() {
-        itemsTableViewContoller = instantiate("ItemsTableViewController", storyboard: "Items", bundle: nil)
-        child(itemsViewController!, child: itemsTableViewContoller!, container: itemsViewController!.tableViewContainer)
-        
-        itemsTableViewContoller!.controller = self
-    }
-    
-    func instantiateItemsSettingsController() {
-        itemsSettingsController.instantiateItemsSettingsView(itemsViewController!, itemsController: self)
-    }
-    
-    func removeSettingsContainer() {
-        itemsViewController?.settingsContainer.subviews.first?.removeFromSuperview()
+    func itemsTableViewEndEditing() {
+        itemsTableViewContoller!.tableViewEndEditing()
     }
     
     // MARK: - Sort Function
     
     func sortItem() {
-        if filteredItem.count > 0 {
+        if itemsFiltered.count > 0 {
             switch itemSort {
             case .increasing:
-                filteredItem = filteredItem.sorted(by: { $0.name!.lowercased() < $1.name!.lowercased() })
+                itemsFiltered = itemsFiltered.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 break
             case .decreasing:
-                filteredItem = filteredItem.sorted(by: { $0.name!.lowercased() > $1.name!.lowercased() })
+                itemsFiltered = itemsFiltered.sorted(by: { $0.name.lowercased() > $1.name.lowercased() })
                 break
             case .favoritesFirst:
-                filteredItem = filteredItem.sorted(by: { $0.favorites && !$1.favorites })
+                itemsFiltered = itemsFiltered.sorted(by: { $0.favorite && !$1.favorite })
                 break
             case .favoritesLast:
-                filteredItem = filteredItem.sorted(by: { !$0.favorites && $1.favorites })
+                itemsFiltered = itemsFiltered.sorted(by: { !$0.favorite && $1.favorite })
                 break
             }
         } else {
             switch itemSort {
             case .increasing:
-                items = items.sorted(by: { $0.name!.lowercased() < $1.name!.lowercased() })
+                items = items.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 break
             case .decreasing:
-                items = items.sorted(by: { $0.name!.lowercased() > $1.name!.lowercased() })
+                items = items.sorted(by: { $0.name.lowercased() > $1.name.lowercased() })
                 break
             case .favoritesFirst:
-                items = items.sorted(by: { $0.favorites && !$1.favorites })
+                items = items.sorted(by: { $0.favorite && !$1.favorite })
                 break
             case .favoritesLast:
-                items = items.sorted(by: { !$0.favorites && $1.favorites })
+                items = items.sorted(by: { !$0.favorite && $1.favorite })
                 break
             }
         }
         itemsTableViewContoller?.tableView.reloadData()
+    }
+    
+    // MARK: - Search Functions
+    
+    func textFieldDidBeginEditing() {
+        kindItem = .researchingItems
+        researchingItems = items
+    }
+    
+    func textFieldDidEndEditing() {
+        kindItem = .items
+    }
+    
+    func textFieldDidResearching(_ text: String) {
+        if text == "" {
+            researchingItems = items
+        } else {
+            researchingItems = items.filter({ (results) -> Bool in
+                return results.name.lowercased().contains(text.lowercased())
+            })
+        }
+        itemsTableViewContoller!.tableView.reloadData()
+    }
+    
+    // MARK: - Filter Functions
+    
+    func filterFeatures() {
+        guard nameFeaturesFiltered.count > 0 else { return }
+        for nameFeature in nameFeaturesFiltered {
+            featuresFilteredByName.append(contentsOf: features.filter({ $0.nameFeatureId == nameFeature.id }))
+        }
+        featuresFilteredByName = featuresFilteredByName.removeDuplicates()
+    }
+    
+    func filterItems() {
+        itemsFiltered.removeAll()
+        for feature in featuresFilteredByItem {
+            itemsFiltered.append(contentsOf: items.filter({ $0.id == feature.itemId }))
+        }
+        itemsFiltered = itemsFiltered.removeDuplicates()
+    }
+    
+    func filters() {
+        switch kindItem {
+        case .items:
+            break
+        case .filteredItems:
+            break
+        case .researchingItems:
+            break
+        case .nameFeatures:
+            filterFeatures()
+            kindItem = .features
+            itemsTableViewContoller!.tableView.reloadData()
+            break
+        case .features:
+            filterItems()
+            kindItem = .filteredItems
+            itemsTableViewContoller!.tableView.reloadData()
+            setFilters()
+            break
+        case .filtersEditing:
+            filterItems()
+            kindItem = .filteredItems
+            itemsTableViewContoller!.tableView.reloadData()
+            setFilters()
+            break
+        }
+    }
+    
+    func setFilters() {
+        removeSettingsContainer()
+        instantiateItemsSettingsView()
+    }
+    
+    func resetFilters() {
+        removeFilters()
+        kindItem = .items
+        itemsTableViewContoller!.tableView.reloadData()
+    }
+    
+    func removeFilters() {
+        itemsFiltered.removeAll()
+        nameFeaturesFiltered.removeAll()
+        featuresFilteredByItem.removeAll()
+        featuresFilteredByName.removeAll()
+    }
+    
+    // Data Base Functions
+    
+    func select() {
+        items = dataBase.select(category!.id)
+        nameFeatures = dataBase.select(category!.id)
+        features = dataBase.select(itemsId: items.map({ String($0.id) }).joined(separator: ","))
+        sortItem()
+    }
+    
+    func updateFavorite(_ item: Item) {
+        dataBase.update(item)
+        let index = items.firstIndex(where: { $0.id == item.id })
+        guard index != nil else { return }
+        items[index!].favorite = !item.favorite
+    }
+    
+    func add(_ itemName: String) {
+        guard itemName != "" else { return }
+        dataBase.insert(Item(id: 0, name: itemName, categoryId: category!.id, favorite: false))
+        select()
+    }
+    
+    func removeItems(_ items: [Item]) {
+        guard items.count > 0 else { return }
+        dataBase.delete(items)
+        select()
+        itemsTableViewEndEditing()
+        removeSettingsContainer()
+        instantiateItemsSettingsView()
     }
 }

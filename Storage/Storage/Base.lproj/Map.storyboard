@@ -631,8 +631,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add" width="18" height="18"/>
-        <image name="CancelButton" width="18" height="18"/>
+        <image name="Add" width="36" height="36"/>
+        <image name="CancelButton" width="36" height="36"/>
         <image name="Mappin" width="56" height="56"/>
         <image name="UIButton" width="120" height="40"/>
     </resources>

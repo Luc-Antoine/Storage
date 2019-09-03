@@ -1,122 +1,46 @@
 //
-//  AllFeatureViewController.swift
+//  AllFeaturesViewController.swift
 //  Storage
 //
-//  Created by Luc-Antoine Dupont on 08/08/2018.
-//  Copyright © 2018 Luc-Antoine Dupont. All rights reserved.
+//  Created by Luc-Antoine Dupont on 15/08/2019.
+//  Copyright © 2019 Luc-Antoine Dupont. All rights reserved.
 //
 
 import UIKit
 
-class AllFeaturesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class AllFeaturesViewController: UIViewController {
     
-    var allFeatures: [String] = []
-    var isResearching: Bool = false
-    var featureSelected: Int = 0
-    var researchingFeature: [String] = []
-    var featuresDelegate: FeaturesDelegate?
+    var controller: AllFeaturesController?
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UITextField!
-    @IBOutlet weak var cancelButton: UIButton!
-    
-    private let styleCSS = StyleCSS()
+    @IBOutlet weak var tableViewContainer: UIView!
+    @IBOutlet weak var searchTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
-        tableView.delegate = self
-        searchBar.delegate = self
-        searchBar.addTarget(self, action: #selector(beginResearching(_:)), for: .editingChanged)
-        design()
+        let allFeaturesTableViewController = storyboard?.instantiateViewController(withIdentifier: "AllFeaturesTableViewController") as! AllFeaturesTableViewController
+        allFeaturesTableViewController.controller = controller
+        add(allFeaturesTableViewController)
+        title = controller!.nameFeature!.name
     }
     
-    // MARK: - IBactions
-    
-    @IBAction func CancelResearch(_ sender: Any) {
-        searchBar.text = nil
-        searchBar.resignFirstResponder()
-        cancelButton.isHidden = true
-        researchingFeature.removeAll()
-        isResearching = false
-        tableView.reloadData()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        //remove()
     }
     
-    // MARK: - Table View Data Source
+    // MARK: - IBActions
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isResearching {
-            return researchingFeature.count
-        } else {
-            return allFeatures.count
-        }
+    @IBAction func researching() {
+        
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AllFeaturesCell.identifier, for: indexPath) as! AllFeaturesCell
-        if isResearching {
-            cell.configureCell(title: researchingFeature[indexPath.row])
-        } else {
-            cell.configureCell(title: allFeatures[indexPath.row])
-        }
-        return cell
-    }
+    // MARK: - Navigate Function
     
-    // MARK: - Table View Delegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isResearching {
-            featuresDelegate?.setFeature(thisFeature: researchingFeature[tableView.indexPathForSelectedRow!.row], thisIndex: featureSelected)
-        } else {
-            featuresDelegate?.setFeature(thisFeature: allFeatures[tableView.indexPathForSelectedRow!.row], thisIndex: featureSelected)
-        }
-        navigationController?.popViewController(animated: true)
+    func close() {
         dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Text Field Delegate
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        searchBar.becomeFirstResponder()
-        isResearching = true
-        cancelButton.isHidden = false
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        searchBar.resignFirstResponder()
-        isResearching = false
-    }
-    
-    // MARK: - Research Functions
-    
-    @objc func beginResearching(_ textField: UITextField) {
-        if searchBar.text == "" {
-            researchingFeature = allFeatures
-        } else {
-            researchingFeature = allFeatures.filter({ (results) -> Bool in
-                return results.lowercased().contains(self.searchBar.text!.lowercased())
-            })
-        }
-        tableView.reloadData()
-    }
-    
-    // MARK: - Design Functions
-    
-    private func design() {
-        allFeatures = allFeatures.sorted(by: { $0 < $1 })
-        styleCSS.borderTextField(textFields: [searchBar])
-        cancelButton.isHidden = true
-    }
-}
-
-class AllFeaturesCell: UITableViewCell {
-    static let identifier = "allFeaturesCell"
-    
-    @IBOutlet weak var feature: UILabel!
-    
-    func configureCell(title: String) {
-        feature.text = title
-    }
 }

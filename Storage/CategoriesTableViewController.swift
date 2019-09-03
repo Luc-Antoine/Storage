@@ -8,25 +8,13 @@
 
 import UIKit
 
+protocol CategoryDelegate: AnyObject {
+    func updateFavorite(_ row: Int)
+}
+
 class CategoriesTableViewController: UITableViewController, UITextFieldDelegate {
     
-    var controller: CategoriesController?
-    var categories: [Category] = []
-    var filteredCategories: [Category] = []
-    var modify: Bool = false
-    var searchActive: Bool = false
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-    }
+    weak var controller: CategoriesController?
 
     // MARK: - Table view data source
 
@@ -35,45 +23,38 @@ class CategoriesTableViewController: UITableViewController, UITextFieldDelegate 
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchActive {
-            return filteredCategories.count
+        if controller!.searchActive {
+            return controller!.filteredCategories.count
         } else {
-            return categories.count
+            return controller!.categories.count
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier(), for: indexPath) as! CategoryCell
-
-        let categoryCell: Category
-        if searchActive {
-            categoryCell = filteredCategories[indexPath.row]
-            cell.thisCategory = filteredCategories[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
+        var category: Category?
+        if controller!.searchActive {
+            category = controller!.filteredCategories[indexPath.row]
         } else {
-            categoryCell = categories[indexPath.row]
-            cell.thisCategory = categories[indexPath.row]
+            category = controller!.categories[indexPath.row]
         }
-        cell.configureCell(with: categoryCell, index: indexPath.row)
-        if categoryCell.favorites == true {
-            cell.colorFavorites()
-        } else {
-            cell.colorCell()
-        }
-
+        cell.configureCell(category!)
+        cell.index = indexPath.row
+        cell.delegate = self
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if modify {
-            controller?.selectedCategories.append(categories[indexPath.row])
+        if controller!.modify {
+            controller?.selectedCategories.append(controller!.categories[indexPath.row])
         } else {
-            controller?.instantiateItemsViewController(category: categories[indexPath.row])
+            controller?.instantiateItemsViewController(category: controller!.categories[indexPath.row])
         }
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        guard modify else { return }
-        let index = controller?.selectedCategories.firstIndex(of: categories[indexPath.row])
+        guard controller!.modify else { return }
+        let index = controller?.selectedCategories.firstIndex(of: controller!.categories[indexPath.row])
         guard index != nil else { return }
         controller?.selectedCategories.remove(at: index!)
     }
@@ -81,27 +62,22 @@ class CategoriesTableViewController: UITableViewController, UITextFieldDelegate 
     // MARK: - Search Functions
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        searchActive = true
-        filteredCategories = categories
+        controller!.searchActive = true
+        controller!.filteredCategories = controller!.categories
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        searchActive = false
+        controller!.searchActive = false
     }
     
     func textFieldDidResearching(_ text: String) {
         if text == "" {
-            filteredCategories = categories
+            controller!.filteredCategories = controller!.categories
         } else {
-            filteredCategories = categories.filter({ (results) -> Bool in
-                return results.name!.lowercased().contains(text.lowercased())
+            controller!.filteredCategories = controller!.categories.filter({ (results) -> Bool in
+                return results.name.lowercased().contains(text.lowercased())
             })
         }
-        tableView.reloadData()
-    }
-    
-    func endResearching() {
-        filteredCategories.removeAll()
         tableView.reloadData()
     }
     
@@ -120,15 +96,22 @@ class CategoriesTableViewController: UITableViewController, UITextFieldDelegate 
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.setEditing(true, animated: true)
         tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 40, bottom: 0, right: 0)
-        modify = true
+        controller!.modify = true
     }
     
     func tableViewEndEditing() {
         tableView.allowsMultipleSelectionDuringEditing = false
         tableView.setEditing(false, animated: false)
         tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 15, bottom: 0, right: 0)
-        modify = false
+        controller!.modify = false
         tableView.reloadData()
     }
 
+}
+
+extension CategoriesTableViewController: CategoryDelegate {
+    func updateFavorite(_ row: Int) {
+        controller!.updateFavorite(controller!.categories[row])
+        tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+    }
 }

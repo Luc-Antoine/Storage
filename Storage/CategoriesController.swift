@@ -14,9 +14,13 @@ class CategoriesController: UIController {
     weak var categoriesViewController: CategoriesViewController?
     weak var categoriesTableViewController: CategoriesTableViewController?
     
-    var categoriesSort: ArrayDisplay.Sort = .increasing
+    var categoriesSort: Sort = .increasing
+    var navBarItem: NavBarItem? = .add
     var categories: [Category] = []
+    var filteredCategories: [Category] = []
     var selectedCategories: [Category] = []
+    var modify: Bool = false
+    var searchActive: Bool = false
     
     private let dataBase = DataBase()
     private let preferences = Preferences()
@@ -29,6 +33,7 @@ class CategoriesController: UIController {
         self.navigationController = navigationController
         categoriesViewController!.controller = self
         navigationBarDesign()
+        initDataBase()
     }
     
     func instantiateCategoriesTableViewController(categoriesViewController: CategoriesViewController, container: UIView) {
@@ -41,15 +46,18 @@ class CategoriesController: UIController {
     func instantiateItemsViewController(category: Category) {
         let itemsController = ItemsController()
         itemsController.instantiateItemsViewContainer(categoriesViewContainer: categoriesViewController!)
-        itemsController.categorySelected = category
+        itemsController.category = category
     }
     
     // MARK: - Category Table View Settings
     
     func instantiateCategoriesSettingsView() {
-        let categoriesSettingsView: CategoriesSettingsView = instantiate("CategoriesSettingsView", owner: nil, options: nil)
-        child(categoriesSettingsView, container: categoriesViewController!.settingsContainer)
+//        let categoriesSettingsView: CategoriesSettingsView = instantiate("CategoriesSettingsView", owner: nil, options: nil)
+//        child(categoriesSettingsView, container: categoriesViewController!.settingsContainer)
+        
+        let categoriesSettingsView: CategoriesSettingsView = child("CategoriesSettingsView", container: categoriesViewController!.settingsContainer, owner: nil, options: nil)
         categoriesSettingsView.controller = self
+        categoriesViewController!.navBarOption(.add)
     }
     
     // MARK: - Category Table View Editing
@@ -59,15 +67,14 @@ class CategoriesController: UIController {
         child(categoriesEditView, container: categoriesViewController!.settingsContainer)
         categoriesEditView.controller = self
         categoriesEditView.viewDidAppear()
+        categoriesViewController!.navBarOption(.delete)
     }
     
     func categoriesTableViewEditing() {
-        categoriesViewController?.tableViewEditing()
         categoriesTableViewController?.tableViewEditing()
     }
     
     func categoriesTableViewEndEditing() {
-        categoriesViewController?.tableViewEndEditing()
         categoriesTableViewController?.tableViewEndEditing()
     }
     
@@ -78,6 +85,7 @@ class CategoriesController: UIController {
         child(categoriesSearchView, container: categoriesViewController!.settingsContainer)
         categoriesSearchView.controller = self
         categoriesSearchView.viewDidAppear()
+        categoriesViewController!.navBarOption(nil)
     }
     
     // MARK: - Category Table View Sorting
@@ -87,27 +95,33 @@ class CategoriesController: UIController {
         child(categoriesSortView, container: categoriesViewController!.settingsContainer)
         categoriesSortView.controller = self
         categoriesSortView.viewDidAppear()
+        categoriesViewController!.navBarOption(nil)
     }
     
     func sortCategories() {
         if categories.count > 1 {
             switch categoriesSort {
             case .increasing:
-                categories = categories.sorted(by: { $0.name!.lowercased() < $1.name!.lowercased() })
+                categories = categories.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
                 break
             case .decreasing:
-                categories = categories.sorted(by: { $0.name!.lowercased() > $1.name!.lowercased() })
+                categories = categories.sorted(by: { $0.name.lowercased() > $1.name.lowercased() })
                 break
             case .favoritesFirst:
-                categories = categories.sorted(by: { $0.favorites && !$1.favorites })
+                categories = categories.sorted(by: { $0.favorite && !$1.favorite })
                 break
             case .favoritesLast:
-                categories = categories.sorted(by: { !$0.favorites && $1.favorites })
+                categories = categories.sorted(by: { !$0.favorite && $1.favorite })
                 break
             }
         }
-        categoriesTableViewController?.categories = categories
         categoriesTableViewController?.reloadData()
+    }
+    
+    // MARK: - UITextField Function
+    
+    func textFieldDidResearching(_ text: String) {
+        categoriesTableViewController?.textFieldDidResearching(text)
     }
     
     // MARK: - Category Add
@@ -117,12 +131,7 @@ class CategoriesController: UIController {
         child(categoriesAddView, container: categoriesViewController!.settingsContainer)
         categoriesAddView.controller = self
         categoriesAddView.viewDidAppear()
-    }
-    
-    // UITextField Functions
-    
-    func textFieldDidResearching(_ text: String) {
-        categoriesTableViewController?.textFieldDidResearching(text)
+        categoriesViewController!.navBarOption(nil)
     }
     
     // MARK: - Remove Container View
@@ -141,28 +150,49 @@ class CategoriesController: UIController {
         }
     }
     
+    // MARK: - DataBase Functions
+    
+    func initDataBase() {
+        guard !preferences.dataBaseCreated() else { return }
+        dataBase.createCategoryTable()
+        dataBase.createItemTable()
+        dataBase.createAnnotationTable()
+        dataBase.createNameFeaturesTable()
+        dataBase.createFeaturesTable()
+        dataBase.createItemFeatureTable()
+        preferences.lastFeatureId(-1)
+        preferences.dataBaseCreated(true)
+        
+        let demonstration = Demonstration()
+        demonstration.run()
+    }
+    
     func getCategory() {
-        categories = dataBase.getCategories()
+        categories = dataBase.select()
         sortCategories()
     }
     
     func addCategory(newCategoryName: String) {
         guard newCategoryName != "" else { return }
-        dataBase.addCategory(categoryName: newCategoryName)
-        categories = dataBase.getCategories()
+        dataBase.insert(Category(id: 0, name: newCategoryName, favorite: false))
+        categories = dataBase.select()
         sortCategories()
     }
     
+    func updateFavorite(_ category: Category) {
+        dataBase.update(category)
+        let index = categories.firstIndex(where: { $0.id == category.id })
+        guard index != nil else { return }
+        categories[index!].favorite = !category.favorite
+    }
+    
     func removeCategory(categories: [Category]) {
-        do {
-            try dataBase.delete(categories)
-            getCategory()
-            categoriesTableViewEndEditing()
-            removeSettingsContainer()
-            instantiateCategoriesSettingsView()
-        } catch let error as NSError {
-            print(error.debugDescription)
-        }
+        guard categories.count > 0 else { return }
+        dataBase.delete(categories)
+        getCategory()
+        categoriesTableViewEndEditing()
+        removeSettingsContainer()
+        instantiateCategoriesSettingsView()
     }
     
     // MARK: - Design Functions

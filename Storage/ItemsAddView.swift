@@ -19,14 +19,20 @@ class ItemsAddView: UIView {
     @IBAction func removeView() {
         nameCategoryTextField.resignFirstResponder()
         controller?.removeSettingsContainer()
-        controller?.instantiateItemsSettingsController()
+        controller?.instantiateItemsSettingsView()
     }
     
     @IBAction func addItem() {
-        let newCategoryName = nameCategoryTextField.text
-        guard newCategoryName != "" else { return }
-//        controller?.addCategory(newCategoryName: newCategoryName!)
+        let itemName = nameCategoryTextField.text?.removingEndingSpaces()
+        guard itemName != "" else { return }
+        controller!.add(itemName!)
         nameCategoryTextField.text = ""
+    }
+    
+    func viewDidAppear() {
+        nameCategoryTextField.border()
+        nameCategoryTextField.paddingLeft()
+        nameCategoryTextField.becomeFirstResponder()
     }
     
 }

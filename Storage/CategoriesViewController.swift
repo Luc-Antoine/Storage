@@ -12,12 +12,9 @@ class CategoriesViewController: UIViewController {
     
     var controller: CategoriesController?
     
-    var categories: [Category] = []
-    var tableViewIsEditing: Bool = false
-    
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var settingsContainer: UIView!
-    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var addOrDeleteButton: UIBarButtonItem!
     
     private let styleCSS = StyleCSS()
 
@@ -31,23 +28,34 @@ class CategoriesViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func addOrDeleteAction() {
-        if tableViewIsEditing {
-            controller?.removeCategory(categories: controller!.selectedCategories)
-        } else {
-            controller?.instantiateCategoriesAddView()
+        guard controller!.navBarItem != nil else { return }
+        switch controller!.navBarItem! {
+        case .add:
+            controller!.instantiateCategoriesAddView()
+        case .delete:
+            controller!.removeCategory(categories: controller!.selectedCategories)
         }
     }
     
-    // MARK: - Table View Functions
+    // MARK: - Navigation Controller Function
     
-    func tableViewEditing() {
-        tableViewIsEditing = true
-        addButton.image = UIImage(named: "Basket")
-    }
-    
-    func tableViewEndEditing() {
-        tableViewIsEditing = false
-        addButton.image = UIImage(named: "Add")
+    func navBarOption(_ option: NavBarItem?) {
+        controller!.navBarItem = option
+        if option == nil {
+            addOrDeleteButton.image = nil
+            addOrDeleteButton.isEnabled = false
+        } else {
+            switch option! {
+            case .add:
+                addOrDeleteButton.isEnabled = true
+                addOrDeleteButton.image = UIImage(named: "Add")
+                break
+            case .delete:
+                addOrDeleteButton.isEnabled = true
+                addOrDeleteButton.image = UIImage(named: "Basket")
+                break
+            }
+        }
     }
     
     // MARK: - Design Functions

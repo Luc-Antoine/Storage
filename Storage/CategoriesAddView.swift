@@ -23,7 +23,7 @@ class CategoriesAddView: UIView {
     }
     
     @IBAction func addCategory() {
-        let newCategoryName = nameCategoryTextField.text
+        let newCategoryName = nameCategoryTextField.text?.removingEndingSpaces()
         guard newCategoryName != "" else { return }
         controller?.addCategory(newCategoryName: newCategoryName!)
         nameCategoryTextField.text = ""

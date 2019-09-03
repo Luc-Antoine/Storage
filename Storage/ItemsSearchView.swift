@@ -17,14 +17,22 @@ class ItemsSearchView: UIView {
     
     @IBAction func removeView() {
         searchTextField.resignFirstResponder()
-//        controller?.categoriesTableViewEndEditing()
+        controller?.textFieldDidEndEditing()
+        controller?.itemsTableViewEndEditing()
         controller?.removeSettingsContainer()
-        controller?.instantiateItemsSettingsController()
+        controller?.instantiateItemsSettingsView()
     }
     
-    @IBAction func textFieldChanged(_ sender: Any) {
+    @IBAction func textFieldChanged() {
         guard searchTextField.text != nil else { return }
-//        controller?.textFieldDidResearching(searchTextField.text!)
+        controller?.textFieldDidResearching(searchTextField.text!)
+    }
+    
+    func viewDidAppear() {
+        searchTextField.border()
+        searchTextField.paddingLeft()
+        searchTextField.becomeFirstResponder()
+        controller?.textFieldDidBeginEditing()
     }
     
 }

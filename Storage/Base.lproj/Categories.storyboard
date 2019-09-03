@@ -50,7 +50,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="J9N-iP-dp5" id="dzz-GW-vll"/>
+                        <outlet property="addOrDeleteButton" destination="J9N-iP-dp5" id="2MS-tR-a6V"/>
                         <outlet property="settingsContainer" destination="Q1I-Ci-sps" id="KnC-MU-5sg"/>
                         <outlet property="tableViewContainer" destination="jAy-7G-CFE" id="2Sj-ZG-fhG"/>
                     </connections>

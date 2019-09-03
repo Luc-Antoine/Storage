@@ -14,7 +14,7 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
     //let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var allAnnotations: [NSDictionary] = [NSDictionary]()
     var annotation: [Annotation] = []
-    var annotationSort: ArrayDisplay.Sort = .increasing
+    var annotationSort: Sort = .increasing
     var modify: Bool = false
     var annotationSelected: [Annotation] = []
     var filteredAnnotation: [Annotation] = []
@@ -222,10 +222,10 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
             annotationCell = annotation[indexPath.row]
         }
         cell.thisAnnotation = annotation[indexPath.row]
-        cell.favorites = annotationCell.favorites
+        cell.favorites = annotationCell.favorite
         cell.configureCell(with: annotationCell)
         cell.location = location.distance(of: Position.init(lat: annotationCell.lat, lng: annotationCell.lng))
-        if annotationCell.favorites == true {
+        if annotationCell.favorite == true {
             cell.colorFavoris()
         } else {
             cell.colorCell()
@@ -255,7 +255,7 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
             filteredAnnotation = annotation
         } else {
             filteredAnnotation = annotation.filter({ (results) -> Bool in
-                return results.title!.lowercased().contains(searchBar.text!.lowercased())
+                return results.title.lowercased().contains(searchBar.text!.lowercased())
             })
         }
         sortAnnotation()
@@ -283,16 +283,16 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
     func sortAnnotation() {
         switch annotationSort {
         case .increasing:
-            annotation = annotation.sorted(by: { $0.title!.lowercased() < $1.title!.lowercased() })
+            annotation = annotation.sorted(by: { $0.title.lowercased() < $1.title.lowercased() })
             break
         case .decreasing:
-            annotation = annotation.sorted(by: { $0.title!.lowercased() > $1.title!.lowercased() })
+            annotation = annotation.sorted(by: { $0.title.lowercased() > $1.title.lowercased() })
             break
         case .favoritesFirst:
-            annotation = annotation.sorted(by: { $0.favorites && !$1.favorites })
+            annotation = annotation.sorted(by: { $0.favorite && !$1.favorite })
             break
         case .favoritesLast:
-            annotation = annotation.sorted(by: { !$0.favorites && $1.favorites })
+            annotation = annotation.sorted(by: { !$0.favorite && $1.favorite })
             break
         }
         tableView.reloadData()
@@ -343,7 +343,7 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
 // MARK: - CellAnnotation
 
 class CellAnnotation: UITableViewCell {
-    static let identifier = "AnnotationCell"
+    
     var thisAnnotation: Annotation?
     var favorites: Bool = false
     var location: Double = 0
@@ -362,9 +362,9 @@ class CellAnnotation: UITableViewCell {
     }
     
     func configureCell(with cell: Annotation) {
-        title.text = cell.title!
+        title.text = cell.title
         subtitle.text = model.calculateDistance(distance: location)
-        favorites = cell.favorites
+        favorites = cell.favorite
     }
     
     func colorCell() {

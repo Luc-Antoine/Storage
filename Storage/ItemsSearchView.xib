@@ -37,7 +37,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="textFieldChanged:" destination="iN0-l3-epB" eventType="editingDidEnd" id="lFd-jd-lf6"/>
+                        <action selector="textFieldChanged" destination="iN0-l3-epB" eventType="editingChanged" id="fTk-9C-Nvw"/>
                     </connections>
                 </textField>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gA-HF-DXa">

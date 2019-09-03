@@ -11,13 +11,31 @@ import Foundation
 class Preferences {
     let defaults = UserDefaults.standard
     
-    //MARK: - Exists preferences
+    // MARK: - Exists preferences
     
     func existPreferences(data: String) -> Bool {
         return defaults.object(forKey: data) != nil
     }
     
-    //MARK: - Preferences
+    // MARK: - Data Base
+    
+    func dataBaseCreated(_ value: Bool) {
+        defaults.set(value, forKey: "dataBaseCreated")
+    }
+    
+    func dataBaseCreated() -> Bool {
+        return defaults.object(forKey: "dataBaseCreated") as? Bool ?? false
+    }
+    
+    func lastFeatureId(_ value: Int) {
+        defaults.set(value + 1, forKey: "lastFeatureId")
+    }
+    
+    func lastFeatureId() -> Int {
+        return defaults.object(forKey: "lastFeatureId") as! Int
+    }
+    
+    // MARK: - Delete !!!
     
     func savePreferences(value: Int, key: String) {
         defaults.set(value, forKey: key)

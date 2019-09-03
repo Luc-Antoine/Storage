@@ -14,31 +14,58 @@ class ItemsViewController: UIViewController {
     
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var tableViewContainer: UIView!
-    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var addOrDeleteButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        instantiate()
-        title()
+        controller!.instantiateItemsTableViewController()
+        controller!.instantiateItemsSettingsView()
+        controller!.removeFilters()
+        title = controller!.category!.name
     }
     
     // MARK: - IBActions
     
-    @IBAction func addItem() {
-        controller?.itemsSettingsController.instantiateAddView()
+    @IBAction func addOrDeleteAction() {
+        guard controller!.navBarItemFilter != nil else { return }
+        switch controller!.navBarItemFilter! {
+        case .add:
+            controller!.instantiateAddView()
+            break
+        case .delete:
+            controller!.removeItems(controller!.itemsSelected)
+            break
+        case .filter:
+            controller!.kindItem = .nameFeatures
+            controller!.itemsViewController!.navBarItemFilter(nil)
+            controller!.itemsTableViewContoller!.tableView.reloadData()
+            break
+        }
     }
     
-    // MARK: - Instantiate Functions
+    // MARK: - Navigation Controller Function
     
-    private func instantiate() {
-        controller!.instantiateItemsTableViewController()
-        controller!.instantiateItemsSettingsController()
-    }
-    
-    // MARK: - Design Functions
-    
-    private func title() {
-        title = controller!.categorySelected!.name!
+    func navBarItemFilter(_ option: NavBarItemFilter?) {
+        controller!.navBarItemFilter = option
+        if option == nil {
+            addOrDeleteButton.image = nil
+            addOrDeleteButton.isEnabled = false
+        } else {
+            switch option! {
+            case .add:
+                addOrDeleteButton.isEnabled = true
+                addOrDeleteButton.image = UIImage(named: "Add")
+                break
+            case .delete:
+                addOrDeleteButton.isEnabled = true
+                addOrDeleteButton.image = UIImage(named: "Basket")
+                break
+            case .filter:
+                addOrDeleteButton.isEnabled = true
+                addOrDeleteButton.image = UIImage(named: "Add")
+                break
+            }
+        }
     }
 }

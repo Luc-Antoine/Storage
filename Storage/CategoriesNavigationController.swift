@@ -17,6 +17,7 @@ class CategoriesNavigationController: UINavigationController {
 
         styleCSS.tabBarColor()
         styleCSS.navigationBarColor()
+        navigationBar.tintColor = tintColor()
         instantiateCategoriesController()
     }
     

@@ -16,7 +16,6 @@ class AnnotationTableViewController: UIViewController, UITableViewDataSource, UI
     
     var cells: [AnnotationView] = []
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var lat: Double?
     var lng: Double?
     var scrollViewHeight: CGFloat = 0.0
@@ -207,9 +206,9 @@ class AnnotationTableViewController: UIViewController, UITableViewDataSource, UI
             }
             return
         }
-        let thisAnnotation: Annotation = db.addAnnotation(lat: lat!, lng: lng!, title: annotationTitle!.text!, subtitle: annotationSubtitle!.text!, comment: annotationComment!.text!)
-        addAnnotationDelegate?.addAnnotation(annotation: thisAnnotation)
-        let _ = navigationController?.popViewController(animated: true)
+//        let thisAnnotation: Annotation = db.addAnnotation(lat: lat!, lng: lng!, title: annotationTitle!.text!, subtitle: annotationSubtitle!.text!, comment: annotationComment!.text!)
+//        addAnnotationDelegate?.addAnnotation(annotation: thisAnnotation)
+//        let _ = navigationController?.popViewController(animated: true)
     }
     
     private func close() {
@@ -283,7 +282,6 @@ class AnnotationTableViewController: UIViewController, UITableViewDataSource, UI
 }
 
 class ButtonAnnotationCell: UITableViewCell {
-    static let identifier = "ButtonAnnotationCell"
     
     var buttonAnnotationDelegate: ButtonAnnotationDelegate?
     
@@ -324,7 +322,6 @@ class ButtonAnnotationCell: UITableViewCell {
 }
 
 class TitleAnnotationCell: UITableViewCell, UITextFieldDelegate {
-    static let identifier = "TitleAnnotationCell"
     
     var titleAnnotationDelegate: TitleAnnotationDelegate?
     var scrollToElementEditingDelegate: ScrollToElementEditing?
@@ -350,7 +347,6 @@ class TitleAnnotationCell: UITableViewCell, UITextFieldDelegate {
 }
 
 class SubtitleAnnotationCell: UITableViewCell, UITextFieldDelegate {
-    static let identifier = "SubtitleAnnotationCell"
     
     var subtitleAnnotationDelegate: SubtitleAnnotationDelegate?
     var scrollToElementEditingDelegate: ScrollToElementEditing?
@@ -376,7 +372,6 @@ class SubtitleAnnotationCell: UITableViewCell, UITextFieldDelegate {
 }
 
 class CommentAnnotationCell: UITableViewCell, UITextViewDelegate {
-    static let identifier = "CommentAnnotationCell"
     
     var commentAnnotationDelegate: CommentAnnotationDelegate?
     var scrollToElementEditingDelegate: ScrollToElementEditing?

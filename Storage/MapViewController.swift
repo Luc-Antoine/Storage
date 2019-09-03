@@ -20,7 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager: CLLocationManager? = CLLocationManager()
     var delta: Double = 0.01
     var annotation: [Annotation]?
-    weak var thisAnnotation: Annotation?
+    var thisAnnotation: Annotation?
     var index: Int?
     var lat: CLLocationDegrees?
     var lng: CLLocationDegrees?
@@ -193,7 +193,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let lat = annotation![i].lat
             let lng = annotation![i].lng
             let title = annotation![i].title
-            let favorites = annotation![i].favorites
+            let favorites = annotation![i].favorite
             let pinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lng)
             let position = location.distance(of: Position.init(lat: lat, lng: lng))
             let pointAnnotation = CustomPointAnnotation()

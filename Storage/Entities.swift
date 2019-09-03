@@ -12,10 +12,18 @@ enum Sort: Int {
     case increasing = 0, decreasing, favoritesFirst, favoritesLast
 }
 
-struct ArrayDisplay {
-    enum Sort: Int {
-        case increasing = 0, decreasing, favoritesFirst, favoritesLast
-    }
+//struct ArrayDisplay {
+//    enum Sort: Int {
+//        case increasing = 0, decreasing, favoritesFirst, favoritesLast
+//    }
+//}
+
+enum NavBarItem {
+    case add, delete
+}
+
+enum NavBarItemFilter {
+    case add, delete, filter
 }
 
 struct Symbol {

@@ -10,29 +10,29 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
     
-    var thisCategory: Category?
-    var favorites: Bool = false
+    weak var delegate: CategoryDelegate?
+    var index: Int?
+    var favorite: Bool = false
     
     @IBOutlet weak var nameCategory: UILabel!
     @IBOutlet weak var buttonFavorites: UIButton!
     
-    private let db = DataBase()
-    
     @IBAction func favorites(_ sender: Any) {
-        db.setFavorites(category: thisCategory!, favorites: favorites)
-        NotificationCenter.default.post(name: .reload, object: nil)
+        update(!favorite)
+        delegate?.updateFavorite(index!)
     }
     
-    func configureCell(with cell: Category, index: Int) {
-        nameCategory.text = cell.name!
-        favorites = cell.favorites
+    func configureCell(_ category: Category) {
+        nameCategory.text = category.name
+        update(category.favorite)
     }
     
-    func colorCell() {
-        buttonFavorites.setImage(#imageLiteral(resourceName: "NewStar"), for: .normal)
-    }
-    
-    func colorFavorites() {
-        buttonFavorites.setImage(#imageLiteral(resourceName: "NewStarFavorite"), for: .normal)
+    func update(_ favorite: Bool) {
+        if favorite {
+            buttonFavorites.setImage(UIImage(named: "NewStarFavorite"), for: .normal)
+            self.favorite = true
+        } else {
+            buttonFavorites.setImage(UIImage(named: "NewStar"), for: .normal)
+        }
     }
 }

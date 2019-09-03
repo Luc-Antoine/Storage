@@ -16,15 +16,23 @@ class ItemsEditView: UIView {
     @IBOutlet weak var editTexrField: UITextField!
     
     @IBAction func removeView() {
+        //controller!.isEditing = false
         editTexrField.resignFirstResponder()
-//        controller?.categoriesTableViewEndEditing()
+        controller?.itemsTableViewEndEditing()
         controller?.removeSettingsContainer()
-        controller?.instantiateItemsSettingsController()
+        controller?.instantiateItemsSettingsView()
     }
     
-    @IBAction func textFieldChanged(_ sender: Any) {
+    @IBAction func textFieldChanged() {
         guard editTexrField.text != nil else { return }
-//        controller?.textFieldDidResearching(editTexrField.text!)
+        controller?.textFieldDidResearching(editTexrField.text!)
+    }
+    
+    func viewDidAppear() {
+        //controller!.isEditing = true
+        controller!.itemsTableViewEditing()
+        editTexrField.border()
+        editTexrField.paddingLeft()
     }
     
 }

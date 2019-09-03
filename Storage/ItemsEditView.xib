@@ -37,7 +37,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="textFieldChanged:" destination="iN0-l3-epB" eventType="editingDidEnd" id="Zjc-oo-svv"/>
+                        <action selector="textFieldChanged" destination="iN0-l3-epB" eventType="editingChanged" id="XnC-pu-gAg"/>
                     </connections>
                 </textField>
             </subviews>
