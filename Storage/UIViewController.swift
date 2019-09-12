@@ -22,23 +22,32 @@ extension UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    func instantiate<T>(_ identifier: String) -> T {
-        return storyboard?.instantiateViewController(withIdentifier: identifier) as! T
+    func instantiate<T>(_ identifier: String, container: UIView, storyboard: String, bundle: Bundle? = nil) -> T {
+        let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
+        let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        addChild(viewController, container: container)
+        return viewController as! T
     }
     
-    func add(_ child: UIViewController) {
-        addChild(child)
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
+    func instantiate<T>(_ identifier: String, navigationController: UINavigationController, storyboard: String? = nil, bundle: Bundle? = nil) -> T {
+        let storyboard = UIStoryboard(name: storyboard ?? identifier, bundle: bundle)
+        let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        navigationController.pushViewController(viewController, animated: true)
+        return viewController as! T
     }
     
     func remove() {
-        guard parent != nil else {
-            return
-        }
-        
+        guard parent != nil else { return }
         willMove(toParent: nil)
         view.removeFromSuperview()
         removeFromParent()
+    }
+    
+    private func addChild(_ child: UIViewController, container: UIView) {
+        addChild(child)
+        container.addSubview(child.view)
+        child.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        child.view.frame = container.bounds
+        child.didMove(toParent: self)
     }
 }

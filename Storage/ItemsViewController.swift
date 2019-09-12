@@ -10,7 +10,35 @@ import UIKit
 
 class ItemsViewController: UIViewController {
     
-    var controller: ItemsController?
+    weak var tableViewDelegate: ItemsViewControllerDelegate?
+    
+    enum KindItem {
+        case items, filteredItems, researchingItems, nameFeatures, features, filtersEditing
+    }
+    
+    var kindItem: KindItem = .items
+    var navBarItemFilter: NavBarItemFilter? = .add
+    var tableViewStat: TableViewStat?
+    var items: [Item] = []
+    var nameFeatures: [NameFeature] = []
+    var nameFeaturesFiltered: [NameFeature] = []
+    var features: [Feature] = []
+    var featuresFilteredByItem: [Feature] = []
+    var featuresFilteredByName: [Feature] = []
+    var featuresFiltered: [Feature] = []
+    var itemsSelected: [Item] = []
+    var itemsFiltered: [Item] = []
+    var researchingItems: [Item] = []
+    
+    var category: Category?
+    var itemSort: Sort = .increasing
+    var tableViewIsEditing: Bool = false
+    var searchActive: Bool = false
+    var viewHeight: CGFloat = 0
+    var settingSegmentedIndex: Int = 3
+    var featuresIndex: Int = 0
+    
+    var filtersSelected: [String] = []
     
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var tableViewContainer: UIView!
@@ -19,27 +47,91 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        controller!.instantiateItemsTableViewController()
-        controller!.instantiateItemsSettingsView()
-        controller!.removeFilters()
-        title = controller!.category!.name
+        newItemsTableViewController()
+        newItemsSettingsViewController()
+        title = category!.name
     }
     
     // MARK: - IBActions
     
     @IBAction func addOrDeleteAction() {
-        guard controller!.navBarItemFilter != nil else { return }
-        switch controller!.navBarItemFilter! {
+        guard navBarItemFilter != nil else { return }
+        switch navBarItemFilter! {
         case .add:
-            controller!.instantiateAddView()
+            newItemsAddViewController()
             break
         case .delete:
-            controller!.removeItems(controller!.itemsSelected)
+            tableViewDelegate?.removeItems()
             break
         case .filter:
-            controller!.kindItem = .nameFeatures
-            controller!.itemsViewController!.navBarItemFilter(nil)
-            controller!.itemsTableViewContoller!.tableView.reloadData()
+            tableViewDelegate?.kindItem(.nameFeatures)
+            navBarItemFilter(nil)
+            tableViewDelegate?.reloadData()
+            break
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    func newItemsTableViewController() {
+        let itemsTableViewController: ItemsTableViewController = instantiate("ItemsTableViewController", container: tableViewContainer, storyboard: "Items")
+        itemsTableViewController.delegate = self
+        itemsTableViewController.category = category
+        tableViewDelegate = itemsTableViewController
+    }
+    
+    func newItemsSettingsViewController() {
+        let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", container: settingsContainer, storyboard: "ItemsSettingsView")
+        itemsSettingsViewController.delegate = self
+        navBarItemFilter(.add)
+    }
+    
+    func newItemsAddViewController() {
+        let itemsAddViewController: ItemsAddViewController = instantiate("ItemsAddViewController", container: settingsContainer, storyboard: "ItemsAddView")
+        itemsAddViewController.delegate = self
+        navBarItemFilter(nil)
+    }
+    
+    func newItemsEditViewController() {
+        let itemsEditViewController: ItemsEditViewController = instantiate("ItemsEditViewController", container: settingsContainer, storyboard: "ItemsEditView")
+        itemsEditViewController.delegate = self
+        tableViewDelegate?.tableViewEditing()
+        tableViewStat = .editing
+        navBarItemFilter(.delete)
+    }
+    
+    func newItemsSortViewController() {
+        let itemsSortViewController: ItemsSortViewController = instantiate("ItemsSortViewController", container: settingsContainer, storyboard: "ItemsSortView")
+        itemsSortViewController.delegate = self
+        navBarItemFilter(nil)
+    }
+    
+    func newItemsSearchViewController() {
+        let itemsSearchViewController: ItemsSearchViewController = instantiate("ItemsSearchViewController", container: settingsContainer, storyboard: "ItemsSearchView")
+        itemsSearchViewController.delegate = self
+        tableViewDelegate?.kindItem(.researchingItems)
+        tableViewDelegate?.textFieldDidBeginEditing()
+        tableViewStat = .searching
+        navBarItemFilter(nil)
+    }
+    
+    func newItemsFilterViewController() {
+        let itemsFilterViewController: ItemsFilterViewController = instantiate("ItemsFilterViewController", container: settingsContainer, storyboard: "ItemsFilterView")
+        itemsFilterViewController.delegate = self
+        navBarItemFilter(nil)
+        tableViewDelegate?.filter()
+    }
+    
+    func removeChildSettings() {
+        newItemsSettingsViewController()
+        guard tableViewStat != nil else { return }
+        switch tableViewStat! {
+        case .editing:
+            tableViewDelegate?.tableViewEndEditing()
+            tableViewStat = nil
+            break
+        case .searching:
+            tableViewDelegate?.textFieldDidEndEditing()
             break
         }
     }
@@ -47,7 +139,7 @@ class ItemsViewController: UIViewController {
     // MARK: - Navigation Controller Function
     
     func navBarItemFilter(_ option: NavBarItemFilter?) {
-        controller!.navBarItemFilter = option
+        navBarItemFilter = option
         if option == nil {
             addOrDeleteButton.image = nil
             addOrDeleteButton.isEnabled = false
@@ -69,3 +161,128 @@ class ItemsViewController: UIViewController {
         }
     }
 }
+
+// MARK: - ItemsTableViewControllerDelegate
+
+protocol ItemsTableViewControllerDelegate: AnyObject {
+    func newFeaturesViewController(_ item: Item)
+    func navBarItemFilterOption() -> NavBarItemFilter?
+}
+
+extension ItemsViewController: ItemsTableViewControllerDelegate {
+    func newFeaturesViewController(_ item: Item) {
+        let featuresViewController: FeaturesViewController = instantiate("FeaturesViewController", navigationController: navigationController!, storyboard: "Features")
+    }
+    
+    func navBarItemFilterOption() -> NavBarItemFilter? {
+        return navBarItemFilter
+    }
+}
+
+// MARK: - ItemsSettingsViewControllerDelegate
+
+protocol ItemsSettingsViewControllerDelegate: AnyObject {
+    func navigationSettings(_ index: Int)
+    func filterTitle() -> String
+}
+
+extension ItemsViewController: ItemsSettingsViewControllerDelegate {
+    func navigationSettings(_ index: Int) {
+        switch index {
+        case 0:
+            newItemsEditViewController()
+            break
+        case 1:
+            newItemsSortViewController()
+            break
+        case 2:
+            newItemsSearchViewController()
+            break
+        case 3:
+            newItemsFilterViewController()
+            break
+        default:
+            break
+        }
+    }
+    
+    func filterTitle() -> String {
+        let filters: Int = featuresFilteredByItem.count
+        guard filters > 0 else { return "Filter" }
+        return "Filter " + "(\(filters))"
+//        guard filters > 0 else { return NSLocalizedString("Filter", comment: "") }
+//        return NSLocalizedString("Filter ", comment: "") + "(\(filters))"
+    }
+}
+
+// MARK: - ItemsAddViewControllerDelegate
+
+protocol ItemsAddViewControllerDelegate: AnyObject {
+    func addItem(_ name: String?)
+    func removeChildSettings()
+}
+
+extension ItemsViewController: ItemsAddViewControllerDelegate {
+    func addItem(_ name: String?) {
+        tableViewDelegate?.addItem(name)
+    }
+}
+
+// MARK: - ItemsEditViewControllerDelegate
+
+protocol ItemsEditViewControllerDelegate: AnyObject {
+    func textFieldDidResearching(_ text: String)
+    func removeChildSettings()
+}
+
+extension ItemsViewController: ItemsEditViewControllerDelegate {
+    func textFieldDidResearching(_ text: String) {
+        tableViewDelegate?.textFieldDidResearching(text)
+    }
+}
+
+// MARK: - ItemsSortViewControllerDelegate
+
+protocol ItemsSortViewControllerDelegate: AnyObject {
+    func sortChoice(_ itemsSort: Sort)
+    func categoriesSortIndex() -> Sort?
+    func removeChildSettings()
+}
+
+extension ItemsViewController: ItemsSortViewControllerDelegate {
+    
+    func sortChoice(_ itemsSort: Sort) {
+        tableViewDelegate?.itemsSort(itemsSort)
+    }
+    
+    func categoriesSortIndex() -> Sort? {
+        return tableViewDelegate?.tableViewItemsSort()
+    }
+}
+
+// MARK: - ItemsSearchViewControllerDelegate
+
+protocol ItemsSearchViewControllerDelegate: AnyObject {
+    func textFieldDidResearching(_ text: String)
+    func removeChildSettings()
+    func endResearching()
+}
+
+extension ItemsViewController: ItemsSearchViewControllerDelegate {
+    func endResearching() {
+        tableViewDelegate?.kindItem(.items)
+    }
+}
+
+// MARK: - ItemsFilterViewControllerDelegate
+
+protocol ItemsFilterViewControllerDelegate: AnyObject {
+    func filters()
+}
+
+extension ItemsViewController: ItemsFilterViewControllerDelegate {
+    func filters() {
+        tableViewDelegate?.filters()
+    }
+}
+

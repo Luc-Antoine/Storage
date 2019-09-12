@@ -15,7 +15,7 @@ extension ItemsController {
     func instantiateItemsViewContainer(categoriesViewContainer: CategoriesViewController) {
         itemsViewController = instantiate("ItemsViewController", storyboard: "Items", bundle: nil)
         push(categoriesViewContainer.navigationController!, viewController: itemsViewController!)
-        itemsViewController!.controller = self
+//        itemsViewController!.controller = self
     }
     
     func instantiateItemsTableViewController() {
@@ -39,70 +39,70 @@ extension ItemsController {
     // MARK: - Item Settings View
     
     func instantiateItemsSettingsView() {
-        itemsSettingsView = instantiate("ItemsSettingsView", owner: nil, options: nil)
-        child(itemsSettingsView!, container: itemsViewController!.settingsContainer)
-        itemsSettingsView!.controller = self
-        itemsSettingsView!.viewDidAppear()
-        itemsViewController!.navBarItemFilter(.add)
+//        itemsSettingsView = instantiate("ItemsSettingsView", owner: nil, options: nil)
+//        child(itemsSettingsView!, container: itemsViewController!.settingsContainer)
+//        itemsSettingsView!.controller = self
+//        itemsSettingsView!.viewDidAppear()
+//        itemsViewController!.navBarItemFilter(.add)
     }
     
     // MARK: - Item Add View
     
     func instantiateAddView() {
-        let itemsAddView: ItemsAddView = instantiate("ItemsAddView", owner: nil, options: nil)
-        child(itemsAddView, container: itemsViewController!.settingsContainer)
-        itemsAddView.controller = self
-        itemsAddView.viewDidAppear()
+//        let itemsAddView: ItemsAddView = instantiate("ItemsAddView", owner: nil, options: nil)
+//        child(itemsAddView, container: itemsViewController!.settingsContainer)
+//        itemsAddView.controller = self
+//        itemsAddView.viewDidAppear()
     }
     
     // MARK: - Item Edit View
     
     func instantiateEditView() {
-        let itemsEditView: ItemsEditView = instantiate("ItemsEditView", owner: nil, options: nil)
-        child(itemsEditView, container: itemsViewController!.settingsContainer)
-        itemsEditView.controller = self
-        itemsEditView.viewDidAppear()
-        kindItem = .researchingItems
-        itemsViewController!.navBarItemFilter(.delete)
+//        let itemsEditView: ItemsEditView = instantiate("ItemsEditView", owner: nil, options: nil)
+//        child(itemsEditView, container: itemsViewController!.settingsContainer)
+//        itemsEditView.controller = self
+//        itemsEditView.viewDidAppear()
+//        kindItem = .researchingItems
+//        itemsViewController!.navBarItemFilter(.delete)
     }
     
     // MARK: - Item Sort View
     
     func instantiateSortView() {
-        let itemsSortView: ItemsSortView = instantiate("ItemsSortView", owner: nil, options: nil)
-        child(itemsSortView, container: itemsViewController!.settingsContainer)
-        itemsSortView.controller = self
-        itemsSortView.viewDidAppear()
-        itemsViewController!.navBarItemFilter(nil)
+//        let itemsSortView: ItemsSortView = instantiate("ItemsSortView", owner: nil, options: nil)
+//        child(itemsSortView, container: itemsViewController!.settingsContainer)
+//        itemsSortView.controller = self
+//        itemsSortView.viewDidAppear()
+//        itemsViewController!.navBarItemFilter(nil)
     }
     
     // MARK: - Item Search View
     
     func instantiateSearchView() {
-        let itemsSearchView: ItemsSearchView = instantiate("ItemsSearchView", owner: nil, options: nil)
-        child(itemsSearchView, container: itemsViewController!.settingsContainer)
-        itemsSearchView.controller = self
-        itemsSearchView.searchTextField.delegate = itemsTableViewContoller
-        itemsSearchView.viewDidAppear()
-        kindItem = .researchingItems
-        itemsTableViewContoller!.tableView.reloadData()
-        itemsViewController!.navBarItemFilter(nil)
+//        let itemsSearchView: ItemsSearchView = instantiate("ItemsSearchView", owner: nil, options: nil)
+//        child(itemsSearchView, container: itemsViewController!.settingsContainer)
+//        itemsSearchView.controller = self
+//        itemsSearchView.searchTextField.delegate = itemsTableViewContoller
+//        itemsSearchView.viewDidAppear()
+//        kindItem = .researchingItems
+//        itemsTableViewContoller!.tableView.reloadData()
+//        itemsViewController!.navBarItemFilter(nil)
     }
     
     // MARK: - Item Filter View
     
     func instantiateFilterView() {
-        let itemFilterView: ItemsFilterView = instantiate("ItemsFilterView", owner: nil, options: nil)
-        child(itemFilterView, container: itemsViewController!.settingsContainer)
-        itemFilterView.controller = self
-        itemFilterView.viewDidAppear()
-        if featuresFilteredByName.count > 0 {
-            kindItem = .filtersEditing
-            itemsViewController!.navBarItemFilter(.filter)
-        } else {
-            kindItem = .nameFeatures
-            itemsViewController!.navBarItemFilter(nil)
-        }
-        itemsTableViewContoller!.tableView.reloadData()
+//        let itemFilterView: ItemsFilterView = instantiate("ItemsFilterView", owner: nil, options: nil)
+//        child(itemFilterView, container: itemsViewController!.settingsContainer)
+//        itemFilterView.controller = self
+//        itemFilterView.viewDidAppear()
+//        if featuresFilteredByName.count > 0 {
+//            kindItem = .filtersEditing
+//            itemsViewController!.navBarItemFilter(.filter)
+//        } else {
+//            kindItem = .nameFeatures
+//            itemsViewController!.navBarItemFilter(nil)
+//        }
+//        itemsTableViewContoller!.tableView.reloadData()
     }
 }

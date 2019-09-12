@@ -15,14 +15,12 @@ class CategoriesNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        styleCSS.tabBarColor()
-        styleCSS.navigationBarColor()
         navigationBar.tintColor = tintColor()
-        instantiateCategoriesController()
+        newCategoriesViewController()
     }
     
-    func instantiateCategoriesController() {
-        let categoriesController = CategoriesController()
-        categoriesController.instantiateCategoriesViewController(navigationController: self)
+    func newCategoriesViewController() {
+        let _: CategoriesViewController = instantiate("CategoriesViewController", navigationController: self, storyboard: "Categories")
+//        pushViewController(categoriesViewController, animated: true)
     }
 }

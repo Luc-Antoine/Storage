@@ -8,31 +8,29 @@
 
 import UIKit
 
-class ItemsEditView: UIView {
+class ItemsEditViewController: UIViewController {
+    
+    weak var delegate: ItemsEditViewControllerDelegate?
     
     var controller: ItemsController?
     
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var editTexrField: UITextField!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        editTexrField.border()
+        editTexrField.paddingLeft()
+    }
+    
     @IBAction func removeView() {
-        //controller!.isEditing = false
         editTexrField.resignFirstResponder()
-        controller?.itemsTableViewEndEditing()
-        controller?.removeSettingsContainer()
-        controller?.instantiateItemsSettingsView()
+        remove()
+        delegate?.removeChildSettings()
     }
     
     @IBAction func textFieldChanged() {
         guard editTexrField.text != nil else { return }
         controller?.textFieldDidResearching(editTexrField.text!)
     }
-    
-    func viewDidAppear() {
-        //controller!.isEditing = true
-        controller!.itemsTableViewEditing()
-        editTexrField.border()
-        editTexrField.paddingLeft()
-    }
-    
 }

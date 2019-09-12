@@ -20,7 +20,7 @@ class AllFeaturesViewController: UIViewController {
 
         let allFeaturesTableViewController = storyboard?.instantiateViewController(withIdentifier: "AllFeaturesTableViewController") as! AllFeaturesTableViewController
         allFeaturesTableViewController.controller = controller
-        add(allFeaturesTableViewController)
+        //add(allFeaturesTableViewController)
         title = controller!.nameFeature!.name
     }
     

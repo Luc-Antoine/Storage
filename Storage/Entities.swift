@@ -8,9 +8,9 @@
 
 import UIKit
 
-enum Sort: Int {
-    case increasing = 0, decreasing, favoritesFirst, favoritesLast
-}
+//enum Sort: Int {
+//    case increasing = 0, decreasing, favoritesFirst, favoritesLast
+//}
 
 //struct ArrayDisplay {
 //    enum Sort: Int {

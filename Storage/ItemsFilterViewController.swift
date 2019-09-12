@@ -8,27 +8,30 @@
 
 import UIKit
 
-class ItemsFilterView: UIView {
+class ItemsFilterViewController: UIViewController {
+    
+    weak var delegate: ItemsFilterViewControllerDelegate?
     
     var controller: ItemsController?
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        cancelButton.border()
+        validateButton.border()
+    }
     
     @IBOutlet weak var filterTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var validateButton: UIButton!
     
     @IBAction func confirm() {
-        guard controller!.nameFeaturesFiltered.count > 0 else { return }
-        controller!.filters()
+        delegate?.filters()
     }
     
     @IBAction func removeView() {
         controller!.resetFilters()
         controller!.removeSettingsContainer()
         controller!.instantiateItemsSettingsView()
-    }
-    
-    func viewDidAppear() {
-        cancelButton.border()
-        validateButton.border()
     }
 }

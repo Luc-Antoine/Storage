@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Items Add View Controller-->
+        <scene sceneID="z3J-Rb-nwq">
+            <objects>
+                <viewController storyboardIdentifier="ItemsAddViewController" id="xnG-jK-syt" customClass="ItemsAddViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sAM-aE-dqp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zu0-La-BBd">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="UItextFieldBackground" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="t5w-p2-Del">
+                                        <rect key="frame" x="60" y="13" width="294" height="28"/>
+                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Oei-rb-8LP"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UvW-Gr-9Jg">
+                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="f7F-TM-1RW"/>
+                                        </constraints>
+                                        <state key="normal" title="Ok">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addItem" destination="xnG-jK-syt" eventType="touchUpInside" id="ZlO-qv-Zvt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUs-Fr-0h9">
+                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="LkC-Qb-D4e"/>
+                                            <constraint firstAttribute="height" constant="30" id="qHa-g1-c8v"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="xnG-jK-syt" eventType="touchUpInside" id="2Wm-ee-hhV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UvW-Gr-9Jg" secondAttribute="trailing" constant="20" id="0nY-Xg-DhN"/>
+                                    <constraint firstAttribute="height" constant="54" id="7iM-hE-hwj"/>
+                                    <constraint firstItem="UvW-Gr-9Jg" firstAttribute="leading" secondItem="t5w-p2-Del" secondAttribute="trailing" constant="10" id="DaE-4a-LhW"/>
+                                    <constraint firstItem="t5w-p2-Del" firstAttribute="leading" secondItem="MUs-Fr-0h9" secondAttribute="trailing" constant="10" id="GdP-lu-s1O"/>
+                                    <constraint firstItem="UvW-Gr-9Jg" firstAttribute="centerY" secondItem="t5w-p2-Del" secondAttribute="centerY" id="MdE-yA-8H3"/>
+                                    <constraint firstItem="t5w-p2-Del" firstAttribute="centerX" secondItem="Zu0-La-BBd" secondAttribute="centerX" id="YKb-rw-9As"/>
+                                    <constraint firstItem="MUs-Fr-0h9" firstAttribute="centerY" secondItem="t5w-p2-Del" secondAttribute="centerY" id="dS6-AU-wdd"/>
+                                    <constraint firstItem="t5w-p2-Del" firstAttribute="centerY" secondItem="Zu0-La-BBd" secondAttribute="centerY" id="mfK-TM-hGY"/>
+                                    <constraint firstItem="MUs-Fr-0h9" firstAttribute="leading" secondItem="Zu0-La-BBd" secondAttribute="leading" constant="20" id="vQm-vb-KXJ"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Uec-a5-Ah8"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zu0-La-BBd" firstAttribute="leading" secondItem="edM-j0-cYc" secondAttribute="leading" id="5de-QW-cLd"/>
+                            <constraint firstItem="Zu0-La-BBd" firstAttribute="centerY" secondItem="sAM-aE-dqp" secondAttribute="centerY" id="H0e-7Z-8Zt"/>
+                            <constraint firstItem="Zu0-La-BBd" firstAttribute="centerX" secondItem="sAM-aE-dqp" secondAttribute="centerX" id="Xgj-yn-Iug"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="edM-j0-cYc"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="MUs-Fr-0h9" id="H7C-GE-KqR"/>
+                        <outlet property="confirmeButton" destination="UvW-Gr-9Jg" id="ekf-L6-zC5"/>
+                        <outlet property="nameItemTextField" destination="t5w-p2-Del" id="MPa-tN-zhG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6Y-rR-qpC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="102"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="36" height="36"/>
+        <image name="UItextFieldBackground" width="500" height="50"/>
+    </resources>
+</document>

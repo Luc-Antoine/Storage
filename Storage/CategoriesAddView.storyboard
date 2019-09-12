@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Categories Add View Controller-->
+        <scene sceneID="YIJ-B8-R62">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesAddViewController" id="Y3w-CR-M4G" customClass="CategoriesAddViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xkY-Kd-YyX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ceg-iR-8OO">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAE-Cz-Or1">
+                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7Kk-FT-ulJ"/>
+                                            <constraint firstAttribute="width" constant="30" id="H79-hL-cpg"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="close" destination="Y3w-CR-M4G" eventType="touchUpInside" id="JEX-lW-fNg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJw-dl-9OH">
+                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hhE-Cb-7dV"/>
+                                        </constraints>
+                                        <state key="normal" title="Ok">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addCategory" destination="Y3w-CR-M4G" eventType="touchUpInside" id="KJe-Jw-zhL"/>
+                                        </connections>
+                                    </button>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UITextFieldBackgroundColor" translatesAutoresizingMaskIntoConstraints="NO" id="0yH-RZ-afg">
+                                        <rect key="frame" x="55" y="12" width="304" height="30"/>
+                                    </imageView>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UITextFieldBackgroundWhite" translatesAutoresizingMaskIntoConstraints="NO" id="MXE-oB-ZIL">
+                                        <rect key="frame" x="56" y="13" width="302" height="28"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="UItextFieldBackground" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ny-i3-u3G">
+                                        <rect key="frame" x="60" y="13" width="294" height="28"/>
+                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="sE7-Ne-A2Y"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hJw-dl-9OH" secondAttribute="trailing" constant="20" id="0Ir-MI-Cj2"/>
+                                    <constraint firstAttribute="height" constant="54" id="3ht-Yd-V3r"/>
+                                    <constraint firstItem="6ny-i3-u3G" firstAttribute="leading" secondItem="bAE-Cz-Or1" secondAttribute="trailing" constant="10" id="4WK-dC-2q2"/>
+                                    <constraint firstItem="6ny-i3-u3G" firstAttribute="centerY" secondItem="Ceg-iR-8OO" secondAttribute="centerY" id="9ud-V1-wiL"/>
+                                    <constraint firstItem="hJw-dl-9OH" firstAttribute="leading" secondItem="6ny-i3-u3G" secondAttribute="trailing" constant="10" id="AIe-U0-sai"/>
+                                    <constraint firstItem="0yH-RZ-afg" firstAttribute="leading" secondItem="MXE-oB-ZIL" secondAttribute="leading" constant="-1" id="LaJ-Cg-Fj7"/>
+                                    <constraint firstItem="MXE-oB-ZIL" firstAttribute="leading" secondItem="6ny-i3-u3G" secondAttribute="leading" constant="-4" id="Mm6-jp-vLK"/>
+                                    <constraint firstItem="0yH-RZ-afg" firstAttribute="bottom" secondItem="MXE-oB-ZIL" secondAttribute="bottom" constant="1" id="NkG-M4-K5p"/>
+                                    <constraint firstItem="MXE-oB-ZIL" firstAttribute="top" secondItem="6ny-i3-u3G" secondAttribute="top" id="Pga-SJ-8WP"/>
+                                    <constraint firstItem="6ny-i3-u3G" firstAttribute="centerX" secondItem="Ceg-iR-8OO" secondAttribute="centerX" id="T7p-5O-k69"/>
+                                    <constraint firstItem="0yH-RZ-afg" firstAttribute="trailing" secondItem="MXE-oB-ZIL" secondAttribute="trailing" constant="1" id="e75-Mn-OML"/>
+                                    <constraint firstItem="0yH-RZ-afg" firstAttribute="top" secondItem="MXE-oB-ZIL" secondAttribute="top" constant="-1" id="keH-nT-YBb"/>
+                                    <constraint firstItem="hJw-dl-9OH" firstAttribute="centerY" secondItem="6ny-i3-u3G" secondAttribute="centerY" id="l6x-OY-Yt0"/>
+                                    <constraint firstItem="MXE-oB-ZIL" firstAttribute="bottom" secondItem="6ny-i3-u3G" secondAttribute="bottom" id="mru-Bv-8Hw"/>
+                                    <constraint firstItem="bAE-Cz-Or1" firstAttribute="centerY" secondItem="6ny-i3-u3G" secondAttribute="centerY" id="vxy-ut-f5k"/>
+                                    <constraint firstItem="bAE-Cz-Or1" firstAttribute="leading" secondItem="Ceg-iR-8OO" secondAttribute="leading" constant="20" id="xs9-i7-qOC"/>
+                                    <constraint firstItem="MXE-oB-ZIL" firstAttribute="trailing" secondItem="6ny-i3-u3G" secondAttribute="trailing" constant="4" id="ydE-l3-boj"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="pqw-Wu-qO1"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ceg-iR-8OO" firstAttribute="centerY" secondItem="xkY-Kd-YyX" secondAttribute="centerY" id="Kdq-zV-ZZb"/>
+                            <constraint firstItem="Ceg-iR-8OO" firstAttribute="centerX" secondItem="xkY-Kd-YyX" secondAttribute="centerX" id="UWa-dP-efQ"/>
+                            <constraint firstItem="Ceg-iR-8OO" firstAttribute="leading" secondItem="g07-zr-UVJ" secondAttribute="leading" id="XUE-ao-3Tu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g07-zr-UVJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="BackButton" destination="bAE-Cz-Or1" id="0HH-ho-JhX"/>
+                        <outlet property="confirmeButton" destination="hJw-dl-9OH" id="fWg-kc-bAt"/>
+                        <outlet property="nameCategoryTextField" destination="6ny-i3-u3G" id="b9s-kh-mcy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hjb-UQ-EtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="150"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="36" height="36"/>
+        <image name="UITextFieldBackgroundColor" width="4" height="4"/>
+        <image name="UITextFieldBackgroundWhite" width="4" height="4"/>
+        <image name="UItextFieldBackground" width="500" height="50"/>
+    </resources>
+</document>

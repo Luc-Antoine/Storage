@@ -12,7 +12,7 @@ class ItemsController: UIController {
     
     weak var itemsViewController: ItemsViewController?
     weak var itemsTableViewContoller: ItemsTableViewController?
-    weak var itemsSettingsView: ItemsSettingsView?
+//    weak var itemsSettingsView: ItemsSettingsView?
     
     enum KindItem {
         case items, filteredItems, researchingItems, nameFeatures, features, filtersEditing
@@ -139,6 +139,7 @@ class ItemsController: UIController {
         case .researchingItems:
             break
         case .nameFeatures:
+            guard nameFeaturesFiltered.count > 0 else { return }
             filterFeatures()
             kindItem = .features
             itemsTableViewContoller!.tableView.reloadData()

@@ -46,6 +46,11 @@ class Preferences {
         return defaults.object(forKey: key) as! Int
     }
     
+    func getInt(key: String) -> Int {
+        guard defaults.object(forKey: key) != nil else { return 0 }
+        return defaults.object(forKey: key) as! Int
+    }
+    
     func savePreferences(value: Int32, key: String) {
         defaults.set(value, forKey: key)
     }

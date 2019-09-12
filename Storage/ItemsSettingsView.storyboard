@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Items Settings View Controller-->
+        <scene sceneID="yHR-3t-b4n">
+            <objects>
+                <viewController storyboardIdentifier="ItemsSettingsViewController" id="31B-g3-pqA" customClass="ItemsSettingsViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="71o-bU-s33">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyc-PK-EPM">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="e1M-GN-MtL">
+                                        <rect key="frame" x="20" y="13" width="374" height="29"/>
+                                        <segments>
+                                            <segment title="Edit"/>
+                                            <segment title="Sort"/>
+                                            <segment title="Search"/>
+                                            <segment title="Filter"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="settingsDisplay:" destination="31B-g3-pqA" eventType="valueChanged" id="AKR-RH-1vG"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="e1M-GN-MtL" firstAttribute="leading" secondItem="uyc-PK-EPM" secondAttribute="leading" constant="20" id="Dey-z0-hVX"/>
+                                    <constraint firstItem="e1M-GN-MtL" firstAttribute="centerY" secondItem="uyc-PK-EPM" secondAttribute="centerY" id="NVf-nd-FpD"/>
+                                    <constraint firstAttribute="height" constant="54" id="UxD-eE-qUB"/>
+                                    <constraint firstItem="e1M-GN-MtL" firstAttribute="centerX" secondItem="uyc-PK-EPM" secondAttribute="centerX" id="j8x-ga-xGL"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="K4z-lu-iGz"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uyc-PK-EPM" firstAttribute="leading" secondItem="0u9-Rh-oBr" secondAttribute="leading" id="1iY-3e-ubg"/>
+                            <constraint firstItem="uyc-PK-EPM" firstAttribute="centerX" secondItem="71o-bU-s33" secondAttribute="centerX" id="SgL-ZC-toC"/>
+                            <constraint firstItem="uyc-PK-EPM" firstAttribute="centerY" secondItem="71o-bU-s33" secondAttribute="centerY" id="kYi-NR-sqx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0u9-Rh-oBr"/>
+                    </view>
+                    <connections>
+                        <outlet property="settings" destination="e1M-GN-MtL" id="b0L-tS-WU5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lE9-JG-t58" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="139"/>
+        </scene>
+    </scenes>
+</document>

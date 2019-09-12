@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Categories Search View Controller-->
+        <scene sceneID="2zK-6Y-bTm">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesSearchViewController" id="9ZR-fa-Jis" customClass="CategoriesSearchViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="35c-qy-AwW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3q-EJ-pyA">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pXQ-p9-dlS">
+                                        <rect key="frame" x="60" y="13" width="294" height="28"/>
+                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="hpj-H6-hb0"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldChanged" destination="9ZR-fa-Jis" eventType="editingChanged" id="xnh-7N-K31"/>
+                                        </connections>
+                                    </textField>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-SQ-ICW">
+                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
+                                        <state key="normal" title="End">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PY7-nH-lnf">
+                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="1yU-Js-tvH"/>
+                                            <constraint firstAttribute="height" constant="30" id="X1K-rs-A3p"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="9ZR-fa-Jis" eventType="touchUpInside" id="fTG-fb-5Ry"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="PY7-nH-lnf" firstAttribute="leading" secondItem="Y4l-YO-ntU" secondAttribute="leading" constant="20" id="7oZ-Gd-mHQ"/>
+                                    <constraint firstItem="Y4l-YO-ntU" firstAttribute="trailing" secondItem="1Jv-SQ-ICW" secondAttribute="trailing" constant="20" id="C4z-KQ-TvU"/>
+                                    <constraint firstItem="pXQ-p9-dlS" firstAttribute="centerY" secondItem="A3q-EJ-pyA" secondAttribute="centerY" id="Gu2-5o-h75"/>
+                                    <constraint firstItem="1Jv-SQ-ICW" firstAttribute="leading" secondItem="pXQ-p9-dlS" secondAttribute="trailing" constant="10" id="MNN-Nv-wvg"/>
+                                    <constraint firstAttribute="height" constant="54" id="XO3-Xm-cfX"/>
+                                    <constraint firstItem="PY7-nH-lnf" firstAttribute="centerY" secondItem="pXQ-p9-dlS" secondAttribute="centerY" id="buV-MH-1Uq"/>
+                                    <constraint firstItem="1Jv-SQ-ICW" firstAttribute="centerY" secondItem="pXQ-p9-dlS" secondAttribute="centerY" id="fqh-GB-GaD"/>
+                                    <constraint firstItem="pXQ-p9-dlS" firstAttribute="centerX" secondItem="A3q-EJ-pyA" secondAttribute="centerX" id="pZo-ag-Ela"/>
+                                    <constraint firstItem="pXQ-p9-dlS" firstAttribute="leading" secondItem="PY7-nH-lnf" secondAttribute="trailing" constant="10" id="qBA-Ul-S5Q"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Y4l-YO-ntU"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A3q-EJ-pyA" firstAttribute="centerY" secondItem="35c-qy-AwW" secondAttribute="centerY" id="D2q-Cw-LXA"/>
+                            <constraint firstItem="A3q-EJ-pyA" firstAttribute="centerX" secondItem="35c-qy-AwW" secondAttribute="centerX" id="Hds-vw-44h"/>
+                            <constraint firstItem="A3q-EJ-pyA" firstAttribute="leading" secondItem="IWn-4r-hrs" secondAttribute="leading" id="oAe-IH-luZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IWn-4r-hrs"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="PY7-nH-lnf" id="JqH-8q-8hB"/>
+                        <outlet property="searchTextField" destination="pXQ-p9-dlS" id="Owr-EA-mRi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qrf-H9-6YY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="36" height="36"/>
+    </resources>
+</document>

@@ -39,3 +39,7 @@ extension Category: FetchableRecord, PersistableRecord {
         print(container)
     }
 }
+
+extension Category: SortType {
+    
+}

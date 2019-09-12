@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
     
-    weak var delegate: CategoryDelegate?
+    weak var delegate: CategoryCellDelegate?
     var index: Int?
     var favorite: Bool = false
     
