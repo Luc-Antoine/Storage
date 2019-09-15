@@ -13,7 +13,7 @@ class FeaturesController: UIController {
     weak var featuresViewController: FeaturesViewController?
     weak var featuresTableViewController: FeaturesTableViewController?
     
-    weak var featuresEditView: FeaturesEditView?
+    weak var featuresEditView: FeaturesEditViewController?
     
     var navBarItem: NavBarItem? = .add
     var features: [Feature] = []
@@ -57,27 +57,27 @@ class FeaturesController: UIController {
     }
     
     func instantiateFeaturesSettingsView() {
-        let featuresSettingsView: FeaturesSettingsView = instantiate("FeaturesSettingsView", owner: nil, options: nil)
-        child(featuresSettingsView, container: featuresViewController!.settingsContainer)
-        featuresSettingsView.controller = self
-        featuresSettingsView.viewDidAppear()
-        navBarItem(.add)
+//        let featuresSettingsView: FeaturesSettingsView = instantiate("FeaturesSettingsView", owner: nil, options: nil)
+//        child(featuresSettingsView, container: featuresViewController!.settingsContainer)
+//        featuresSettingsView.controller = self
+//        featuresSettingsView.viewDidAppear()
+//        navBarItem(.add)
     }
     
     func instantiateFeaturesAddView() {
-        let featuresAddView: FeaturesAddView = instantiate("FeaturesAddView", owner: nil, options: nil)
-        child(featuresAddView, container: featuresViewController!.settingsContainer)
-        featuresAddView.controller = self
-        featuresAddView.viewDidAppear()
-        navBarItem(.add)
+//        let featuresAddView: FeaturesAddView = instantiate("FeaturesAddView", owner: nil, options: nil)
+//        child(featuresAddView, container: featuresViewController!.settingsContainer)
+//        featuresAddView.controller = self
+//        featuresAddView.viewDidAppear()
+//        navBarItem(.add)
     }
     
     func instantiateFeaturesEditView() {
-        featuresEditView = instantiate("FeaturesEditView", owner: nil, options: nil)
-        child(featuresEditView!, container: featuresViewController!.settingsContainer)
-        featuresEditView!.controller = self
-        featuresEditView!.viewDidAppear()
-        navBarItem(.delete)
+//        featuresEditView = instantiate("FeaturesEditView", owner: nil, options: nil)
+//        child(featuresEditView!, container: featuresViewController!.settingsContainer)
+//        featuresEditView!.controller = self
+//        featuresEditView!.viewDidAppear()
+//        navBarItem(.delete)
     }
     
     // MARK: - Edit Function

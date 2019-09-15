@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Features Settings View Controller-->
+        <scene sceneID="t8G-Hr-1iL">
+            <objects>
+                <viewController storyboardIdentifier="FeaturesSettingsViewController" id="6ve-EE-pJe" customClass="FeaturesSettingsViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YZc-3g-N3T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YlU-3F-Wu0">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyc-Db-fUx">
+                                        <rect key="frame" x="20" y="12" width="374" height="30"/>
+                                        <state key="normal" title="Éditer">
+                                            <color key="titleColor" red="0.027450980390000001" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="instantiateEditView" destination="6ve-EE-pJe" eventType="touchUpInside" id="6jW-ea-imP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="Es6-UA-3wk"/>
+                                    <constraint firstItem="dyc-Db-fUx" firstAttribute="centerX" secondItem="YlU-3F-Wu0" secondAttribute="centerX" id="gNo-6U-5oU"/>
+                                    <constraint firstItem="dyc-Db-fUx" firstAttribute="leading" secondItem="YlU-3F-Wu0" secondAttribute="leading" constant="20" id="ief-Za-gRV"/>
+                                    <constraint firstItem="dyc-Db-fUx" firstAttribute="centerY" secondItem="YlU-3F-Wu0" secondAttribute="centerY" id="jxs-Nk-pS1"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="5oF-Dj-T6K"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YlU-3F-Wu0" firstAttribute="centerX" secondItem="YZc-3g-N3T" secondAttribute="centerX" id="bB8-9Q-bnq"/>
+                            <constraint firstItem="YlU-3F-Wu0" firstAttribute="leading" secondItem="52X-S3-9t5" secondAttribute="leading" id="hre-cw-Xac"/>
+                            <constraint firstItem="YlU-3F-Wu0" firstAttribute="centerY" secondItem="YZc-3g-N3T" secondAttribute="centerY" id="s3t-sB-77a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="52X-S3-9t5"/>
+                    </view>
+                    <connections>
+                        <outlet property="editButton" destination="dyc-Db-fUx" id="oea-Rs-E2C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="53N-Ci-Qkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="155" y="143"/>
+        </scene>
+    </scenes>
+</document>

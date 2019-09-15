@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Features Add View Controller-->
+        <scene sceneID="hIt-xR-foD">
+            <objects>
+                <viewController storyboardIdentifier="FeaturesAddViewController" id="Fes-1f-28q" customClass="FeaturesAddViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jlp-Ir-4DI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDG-gz-MZs">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-qr-ABw">
+                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ml7-iO-h8d"/>
+                                        </constraints>
+                                        <state key="normal" title="Ok">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="add" destination="Fes-1f-28q" eventType="touchUpInside" id="oib-6M-fZB"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="UItextFieldBackground" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LLu-sq-why">
+                                        <rect key="frame" x="60" y="13" width="294" height="28"/>
+                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="k1P-a6-e4E"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4a-nh-o1h">
+                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Y1p-hX-C65"/>
+                                            <constraint firstAttribute="width" constant="30" id="mX7-ZY-y4T"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="Fes-1f-28q" eventType="touchUpInside" id="vZ3-0b-Ndy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="N4a-nh-o1h" firstAttribute="centerY" secondItem="LLu-sq-why" secondAttribute="centerY" id="5WD-V9-6eu"/>
+                                    <constraint firstAttribute="trailing" secondItem="s6e-qr-ABw" secondAttribute="trailing" constant="20" id="7rO-QW-3qz"/>
+                                    <constraint firstItem="LLu-sq-why" firstAttribute="centerX" secondItem="hDG-gz-MZs" secondAttribute="centerX" id="AKO-BW-Yld"/>
+                                    <constraint firstItem="s6e-qr-ABw" firstAttribute="leading" secondItem="LLu-sq-why" secondAttribute="trailing" constant="10" id="Ba7-uV-aO7"/>
+                                    <constraint firstItem="LLu-sq-why" firstAttribute="leading" secondItem="N4a-nh-o1h" secondAttribute="trailing" constant="10" id="ZIg-cY-s8g"/>
+                                    <constraint firstItem="s6e-qr-ABw" firstAttribute="centerY" secondItem="LLu-sq-why" secondAttribute="centerY" id="gMx-hj-flj"/>
+                                    <constraint firstItem="LLu-sq-why" firstAttribute="centerY" secondItem="hDG-gz-MZs" secondAttribute="centerY" id="htd-jM-snF"/>
+                                    <constraint firstItem="N4a-nh-o1h" firstAttribute="leading" secondItem="hDG-gz-MZs" secondAttribute="leading" constant="20" id="kG0-k8-76B"/>
+                                    <constraint firstAttribute="height" constant="54" id="wvZ-fb-NyQ"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Vnz-rN-hH8"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hDG-gz-MZs" firstAttribute="centerY" secondItem="Jlp-Ir-4DI" secondAttribute="centerY" id="DeJ-Sq-1gK"/>
+                            <constraint firstItem="hDG-gz-MZs" firstAttribute="centerX" secondItem="Jlp-Ir-4DI" secondAttribute="centerX" id="kJY-lq-NYQ"/>
+                            <constraint firstItem="hDG-gz-MZs" firstAttribute="leading" secondItem="WCS-52-W9M" secondAttribute="leading" id="yKt-AJ-5A2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WCS-52-W9M"/>
+                    </view>
+                    <connections>
+                        <outlet property="editTextField" destination="LLu-sq-why" id="NJE-Cr-eP6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSU-oT-uvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="140"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="36" height="36"/>
+        <image name="UItextFieldBackground" width="500" height="50"/>
+    </resources>
+</document>

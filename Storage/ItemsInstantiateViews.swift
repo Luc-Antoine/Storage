@@ -22,7 +22,7 @@ extension ItemsController {
         select()
         itemsTableViewContoller = instantiate("ItemsTableViewController", storyboard: "Items", bundle: nil)
         child(itemsViewController!, child: itemsTableViewContoller!, container: itemsViewController!.tableViewContainer)
-        itemsTableViewContoller!.controller = self
+//        itemsTableViewContoller!.controller = self
     }
     
     func instantiateFeaturesController(_ item: Item) {

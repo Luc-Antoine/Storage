@@ -12,33 +12,9 @@ class ItemsViewController: UIViewController {
     
     weak var tableViewDelegate: ItemsViewControllerDelegate?
     
-    enum KindItem {
-        case items, filteredItems, researchingItems, nameFeatures, features, filtersEditing
-    }
-    
-    var kindItem: KindItem = .items
+    var category: Category?
     var navBarItemFilter: NavBarItemFilter? = .add
     var tableViewStat: TableViewStat?
-    var items: [Item] = []
-    var nameFeatures: [NameFeature] = []
-    var nameFeaturesFiltered: [NameFeature] = []
-    var features: [Feature] = []
-    var featuresFilteredByItem: [Feature] = []
-    var featuresFilteredByName: [Feature] = []
-    var featuresFiltered: [Feature] = []
-    var itemsSelected: [Item] = []
-    var itemsFiltered: [Item] = []
-    var researchingItems: [Item] = []
-    
-    var category: Category?
-    var itemSort: Sort = .increasing
-    var tableViewIsEditing: Bool = false
-    var searchActive: Bool = false
-    var viewHeight: CGFloat = 0
-    var settingSegmentedIndex: Int = 3
-    var featuresIndex: Int = 0
-    
-    var filtersSelected: [String] = []
     
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var tableViewContainer: UIView!
@@ -47,6 +23,7 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBack()
         newItemsTableViewController()
         newItemsSettingsViewController()
         title = category!.name
@@ -136,8 +113,6 @@ class ItemsViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation Controller Function
-    
     func navBarItemFilter(_ option: NavBarItemFilter?) {
         navBarItemFilter = option
         if option == nil {
@@ -172,6 +147,8 @@ protocol ItemsTableViewControllerDelegate: AnyObject {
 extension ItemsViewController: ItemsTableViewControllerDelegate {
     func newFeaturesViewController(_ item: Item) {
         let featuresViewController: FeaturesViewController = instantiate("FeaturesViewController", navigationController: navigationController!, storyboard: "Features")
+        featuresViewController.category = category
+        featuresViewController.item = item
     }
     
     func navBarItemFilterOption() -> NavBarItemFilter? {
@@ -207,11 +184,9 @@ extension ItemsViewController: ItemsSettingsViewControllerDelegate {
     }
     
     func filterTitle() -> String {
-        let filters: Int = featuresFilteredByItem.count
-        guard filters > 0 else { return "Filter" }
-        return "Filter " + "(\(filters))"
-//        guard filters > 0 else { return NSLocalizedString("Filter", comment: "") }
-//        return NSLocalizedString("Filter ", comment: "") + "(\(filters))"
+        let filters: Int = tableViewDelegate?.featuresFilteredByItemCount() ?? 0
+        guard filters > 0 else { return NSLocalizedString("Filter", comment: "") }
+        return NSLocalizedString("Filter ", comment: "") + "(\(filters))"
     }
 }
 
@@ -278,11 +253,24 @@ extension ItemsViewController: ItemsSearchViewControllerDelegate {
 
 protocol ItemsFilterViewControllerDelegate: AnyObject {
     func filters()
+    func removeChildSettings()
+    func cancelFilter()
+    func tableViewKindItem() -> KindItem?
 }
 
 extension ItemsViewController: ItemsFilterViewControllerDelegate {
     func filters() {
         tableViewDelegate?.filters()
+    }
+    
+    func cancelFilter() {
+        tableViewDelegate?.kindItem(.items)
+        tableViewDelegate?.reloadData()
+    }
+    
+    func tableViewKindItem() -> KindItem? {
+        return tableViewDelegate?.tableViewKindItem()
+        
     }
 }
 

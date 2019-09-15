@@ -16,8 +16,6 @@ class ItemsTableViewController: UITableViewController {
     
     weak var delegate: ItemsTableViewControllerDelegate?
     
-    weak var controller: ItemsController?
-    
     var category: Category?
     var kindItem: KindItem = .items
     var items: [Item] = []
@@ -45,6 +43,7 @@ class ItemsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        loadItems()
         loadNameFeatures()
         loadFeatures()
         reloadData()
@@ -197,6 +196,10 @@ class ItemsTableViewController: UITableViewController {
     
     // MARK: - Filter Functions
     
+    func loadItems() {
+        items = itemsSort.sort(itemsList.all(category!.id))
+    }
+    
     func loadNameFeatures() {
         nameFeatures = itemsList.all(category!.id)
     }
@@ -211,7 +214,6 @@ class ItemsTableViewController: UITableViewController {
             featuresFilteredByName.append(contentsOf: features.filter({ $0.nameFeatureId == nameFeature.id }))
         }
         featuresFilteredByName = featuresFilteredByName.removeDuplicates()
-        print(featuresFilteredByName)
     }
     
     func filterItems() {
@@ -239,20 +241,13 @@ class ItemsTableViewController: UITableViewController {
             filterItems()
             kindItem = .filteredItems
             tableView.reloadData()
-//            setFilters()
             break
         case .filtersEditing:
             filterItems()
             kindItem = .filteredItems
             tableView.reloadData()
-            setFilters()
             break
         }
-    }
-    
-    func setFilters() {
-        //        removeSettingsContainer()
-        //        instantiateItemsSettingsView()
     }
     
     func resetFilters() {
@@ -307,6 +302,8 @@ protocol ItemsViewControllerDelegate: AnyObject {
     func tableViewEditing()
     func tableViewEndEditing()
     func kindItem(_ kind: KindItem)
+    func tableViewKindItem() -> KindItem
+    func featuresFilteredByItemCount() -> Int
     func filter()
     func filters()
     func removefilter()
@@ -315,7 +312,7 @@ protocol ItemsViewControllerDelegate: AnyObject {
 extension ItemsTableViewController: ItemsViewControllerDelegate {
     
     func reloadData() {
-        items = itemsSort.sort(itemsList.all(category!.id))
+        loadItems()
         tableView.reloadData()
     }
     
@@ -383,8 +380,20 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         kindItem = kind
     }
     
+    func tableViewKindItem() -> KindItem {
+        return kindItem
+    }
+    
+    func featuresFilteredByItemCount() -> Int {
+        return featuresFilteredByItem.count
+    }
+    
     func filter() {
-        kindItem(.nameFeatures)
+        if filteredItems.count > 0 {
+            kindItem(.filtersEditing)
+        } else {
+            kindItem(.nameFeatures)
+        }
         tableView.reloadData()
         //filters()
     }

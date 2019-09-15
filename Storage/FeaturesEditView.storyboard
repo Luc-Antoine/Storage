@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Features Edit View Controller-->
+        <scene sceneID="vPg-h4-qTq">
+            <objects>
+                <viewController storyboardIdentifier="FeaturesEditViewController" id="JO6-3z-5Fy" customClass="FeaturesEditViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A80-SA-xsE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ba-hd-yKi">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkv-De-t6T">
+                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="OlP-ch-B9n"/>
+                                            <constraint firstAttribute="width" constant="30" id="pwi-X8-MY0"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="JO6-3z-5Fy" eventType="touchUpInside" id="ufn-9H-LLb"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WiM-Wd-u4i">
+                                        <rect key="frame" x="60" y="13" width="294" height="28"/>
+                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="pcQ-Gx-edV"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lu0-T5-Y3d">
+                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="grY-dW-wSB"/>
+                                            <constraint firstAttribute="height" constant="30" id="qja-7N-BPk"/>
+                                        </constraints>
+                                        <state key="normal" title="Ok"/>
+                                        <connections>
+                                            <action selector="updateNameFeatures" destination="JO6-3z-5Fy" eventType="touchUpInside" id="zZk-AX-ndK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WiM-Wd-u4i" firstAttribute="centerY" secondItem="8Ba-hd-yKi" secondAttribute="centerY" id="12I-fk-epe"/>
+                                    <constraint firstItem="xkv-De-t6T" firstAttribute="leading" secondItem="8Ba-hd-yKi" secondAttribute="leading" constant="20" id="1Ob-Av-RgF"/>
+                                    <constraint firstItem="lu0-T5-Y3d" firstAttribute="centerY" secondItem="WiM-Wd-u4i" secondAttribute="centerY" id="5lI-01-a2Z"/>
+                                    <constraint firstItem="lu0-T5-Y3d" firstAttribute="leading" secondItem="WiM-Wd-u4i" secondAttribute="trailing" constant="10" id="Itf-s1-fs5"/>
+                                    <constraint firstAttribute="trailing" secondItem="lu0-T5-Y3d" secondAttribute="trailing" constant="20" id="T19-q6-HFd"/>
+                                    <constraint firstAttribute="height" constant="54" id="WfE-er-aLk"/>
+                                    <constraint firstItem="WiM-Wd-u4i" firstAttribute="leading" secondItem="xkv-De-t6T" secondAttribute="trailing" constant="10" id="l1k-04-M9j"/>
+                                    <constraint firstItem="xkv-De-t6T" firstAttribute="centerY" secondItem="WiM-Wd-u4i" secondAttribute="centerY" id="ypd-iJ-M9J"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Ymp-Vl-JYr"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Ba-hd-yKi" firstAttribute="centerY" secondItem="A80-SA-xsE" secondAttribute="centerY" id="Ofe-et-XOa"/>
+                            <constraint firstItem="8Ba-hd-yKi" firstAttribute="leading" secondItem="L8t-c9-w7Z" secondAttribute="leading" id="vKZ-WL-2FY"/>
+                            <constraint firstItem="8Ba-hd-yKi" firstAttribute="centerX" secondItem="A80-SA-xsE" secondAttribute="centerX" id="zNL-qG-cMT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L8t-c9-w7Z"/>
+                    </view>
+                    <connections>
+                        <outlet property="editTextField" destination="WiM-Wd-u4i" id="58n-4O-hqt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QkL-qR-HBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="154"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="36" height="36"/>
+    </resources>
+</document>

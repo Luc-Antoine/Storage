@@ -10,10 +10,19 @@ import UIKit
 
 extension UIViewController {
     
-    // MARK: - Navigation Back Button
+    // MARK: - Design
+    
+    func navigationBarDesign() {
+        navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    func navigationBack() {
+        backButton()
+        backTitle()
+    }
     
     func backButton() {
-        let yourBackImage = UIImage(named: "CancelButton")
+        let yourBackImage = UIImage(named: "Back")
         navigationController?.navigationBar.backIndicatorImage = yourBackImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
     }
@@ -21,6 +30,8 @@ extension UIViewController {
     func backTitle() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    // MARK: - Navigation
     
     func instantiate<T>(_ identifier: String, container: UIView, storyboard: String, bundle: Bundle? = nil) -> T {
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)

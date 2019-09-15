@@ -12,8 +12,6 @@ class ItemsFilterViewController: UIViewController {
     
     weak var delegate: ItemsFilterViewControllerDelegate?
     
-    var controller: ItemsController?
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -27,11 +25,14 @@ class ItemsFilterViewController: UIViewController {
     
     @IBAction func confirm() {
         delegate?.filters()
+        guard delegate?.tableViewKindItem() == .filteredItems else { return }
+        remove()
+        delegate?.removeChildSettings()
     }
     
     @IBAction func removeView() {
-        controller!.resetFilters()
-        controller!.removeSettingsContainer()
-        controller!.instantiateItemsSettingsView()
+        remove()
+        delegate?.removeChildSettings()
+        delegate?.cancelFilter()
     }
 }

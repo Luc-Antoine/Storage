@@ -10,7 +10,14 @@ import UIKit
 
 class FeaturesViewController: UIViewController {
     
+    weak var tableViewDelegate: FeaturesViewControllerDelegate?
+    weak var editTextFieldDelegate: FeaturesEditTextFieldDelegate?
+    
     var controller: FeaturesController?
+    
+    var category: Category?
+    var item: Item?
+    var navBarItem: NavBarItem? = .add
     
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var tableViewContainer: UIView!
@@ -19,25 +26,56 @@ class FeaturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //backButton()
-        controller!.instantianteFeaturesTableViewController()
-        controller!.instantiateFeaturesSettingsView()
-        title = controller!.item!.name
+        navigationBack()
+        newFeaturesTableViewController()
+        newFeaturesSettingsViewController()
+        title = item!.name
     }
     
     @IBAction func AddOrEditAction() {
-        guard controller!.navBarItem != nil else { return }
-        switch controller!.navBarItem! {
+        guard navBarItem != nil else { return }
+        switch navBarItem! {
         case .add:
-            controller!.instantiateFeaturesAddView()
+            newFeaturesAddViewController()
         case .delete:
-            controller!.delete()
-            controller!.featuresTableViewEndEditing()
+            tableViewDelegate?.delete()
+            tableViewDelegate?.tableViewEndEditing()
             break
         }
     }
     
     // MARK: - Navigation
+    
+    func newFeaturesTableViewController() {
+        let featuresTableViewController: FeaturesTableViewController = instantiate("FeaturesTableViewController", container: tableViewContainer, storyboard: "Features")
+        featuresTableViewController.delegate = self
+        tableViewDelegate = featuresTableViewController
+        featuresTableViewController.category = category
+        featuresTableViewController.item = item
+    }
+    
+    func newFeaturesSettingsViewController() {
+        let featuresSettingsViewController: FeaturesSettingsViewController = instantiate("FeaturesSettingsViewController", container: settingsContainer, storyboard: "FeaturesSettingsView")
+        featuresSettingsViewController.delegate = self
+        navBarOption(.add)
+    }
+    
+    func newFeaturesAddViewController() {
+        let featuresAddViewController: FeaturesAddViewController = instantiate("FeaturesAddViewController", container: settingsContainer, storyboard: "FeaturesAddView")
+        featuresAddViewController.delegate = self
+        navBarOption(nil)
+    }
+    
+    func newFeaturesEditViewController() {
+        let featuresEditViewController: FeaturesEditViewController = instantiate("FeaturesEditViewController", container: settingsContainer, storyboard: "FeaturesEditView")
+        featuresEditViewController.delegate = self
+        editTextFieldDelegate = featuresEditViewController
+        navBarOption(.delete)
+    }
+    
+    func newChildSettings() {
+        newFeaturesSettingsViewController()
+    }
     
     func navBarOption(_ option: NavBarItem?) {
         if option == nil {
@@ -65,4 +103,68 @@ class FeaturesViewController: UIViewController {
         return allFeaturesViewController
     }
 
+}
+
+protocol FeaturesTableViewControllerDelegate: AnyObject {
+    func newAllFeaturesViewController(_ category: Category, _ item: Item)
+    func navBarItemOption() -> NavBarItem?
+    func editTextField(_ text: String)
+}
+
+extension FeaturesViewController: FeaturesTableViewControllerDelegate {
+    
+    func newAllFeaturesViewController(_ category: Category, _ item: Item) {
+        let allFeaturesViewController: AllFeaturesViewController = instantiate("AllFeaturesViewController", navigationController: navigationController!, storyboard: "AllFeatures")
+    }
+    
+    func navBarItemOption() -> NavBarItem? {
+        return navBarItem
+    }
+    
+    func editTextField(_ text: String) {
+        editTextFieldDelegate?.text(text)
+    }
+}
+
+protocol FeaturesSettingsViewControllerDelegate: AnyObject {
+    func newFeaturesEditViewController()
+}
+
+extension FeaturesViewController: FeaturesSettingsViewControllerDelegate {
+    
+}
+
+protocol FeaturesAddViewControllerDelegate: AnyObject {
+    func add(_ name: String)
+    func newFeaturesSettingsViewController()
+}
+
+extension FeaturesViewController: FeaturesAddViewControllerDelegate {
+    
+    func add(_ name: String) {
+        let nameFeature = NameFeature(id: 0, name: name, categoryId: category!.id)
+        tableViewDelegate?.add(nameFeature)
+    }
+}
+
+protocol FeaturesEditViewControllerDelegate: AnyObject {
+    func featuresTableViewEditing()
+    func featuresTableViewEndEditing()
+    func editNameFeature(_ name: String)
+    func newFeaturesSettingsViewController()
+}
+
+extension FeaturesViewController: FeaturesEditViewControllerDelegate {
+    
+    func featuresTableViewEditing() {
+        tableViewDelegate?.tableViewEditing()
+    }
+    
+    func featuresTableViewEndEditing() {
+        tableViewDelegate?.tableViewEndEditing()
+    }
+    
+    func editNameFeature(_ name: String) {
+        
+    }
 }

@@ -333,11 +333,11 @@ class ListAnnotationTableViewController: UIViewController, UITableViewDataSource
         searchBar.resignFirstResponder()
     }
     
-    func navigationBarDesign() {
-        let nav = navigationController?.navigationBar
-        nav?.isTranslucent = false
-        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 7/255, green: 90/255, blue: 172/255, alpha: 1)]
-    }
+//    func navigationBarDesign() {
+//        let nav = navigationController?.navigationBar
+//        nav?.isTranslucent = false
+//        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 7/255, green: 90/255, blue: 172/255, alpha: 1)]
+//    }
 }
 
 // MARK: - CellAnnotation

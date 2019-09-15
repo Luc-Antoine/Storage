@@ -34,6 +34,8 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationBarDesign()
+        navigationBack()
     }
     
     override func viewDidAppear(_ animated: Bool) {

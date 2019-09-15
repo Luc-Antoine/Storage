@@ -42,6 +42,9 @@
                                         <state key="normal" title="Annuler">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="removeView" destination="G7U-Om-2Py" eventType="touchUpInside" id="mjT-Ws-dWp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41S-2N-ZIm">
                                         <rect key="frame" x="270.5" y="5" width="80" height="44"/>

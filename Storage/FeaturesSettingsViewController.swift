@@ -8,23 +8,24 @@
 
 import UIKit
 
-class FeaturesSettingsView: UIView {
+class FeaturesSettingsViewController: UIViewController {
     
-    var controller: FeaturesController?
+    weak var delegate: FeaturesSettingsViewControllerDelegate?
     
     @IBOutlet weak var editButton: UIButton!
     
-    func viewDidAppear() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         design()
     }
     
-    @IBAction func insdtantiateEditView() {
-        controller!.instantiateFeaturesEditView()
+    @IBAction func instantiateEditView() {
+        remove()
+        delegate?.newFeaturesEditViewController()
     }
     
     private func design() {
         editButton.border()
     }
-
-
 }

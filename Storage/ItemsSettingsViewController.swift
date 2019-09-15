@@ -14,8 +14,8 @@ class ItemsSettingsViewController: UIViewController {
     
     @IBOutlet weak var settings: UISegmentedControl!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         settings.setTitle(delegate?.filterTitle(), forSegmentAt: 3)
     }
@@ -24,5 +24,4 @@ class ItemsSettingsViewController: UIViewController {
         remove()
         delegate?.navigationSettings(settings.selectedSegmentIndex)
     }
-    
 }

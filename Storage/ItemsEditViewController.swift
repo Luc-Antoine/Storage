@@ -12,8 +12,6 @@ class ItemsEditViewController: UIViewController {
     
     weak var delegate: ItemsEditViewControllerDelegate?
     
-    var controller: ItemsController?
-    
     @IBOutlet weak var editTexrField: UITextField!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,6 +29,6 @@ class ItemsEditViewController: UIViewController {
     
     @IBAction func textFieldChanged() {
         guard editTexrField.text != nil else { return }
-        controller?.textFieldDidResearching(editTexrField.text!)
+        delegate?.textFieldDidResearching(editTexrField.text!)
     }
 }

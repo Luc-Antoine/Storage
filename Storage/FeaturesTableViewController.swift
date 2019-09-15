@@ -8,21 +8,36 @@
 
 import UIKit
 
-protocol FeaturesTableViewDelegate: AnyObject {
-    func selectNameFeature(_ index: Int)
-    func reloadFeature(_ feature: Feature)
-}
-
 class FeaturesTableViewController: UITableViewController {
     
+    weak var delegate: FeaturesTableViewControllerDelegate?
+    
     var controller: FeaturesController?
+    
+    var category: Category?
+    var item: Item?
+    var oldFeature: Feature?
+    var feature: Feature?
+    var features: [Feature] = []
+    var nameFeatures: [NameFeature] = []
+    var nameFeaturesSelected: [NameFeature] = []
     var lastIndexPath: IndexPath?
     var featureName: String = ""
+    
+    private let featureList = FeatureList()
+    private let preferences = Preferences()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadFeatures()
+        loadNameFeatures()
     }
 
     // MARK: - Table view data source
@@ -32,26 +47,26 @@ class FeaturesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller!.nameFeatures.count
+        return nameFeatures.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if controller!.navBarItem == .add {
+        if delegate?.navBarItemOption() == .add {
             let cell = tableView.dequeueReusableCell(withIdentifier: FeaturesTableViewCell.identifier, for: indexPath) as! FeaturesTableViewCell
-            cell.configureCell(nameFeature: controller!.nameFeatures[indexPath.row], featureName: features(controller!.nameFeatures[indexPath.row].id), featureCount: controller!.selectCount(indexPath.row, feature: features(controller!.nameFeatures[indexPath.row].id)))
+            cell.configureCell(nameFeature: nameFeatures[indexPath.row], featureName: features(nameFeatures[indexPath.row].id), featureCount: selectCount(indexPath.row, feature: features(nameFeatures[indexPath.row].id)))
             cell.featureTextField.tag = indexPath.row
             cell.featureTextField.delegate = self
             cell.featuresTableViewDelegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: NameFeaturesTableViewCell.identifier, for: indexPath) as! NameFeaturesTableViewCell
-            cell.configureCell(controller!.nameFeatures[indexPath.row].name)
+            cell.configureCell(nameFeatures[indexPath.row].name)
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if controller!.navBarItem == .add {
+        if delegate?.navBarItemOption() == .add {
             return 84
         } else {
             return 44
@@ -62,15 +77,157 @@ class FeaturesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lastIndexPath = indexPath
-        controller!.featuresEditView?.editTextField.text = controller!.nameFeatures[indexPath.row].name
-        controller!.feature = controller!.features.indices.contains(indexPath.row) ? controller!.features[indexPath.row] : nil
+        delegate?.editTextField(nameFeatures[indexPath.row].name)
+//        controller!.featuresEditView?.editTextField.text = nameFeatures[indexPath.row].name
+        feature = features.indices.contains(indexPath.row) ? features[indexPath.row] : nil
         
-        if let index = controller!.nameFeaturesSelected.firstIndex(of: controller!.nameFeatures[indexPath.row]) {
-            controller!.nameFeaturesSelected.remove(at: index)
+        if let index = nameFeaturesSelected.firstIndex(of: nameFeatures[indexPath.row]) {
+            nameFeaturesSelected.remove(at: index)
         } else {
-            controller!.nameFeaturesSelected.append(controller!.nameFeatures[indexPath.row])
+            nameFeaturesSelected.append(nameFeatures[indexPath.row])
         }
     }
+    
+    // MARK: - Edit naùe feature
+    
+    func edit(_ name: String) {
+//        featuresEditView?.editTextField.text = name
+//        let index = featuresTableViewController?.lastIndexPath?.row
+//        guard index != nil else { return }
+//        update(index!, name: name)
+//        featuresTableViewController!.tableView.reloadRows(at: [IndexPath(row: index!, section: 0)], with: .automatic)
+//        featuresEditView?.editTextField.text = ""
+    }
+    
+    // MARK: - Private Functions
+    
+    private func features(_ index: Int) -> String {
+        if let feature = features.first(where: { $0.nameFeatureId == index }) {
+            return feature.name
+        }
+        return ""
+    }
+    
+    private func features(_ index: Int) -> Feature? {
+        if let feature = features.first(where: { $0.nameFeatureId == index }) {
+            return feature
+        }
+        return nil
+    }
+    
+    private func loadNameFeatures() {
+        nameFeatures = featureList.all(category!.id)
+    }
+    
+    private func loadFeatures() {
+        features = featureList.all(item!.id)
+    }
+    
+    // MARK: - DataBase Functions
+    
+    func selectCount(_ index: Int, feature: Feature?) -> Int {
+        return featureList.selectCount(nameFeatures[index].id)
+    }
+    
+    func add(_ feature: Feature, nameFeature: NameFeature) {
+        let lastFeatureId = preferences.lastFeatureId()
+        preferences.lastFeatureId(lastFeatureId)
+        featureList.add(feature, nameFeature, item!)
+        features.append(feature)
+        //sort()
+    }
+    
+    func add(_ nameFeature: NameFeature) {
+        featureList.add(nameFeature)
+        loadFeatures()
+        loadNameFeatures()
+        tableView.reloadData()
+    }
+    
+    func update(_ index: Int, name: String) {
+        var nameFeature = nameFeatures[index]
+        nameFeature.name = name
+        nameFeatures[index] = nameFeature
+        featureList.update(nameFeature)
+    }
+    
+    func update(_ feature: Feature, _ index: Int) {
+        featureList.update(feature, index, item!, nameFeatures[index])
+        
+//        let featureAlreadySaved: Feature? = dataBase.check(feature)
+//        if featureAlreadySaved != nil {
+//            dataBase.increase(featureAlreadySaved!)
+//            dataBase.insert(item!, nameFeature: nameFeatures[index], feature: featureAlreadySaved!)
+//        } else {
+//            dataBase.insert(feature)
+//            dataBase.insert(item!, nameFeature: nameFeatures[index], feature: feature)
+//        }
+        
+        oldFeature(index)
+    }
+    
+    func oldFeature(_ index: Int) {
+        guard oldFeature != nil else { return }
+        featureList.oldFeature(item!, nameFeatures[index], oldFeature!)
+        
+//        dataBase.delete(item!, nameFeature: nameFeatures[index], feature: oldFeature!)
+//        if oldFeature!.count > 1 {
+//            dataBase.decrease(oldFeature!)
+//        } else {
+//            dataBase.delete(oldFeature!)
+//        }
+    }
+}
+
+extension FeaturesTableViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        featureName = textField.text ?? ""
+        oldFeature = features.first(where: { $0.nameFeatureId == nameFeatures[textField.tag].id })
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.text = textField.text!.removingEndingSpaces()
+        guard featureName != textField.text! else { return }
+        let nameFeature = nameFeatures[textField.tag]
+        let lastId = featureList.lastFeatureId()
+        let feature = Feature(id: lastId, name: textField.text!, count: 1, itemId: item!.id, nameFeatureId: nameFeature.id, featureId: lastId)
+        update(feature, textField.tag)
+    }
+}
+
+protocol FeaturesTableViewDelegate: AnyObject {
+    func selectNameFeature(_ index: Int)
+    func reloadFeature(_ feature: Feature)
+}
+
+extension FeaturesTableViewController: FeaturesTableViewDelegate {
+    func selectNameFeature(_ index: Int) {
+        lastIndexPath = IndexPath(row: index, section: 0)
+        let feature: Feature? = features.first(where: { $0.nameFeatureId == nameFeatures[index].id })
+        //controller!.instantiateAllFeaturesController(nameFeatures[index], feature)
+    }
+    
+    func reloadFeature(_ feature: Feature) {
+        guard lastIndexPath != nil else { return }
+        if features.indices.contains(lastIndexPath!.row) {
+            features[lastIndexPath!.row] = feature
+        } else {
+            features.append(feature)
+        }
+        tableView!.reloadRows(at: [lastIndexPath!], with: .automatic)
+    }
+}
+
+protocol FeaturesViewControllerDelegate: AnyObject {
+    func tableViewEditing()
+    func tableViewEndEditing()
+    func delete()
+    func update(_ index: Int, name: String)
+    func add(_ nameFeature: NameFeature)
+}
+
+extension FeaturesTableViewController: FeaturesViewControllerDelegate {
     
     // MARK: - Controller Functions
     
@@ -87,51 +244,9 @@ class FeaturesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    // MARK: - Private Functions
-    
-    private func features(_ index: Int) -> String {
-        if let feature = controller!.features.first(where: { $0.nameFeatureId == index }) {
-            return feature.name
-        }
-        return ""
+    func delete() {
+        print(nameFeaturesSelected)
+        nameFeaturesSelected.removeAll()
     }
     
-    private func features(_ index: Int) -> Feature? {
-        if let feature = controller!.features.first(where: { $0.nameFeatureId == index }) {
-            return feature
-        }
-        return nil
-    }
-}
-
-extension FeaturesTableViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        featureName = textField.text ?? ""
-        controller!.textFieldDidBeginEditing(textField.tag)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.text = textField.text!.removingEndingSpaces()
-        guard featureName != textField.text! else { return }
-        controller!.textFieldEndEditing(textField)
-    }
-}
-
-extension FeaturesTableViewController: FeaturesTableViewDelegate {
-    func selectNameFeature(_ index: Int) {
-        lastIndexPath = IndexPath(row: index, section: 0)
-        let feature: Feature? = controller!.features.first(where: { $0.nameFeatureId == controller!.nameFeatures[index].id })
-        controller!.instantiateAllFeaturesController(controller!.nameFeatures[index], feature)
-    }
-    
-    func reloadFeature(_ feature: Feature) {
-        guard lastIndexPath != nil else { return }
-        if controller!.features.indices.contains(lastIndexPath!.row) {
-            controller!.features[lastIndexPath!.row] = feature
-        } else {
-            controller!.features.append(feature)
-        }
-        tableView!.reloadRows(at: [lastIndexPath!], with: .automatic)
-    }
 }

@@ -45,26 +45,3 @@ extension Item: FetchableRecord, PersistableRecord {
 extension Item: SortType {
     
 }
-
-//extension Item {
-//    
-//    enum ItemsSort: Int {
-//        case increasing = 0
-//        case decreasing
-//        case favoritesFirst
-//        case favoritesLast
-//        
-//        func sort(_ items: [Item]) -> [Item] {
-//            switch self {
-//            case .increasing:
-//                return items.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
-//            case .decreasing:
-//                return items.sorted(by: { $0.name.lowercased() > $1.name.lowercased() })
-//            case .favoritesFirst:
-//                return items.sorted(by: { $0.favorite && !$1.favorite })
-//            case .favoritesLast:
-//                return items.sorted(by: { !$0.favorite && $1.favorite })
-//            }
-//        }
-//    }
-//}
