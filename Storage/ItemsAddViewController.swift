@@ -16,8 +16,8 @@ class ItemsAddViewController: UIViewController {
     @IBOutlet weak var confirmeButton: UIButton!
     @IBOutlet weak var nameItemTextField: UITextField!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         nameItemTextField.becomeFirstResponder()
         nameItemTextField.border()

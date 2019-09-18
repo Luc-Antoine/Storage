@@ -11,20 +11,17 @@ import UIKit
 class NameFeaturesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameFeatureLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func configureCell(_ nameFeature: String) {
         nameFeatureLabel.text = nameFeature
     }
+    
+//    func select() {
+//        backView.backgroundColor = UIColor.separator
+//    }
+//    
+//    func unselect() {
+//        backView.backgroundColor = UIColor.white
+//    }
 
 }

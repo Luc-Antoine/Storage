@@ -15,8 +15,8 @@ class CategoriesEditViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var editTextField: UITextField!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         editTextField.borderDesign()
     }

@@ -20,7 +20,7 @@ class CategoriesNavigationController: UINavigationController {
     }
     
     func newCategoriesViewController() {
-        let _: CategoriesViewController = instantiate("CategoriesViewController", navigationController: self, storyboard: "Categories")
-//        pushViewController(categoriesViewController, animated: true)
+        let categoriesViewController: CategoriesViewController = instantiate("CategoriesViewController", storyboard: "Categories")
+        pushViewController(categoriesViewController, animated: true)
     }
 }

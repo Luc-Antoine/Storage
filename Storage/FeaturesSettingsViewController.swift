@@ -14,8 +14,8 @@ class FeaturesSettingsViewController: UIViewController {
     
     @IBOutlet weak var editButton: UIButton!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         design()
     }

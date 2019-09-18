@@ -14,8 +14,8 @@ class ItemsSettingsViewController: UIViewController {
     
     @IBOutlet weak var settings: UISegmentedControl!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         settings.setTitle(delegate?.filterTitle(), forSegmentAt: 3)
     }

@@ -62,43 +62,49 @@ class CategoriesViewController: UIViewController {
     // MARK: - Navigation
     
     func newCategoriesTableViewController() {
-        let categoriesTableViewController: CategoriesTableViewController = instantiate( "CategoriesTableViewController", container: tableViewContainer, storyboard: "Categories")
+        let categoriesTableViewController: CategoriesTableViewController = instantiate( "CategoriesTableViewController", storyboard: "Categories")
         categoriesTableViewController.delegate = self
         tableViewDelegate = categoriesTableViewController
+        addChild(categoriesTableViewController, container: tableViewContainer)
     }
     
     func newCategoriesSettingsViewController() {
-        let categoriesSettingsViewController: CategoriesSettingsViewController = instantiate("CategoriesSettingsViewController", container: settingsContainer, storyboard: "CategoriesSettingsView")
+        let categoriesSettingsViewController: CategoriesSettingsViewController = instantiate("CategoriesSettingsViewController", storyboard: "CategoriesSettingsView")
         categoriesSettingsViewController.delegate = self
         navBarOption(.add)
+        addChild(categoriesSettingsViewController, container: settingsContainer)
     }
     
     func newCategoriesAddViewController() {
-        let categoriesAddViewController: CategoriesAddViewController = instantiate("CategoriesAddViewController", container: settingsContainer, storyboard: "CategoriesAddView")
+        let categoriesAddViewController: CategoriesAddViewController = instantiate("CategoriesAddViewController", storyboard: "CategoriesAddView")
         categoriesAddViewController.delegate = self
         navBarOption(nil)
+        addChild(categoriesAddViewController, container: settingsContainer)
     }
     
     func newCategoriesEditViewController() {
-        let categoriesEditViewController: CategoriesEditViewController = instantiate("CategoriesEditViewController", container: settingsContainer, storyboard: "CategoriesEditView")
+        let categoriesEditViewController: CategoriesEditViewController = instantiate("CategoriesEditViewController", storyboard: "CategoriesEditView")
         categoriesEditViewController.delegate = self
         tableViewDelegate?.tableViewEditing()
         tableViewStat = .editing
         navBarOption(.delete)
+        addChild(categoriesEditViewController, container: settingsContainer)
     }
     
     func newCategoriesSortViewController() {
-        let categoriesSortViewController: CategoriesSortViewController = instantiate("CategoriesSortViewController", container: settingsContainer, storyboard: "CategoriesSortView")
+        let categoriesSortViewController: CategoriesSortViewController = instantiate("CategoriesSortViewController", storyboard: "CategoriesSortView")
         categoriesSortViewController.delegate = self
         navBarOption(nil)
+        addChild(categoriesSortViewController, container: settingsContainer)
     }
     
     func newCategoriesSearchViewController() {
-        let categoriesSearchViewController: CategoriesSearchViewController = instantiate("CategoriesSearchViewController", container: settingsContainer, storyboard: "CategoriesSearchView")
+        let categoriesSearchViewController: CategoriesSearchViewController = instantiate("CategoriesSearchViewController", storyboard: "CategoriesSearchView")
         categoriesSearchViewController.delegate = self
         tableViewDelegate?.textFieldDidBeginEditing()
         tableViewStat = .searching
         navBarOption(nil)
+        addChild(categoriesSearchViewController, container: settingsContainer)
     }
     
     func removeChildSettings() {
@@ -162,8 +168,9 @@ protocol CategoriesTableViewControllerDelegate: AnyObject {
 
 extension CategoriesViewController: CategoriesTableViewControllerDelegate {
     func newItemsViewController(_ category: Category) {
-        let itemsViewController: ItemsViewController = instantiate("ItemsViewController", navigationController: navigationController!, storyboard: "Items")
+        let itemsViewController: ItemsViewController = instantiate("ItemsViewController", storyboard: "Items")
         itemsViewController.category = category
+        navigationController?.pushViewController(itemsViewController, animated: true)
     }
 }
 

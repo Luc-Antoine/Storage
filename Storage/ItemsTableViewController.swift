@@ -156,8 +156,23 @@ class ItemsTableViewController: UITableViewController {
             tableView.reloadRows(at: [indexPath], with: .automatic)
             break
         case .filtersEditing:
-            featuresFilteredByItem = featuresFilteredByItem.set(featuresFilteredByName[indexPath.row])
-            featuresFiltered = featuresFiltered.set(featuresFilteredByName[indexPath.row])
+            featuresFilteredByItem = featuresFilteredByItem.set(featuresFilteredByItem[indexPath.row])
+            featuresFiltered = featuresFiltered.set(featuresFiltered[indexPath.row])
+            
+            var nameFeatureIdInFeaturesFiltered: [Int] = []
+            for feature in featuresFiltered {
+                nameFeatureIdInFeaturesFiltered.append(feature.featureId)
+            }
+            nameFeatureIdInFeaturesFiltered = nameFeatureIdInFeaturesFiltered.removeDuplicates()
+            
+            nameFeaturesFiltered.removeAll { (results) -> Bool in
+                !nameFeatureIdInFeaturesFiltered.contains(results.id)
+            }
+            
+            featuresFilteredByName.removeAll { (results) -> Bool in
+                !nameFeatureIdInFeaturesFiltered.contains(results.id)
+            }
+            
             tableView.deleteRows(at: [indexPath], with: .automatic)
             break
         }
@@ -244,16 +259,10 @@ class ItemsTableViewController: UITableViewController {
             break
         case .filtersEditing:
             filterItems()
-            kindItem = .filteredItems
+            kindItem = .nameFeatures
             tableView.reloadData()
             break
         }
-    }
-    
-    func resetFilters() {
-        removeFilters()
-        kindItem = .items
-        tableView.reloadData()
     }
     
     func removeFilters() {
@@ -306,7 +315,7 @@ protocol ItemsViewControllerDelegate: AnyObject {
     func featuresFilteredByItemCount() -> Int
     func filter()
     func filters()
-    func removefilter()
+    func resetFilters()
 }
 
 extension ItemsTableViewController: ItemsViewControllerDelegate {
@@ -398,7 +407,9 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         //filters()
     }
     
-    func removefilter() {
-        
+    func resetFilters() {
+        removeFilters()
+        kindItem = .items
+        tableView.reloadData()
     }
 }

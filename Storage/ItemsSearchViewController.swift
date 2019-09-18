@@ -14,15 +14,13 @@ class ItemsSearchViewController: UIViewController {
     
     @IBOutlet weak var searchTextField: UITextField!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         searchTextField.border()
         searchTextField.paddingLeft()
         searchTextField.becomeFirstResponder()
     }
-    
-    var controller: ItemsController?
     
     @IBAction func removeView() {
         searchTextField.resignFirstResponder()

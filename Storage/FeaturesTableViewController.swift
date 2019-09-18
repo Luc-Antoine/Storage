@@ -12,8 +12,6 @@ class FeaturesTableViewController: UITableViewController {
     
     weak var delegate: FeaturesTableViewControllerDelegate?
     
-    var controller: FeaturesController?
-    
     var category: Category?
     var item: Item?
     var oldFeature: Feature?
@@ -83,6 +81,7 @@ class FeaturesTableViewController: UITableViewController {
         
         if let index = nameFeaturesSelected.firstIndex(of: nameFeatures[indexPath.row]) {
             nameFeaturesSelected.remove(at: index)
+            // TableView reload cell
         } else {
             nameFeaturesSelected.append(nameFeatures[indexPath.row])
         }
@@ -205,6 +204,7 @@ extension FeaturesTableViewController: FeaturesTableViewDelegate {
     func selectNameFeature(_ index: Int) {
         lastIndexPath = IndexPath(row: index, section: 0)
         let feature: Feature? = features.first(where: { $0.nameFeatureId == nameFeatures[index].id })
+        delegate?.newAllFeaturesViewController(nameFeatures[index], feature)
         //controller!.instantiateAllFeaturesController(nameFeatures[index], feature)
     }
     
@@ -222,6 +222,7 @@ extension FeaturesTableViewController: FeaturesTableViewDelegate {
 protocol FeaturesViewControllerDelegate: AnyObject {
     func tableViewEditing()
     func tableViewEndEditing()
+    func reloadData()
     func delete()
     func update(_ index: Int, name: String)
     func add(_ nameFeature: NameFeature)
@@ -229,7 +230,7 @@ protocol FeaturesViewControllerDelegate: AnyObject {
 
 extension FeaturesTableViewController: FeaturesViewControllerDelegate {
     
-    // MARK: - Controller Functions
+    // MARK: - Editing Functions
     
     func tableViewEditing() {
         tableView.allowsMultipleSelectionDuringEditing = true
@@ -241,6 +242,10 @@ extension FeaturesTableViewController: FeaturesViewControllerDelegate {
         tableView.allowsMultipleSelectionDuringEditing = false
         tableView.setEditing(false, animated: false)
         tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 15, bottom: 0, right: 0)
+        tableView.reloadData()
+    }
+    
+    func reloadData() {
         tableView.reloadData()
     }
     

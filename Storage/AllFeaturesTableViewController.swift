@@ -10,11 +10,22 @@ import UIKit
 
 class AllFeaturesTableViewController: UITableViewController {
     
-    weak var controller: AllFeaturesController?
+    weak var delegate: AllFeaturesTableViewControllerDelegate?
+    
+    var item: Item?
+    var features: [Feature] = []
+    var selectedFeatures: [Feature] = []
+    var feature: Feature?
+    var nameFeature: NameFeature?
+    var researching: Bool = false
+    
+    private let allFeatureList = AllFeatureList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        features = allFeatureList.all(nameFeature!.id)
+        selectedFeatures = features
     }
 
     // MARK: - TableView Datasource
@@ -24,12 +35,12 @@ class AllFeaturesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller!.features.count
+        return selectedFeatures.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AllFeaturesTableViewCell.identifier, for: indexPath) as! AllFeaturesTableViewCell
-        cell.configureCell(controller!.features[indexPath.row].name + " \(controller!.features[indexPath.row].count)")
+        cell.configureCell(selectedFeatures[indexPath.row].name)
         return cell
     }
     
@@ -40,8 +51,43 @@ class AllFeaturesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        controller!.update(controller!.features[indexPath.row])
-        controller!.close()
+        update(features[indexPath.row])
+        delegate?.close(features[indexPath.row])
     }
+    
+    // MARK: - DataBase Functions
+    
+    func update(_ newFeature: Feature) {
+        allFeatureList.increase(newFeature)
+        allFeatureList.insert(item!, nameFeature!, newFeature)
+        guard feature != nil else { return }
+        if feature!.count > 1 {
+            allFeatureList.decrease(feature!)
+        } else {
+            allFeatureList.delete(item!, nameFeature!, feature!)
+        }
+    }
+}
 
+protocol AllFeaturesViewControllerDelegate: AnyObject {
+    func researching(_ text: String)
+    func researching(_ bool: Bool)
+}
+
+extension AllFeaturesTableViewController: AllFeaturesViewControllerDelegate {
+    
+    func researching(_ text: String) {
+        if text != "" {
+            selectedFeatures = features.filter({ (results) -> Bool in
+                return results.name.lowercased().contains(text.lowercased())
+            })
+        } else {
+            selectedFeatures = features
+        }
+        tableView.reloadData()
+    }
+    
+    func researching(_ bool: Bool) {
+        researching = bool
+    }
 }

@@ -16,8 +16,8 @@ class CategoriesAddViewController: UIViewController {
     @IBOutlet weak var confirmeButton: UIButton!
     @IBOutlet weak var nameCategoryTextField: UITextField!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         nameCategoryTextField.becomeFirstResponder()
         nameCategoryTextField.border()

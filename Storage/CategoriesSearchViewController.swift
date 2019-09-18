@@ -15,8 +15,8 @@ class CategoriesSearchViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         searchTextField.borderDesign()
         searchTextField.becomeFirstResponder()

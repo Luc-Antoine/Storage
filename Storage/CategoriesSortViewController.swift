@@ -15,8 +15,8 @@ class CategoriesSortViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         sortSegmentedControl.selectedSegmentIndex = delegate?.categoriesSortIndex()?.rawValue ?? 0
     }

@@ -14,12 +14,6 @@ class CategoriesSettingsViewController: UIViewController {
     
     @IBOutlet weak var settings: UISegmentedControl!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
-    
     @IBAction func settingsDisplay(_ sender: Any) {
         remove()
         delegate?.navigationSettings(settings.selectedSegmentIndex)

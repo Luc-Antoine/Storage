@@ -12,9 +12,10 @@ class ItemsFilterViewController: UIViewController {
     
     weak var delegate: ItemsFilterViewControllerDelegate?
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        validateButtonTitle()
         cancelButton.border()
         validateButton.border()
     }
@@ -25,6 +26,7 @@ class ItemsFilterViewController: UIViewController {
     
     @IBAction func confirm() {
         delegate?.filters()
+        validateButtonTitle()
         guard delegate?.tableViewKindItem() == .filteredItems else { return }
         remove()
         delegate?.removeChildSettings()
@@ -34,5 +36,13 @@ class ItemsFilterViewController: UIViewController {
         remove()
         delegate?.removeChildSettings()
         delegate?.cancelFilter()
+    }
+    
+    private func validateButtonTitle() {
+        if delegate?.tableViewKindItem() == .filtersEditing {
+            validateButton.setTitle("Nouveau", for: .normal)
+        } else {
+            validateButton.setTitle("Valider", for: .normal)
+        }
     }
 }

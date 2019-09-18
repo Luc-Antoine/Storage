@@ -51,52 +51,59 @@ class ItemsViewController: UIViewController {
     // MARK: - Navigation
     
     func newItemsTableViewController() {
-        let itemsTableViewController: ItemsTableViewController = instantiate("ItemsTableViewController", container: tableViewContainer, storyboard: "Items")
+        let itemsTableViewController: ItemsTableViewController = instantiate("ItemsTableViewController", storyboard: "Items")
         itemsTableViewController.delegate = self
         itemsTableViewController.category = category
         tableViewDelegate = itemsTableViewController
+        addChild(itemsTableViewController, container: tableViewContainer)
     }
     
     func newItemsSettingsViewController() {
-        let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", container: settingsContainer, storyboard: "ItemsSettingsView")
+        let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", storyboard: "ItemsSettingsView")
         itemsSettingsViewController.delegate = self
         navBarItemFilter(.add)
+        addChild(itemsSettingsViewController, container: settingsContainer)
     }
     
     func newItemsAddViewController() {
-        let itemsAddViewController: ItemsAddViewController = instantiate("ItemsAddViewController", container: settingsContainer, storyboard: "ItemsAddView")
+        let itemsAddViewController: ItemsAddViewController = instantiate("ItemsAddViewController", storyboard: "ItemsAddView")
         itemsAddViewController.delegate = self
         navBarItemFilter(nil)
+        addChild(itemsAddViewController, container: settingsContainer)
     }
     
     func newItemsEditViewController() {
-        let itemsEditViewController: ItemsEditViewController = instantiate("ItemsEditViewController", container: settingsContainer, storyboard: "ItemsEditView")
+        let itemsEditViewController: ItemsEditViewController = instantiate("ItemsEditViewController", storyboard: "ItemsEditView")
         itemsEditViewController.delegate = self
         tableViewDelegate?.tableViewEditing()
         tableViewStat = .editing
         navBarItemFilter(.delete)
+        addChild(itemsEditViewController, container: settingsContainer)
     }
     
     func newItemsSortViewController() {
-        let itemsSortViewController: ItemsSortViewController = instantiate("ItemsSortViewController", container: settingsContainer, storyboard: "ItemsSortView")
+        let itemsSortViewController: ItemsSortViewController = instantiate("ItemsSortViewController", storyboard: "ItemsSortView")
         itemsSortViewController.delegate = self
         navBarItemFilter(nil)
+        addChild(itemsSortViewController, container: settingsContainer)
     }
     
     func newItemsSearchViewController() {
-        let itemsSearchViewController: ItemsSearchViewController = instantiate("ItemsSearchViewController", container: settingsContainer, storyboard: "ItemsSearchView")
+        let itemsSearchViewController: ItemsSearchViewController = instantiate("ItemsSearchViewController", storyboard: "ItemsSearchView")
         itemsSearchViewController.delegate = self
         tableViewDelegate?.kindItem(.researchingItems)
         tableViewDelegate?.textFieldDidBeginEditing()
         tableViewStat = .searching
         navBarItemFilter(nil)
+        addChild(itemsSearchViewController, container: settingsContainer)
     }
     
     func newItemsFilterViewController() {
-        let itemsFilterViewController: ItemsFilterViewController = instantiate("ItemsFilterViewController", container: settingsContainer, storyboard: "ItemsFilterView")
+        let itemsFilterViewController: ItemsFilterViewController = instantiate("ItemsFilterViewController", storyboard: "ItemsFilterView")
         itemsFilterViewController.delegate = self
         navBarItemFilter(nil)
         tableViewDelegate?.filter()
+        addChild(itemsFilterViewController, container: settingsContainer)
     }
     
     func removeChildSettings() {
@@ -146,9 +153,10 @@ protocol ItemsTableViewControllerDelegate: AnyObject {
 
 extension ItemsViewController: ItemsTableViewControllerDelegate {
     func newFeaturesViewController(_ item: Item) {
-        let featuresViewController: FeaturesViewController = instantiate("FeaturesViewController", navigationController: navigationController!, storyboard: "Features")
+        let featuresViewController: FeaturesViewController = instantiate("FeaturesViewController", storyboard: "Features")
         featuresViewController.category = category
         featuresViewController.item = item
+        navigationController?.pushViewController(featuresViewController, animated: true)
     }
     
     func navBarItemFilterOption() -> NavBarItemFilter? {
@@ -264,6 +272,7 @@ extension ItemsViewController: ItemsFilterViewControllerDelegate {
     }
     
     func cancelFilter() {
+        tableViewDelegate?.resetFilters()
         tableViewDelegate?.kindItem(.items)
         tableViewDelegate?.reloadData()
     }

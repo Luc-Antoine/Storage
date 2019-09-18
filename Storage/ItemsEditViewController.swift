@@ -14,8 +14,8 @@ class ItemsEditViewController: UIViewController {
     
     @IBOutlet weak var editTexrField: UITextField!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         editTexrField.border()
         editTexrField.paddingLeft()

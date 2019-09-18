@@ -33,17 +33,16 @@ extension UIViewController {
     
     // MARK: - Navigation
     
-    func instantiate<T>(_ identifier: String, container: UIView, storyboard: String, bundle: Bundle? = nil) -> T {
+//    func instantiate<T>(_ identifier: String, container: UIView, storyboard: String, bundle: Bundle? = nil) -> T {
+//        let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
+//        let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
+//        addChild(viewController, container: container)
+//        return viewController as! T
+//    }
+    
+    func instantiate<T>(_ identifier: String, storyboard: String, bundle: Bundle? = nil) -> T {
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
         let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
-        addChild(viewController, container: container)
-        return viewController as! T
-    }
-    
-    func instantiate<T>(_ identifier: String, navigationController: UINavigationController, storyboard: String? = nil, bundle: Bundle? = nil) -> T {
-        let storyboard = UIStoryboard(name: storyboard ?? identifier, bundle: bundle)
-        let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
-        navigationController.pushViewController(viewController, animated: true)
         return viewController as! T
     }
     
@@ -54,7 +53,7 @@ extension UIViewController {
         removeFromParent()
     }
     
-    private func addChild(_ child: UIViewController, container: UIView) {
+    func addChild(_ child: UIViewController, container: UIView) {
         addChild(child)
         container.addSubview(child.view)
         child.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

@@ -11,9 +11,8 @@ import UIKit
 class FeaturesViewController: UIViewController {
     
     weak var tableViewDelegate: FeaturesViewControllerDelegate?
+    weak var featuresTableViewDelegate: FeaturesTableViewDelegate?
     weak var editTextFieldDelegate: FeaturesEditTextFieldDelegate?
-    
-    var controller: FeaturesController?
     
     var category: Category?
     var item: Item?
@@ -37,6 +36,8 @@ class FeaturesViewController: UIViewController {
         switch navBarItem! {
         case .add:
             newFeaturesAddViewController()
+            tableViewDelegate?.reloadData()
+            break
         case .delete:
             tableViewDelegate?.delete()
             tableViewDelegate?.tableViewEndEditing()
@@ -47,30 +48,36 @@ class FeaturesViewController: UIViewController {
     // MARK: - Navigation
     
     func newFeaturesTableViewController() {
-        let featuresTableViewController: FeaturesTableViewController = instantiate("FeaturesTableViewController", container: tableViewContainer, storyboard: "Features")
+        let featuresTableViewController: FeaturesTableViewController = instantiate("FeaturesTableViewController", storyboard: "Features")
         featuresTableViewController.delegate = self
         tableViewDelegate = featuresTableViewController
+        featuresTableViewDelegate = featuresTableViewController
         featuresTableViewController.category = category
         featuresTableViewController.item = item
+        addChild(featuresTableViewController, container: tableViewContainer)
     }
     
     func newFeaturesSettingsViewController() {
-        let featuresSettingsViewController: FeaturesSettingsViewController = instantiate("FeaturesSettingsViewController", container: settingsContainer, storyboard: "FeaturesSettingsView")
+        let featuresSettingsViewController: FeaturesSettingsViewController = instantiate("FeaturesSettingsViewController", storyboard: "FeaturesSettingsView")
         featuresSettingsViewController.delegate = self
         navBarOption(.add)
+        addChild(featuresSettingsViewController, container: settingsContainer)
     }
     
     func newFeaturesAddViewController() {
-        let featuresAddViewController: FeaturesAddViewController = instantiate("FeaturesAddViewController", container: settingsContainer, storyboard: "FeaturesAddView")
+        let featuresAddViewController: FeaturesAddViewController = instantiate("FeaturesAddViewController", storyboard: "FeaturesAddView")
         featuresAddViewController.delegate = self
         navBarOption(nil)
+        addChild(featuresAddViewController, container: settingsContainer)
     }
     
     func newFeaturesEditViewController() {
-        let featuresEditViewController: FeaturesEditViewController = instantiate("FeaturesEditViewController", container: settingsContainer, storyboard: "FeaturesEditView")
+        let featuresEditViewController: FeaturesEditViewController = instantiate("FeaturesEditViewController", storyboard: "FeaturesEditView")
         featuresEditViewController.delegate = self
         editTextFieldDelegate = featuresEditViewController
         navBarOption(.delete)
+        tableViewDelegate?.reloadData()
+        addChild(featuresEditViewController, container: settingsContainer)
     }
     
     func newChildSettings() {
@@ -94,27 +101,23 @@ class FeaturesViewController: UIViewController {
             }
         }
     }
-    
-    func instantiateAllFeaturesController(_ controller: AllFeaturesController) -> AllFeaturesViewController {
-        let storyboard = UIStoryboard(name: "AllFeatures", bundle: nil)
-        let allFeaturesViewController = storyboard.instantiateViewController(withIdentifier: "AllFeaturesViewController") as! AllFeaturesViewController
-        allFeaturesViewController.controller = controller
-        navigationController?.pushViewController(allFeaturesViewController, animated: true)
-        return allFeaturesViewController
-    }
-
 }
 
 protocol FeaturesTableViewControllerDelegate: AnyObject {
-    func newAllFeaturesViewController(_ category: Category, _ item: Item)
+    func newAllFeaturesViewController(_ nameFeature: NameFeature, _ feature: Feature?)
     func navBarItemOption() -> NavBarItem?
     func editTextField(_ text: String)
 }
 
 extension FeaturesViewController: FeaturesTableViewControllerDelegate {
     
-    func newAllFeaturesViewController(_ category: Category, _ item: Item) {
-        let allFeaturesViewController: AllFeaturesViewController = instantiate("AllFeaturesViewController", navigationController: navigationController!, storyboard: "AllFeatures")
+    func newAllFeaturesViewController(_ nameFeature: NameFeature, _ feature: Feature?) {
+        let allFeaturesViewController: AllFeaturesViewController = instantiate("AllFeaturesViewController", storyboard: "AllFeatures")
+        allFeaturesViewController.item = item
+        allFeaturesViewController.feature = feature
+        allFeaturesViewController.nameFeature = nameFeature
+        allFeaturesViewController.featuresTableViewDelegate = featuresTableViewDelegate
+        navigationController?.pushViewController(allFeaturesViewController, animated: true)
     }
     
     func navBarItemOption() -> NavBarItem? {

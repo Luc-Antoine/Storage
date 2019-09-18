@@ -11,13 +11,11 @@ import UIKit
 class FeaturesEditViewController: UIViewController {
     
     weak var delegate: FeaturesEditViewControllerDelegate?
-    
-    var controller: FeaturesController?
 
     @IBOutlet weak var editTextField: UITextField!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         editTextField.border()
         editTextField.paddingLeft()
