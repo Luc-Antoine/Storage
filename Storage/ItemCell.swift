@@ -10,7 +10,7 @@ import UIKit
 
 class ItemCell: UITableViewCell {
     
-    var delegate: ItemDelegate?
+    var delegate: ItemCellDelegate?
     var index: Int?
     var favorite: Bool = false
     
@@ -33,6 +33,7 @@ class ItemCell: UITableViewCell {
             self.favorite = true
         } else {
             favoriteButton.setImage(UIImage(named: "NewStar"), for: .normal)
+            self.favorite = false
         }
     }
 }

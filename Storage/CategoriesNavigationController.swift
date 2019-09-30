@@ -9,8 +9,6 @@
 import UIKit
 
 class CategoriesNavigationController: UINavigationController {
-    
-    private let styleCSS = StyleCSS()
 
     override func viewDidLoad() {
         super.viewDidLoad()

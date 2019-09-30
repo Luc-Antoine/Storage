@@ -12,15 +12,15 @@ class ItemsAddViewController: UIViewController {
     
     weak var delegate: ItemsAddViewControllerDelegate?
     
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var textFieldBackView: UIView!
     @IBOutlet weak var confirmeButton: UIButton!
     @IBOutlet weak var nameItemTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textFieldBackView.borderFocus()
         nameItemTextField.becomeFirstResponder()
-        nameItemTextField.border()
     }
     
     @IBAction func addItem() {
@@ -31,6 +31,6 @@ class ItemsAddViewController: UIViewController {
     @IBAction func removeView() {
         nameItemTextField.resignFirstResponder()
         remove()
-        delegate?.removeChildSettings()
+        delegate?.newChildSettings()
     }
 }

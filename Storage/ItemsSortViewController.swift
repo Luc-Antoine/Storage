@@ -17,12 +17,12 @@ class ItemsSortViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sortSegmentedControl.selectedSegmentIndex = 0
+        sortSegmentedControl.selectedSegmentIndex = delegate?.categoriesSortIndex()?.rawValue ?? 0
     }
     
     @IBAction func removeView() {
         remove()
-        delegate?.removeChildSettings()
+        delegate?.newChildSettings()
     }
     
     @IBAction func sortChoice() {

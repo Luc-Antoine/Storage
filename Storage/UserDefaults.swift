@@ -35,6 +35,32 @@ class Preferences {
         return defaults.object(forKey: "lastFeatureId") as! Int
     }
     
+    // MARK: - Sort
+    
+    func categorySort(_ value: Int) {
+        defaults.set(value, forKey: "categorySort")
+    }
+    
+    func categorySort() -> Int {
+        return defaults.object(forKey: "categorySort") as! Int
+    }
+    
+    func itemSort(_ value: Int) {
+        defaults.set(value, forKey: "itemSort")
+    }
+    
+    func itemSort() -> Int {
+        return defaults.object(forKey: "itemSort") as! Int
+    }
+    
+    func annotationSort(_ value: Int) {
+        defaults.set(value, forKey: "annotationSort")
+    }
+    
+    func annotationSort() -> Int {
+        return defaults.object(forKey: "annotationSort") as! Int
+    }
+    
     // MARK: - Delete !!!
     
     func savePreferences(value: Int, key: String) {

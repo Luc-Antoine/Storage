@@ -42,6 +42,7 @@ class FeatureList {
     
     func update(_ feature: Feature, _ index: Int, _ item: Item, _ nameFeature: NameFeature) {
         let featureAlreadySaved: Feature? = dataBase.check(feature)
+        print("featureAlreadySaved : \(featureAlreadySaved)")
         if featureAlreadySaved != nil {
             dataBase.increase(featureAlreadySaved!)
             dataBase.insert(item, nameFeature: nameFeature, feature: featureAlreadySaved!)
@@ -58,5 +59,9 @@ class FeatureList {
         } else {
             dataBase.delete(oldFeature)
         }
+    }
+    
+    func remove(_ nameFeatures: [NameFeature]) {
+        dataBase.delete(nameFeatures)
     }
 }

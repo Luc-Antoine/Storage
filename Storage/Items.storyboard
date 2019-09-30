@@ -18,11 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggK-GI-3Pz">
-                                <rect key="frame" x="0.0" y="166.5" width="414" height="695.5"/>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aig-V8-kqh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="122.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="bA9-3h-QvR"/>
+                                </constraints>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggK-GI-3Pz">
+                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,7 +33,6 @@
                             <constraint firstItem="pSS-e0-ir2" firstAttribute="trailing" secondItem="ggK-GI-3Pz" secondAttribute="trailing" id="0FD-0f-u9f"/>
                             <constraint firstItem="pSS-e0-ir2" firstAttribute="trailing" secondItem="aig-V8-kqh" secondAttribute="trailing" id="4Wm-K2-3Em"/>
                             <constraint firstItem="aig-V8-kqh" firstAttribute="leading" secondItem="pSS-e0-ir2" secondAttribute="leading" id="6aJ-y4-xJA"/>
-                            <constraint firstItem="ggK-GI-3Pz" firstAttribute="height" secondItem="pSS-e0-ir2" secondAttribute="height" multiplier="0.85" id="F4l-J4-oBc"/>
                             <constraint firstItem="aig-V8-kqh" firstAttribute="top" secondItem="pSS-e0-ir2" secondAttribute="top" id="HfV-50-iRA"/>
                             <constraint firstItem="ggK-GI-3Pz" firstAttribute="leading" secondItem="pSS-e0-ir2" secondAttribute="leading" id="RW3-hC-GpI"/>
                             <constraint firstItem="ggK-GI-3Pz" firstAttribute="top" secondItem="aig-V8-kqh" secondAttribute="bottom" id="ofV-z9-wIO"/>

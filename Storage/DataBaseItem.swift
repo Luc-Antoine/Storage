@@ -45,6 +45,18 @@ extension DataBase {
         }
     }
     
+    func updateName(_ item: Item) {
+        do {
+            try dbQueue!.write({ db in
+                try db.execute(
+                    sql: "UPDATE Item SET name = :name WHERE id = :id",
+                    arguments: ["id":item.id, "name":item.name])
+            })
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+    }
+    
     func delete(_ items: [Item]) {
         do {
             try dbQueue!.write({ db in

@@ -47,6 +47,7 @@
                                 <viewLayoutGuide key="safeArea" id="6Bc-cX-MbA"/>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KLs-52-7av" firstAttribute="centerX" secondItem="TQ7-Av-9Ff" secondAttribute="centerX" id="2Sf-vy-xh8"/>
                             <constraint firstItem="KLs-52-7av" firstAttribute="leading" secondItem="eCW-pG-SAN" secondAttribute="leading" id="SfK-DR-T44"/>

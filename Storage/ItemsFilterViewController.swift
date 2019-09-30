@@ -29,12 +29,12 @@ class ItemsFilterViewController: UIViewController {
         validateButtonTitle()
         guard delegate?.tableViewKindItem() == .filteredItems else { return }
         remove()
-        delegate?.removeChildSettings()
+        delegate?.newChildSettings()
     }
     
     @IBAction func removeView() {
         remove()
-        delegate?.removeChildSettings()
+        delegate?.newChildSettings()
         delegate?.cancelFilter()
     }
     

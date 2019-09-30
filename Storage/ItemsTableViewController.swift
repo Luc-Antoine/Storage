@@ -30,23 +30,36 @@ class ItemsTableViewController: UITableViewController {
     var featuresFiltered: [Feature] = []
     var itemsSort: Sort = .increasing
     var modify: Bool = false
-    var searchActive: Bool = false
+    var research: Research?
+    var lastIndexPath: IndexPath? {
+        didSet {
+            delegate?.itemSelected(lastIndexPath == nil ? nil : items[lastIndexPath!.row])
+        }
+    }
     
     private let itemsList = ItemList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        loadItems()
+        loadNameFeatures()
+        loadFeatures()
+        reloadData()
+        if research != nil {
+            textFieldDidResearching(research!.search)
+        } else {
+            tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        loadItems()
-        loadNameFeatures()
-        loadFeatures()
-        reloadData()
+//        loadItems()
+//        loadNameFeatures()
+//        loadFeatures()
+//        reloadData()
     }
 
     // MARK: - Table view data source
@@ -131,6 +144,8 @@ class ItemsTableViewController: UITableViewController {
         case .items:
             if navBarItemFilter == .delete {
                 selectedItems.append(items[indexPath.row])
+                lastIndexPath = indexPath
+                delegate?.editTextField(items[indexPath.row].name)
             }
             if navBarItemFilter == .add {
                 delegate?.newFeaturesViewController(items[indexPath.row])
@@ -145,6 +160,7 @@ class ItemsTableViewController: UITableViewController {
             }
             break
         case .researchingItems:
+            delegate?.newFeaturesViewController(researchingItems[indexPath.row])
             break
         case .nameFeatures:
             nameFeaturesFiltered = nameFeaturesFiltered.set(nameFeatures[indexPath.row])
@@ -178,38 +194,12 @@ class ItemsTableViewController: UITableViewController {
         }
     }
     
-//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        switch kindItem {
-//        case .items:
-//            if controller!.isEditing {
-////            updateItem(indexPath: indexPath)
-//                let index = controller!.itemsSelected.firstIndex(of: controller!.items[indexPath.row])
-//                guard index != nil else { return }
-//                controller!.itemsSelected.remove(at: index!)
-////            editBar.text = ""
-//            }
-//            break
-//        case .filteredItems:
-//            break
-//        case .researchingItems:
-//            break
-//        case .nameFeatures:
-//            let index = controller!.nameFeaturesFiltered.firstIndex(of: controller!.nameFeatures[indexPath.row])
-//            guard index != nil else { return }
-//            controller!.nameFeaturesFiltered.remove(at: index!)
-//            break
-//        case .features:
-//            controller!.featuresFilteredByItem = controller!.featuresFilteredByItem.set(controller!.featuresFilteredByName[indexPath.row])
-//            tableView.reloadRows(at: [indexPath], with: .automatic)
-//            break
-//        case .filtersEditing:
-////            let index = controller!.filtersSelected.firstIndex(of: controller!.filters[indexPath.row])!
-////            controller!.filtersSelected.remove(at: index)
-//            break
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        lastIndexPath = nil
+        delegate?.editTextFieldEndEditing()
+    }
     
-    // MARK: - Filter Functions
+    // MARK: - DataBase Functions
     
     func loadItems() {
         items = itemsSort.sort(itemsList.all(category!.id))
@@ -222,6 +212,8 @@ class ItemsTableViewController: UITableViewController {
     func loadFeatures() {
         features = itemsList.all(items)
     }
+    
+    // MARK: - Filter Functions
     
     func filterFeatures() {
         guard nameFeaturesFiltered.count > 0 else { return }
@@ -275,25 +267,54 @@ class ItemsTableViewController: UITableViewController {
 
 
 
-extension ItemsTableViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textFieldDidBeginEditing()
-        tableView.reloadData()
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textFieldDidEndEditing()
-    }
-}
+//extension ItemsTableViewController: UITextFieldDelegate {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textFieldDidBeginEditing()
+//        tableView.reloadData()
+//    }
+//    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        textFieldDidEndEditing()
+//    }
+//}
 
-protocol ItemDelegate {
+// MARK: - ItemCellDelegate
+
+protocol ItemCellDelegate {
     func updateFavorite(_ row: Int)
 }
 
-extension ItemsTableViewController: ItemDelegate {
+extension ItemsTableViewController: ItemCellDelegate {
+    
     func updateFavorite(_ row: Int) {
-        itemsList.updateFavorite(items[row])
-        tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+        let item = items[row]
+        itemsList.updateFavorite(item)
+        items[row].favorite = !item.favorite
+        tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .none)
+    }
+}
+
+// MARK: - ItemFeaturesCellDelegate
+
+protocol ItemFeaturesCellDelegate: AnyObject {
+    func selectItem(_ index: Int)
+    func reloadItem(_ item: Item)
+}
+
+extension ItemsTableViewController: ItemFeaturesCellDelegate {
+    
+    func selectItem(_ index: Int) {
+        lastIndexPath = IndexPath(row: index, section: 0)
+    }
+    
+    func reloadItem(_ item: Item) {
+        guard lastIndexPath != nil else { return }
+        if features.indices.contains(lastIndexPath!.row) {
+            items[lastIndexPath!.row] = item
+        } else {
+            items.append(item)
+        }
+        tableView!.reloadRows(at: [lastIndexPath!], with: .automatic)
     }
 }
 
@@ -304,10 +325,12 @@ protocol ItemsViewControllerDelegate: AnyObject {
     func itemsSort(_ sort: Sort)
     func tableViewItemsSort() -> Sort
     func addItem(_ name: String?)
+    func update(_ name: String) -> Bool
     func removeItems()
-    func textFieldDidBeginEditing()
-    func textFieldDidEndEditing()
+    func textFieldDidBeginResearching()
+    func textFieldDidEndResearching()
     func textFieldDidResearching(_ text: String)
+    func searchCount() -> Int
     func tableViewEditing()
     func tableViewEndEditing()
     func kindItem(_ kind: KindItem)
@@ -330,6 +353,7 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
     func itemsSort(_ sort: Sort) {
         itemsSort = sort
         items = itemsSort.sort(items)
+        researchingItems = itemsSort.sort(researchingItems)
         tableView.reloadData()
     }
     
@@ -342,6 +366,17 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         tableView.reloadData()
     }
     
+    func update(_ name: String) -> Bool {
+        guard lastIndexPath != nil else { return false }
+        var item = items[lastIndexPath!.row]
+        item.name = name
+        items[lastIndexPath!.row] = item
+        itemsList.updateName(item)
+        tableView.reloadRows(at: [lastIndexPath!], with: .none)
+        lastIndexPath = nil
+        return true
+    }
+    
     func removeItems() {
         let items = itemsList.removeItems(selectedItems, category!.id)
         self.items = items
@@ -350,13 +385,15 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
     
     // MARK: - Search Functions
     
-    func textFieldDidBeginEditing() {
-        searchActive = true
+    func textFieldDidBeginResearching() {
+        research = Research.init(search: "", count: 0)
         filteredItems = items
     }
     
-    func textFieldDidEndEditing() {
-        searchActive = false
+    func textFieldDidEndResearching() {
+        research = nil
+        kindItem = .items
+        tableView.reloadData()
     }
     
     func textFieldDidResearching(_ text: String) {
@@ -370,6 +407,10 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         tableView.reloadData()
     }
     
+    func searchCount() -> Int {
+        return researchingItems.count
+    }
+    
     func tableViewEditing() {
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.setEditing(true, animated: true)
@@ -380,6 +421,7 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         tableView.allowsMultipleSelectionDuringEditing = false
         tableView.setEditing(false, animated: false)
         tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 15, bottom: 0, right: 0)
+        lastIndexPath = nil
         tableView.reloadData()
     }
     
@@ -404,7 +446,6 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
             kindItem(.nameFeatures)
         }
         tableView.reloadData()
-        //filters()
     }
     
     func resetFilters() {

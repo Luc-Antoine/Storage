@@ -51,8 +51,17 @@ class AllFeaturesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let featureSelected: Feature = features[indexPath.row]
+        guard featureSelected != feature else {
+            self.tableView(tableView, didDeselectRowAt: indexPath)
+            return
+        }
         update(features[indexPath.row])
         delegate?.close(features[indexPath.row])
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
     // MARK: - DataBase Functions
@@ -68,6 +77,8 @@ class AllFeaturesTableViewController: UITableViewController {
         }
     }
 }
+
+// MARK: - AllFeaturesViewControllerDelegate
 
 protocol AllFeaturesViewControllerDelegate: AnyObject {
     func researching(_ text: String)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SortType {
+protocol Selectable {
     var name: String { get }
     var favorite: Bool { get }
 }
@@ -19,7 +19,7 @@ enum Sort: Int {
     case favoritesFirst
     case favoritesLast
     
-    func sort<T: SortType>(_ categories: [T]) -> [T] {
+    func sort<T: Selectable>(_ categories: [T]) -> [T] {
         switch self {
         case .increasing:
             return categories.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })

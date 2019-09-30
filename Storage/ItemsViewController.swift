@@ -11,14 +11,19 @@ import UIKit
 class ItemsViewController: UIViewController {
     
     weak var tableViewDelegate: ItemsViewControllerDelegate?
+    weak var itemsEditTextFieldDelegate: ItemsEditTextFieldDelegate?
     
     var category: Category?
     var navBarItemFilter: NavBarItemFilter? = .add
     var tableViewStat: TableViewStat?
+    var research: Research?
+    var lastItemSelected: Item?
     
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var addOrDeleteButton: UIBarButtonItem!
+    
+    private let preferences = Preferences()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,12 +60,15 @@ class ItemsViewController: UIViewController {
         itemsTableViewController.delegate = self
         itemsTableViewController.category = category
         tableViewDelegate = itemsTableViewController
+        itemsTableViewController.itemsSort = Sort(rawValue: preferences.itemSort()) ?? .increasing
+        itemsTableViewController.research = research
         addChild(itemsTableViewController, container: tableViewContainer)
     }
     
     func newItemsSettingsViewController() {
         let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", storyboard: "ItemsSettingsView")
         itemsSettingsViewController.delegate = self
+        itemsSettingsViewController.searchCount = research?.count ?? 0
         navBarItemFilter(.add)
         addChild(itemsSettingsViewController, container: settingsContainer)
     }
@@ -75,6 +83,7 @@ class ItemsViewController: UIViewController {
     func newItemsEditViewController() {
         let itemsEditViewController: ItemsEditViewController = instantiate("ItemsEditViewController", storyboard: "ItemsEditView")
         itemsEditViewController.delegate = self
+        itemsEditTextFieldDelegate = itemsEditViewController
         tableViewDelegate?.tableViewEditing()
         tableViewStat = .editing
         navBarItemFilter(.delete)
@@ -91,8 +100,9 @@ class ItemsViewController: UIViewController {
     func newItemsSearchViewController() {
         let itemsSearchViewController: ItemsSearchViewController = instantiate("ItemsSearchViewController", storyboard: "ItemsSearchView")
         itemsSearchViewController.delegate = self
+        itemsSearchViewController.research = research
         tableViewDelegate?.kindItem(.researchingItems)
-        tableViewDelegate?.textFieldDidBeginEditing()
+        tableViewDelegate?.textFieldDidBeginResearching()
         tableViewStat = .searching
         navBarItemFilter(nil)
         addChild(itemsSearchViewController, container: settingsContainer)
@@ -106,7 +116,7 @@ class ItemsViewController: UIViewController {
         addChild(itemsFilterViewController, container: settingsContainer)
     }
     
-    func removeChildSettings() {
+    func newChildSettings() {
         newItemsSettingsViewController()
         guard tableViewStat != nil else { return }
         switch tableViewStat! {
@@ -115,7 +125,7 @@ class ItemsViewController: UIViewController {
             tableViewStat = nil
             break
         case .searching:
-            tableViewDelegate?.textFieldDidEndEditing()
+//            tableViewDelegate?.textFieldDidEndEditing()
             break
         }
     }
@@ -149,6 +159,9 @@ class ItemsViewController: UIViewController {
 protocol ItemsTableViewControllerDelegate: AnyObject {
     func newFeaturesViewController(_ item: Item)
     func navBarItemFilterOption() -> NavBarItemFilter?
+    func editTextField(_ text: String)
+    func editTextFieldEndEditing()
+    func itemSelected(_ item: Item?)
 }
 
 extension ItemsViewController: ItemsTableViewControllerDelegate {
@@ -161,6 +174,19 @@ extension ItemsViewController: ItemsTableViewControllerDelegate {
     
     func navBarItemFilterOption() -> NavBarItemFilter? {
         return navBarItemFilter
+    }
+    
+    func editTextField(_ text: String) {
+        itemsEditTextFieldDelegate?.text(text)
+    }
+    
+    func editTextFieldEndEditing() {
+        itemsEditTextFieldDelegate?.editTextFieldEndEditing()
+    }
+    
+    func itemSelected(_ item: Item?) {
+        itemsEditTextFieldDelegate?.textFieldBackViewBorder(item)
+        lastItemSelected = item
     }
 }
 
@@ -202,7 +228,7 @@ extension ItemsViewController: ItemsSettingsViewControllerDelegate {
 
 protocol ItemsAddViewControllerDelegate: AnyObject {
     func addItem(_ name: String?)
-    func removeChildSettings()
+    func newChildSettings()
 }
 
 extension ItemsViewController: ItemsAddViewControllerDelegate {
@@ -214,13 +240,34 @@ extension ItemsViewController: ItemsAddViewControllerDelegate {
 // MARK: - ItemsEditViewControllerDelegate
 
 protocol ItemsEditViewControllerDelegate: AnyObject {
+    func itemsTableViewEditing()
+    func itemsTableViewEndEditing()
+    func editNameItem(_ name: String) -> Bool
     func textFieldDidResearching(_ text: String)
-    func removeChildSettings()
+    func newChildSettings()
+    func itemSelected() -> Item?
 }
 
 extension ItemsViewController: ItemsEditViewControllerDelegate {
+    
+    func itemsTableViewEditing() {
+        tableViewDelegate?.tableViewEditing()
+    }
+    
+    func itemsTableViewEndEditing() {
+        tableViewDelegate?.tableViewEndEditing()
+    }
+    
     func textFieldDidResearching(_ text: String) {
         tableViewDelegate?.textFieldDidResearching(text)
+    }
+    
+    func editNameItem(_ name: String) -> Bool {
+        return tableViewDelegate?.update(name) ?? false
+    }
+    
+    func itemSelected() -> Item? {
+        return lastItemSelected
     }
 }
 
@@ -229,17 +276,18 @@ extension ItemsViewController: ItemsEditViewControllerDelegate {
 protocol ItemsSortViewControllerDelegate: AnyObject {
     func sortChoice(_ itemsSort: Sort)
     func categoriesSortIndex() -> Sort?
-    func removeChildSettings()
+    func newChildSettings()
 }
 
 extension ItemsViewController: ItemsSortViewControllerDelegate {
     
     func sortChoice(_ itemsSort: Sort) {
+        preferences.itemSort(itemsSort.rawValue)
         tableViewDelegate?.itemsSort(itemsSort)
     }
     
     func categoriesSortIndex() -> Sort? {
-        return tableViewDelegate?.tableViewItemsSort()
+        return Sort(rawValue: preferences.itemSort())
     }
 }
 
@@ -247,13 +295,25 @@ extension ItemsViewController: ItemsSortViewControllerDelegate {
 
 protocol ItemsSearchViewControllerDelegate: AnyObject {
     func textFieldDidResearching(_ text: String)
-    func removeChildSettings()
-    func endResearching()
+    func newChildSettings()
+//    func endResearching()
+    func removeSearch()
+    func researching(_ text: String?)
 }
 
 extension ItemsViewController: ItemsSearchViewControllerDelegate {
-    func endResearching() {
-        tableViewDelegate?.kindItem(.items)
+//    func endResearching() {
+//        tableViewDelegate?.kindItem(.items)
+//    }
+    
+    func removeSearch() {
+        tableViewDelegate?.textFieldDidEndResearching()
+        research = nil
+    }
+    
+    func researching(_ text: String?) {
+        guard text != nil || text != "" else { return }
+        research = Research.init(search: text!, count: tableViewDelegate?.searchCount() ?? 0)
     }
 }
 
@@ -261,7 +321,7 @@ extension ItemsViewController: ItemsSearchViewControllerDelegate {
 
 protocol ItemsFilterViewControllerDelegate: AnyObject {
     func filters()
-    func removeChildSettings()
+    func newChildSettings()
     func cancelFilter()
     func tableViewKindItem() -> KindItem?
 }

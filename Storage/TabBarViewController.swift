@@ -24,12 +24,12 @@ class TabBarViewController: UITabBarController {
     func instantiateItems() {
         let firstViewController = CategoriesNavigationController()
         firstViewController.tabBarItem = UITabBarItem(title: "Objet", image: UIImage(named: "RussianDolls"), tag: 0)
-        let secondController = instantiateCalculatorViewController()
-        secondController.tabBarItem = UITabBarItem(title: "Calc", image: UIImage(named: "Calculator"), tag: 1)
-        let firdController = MapNavigationController()
-        firdController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Mappin"), tag: 2)
+//        let secondController = instantiateCalculatorViewController()
+//        secondController.tabBarItem = UITabBarItem(title: "Calc", image: UIImage(named: "Calculator"), tag: 1)
+        let secondController = MapNavigationController()
+        secondController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Mappin"), tag: 1)
         
-        viewControllers = [firstViewController, secondController, firdController]
+        viewControllers = [firstViewController, secondController]
     }
     
     func instantiateCalculatorViewController() -> CalculatorViewController {

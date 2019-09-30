@@ -23,6 +23,17 @@ extension DataBase {
         }
     }
     
+    func selectAllFeature() -> [Feature] {
+        do {
+            return try dbQueue!.read { db in
+                try Feature.fetchAll(db, sql: "SELECT * FROM Feature, Item_feature")
+            }
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+        return []
+    }
+    
     func select(_ itemId: Int) -> [Feature] {
         do {
             return try dbQueue!.read { db in

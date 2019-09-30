@@ -23,7 +23,7 @@ class CategoriesSortViewController: UIViewController {
     
     @IBAction func removeView() {
         remove()
-        delegate?.removeChildSettings()
+        delegate?.newChildSettings()
     }
     
     @IBAction func sortChoice() {

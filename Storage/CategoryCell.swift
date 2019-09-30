@@ -27,12 +27,13 @@ class CategoryCell: UITableViewCell {
         update(category.favorite)
     }
     
-    func update(_ favorite: Bool) {
+    private func update(_ favorite: Bool) {
         if favorite {
             buttonFavorites.setImage(UIImage(named: "NewStarFavorite"), for: .normal)
             self.favorite = true
         } else {
             buttonFavorites.setImage(UIImage(named: "NewStar"), for: .normal)
+            self.favorite = false
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllFeaturesViewController: UIViewController, UITextFieldDelegate {
+class AllFeaturesViewController: UIViewController {
     
     weak var featuresTableViewDelegate: FeaturesTableViewDelegate?
     weak var tableViewDelegate: AllFeaturesViewControllerDelegate?
@@ -17,26 +17,27 @@ class AllFeaturesViewController: UIViewController, UITextFieldDelegate {
     var nameFeature: NameFeature?
     var feature: Feature?
     
-    @IBOutlet weak var tableViewContainer: UIView!
+    @IBOutlet weak var textFieldBackView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tableViewContainer: UIView!
+    @IBOutlet weak var hideKeyboardButtonItem: UIBarButtonItem!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchTextField.delegate = self
-        searchTextField.border()
+        textFieldBackView.borderActive()
         newAllFeaturesTableViewController()
         title = nameFeature!.name
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        
-    }
-    
     @IBAction func searchTextFieldChanged() {
         tableViewDelegate?.researching(searchTextField.text ?? "")
+    }
+    
+    @IBAction func hideKeyboard() {
+        searchTextField.resignFirstResponder()
     }
     
     // MARK: - Navigation
@@ -50,17 +51,26 @@ class AllFeaturesViewController: UIViewController, UITextFieldDelegate {
         allFeaturesTableViewController.nameFeature = nameFeature
         addChild(allFeaturesTableViewController, container: tableViewContainer)
     }
-    
-    // MARK: - TextField Delegate
+}
+
+// MARK: - TextField Delegate
+
+extension AllFeaturesViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textFieldBackView.borderFocus()
+        hideKeyboardButtonItem.image = UIImage(named: "Keyboard")
         tableViewDelegate?.researching(true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        textFieldBackView.borderActive()
+        hideKeyboardButtonItem.image = nil
         tableViewDelegate?.researching(false)
     }
 }
+
+// MARK: - AllFeaturesTableViewControllerDelegate
 
 protocol AllFeaturesTableViewControllerDelegate: AnyObject {
     func close(_ newFeature: Feature?)

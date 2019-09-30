@@ -21,6 +21,10 @@ class ItemList {
         return all(id)
     }
     
+    func updateName(_ item: Item) {
+        dataBase.updateName(item)
+    }
+    
     func updateFavorite(_ item: Item) {
         dataBase.update(item)
     }

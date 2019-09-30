@@ -12,13 +12,13 @@ class FeaturesAddViewController: UIViewController {
     
     weak var delegate: FeaturesAddViewControllerDelegate?
     
+    @IBOutlet weak var textFieldBackView: UIView!
     @IBOutlet weak var editTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editTextField.border()
-        editTextField.paddingLeft()
+        textFieldBackView.borderFocus()
         editTextField.becomeFirstResponder()
     }
     

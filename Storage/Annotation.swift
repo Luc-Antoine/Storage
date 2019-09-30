@@ -50,3 +50,9 @@ extension Annotation: FetchableRecord, PersistableRecord {
         print(container)
     }
 }
+
+extension Annotation: Selectable {
+    var name: String {
+        return title
+    }
+}

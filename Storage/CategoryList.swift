@@ -21,6 +21,10 @@ class CategoryList {
         return all()
     }
     
+    func updateName(_ category: Category) {
+        dataBase.updateName(category)
+    }
+    
     func updateFavorite(_ category: Category) {
         dataBase.update(category)
     }

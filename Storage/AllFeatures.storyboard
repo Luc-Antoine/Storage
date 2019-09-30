@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Features View Controller-->
+        <!--Title-->
         <scene sceneID="vCG-aM-Ont">
             <objects>
                 <viewController storyboardIdentifier="AllFeaturesViewController" id="eNL-yq-yaH" customClass="AllFeaturesViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,27 +19,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wc-Ya-fxU">
-                                <rect key="frame" x="0.0" y="44" width="414" height="122.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="54"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0uF-o0-2qv">
-                                        <rect key="frame" x="20" y="46.5" width="374" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="searchTextFieldChanged" destination="eNL-yq-yaH" eventType="editingChanged" id="4wa-zL-AoJ"/>
-                                        </connections>
-                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ev-Uz-D2i">
+                                        <rect key="frame" x="20" y="12" width="374" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0uF-o0-2qv">
+                                                <rect key="frame" x="4" y="0.0" width="370" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="searchTextFieldChanged" destination="eNL-yq-yaH" eventType="editingChanged" id="4wa-zL-AoJ"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3ma-hR-3jl"/>
+                                            <constraint firstItem="0uF-o0-2qv" firstAttribute="top" secondItem="7ev-Uz-D2i" secondAttribute="top" id="8Fw-Ni-9Sn"/>
+                                            <constraint firstItem="0uF-o0-2qv" firstAttribute="leading" secondItem="7ev-Uz-D2i" secondAttribute="leading" constant="4" id="Dxw-On-GOW"/>
+                                            <constraint firstAttribute="bottom" secondItem="0uF-o0-2qv" secondAttribute="bottom" id="HLU-vs-Xnl"/>
+                                            <constraint firstAttribute="trailing" secondItem="0uF-o0-2qv" secondAttribute="trailing" id="zPR-p9-yc6"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0uF-o0-2qv" firstAttribute="centerY" secondItem="3Wc-Ya-fxU" secondAttribute="centerY" id="7f3-DD-bA6"/>
-                                    <constraint firstItem="0uF-o0-2qv" firstAttribute="centerX" secondItem="3Wc-Ya-fxU" secondAttribute="centerX" id="ENA-D9-Pbz"/>
-                                    <constraint firstItem="0uF-o0-2qv" firstAttribute="leading" secondItem="3Wc-Ya-fxU" secondAttribute="leading" constant="20" id="ZHZ-TQ-Hoq"/>
+                                    <constraint firstAttribute="height" constant="54" id="ZwG-Np-7If"/>
+                                    <constraint firstItem="7ev-Uz-D2i" firstAttribute="centerY" secondItem="3Wc-Ya-fxU" secondAttribute="centerY" id="fcV-0f-SSJ"/>
+                                    <constraint firstItem="7ev-Uz-D2i" firstAttribute="leading" secondItem="3Wc-Ya-fxU" secondAttribute="leading" constant="20" id="poJ-Ws-xZi"/>
+                                    <constraint firstItem="7ev-Uz-D2i" firstAttribute="centerX" secondItem="3Wc-Ya-fxU" secondAttribute="centerX" id="rO0-ro-0lt"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MU8-TI-gE4">
-                                <rect key="frame" x="0.0" y="166.5" width="414" height="695.5"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,7 +61,6 @@
                             <constraint firstItem="MU8-TI-gE4" firstAttribute="leading" secondItem="bUo-I9-9Qu" secondAttribute="leading" id="7Bg-pN-x9f"/>
                             <constraint firstItem="MU8-TI-gE4" firstAttribute="top" secondItem="3Wc-Ya-fxU" secondAttribute="bottom" id="BTk-YG-FAF"/>
                             <constraint firstItem="bUo-I9-9Qu" firstAttribute="trailing" secondItem="MU8-TI-gE4" secondAttribute="trailing" id="TEc-RJ-Zhp"/>
-                            <constraint firstItem="MU8-TI-gE4" firstAttribute="height" secondItem="bUo-I9-9Qu" secondAttribute="height" multiplier="0.85" id="YaN-5B-zFw"/>
                             <constraint firstItem="3Wc-Ya-fxU" firstAttribute="top" secondItem="bUo-I9-9Qu" secondAttribute="top" id="gqa-Q8-sne"/>
                             <constraint firstItem="3Wc-Ya-fxU" firstAttribute="leading" secondItem="bUo-I9-9Qu" secondAttribute="leading" id="iIp-Aa-bZz"/>
                             <constraint firstItem="bUo-I9-9Qu" firstAttribute="trailing" secondItem="3Wc-Ya-fxU" secondAttribute="trailing" id="jey-cT-3zT"/>
@@ -55,9 +68,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bUo-I9-9Qu"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="gaH-xP-7eQ">
+                        <barButtonItem key="rightBarButtonItem" id="utx-eY-VNa">
+                            <connections>
+                                <action selector="hideKeyboard" destination="eNL-yq-yaH" id="lJf-02-P8c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="hideKeyboardButtonItem" destination="utx-eY-VNa" id="c3S-RZ-WEu"/>
                         <outlet property="searchTextField" destination="0uF-o0-2qv" id="DjA-Kl-IaJ"/>
                         <outlet property="tableViewContainer" destination="MU8-TI-gE4" id="lGQ-sP-mUg"/>
+                        <outlet property="textFieldBackView" destination="7ev-Uz-D2i" id="cnV-2B-TTV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTH-tX-2Al" userLabel="First Responder" sceneMemberID="firstResponder"/>

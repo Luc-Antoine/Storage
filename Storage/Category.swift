@@ -11,7 +11,7 @@ import GRDB
 
 struct Category {
     let id: Int
-    let name: String
+    var name: String
     var favorite: Bool
     
     
@@ -40,6 +40,6 @@ extension Category: FetchableRecord, PersistableRecord {
     }
 }
 
-extension Category: SortType {
+extension Category: Selectable {
     
 }

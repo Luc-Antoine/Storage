@@ -12,12 +12,16 @@ class ItemsSettingsViewController: UIViewController {
     
     weak var delegate: ItemsSettingsViewControllerDelegate?
     
+    var searchCount: Int = 0
+    
     @IBOutlet weak var settings: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settings.setTitle(delegate?.filterTitle(), forSegmentAt: 3)
+        guard searchCount > 0 else { return }
+        settings.setTitle(NSLocalizedString("Search", comment: "") + " (\(searchCount))", forSegmentAt: 2)
     }
     
     @IBAction func settingsDisplay(_ sender: Any) {

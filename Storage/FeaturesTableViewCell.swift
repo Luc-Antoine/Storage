@@ -16,20 +16,10 @@ class FeaturesTableViewCell: UITableViewCell {
     @IBOutlet weak var nameFeatureLabel: UILabel!
     @IBOutlet weak var featureTextField: UITextField!
     @IBOutlet weak var featuresButton: UIButton!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var featuresImage: UIImageView!
     
     @IBAction func instantiateAllFeaturesController() {
         featuresTableViewDelegate?.selectNameFeature(featureTextField.tag)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configureCell(nameFeature: NameFeature, featureName: String, featureCount: Int) {
@@ -37,6 +27,7 @@ class FeaturesTableViewCell: UITableViewCell {
         nameFeatureLabel.text = nameFeature.name + " :"
         featureTextField.text = featureName
         featuresButton.isHidden = featureCount == 0
+        featuresImage.isHidden = featuresButton.isHidden
+        featureTextField.borderActive()
     }
-
 }

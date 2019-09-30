@@ -21,25 +21,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3q-EJ-pyA">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pXQ-p9-dlS">
-                                        <rect key="frame" x="60" y="13" width="294" height="28"/>
-                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="hpj-H6-hb0"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="textFieldChanged" destination="9ZR-fa-Jis" eventType="editingChanged" id="xnh-7N-K31"/>
-                                        </connections>
-                                    </textField>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-SQ-ICW">
-                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
-                                        <state key="normal" title="End">
-                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PY7-nH-lnf">
                                         <rect key="frame" x="20" y="12" width="30" height="30"/>
                                         <constraints>
@@ -51,18 +32,50 @@
                                             <action selector="removeView" destination="9ZR-fa-Jis" eventType="touchUpInside" id="fTG-fb-5Ry"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVm-z8-wwe">
+                                        <rect key="frame" x="60" y="12" width="294" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pXQ-p9-dlS">
+                                                <rect key="frame" x="4" y="0.0" width="290" height="30"/>
+                                                <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="textFieldChanged" destination="9ZR-fa-Jis" eventType="editingChanged" id="xnh-7N-K31"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="pXQ-p9-dlS" firstAttribute="leading" secondItem="BVm-z8-wwe" secondAttribute="leading" constant="4" id="6a4-og-dwA"/>
+                                            <constraint firstItem="pXQ-p9-dlS" firstAttribute="top" secondItem="BVm-z8-wwe" secondAttribute="top" id="Sbe-rb-cSI"/>
+                                            <constraint firstAttribute="height" constant="30" id="Yhi-Jp-NBp"/>
+                                            <constraint firstAttribute="bottom" secondItem="pXQ-p9-dlS" secondAttribute="bottom" id="oNW-qQ-xdT"/>
+                                            <constraint firstAttribute="trailing" secondItem="pXQ-p9-dlS" secondAttribute="trailing" id="zNu-EN-5af"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-SQ-ICW">
+                                        <rect key="frame" x="364" y="9" width="30" height="36"/>
+                                        <state key="normal" image="Confirm">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmSearch" destination="9ZR-fa-Jis" eventType="touchUpInside" id="gMm-GJ-zuV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="BVm-z8-wwe" firstAttribute="centerX" secondItem="A3q-EJ-pyA" secondAttribute="centerX" id="5eD-EN-s2B"/>
                                     <constraint firstItem="PY7-nH-lnf" firstAttribute="leading" secondItem="Y4l-YO-ntU" secondAttribute="leading" constant="20" id="7oZ-Gd-mHQ"/>
+                                    <constraint firstItem="PY7-nH-lnf" firstAttribute="centerY" secondItem="BVm-z8-wwe" secondAttribute="centerY" id="BQe-ji-cOl"/>
                                     <constraint firstItem="Y4l-YO-ntU" firstAttribute="trailing" secondItem="1Jv-SQ-ICW" secondAttribute="trailing" constant="20" id="C4z-KQ-TvU"/>
-                                    <constraint firstItem="pXQ-p9-dlS" firstAttribute="centerY" secondItem="A3q-EJ-pyA" secondAttribute="centerY" id="Gu2-5o-h75"/>
-                                    <constraint firstItem="1Jv-SQ-ICW" firstAttribute="leading" secondItem="pXQ-p9-dlS" secondAttribute="trailing" constant="10" id="MNN-Nv-wvg"/>
+                                    <constraint firstItem="1Jv-SQ-ICW" firstAttribute="centerY" secondItem="BVm-z8-wwe" secondAttribute="centerY" id="JBS-WI-Wn8"/>
+                                    <constraint firstItem="1Jv-SQ-ICW" firstAttribute="leading" secondItem="BVm-z8-wwe" secondAttribute="trailing" constant="10" id="LbZ-L6-kRG"/>
                                     <constraint firstAttribute="height" constant="54" id="XO3-Xm-cfX"/>
-                                    <constraint firstItem="PY7-nH-lnf" firstAttribute="centerY" secondItem="pXQ-p9-dlS" secondAttribute="centerY" id="buV-MH-1Uq"/>
-                                    <constraint firstItem="1Jv-SQ-ICW" firstAttribute="centerY" secondItem="pXQ-p9-dlS" secondAttribute="centerY" id="fqh-GB-GaD"/>
-                                    <constraint firstItem="pXQ-p9-dlS" firstAttribute="centerX" secondItem="A3q-EJ-pyA" secondAttribute="centerX" id="pZo-ag-Ela"/>
-                                    <constraint firstItem="pXQ-p9-dlS" firstAttribute="leading" secondItem="PY7-nH-lnf" secondAttribute="trailing" constant="10" id="qBA-Ul-S5Q"/>
+                                    <constraint firstItem="BVm-z8-wwe" firstAttribute="leading" secondItem="PY7-nH-lnf" secondAttribute="trailing" constant="10" id="fzB-qf-2XL"/>
+                                    <constraint firstItem="BVm-z8-wwe" firstAttribute="centerY" secondItem="A3q-EJ-pyA" secondAttribute="centerY" id="grM-UH-6j6"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="Y4l-YO-ntU"/>
                             </view>
@@ -76,16 +89,18 @@
                         <viewLayoutGuide key="safeArea" id="IWn-4r-hrs"/>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="PY7-nH-lnf" id="JqH-8q-8hB"/>
+                        <outlet property="confirmButton" destination="1Jv-SQ-ICW" id="5VJ-cZ-hh9"/>
                         <outlet property="searchTextField" destination="pXQ-p9-dlS" id="Owr-EA-mRi"/>
+                        <outlet property="textFieldBackView" destination="BVm-z8-wwe" id="fwQ-hk-6iY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrf-H9-6YY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="100"/>
+            <point key="canvasLocation" x="111.59420289855073" y="99.776785714285708"/>
         </scene>
     </scenes>
     <resources>
         <image name="CancelButton" width="36" height="36"/>
+        <image name="Confirm" width="36" height="36"/>
     </resources>
 </document>

@@ -19,21 +19,24 @@ enum CategoriesSegmentedIndex: Int {
 class CategoriesViewController: UIViewController {
     
     weak var tableViewDelegate: CategoriesViewControllerDelegate?
+    weak var categoryEditDelegate: CategoriesEditDelegate?
     
     var navBarItem: NavBarItem? = .add
     var tableViewStat: TableViewStat?
+    var research: Research?
+    var lastCategorySelected: Category?
     
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var addOrDeleteButton: UIBarButtonItem!
     
-    private let dataBase = DataBase()
+    private let createDataBase = CreateDataBase()
     private let preferences = Preferences()
-    private let styleCSS = StyleCSS()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initDataBase()
         navigationBarDesign()
         navigationBack()
     }
@@ -65,12 +68,15 @@ class CategoriesViewController: UIViewController {
         let categoriesTableViewController: CategoriesTableViewController = instantiate( "CategoriesTableViewController", storyboard: "Categories")
         categoriesTableViewController.delegate = self
         tableViewDelegate = categoriesTableViewController
+        categoriesTableViewController.categoriesSort = categoriesSortIndex() ?? .increasing
+        categoriesTableViewController.research = research
         addChild(categoriesTableViewController, container: tableViewContainer)
     }
     
     func newCategoriesSettingsViewController() {
         let categoriesSettingsViewController: CategoriesSettingsViewController = instantiate("CategoriesSettingsViewController", storyboard: "CategoriesSettingsView")
         categoriesSettingsViewController.delegate = self
+        categoriesSettingsViewController.searchCount = research?.count ?? 0
         navBarOption(.add)
         addChild(categoriesSettingsViewController, container: settingsContainer)
     }
@@ -85,6 +91,7 @@ class CategoriesViewController: UIViewController {
     func newCategoriesEditViewController() {
         let categoriesEditViewController: CategoriesEditViewController = instantiate("CategoriesEditViewController", storyboard: "CategoriesEditView")
         categoriesEditViewController.delegate = self
+        categoryEditDelegate = categoriesEditViewController
         tableViewDelegate?.tableViewEditing()
         tableViewStat = .editing
         navBarOption(.delete)
@@ -101,36 +108,26 @@ class CategoriesViewController: UIViewController {
     func newCategoriesSearchViewController() {
         let categoriesSearchViewController: CategoriesSearchViewController = instantiate("CategoriesSearchViewController", storyboard: "CategoriesSearchView")
         categoriesSearchViewController.delegate = self
-        tableViewDelegate?.textFieldDidBeginEditing()
+        categoriesSearchViewController.research = research
+        tableViewDelegate?.textFieldDidBeginResearching()
         tableViewStat = .searching
         navBarOption(nil)
         addChild(categoriesSearchViewController, container: settingsContainer)
     }
     
-    func removeChildSettings() {
+    func newChildSettings() {
         newCategoriesSettingsViewController()
-        guard tableViewStat != nil else { return }
-        switch tableViewStat! {
-        case .editing:
-            tableViewDelegate?.tableViewEndEditing()
-            tableViewStat = nil
-            break
-        case .searching:
-            tableViewDelegate?.textFieldDidEndEditing()
-            break
-        }
+        guard tableViewStat == .editing else { return }
+        tableViewDelegate?.tableViewEndEditing()
+        tableViewStat = nil
     }
     
     // MARK: - DataBase Functions
     
     func initDataBase() {
         guard !preferences.dataBaseCreated() else { return }
-        dataBase.createCategoryTable()
-        dataBase.createItemTable()
-        dataBase.createAnnotationTable()
-        dataBase.createNameFeaturesTable()
-        dataBase.createFeaturesTable()
-        dataBase.createItemFeatureTable()
+        createDataBase.execute()
+        createDataBase.preferencesDefault()
         preferences.lastFeatureId(-1)
         preferences.dataBaseCreated(true)
         
@@ -164,6 +161,9 @@ class CategoriesViewController: UIViewController {
 
 protocol CategoriesTableViewControllerDelegate: AnyObject {
     func newItemsViewController(_ category: Category)
+    func editTextField(_ text: String)
+    func editTextFieldEndEditing()
+    func categorySelected(_ category: Category?)
 }
 
 extension CategoriesViewController: CategoriesTableViewControllerDelegate {
@@ -171,6 +171,19 @@ extension CategoriesViewController: CategoriesTableViewControllerDelegate {
         let itemsViewController: ItemsViewController = instantiate("ItemsViewController", storyboard: "Items")
         itemsViewController.category = category
         navigationController?.pushViewController(itemsViewController, animated: true)
+    }
+    
+    func editTextField(_ text: String) {
+        categoryEditDelegate?.text(text)
+    }
+    
+    func editTextFieldEndEditing() {
+        categoryEditDelegate?.editTextFieldEndEditing()
+    }
+    
+    func categorySelected(_ category: Category?) {
+        categoryEditDelegate?.textFieldBackViewBorder(category)
+        lastCategorySelected = category
     }
 }
 
@@ -203,7 +216,7 @@ extension CategoriesViewController: CategoriesSettingsViewControllerDelegate {
 
 protocol CategoriesAddViewControllerDelegate: AnyObject {
     func addCategory(_ name: String?)
-    func removeChildSettings()
+    func newChildSettings()
 }
 
 extension CategoriesViewController: CategoriesAddViewControllerDelegate {
@@ -215,13 +228,34 @@ extension CategoriesViewController: CategoriesAddViewControllerDelegate {
 // MARK: - CategoriesEditViewControllerDelegate
 
 protocol CategoriesEditViewControllerDelegate: AnyObject {
+    func itemsTableViewEditing()
+    func itemsTableViewEndEditing()
+    func editNameCategory(_ name: String) -> Bool
     func textFieldDidResearching(_ text: String)
-    func removeChildSettings()
+    func newChildSettings()
+    func categorySelected() -> Category?
 }
 
 extension CategoriesViewController: CategoriesEditViewControllerDelegate {
+    
+    func itemsTableViewEditing() {
+        tableViewDelegate?.tableViewEditing()
+    }
+    
+    func itemsTableViewEndEditing() {
+        tableViewDelegate?.tableViewEndEditing()
+    }
+    
     func textFieldDidResearching(_ text: String) {
         tableViewDelegate?.textFieldDidResearching(text)
+    }
+    
+    func editNameCategory(_ name: String) -> Bool {
+        return tableViewDelegate?.update(name) ?? false
+    }
+    
+    func categorySelected() -> Category? {
+        return lastCategorySelected
     }
 }
 
@@ -230,17 +264,18 @@ extension CategoriesViewController: CategoriesEditViewControllerDelegate {
 protocol CategoriesSortViewControllerDelegate: AnyObject {
     func sortChoice(_ categoriesSort: Sort)
     func categoriesSortIndex() -> Sort?
-    func removeChildSettings()
+    func newChildSettings()
 }
 
 extension CategoriesViewController: CategoriesSortViewControllerDelegate {
     
     func sortChoice(_ categoriesSort: Sort) {
+        preferences.categorySort(categoriesSort.rawValue)
         tableViewDelegate?.categoriesSort(categoriesSort)
     }
     
     func categoriesSortIndex() -> Sort? {
-        return tableViewDelegate?.tableViewCategoriesSort()
+        return Sort(rawValue: preferences.categorySort())
     }
 }
 
@@ -248,9 +283,19 @@ extension CategoriesViewController: CategoriesSortViewControllerDelegate {
 
 protocol CategoriesSearchViewControllerDelegate: AnyObject {
     func textFieldDidResearching(_ text: String)
-    func removeChildSettings()
+    func newChildSettings()
+    func removeSearch()
+    func researching(_ text: String?)
 }
 
 extension CategoriesViewController: CategoriesSearchViewControllerDelegate {
-    // No additionnal Function are required for this delegate.
+    func removeSearch() {
+        tableViewDelegate?.textFieldDidEndResearching()
+        research = nil
+    }
+    
+    func researching(_ text: String?) {
+        guard text != nil || text != "" else { return }
+        research = Research.init(search: text!, count: tableViewDelegate?.searchCount() ?? 0)
+    }
 }
