@@ -107,6 +107,20 @@
 		3FE782401E4A0298005F23EE /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE7823F1E4A0298005F23EE /* Entities.swift */; };
 		3FEC2B61230423C6008C26F6 /* NameFeaturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC2B60230423C6008C26F6 /* NameFeaturesTableViewCell.swift */; };
 		3FEC2B6323043C98008C26F6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC2B6223043C98008C26F6 /* String.swift */; };
+		3FF4E6B023423B8100F32578 /* AnnotationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6AF23423B8100F32578 /* AnnotationsViewController.swift */; };
+		3FF4E6B723423C9B00F32578 /* AnnotationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6B623423C9B00F32578 /* AnnotationsTableViewCell.swift */; };
+		3FF4E6B923423D1200F32578 /* AnnotationsAddViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6B823423D1200F32578 /* AnnotationsAddViewController.storyboard */; };
+		3FF4E6BB23423D2600F32578 /* AnnotationsAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6BA23423D2600F32578 /* AnnotationsAddViewController.swift */; };
+		3FF4E6BD23423D3400F32578 /* AnnotationsEditViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6BC23423D3400F32578 /* AnnotationsEditViewController.storyboard */; };
+		3FF4E6BF23423D3E00F32578 /* AnnotationsEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */; };
+		3FF4E6C123423D4E00F32578 /* AnnotationsSortViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C023423D4E00F32578 /* AnnotationsSortViewController.storyboard */; };
+		3FF4E6C323423D6200F32578 /* AnnotationsSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C223423D6200F32578 /* AnnotationsSortViewController.swift */; };
+		3FF4E6C523423D7300F32578 /* AnnotationsSearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C423423D7300F32578 /* AnnotationsSearchViewController.storyboard */; };
+		3FF4E6C723423D8900F32578 /* AnnotationsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C623423D8900F32578 /* AnnotationsSearchViewController.swift */; };
+		3FF4E6C923423FE900F32578 /* AnnotationsSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C823423FE900F32578 /* AnnotationsSettingsViewController.storyboard */; };
+		3FF4E6CB23423FFC00F32578 /* AnnotationsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CA23423FFC00F32578 /* AnnotationsSettingsViewController.swift */; };
+		3FF4E6CD2342480500F32578 /* AnnotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CC2342480500F32578 /* AnnotationList.swift */; };
+		3FF4E6CF23425D3E00F32578 /* AnnotationDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */; };
 		3FF51D4F22B6CD8D005D6DF1 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF51D4E22B6CD8D005D6DF1 /* MapController.swift */; };
 		3FF6E0E61F1CC15A001F5D02 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF6E0E81F1CC15A001F5D02 /* Localizable.strings */; };
 		3FF7FC79231FB2F2006A9311 /* CategoriesAddView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF7FC78231FB2F2006A9311 /* CategoriesAddView.storyboard */; };
@@ -253,6 +267,20 @@
 		3FE7823F1E4A0298005F23EE /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		3FEC2B60230423C6008C26F6 /* NameFeaturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameFeaturesTableViewCell.swift; sourceTree = "<group>"; };
 		3FEC2B6223043C98008C26F6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3FF4E6AF23423B8100F32578 /* AnnotationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsViewController.swift; sourceTree = "<group>"; };
+		3FF4E6B623423C9B00F32578 /* AnnotationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsTableViewCell.swift; sourceTree = "<group>"; };
+		3FF4E6B823423D1200F32578 /* AnnotationsAddViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsAddViewController.storyboard; sourceTree = "<group>"; };
+		3FF4E6BA23423D2600F32578 /* AnnotationsAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsAddViewController.swift; sourceTree = "<group>"; };
+		3FF4E6BC23423D3400F32578 /* AnnotationsEditViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsEditViewController.storyboard; sourceTree = "<group>"; };
+		3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsEditViewController.swift; sourceTree = "<group>"; };
+		3FF4E6C023423D4E00F32578 /* AnnotationsSortViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsSortViewController.storyboard; sourceTree = "<group>"; };
+		3FF4E6C223423D6200F32578 /* AnnotationsSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsSortViewController.swift; sourceTree = "<group>"; };
+		3FF4E6C423423D7300F32578 /* AnnotationsSearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsSearchViewController.storyboard; sourceTree = "<group>"; };
+		3FF4E6C623423D8900F32578 /* AnnotationsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsSearchViewController.swift; sourceTree = "<group>"; };
+		3FF4E6C823423FE900F32578 /* AnnotationsSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsSettingsViewController.storyboard; sourceTree = "<group>"; };
+		3FF4E6CA23423FFC00F32578 /* AnnotationsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsSettingsViewController.swift; sourceTree = "<group>"; };
+		3FF4E6CC2342480500F32578 /* AnnotationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationList.swift; sourceTree = "<group>"; };
+		3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDetailsTableViewController.swift; sourceTree = "<group>"; };
 		3FF51D4E22B6CD8D005D6DF1 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		3FF6E0E71F1CC15A001F5D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF7FC78231FB2F2006A9311 /* CategoriesAddView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesAddView.storyboard; sourceTree = "<group>"; };
@@ -360,6 +388,9 @@
 		3F16B26D2334CE0300EEC683 /* AnnotationsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FF4E6AF23423B8100F32578 /* AnnotationsViewController.swift */,
+				3FF4E6B623423C9B00F32578 /* AnnotationsTableViewCell.swift */,
+				3FF4E6B123423BA500F32578 /* AnnotationsSettingsViewController */,
 			);
 			name = AnnotationsViewController;
 			sourceTree = "<group>";
@@ -374,6 +405,7 @@
 		3F16B26F2334CE5900EEC683 /* AnnotationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */,
 			);
 			name = AnnotationViewController;
 			sourceTree = "<group>";
@@ -586,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				3F0F5F6122FAE2B8007E1DC5 /* Annotation.swift */,
+				3FF4E6CC2342480500F32578 /* AnnotationList.swift */,
 				3F0F5F5D22FAE28B007E1DC5 /* Category.swift */,
 				3F2FD75623263D9E006E36A6 /* CategoryList.swift */,
 				3F4C01802332C90700F49A72 /* CreateDataBase.swift */,
@@ -734,6 +767,55 @@
 			name = CategoriesAddViewController;
 			sourceTree = "<group>";
 		};
+		3FF4E6B123423BA500F32578 /* AnnotationsSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4E6C823423FE900F32578 /* AnnotationsSettingsViewController.storyboard */,
+				3FF4E6CA23423FFC00F32578 /* AnnotationsSettingsViewController.swift */,
+				3FF4E6B223423BBC00F32578 /* AnnotationsAddViewController */,
+				3FF4E6B323423BD800F32578 /* AnnotationsEditViewController */,
+				3FF4E6B423423BF900F32578 /* AnnotationsSortViewController */,
+				3FF4E6B523423C1000F32578 /* AnnotationsSearchViewController */,
+			);
+			name = AnnotationsSettingsViewController;
+			sourceTree = "<group>";
+		};
+		3FF4E6B223423BBC00F32578 /* AnnotationsAddViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4E6B823423D1200F32578 /* AnnotationsAddViewController.storyboard */,
+				3FF4E6BA23423D2600F32578 /* AnnotationsAddViewController.swift */,
+			);
+			name = AnnotationsAddViewController;
+			sourceTree = "<group>";
+		};
+		3FF4E6B323423BD800F32578 /* AnnotationsEditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4E6BC23423D3400F32578 /* AnnotationsEditViewController.storyboard */,
+				3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */,
+			);
+			name = AnnotationsEditViewController;
+			sourceTree = "<group>";
+		};
+		3FF4E6B423423BF900F32578 /* AnnotationsSortViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4E6C023423D4E00F32578 /* AnnotationsSortViewController.storyboard */,
+				3FF4E6C223423D6200F32578 /* AnnotationsSortViewController.swift */,
+			);
+			name = AnnotationsSortViewController;
+			sourceTree = "<group>";
+		};
+		3FF4E6B523423C1000F32578 /* AnnotationsSearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4E6C423423D7300F32578 /* AnnotationsSearchViewController.storyboard */,
+				3FF4E6C623423D8900F32578 /* AnnotationsSearchViewController.swift */,
+			);
+			name = AnnotationsSearchViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -856,6 +938,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF4E6BD23423D3400F32578 /* AnnotationsEditViewController.storyboard in Resources */,
 				3FF6E0E61F1CC15A001F5D02 /* Localizable.strings in Resources */,
 				3F08E9292326EDA600AC16FD /* ItemsSettingsView.storyboard in Resources */,
 				3FF7FC7D23200418006A9311 /* CategoriesSortView.storyboard in Resources */,
@@ -864,8 +947,10 @@
 				3F2E0F101E3888FA00B63C71 /* Assets.xcassets in Resources */,
 				3F2E0F0E1E3888FA00B63C71 /* Main.storyboard in Resources */,
 				3FF7FC7F2320042B006A9311 /* CategoriesSearchView.storyboard in Resources */,
+				3FF4E6B923423D1200F32578 /* AnnotationsAddViewController.storyboard in Resources */,
 				3F08E92B2326F17800AC16FD /* ItemsAddView.storyboard in Resources */,
 				3F08E92F2326F1FD00AC16FD /* ItemsSortView.storyboard in Resources */,
+				3FF4E6C123423D4E00F32578 /* AnnotationsSortViewController.storyboard in Resources */,
 				3F1F4ABB232A961000483ACF /* FeaturesSettingsView.storyboard in Resources */,
 				3F29046922B96EF000CF8BCB /* Items.storyboard in Resources */,
 				3FDED8011FED3391003EF198 /* Collector.storyboard in Resources */,
@@ -874,6 +959,7 @@
 				3FF7FC81232005F9006A9311 /* CategoriesSettingsView.storyboard in Resources */,
 				3FDAA2792305989C0025EDFC /* AllFeatures.storyboard in Resources */,
 				3F08E9312326F20A00AC16FD /* ItemsSearchView.storyboard in Resources */,
+				3FF4E6C923423FE900F32578 /* AnnotationsSettingsViewController.storyboard in Resources */,
 				3FE00D4722A90FBE00B5B008 /* Categories.storyboard in Resources */,
 				3F32BF89230206F9002CFB84 /* Features.storyboard in Resources */,
 				3F1F4ABD232A962800483ACF /* FeaturesAddView.storyboard in Resources */,
@@ -881,6 +967,7 @@
 				3FF7FC79231FB2F2006A9311 /* CategoriesAddView.storyboard in Resources */,
 				3FDED8061FED390A003EF198 /* Map.storyboard in Resources */,
 				3F99E88D1FF598E000AA61C2 /* Calculator.storyboard in Resources */,
+				3FF4E6C523423D7300F32578 /* AnnotationsSearchViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,7 +1038,10 @@
 				3F073BBE232B83AD00AFC644 /* FeatureList.swift in Sources */,
 				3F22A4832306F9A8008AB0BD /* UIViewController.swift in Sources */,
 				3F9336C31E438003008A2AAA /* CalculatorViewController.swift in Sources */,
+				3FF4E6C723423D8900F32578 /* AnnotationsSearchViewController.swift in Sources */,
 				3FE1E05E232F6A99002E46A6 /* AllFeatureList.swift in Sources */,
+				3FF4E6C323423D6200F32578 /* AnnotationsSortViewController.swift in Sources */,
+				3FF4E6CD2342480500F32578 /* AnnotationList.swift in Sources */,
 				3F2FD75723263D9E006E36A6 /* CategoryList.swift in Sources */,
 				3F7F9AC322F9CFD800A5AE4C /* DataBaseCategory.swift in Sources */,
 				3FCAD63922A3DCF2002F20CD /* CategoriesSearchViewController.swift in Sources */,
@@ -960,6 +1050,8 @@
 				3FD638DF22BE1CDA007FA00F /* ItemsSearchViewController.swift in Sources */,
 				3F9970C31E7AF7A40061DF28 /* ListAnnotationTableViewController.swift in Sources */,
 				3FCAD63422A3D3AA002F20CD /* CategoryCell.swift in Sources */,
+				3FF4E6B723423C9B00F32578 /* AnnotationsTableViewCell.swift in Sources */,
+				3FF4E6B023423B8100F32578 /* AnnotationsViewController.swift in Sources */,
 				3F02A3C8230C1D8500E7E8BA /* Array.swift in Sources */,
 				3FDAA277230597720025EDFC /* AllFeaturesTableViewCell.swift in Sources */,
 				3F2966182327F54C009BDF86 /* Sort.swift in Sources */,
@@ -980,6 +1072,7 @@
 				3F13EC992302A586006A25C6 /* DataBaseNameFeatures.swift in Sources */,
 				3F13EC9F2302A71B006A25C6 /* Feature.swift in Sources */,
 				3F22A4812306F240008AB0BD /* UIButton.swift in Sources */,
+				3FF4E6CB23423FFC00F32578 /* AnnotationsSettingsViewController.swift in Sources */,
 				3F28A72D230A8F1B00E89741 /* ItemNameFeaturesCell.swift in Sources */,
 				3F13ECA42302BF49006A25C6 /* FeaturesSettingsViewController.swift in Sources */,
 				3F13ECAE2302BFD4006A25C6 /* FeaturesEditViewController.swift in Sources */,
@@ -993,6 +1086,7 @@
 				3FF51D4F22B6CD8D005D6DF1 /* MapController.swift in Sources */,
 				3F2DA23523072F7800A0798B /* FilesManager.swift in Sources */,
 				3F9336BF1E432C33008A2AAA /* DataBase.swift in Sources */,
+				3FF4E6CF23425D3E00F32578 /* AnnotationDetailsTableViewController.swift in Sources */,
 				3F2E0F091E3888FA00B63C71 /* AppDelegate.swift in Sources */,
 				3FA01BB9227CC8A80080BA2C /* CategoriesNavigationController.swift in Sources */,
 				3F13EC9723029BE1006A25C6 /* FeaturesTableViewController.swift in Sources */,
@@ -1011,9 +1105,11 @@
 				3FFE1379233F941A00416AAC /* UIView.swift in Sources */,
 				3FD638E122BE5C07007FA00F /* ItemCell.swift in Sources */,
 				3F28A731230A8F6200E89741 /* ItemFiltersCell.swift in Sources */,
+				3FF4E6BF23423D3E00F32578 /* AnnotationsEditViewController.swift in Sources */,
 				3FFCEBAA22A9BCD800622092 /* MapNavigationController.swift in Sources */,
 				3FAD106E230A933700A0216D /* UIColor.swift in Sources */,
 				3F2E0F621E38B1D000B63C71 /* MapViewController.swift in Sources */,
+				3FF4E6BB23423D2600F32578 /* AnnotationsAddViewController.swift in Sources */,
 				3FDAA275230597630025EDFC /* AllFeaturesTableViewController.swift in Sources */,
 				3F166908233366F2004D9B56 /* Research.swift in Sources */,
 				3FE782401E4A0298005F23EE /* Entities.swift in Sources */,

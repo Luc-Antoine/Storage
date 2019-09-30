@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GEB-rC-MHN">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Annotations Settings View Controller-->
+        <scene sceneID="3W2-mf-rcu">
+            <objects>
+                <viewController storyboardIdentifier="AnnotationsSettingsViewController" id="GEB-rC-MHN" customClass="AnnotationsSettingsViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QWR-al-Eee">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-MH-jip">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="5HG-MQ-KWI">
+                                        <rect key="frame" x="16" y="13" width="382" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="hGc-SL-b0g"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Edit"/>
+                                            <segment title="Sort"/>
+                                            <segment title="Search"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5HG-MQ-KWI" firstAttribute="centerY" secondItem="Ves-MH-jip" secondAttribute="centerY" id="Tjh-Lh-A93"/>
+                                    <constraint firstAttribute="height" constant="54" id="qoE-qT-oix"/>
+                                    <constraint firstItem="5HG-MQ-KWI" firstAttribute="centerX" secondItem="Ves-MH-jip" secondAttribute="centerX" id="vlx-Vs-znN"/>
+                                    <constraint firstItem="5HG-MQ-KWI" firstAttribute="leading" secondItem="Ves-MH-jip" secondAttribute="leading" constant="16" id="z50-vd-7pW"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="54H-0s-J8Z"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ves-MH-jip" firstAttribute="leading" secondItem="L6E-1B-xzN" secondAttribute="leading" id="1Tz-5M-6ze"/>
+                            <constraint firstItem="Ves-MH-jip" firstAttribute="centerY" secondItem="QWR-al-Eee" secondAttribute="centerY" id="Iak-Be-gQC"/>
+                            <constraint firstItem="Ves-MH-jip" firstAttribute="centerX" secondItem="QWR-al-Eee" secondAttribute="centerX" id="T9C-Fn-t7v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L6E-1B-xzN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Un-qp-jOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136" y="120"/>
+        </scene>
+    </scenes>
+</document>
