@@ -15,9 +15,8 @@ class AnnotationList {
         return dataBase.select()
     }
     
-    func add(_ newAnnotation: Annotation) -> [Annotation] {
+    func add(_ newAnnotation: Annotation) {
         dataBase.insert(newAnnotation)
-        return all()
     }
     
     func update(_ annotation: Annotation) {
@@ -28,9 +27,8 @@ class AnnotationList {
         dataBase.updateFavorite(annotation)
     }
     
-    func remove(_ annotations: [Annotation]) -> [Annotation] {
-        guard annotations.count > 0 else { return [] }
+    func remove(_ annotations: [Annotation]) {
+        guard annotations.count > 0 else { return }
         dataBase.delete(annotations)
-        return all()
     }
 }

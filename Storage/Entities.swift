@@ -8,16 +8,6 @@
 
 import UIKit
 
-//enum Sort: Int {
-//    case increasing = 0, decreasing, favoritesFirst, favoritesLast
-//}
-
-//struct ArrayDisplay {
-//    enum Sort: Int {
-//        case increasing = 0, decreasing, favoritesFirst, favoritesLast
-//    }
-//}
-
 enum NavBarItem {
     case add, delete
 }
@@ -103,8 +93,4 @@ extension Symbol {
             case .null: return ""
         }
     }
-}
-
-extension Notification.Name {
-    static let reload = Notification.Name("reload")
 }

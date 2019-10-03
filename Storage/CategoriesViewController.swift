@@ -74,7 +74,7 @@ class CategoriesViewController: UIViewController {
     }
     
     func newCategoriesSettingsViewController() {
-        let categoriesSettingsViewController: CategoriesSettingsViewController = instantiate("CategoriesSettingsViewController", storyboard: "CategoriesSettingsView")
+        let categoriesSettingsViewController: CategoriesSettingsViewController = instantiate("CategoriesSettingsViewController", storyboard: "CategoriesSettings")
         categoriesSettingsViewController.delegate = self
         categoriesSettingsViewController.searchCount = research?.count ?? 0
         navBarOption(.add)
@@ -82,14 +82,14 @@ class CategoriesViewController: UIViewController {
     }
     
     func newCategoriesAddViewController() {
-        let categoriesAddViewController: CategoriesAddViewController = instantiate("CategoriesAddViewController", storyboard: "CategoriesAddView")
+        let categoriesAddViewController: CategoriesAddViewController = instantiate("CategoriesAddViewController", storyboard: "CategoriesAdd")
         categoriesAddViewController.delegate = self
         navBarOption(nil)
         addChild(categoriesAddViewController, container: settingsContainer)
     }
     
     func newCategoriesEditViewController() {
-        let categoriesEditViewController: CategoriesEditViewController = instantiate("CategoriesEditViewController", storyboard: "CategoriesEditView")
+        let categoriesEditViewController: CategoriesEditViewController = instantiate("CategoriesEditViewController", storyboard: "CategoriesEdit")
         categoriesEditViewController.delegate = self
         categoryEditDelegate = categoriesEditViewController
         tableViewDelegate?.tableViewEditing()
@@ -99,14 +99,14 @@ class CategoriesViewController: UIViewController {
     }
     
     func newCategoriesSortViewController() {
-        let categoriesSortViewController: CategoriesSortViewController = instantiate("CategoriesSortViewController", storyboard: "CategoriesSortView")
+        let categoriesSortViewController: CategoriesSortViewController = instantiate("CategoriesSortViewController", storyboard: "CategoriesSort")
         categoriesSortViewController.delegate = self
         navBarOption(nil)
         addChild(categoriesSortViewController, container: settingsContainer)
     }
     
     func newCategoriesSearchViewController() {
-        let categoriesSearchViewController: CategoriesSearchViewController = instantiate("CategoriesSearchViewController", storyboard: "CategoriesSearchView")
+        let categoriesSearchViewController: CategoriesSearchViewController = instantiate("CategoriesSearchViewController", storyboard: "CategoriesSearch")
         categoriesSearchViewController.delegate = self
         categoriesSearchViewController.research = research
         tableViewDelegate?.textFieldDidBeginResearching()

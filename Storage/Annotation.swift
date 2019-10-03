@@ -12,11 +12,11 @@ import GRDB
 struct Annotation {
     let id: Int
     var title: String
-    let subtitle: String
-    let comment: String
+    var subtitle: String
+    var comment: String
     let lat: Double
     let lng: Double
-    let favorite: Bool
+    var favorite: Bool
     
     init(id: Int, title: String, subtitle: String, comment: String, lat: Double, lng: Double, favorite: Bool) {
         self.id = id

@@ -23,22 +23,22 @@ class TabBarViewController: UITabBarController {
     
     func instantiateItems() {
         let firstViewController = CategoriesNavigationController()
-        firstViewController.tabBarItem = UITabBarItem(title: "Objet", image: UIImage(named: "RussianDolls"), tag: 0)
+        firstViewController.tabBarItem = UITabBarItem(title: "Objet", image: UIImage(named: "Collection"), tag: 0)
 //        let secondController = instantiateCalculatorViewController()
 //        secondController.tabBarItem = UITabBarItem(title: "Calc", image: UIImage(named: "Calculator"), tag: 1)
         let secondController = MapNavigationController()
-        secondController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Mappin"), tag: 1)
+        secondController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Pins"), tag: 1)
         
         viewControllers = [firstViewController, secondController]
     }
     
-    func instantiateCalculatorViewController() -> CalculatorViewController {
-        let storyboard = UIStoryboard(name: "Calculator", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "CalculatorViewController") as! CalculatorViewController
-    }
-    
-    func instantiateListAnnotationTableViewController() -> ListAnnotationTableViewController {
-        let storyboard = UIStoryboard(name: "Map", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "ListAnnotationTableViewController") as! ListAnnotationTableViewController
-    }
+//    func instantiateCalculatorViewController() -> CalculatorViewController {
+//        let storyboard = UIStoryboard(name: "Calculator", bundle: nil)
+//        return storyboard.instantiateViewController(withIdentifier: "CalculatorViewController") as! CalculatorViewController
+//    }
+//    
+//    func instantiateListAnnotationTableViewController() -> ListAnnotationTableViewController {
+//        let storyboard = UIStoryboard(name: "Map", bundle: nil)
+//        return storyboard.instantiateViewController(withIdentifier: "ListAnnotationTableViewController") as! ListAnnotationTableViewController
+//    }
 }

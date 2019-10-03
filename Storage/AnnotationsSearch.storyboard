@@ -28,6 +28,9 @@
                                             <constraint firstAttribute="width" constant="30" id="N5U-Th-EMr"/>
                                         </constraints>
                                         <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="Thn-7Q-Z9I" eventType="touchUpInside" id="gW4-pI-2PW"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvO-F1-qmE">
                                         <rect key="frame" x="60" y="12" width="294" height="30"/>
@@ -38,6 +41,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="textFieldChanged" destination="Thn-7Q-Z9I" eventType="editingChanged" id="tlm-Fi-DWW"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,6 +60,9 @@
                                         <state key="normal" image="Confirm">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="confirmSearch" destination="Thn-7Q-Z9I" eventType="touchUpInside" id="vNi-go-IB8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,6 +88,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cCo-ve-43B"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="uv1-5P-cx8" id="7K9-3e-TeX"/>
+                        <outlet property="searchTextField" destination="5Rg-Yx-aak" id="cQc-CT-FKX"/>
+                        <outlet property="textFieldBackView" destination="zvO-F1-qmE" id="OgI-f8-f8z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3Y-w4-QaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -89,17 +89,4 @@ extension DataBase {
             NSLog(error.localizedDescription)
         }
     }
-    
-//    func delete(_ feature: Feature) {
-//        do {
-//            try dbQueue!.write({ db in
-//                try db.execute(
-//                    sql: "DELETE FROM `Item_feature` WHERE item_id = :item_id",
-//                    arguments: ["item_id":feature.id]
-//                )
-//            })
-//        } catch {
-//            NSLog(error.localizedDescription)
-//        }
-//    }
 }

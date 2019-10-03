@@ -10,21 +10,22 @@ import UIKit
 
 class AnnotationsSettingsViewController: UIViewController {
 
+    weak var delegate: AnnotationsSettingsViewControllerDelegate?
+    
+    var searchCount: Int = 0
+    
+    @IBOutlet weak var settings: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        guard searchCount > 0 else { return }
+        settings.setTitle(NSLocalizedString("Search", comment: "") + " (\(searchCount))", forSegmentAt: 2)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func settingsDisplay(_ sender: Any) {
+        remove()
+        delegate?.navigationSettings(settings.selectedSegmentIndex)
     }
-    */
 
 }

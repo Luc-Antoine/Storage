@@ -10,21 +10,48 @@ import UIKit
 
 class AnnotationsSearchViewController: UIViewController {
 
+    weak var delegate: AnnotationsSearchViewControllerDelegate?
+    
+    var research: Research?
+    
+    @IBOutlet weak var textFieldBackView: UIView!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var confirmButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        confirmButton.isHidden = true
+        textFieldBackView.borderFocus()
+        searchTextField.becomeFirstResponder()
+        guard research != nil else { return }
+        confirmButton.isHidden = false
+        searchTextField.text = research!.search
+        delegate?.textFieldDidResearching(searchTextField.text!)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func removeView() {
+        delegate?.removeSearch()
+        searchTextField.resignFirstResponder()
+        remove()
+        delegate?.newChildSettings()
     }
-    */
+    
+    @IBAction func textFieldChanged() {
+        guard searchTextField.text != nil else { return }
+        delegate?.textFieldDidResearching(searchTextField.text!)
+        if searchTextField.text != "" {
+            confirmButton.isHidden = false
+        } else {
+            confirmButton.isHidden = true
+        }
+    }
+    
+    @IBAction func confirmSearch() {
+        searchTextField.resignFirstResponder()
+        remove()
+        delegate?.researching(searchTextField.text)
+        delegate?.newChildSettings()
+    }
 
 }

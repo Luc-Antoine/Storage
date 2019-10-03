@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="mcD-77-HSH" customClass="MapViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BfJ-yV-3IH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7Zt-Ao-nmo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="554"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="4NV-Py-Jqg" appends="YES" id="d0D-Tj-4nJ"/>
@@ -335,11 +335,11 @@
             <objects>
                 <viewController id="FZG-tZ-mCo" customClass="AnnotationTableViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aed-Dp-etZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iOC-FX-tIg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonAnnotationCell" rowHeight="66" id="34r-MI-6S3" customClass="ButtonAnnotationCell" customModule="Storage" customModuleProvider="target">
@@ -637,7 +637,7 @@
         <image name="UIButton" width="120" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ugY-h4-uue"/>
+        <segue reference="M8R-Fy-hQg"/>
         <segue reference="1Mv-Vb-tuR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

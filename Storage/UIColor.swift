@@ -16,4 +16,8 @@ extension UIColor {
     static var separator: UIColor {
         return rgb(218,231,243)
     }
+    
+    static var mainColor: UIColor {
+        return rgb(7,90,172)
+    }
 }

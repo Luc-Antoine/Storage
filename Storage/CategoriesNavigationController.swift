@@ -13,7 +13,7 @@ class CategoriesNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.tintColor = tintColor()
+        navigationBar.tintColor = UIColor.mainColor
         newCategoriesViewController()
     }
     

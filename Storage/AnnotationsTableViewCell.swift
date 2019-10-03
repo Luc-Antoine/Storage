@@ -10,15 +10,33 @@ import UIKit
 
 class AnnotationsTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    weak var delegate: AnnotationCellDelegate?
+    var index: Int?
+    var favorite: Bool = false
+    
+    @IBOutlet weak var titleAnnotation: UILabel!
+    @IBOutlet weak var subtitleAnnotation: UILabel!
+    @IBOutlet weak var buttonFavorites: UIButton!
+    
+    @IBAction func favorites(_ sender: Any) {
+        update(!favorite)
+        delegate?.updateFavorite(index!)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func configureCell(_ annotation: Annotation) {
+        titleAnnotation.text = annotation.title
+        subtitleAnnotation.text = annotation.subtitle
+        update(annotation.favorite)
+    }
+    
+    private func update(_ favorite: Bool) {
+        if favorite {
+            buttonFavorites.setImage(UIImage(named: "NewStarFavorite"), for: .normal)
+            self.favorite = true
+        } else {
+            buttonFavorites.setImage(UIImage(named: "NewStar"), for: .normal)
+            self.favorite = false
+        }
     }
 
 }

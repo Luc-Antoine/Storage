@@ -32,6 +32,9 @@
                                             <segment title="Search"/>
                                         </segments>
                                         <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="settingsDisplay:" destination="GEB-rC-MHN" eventType="valueChanged" id="hwd-le-AIF"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,6 +55,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L6E-1B-xzN"/>
                     </view>
+                    <connections>
+                        <outlet property="settings" destination="5HG-MQ-KWI" id="qGi-kd-8F8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Un-qp-jOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

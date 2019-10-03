@@ -30,6 +30,9 @@
                                             <segment title="Others"/>
                                         </segments>
                                         <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="sortChoice" destination="Wok-Jn-qOS" eventType="valueChanged" id="7Rq-Ig-qVY"/>
+                                        </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcT-C2-J3B">
                                         <rect key="frame" x="20" y="12" width="30" height="30"/>
@@ -38,6 +41,9 @@
                                             <constraint firstAttribute="width" constant="30" id="xLF-Ct-AVf"/>
                                         </constraints>
                                         <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="Wok-Jn-qOS" eventType="touchUpInside" id="Mh8-yb-4TA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -60,6 +66,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1HW-Vt-s9Y"/>
                     </view>
+                    <connections>
+                        <outlet property="sortSegmentedControl" destination="OVy-4O-nfO" id="zm6-UE-dJA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icZ-C5-mqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

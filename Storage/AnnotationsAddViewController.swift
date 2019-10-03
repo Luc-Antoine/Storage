@@ -10,21 +10,29 @@ import UIKit
 
 class AnnotationsAddViewController: UIViewController {
 
+    weak var delegate: AnnotationsAddViewControllerDelegate?
+    
+    @IBOutlet weak var BackButton: UIButton!
+    @IBOutlet weak var textFieldBackView: UIView!
+    @IBOutlet weak var nameAnnotationTextField: UITextField!
+    @IBOutlet weak var confirmeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        nameAnnotationTextField.becomeFirstResponder()
+        textFieldBackView.borderFocus()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addAnnotation() {
+//        delegate?.addAnnotation(nameAnnotationTextField.text?.removingEndingSpaces())
+//        nameAnnotationTextField.text = ""
     }
-    */
+    
+    @IBAction func close() {
+        nameAnnotationTextField.resignFirstResponder()
+        remove()
+        delegate?.newChildSettings()
+    }
 
 }

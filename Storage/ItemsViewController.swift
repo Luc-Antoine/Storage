@@ -66,7 +66,7 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsSettingsViewController() {
-        let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", storyboard: "ItemsSettingsView")
+        let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", storyboard: "ItemsSettings")
         itemsSettingsViewController.delegate = self
         itemsSettingsViewController.searchCount = research?.count ?? 0
         navBarItemFilter(.add)
@@ -74,14 +74,14 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsAddViewController() {
-        let itemsAddViewController: ItemsAddViewController = instantiate("ItemsAddViewController", storyboard: "ItemsAddView")
+        let itemsAddViewController: ItemsAddViewController = instantiate("ItemsAddViewController", storyboard: "ItemsAdd")
         itemsAddViewController.delegate = self
         navBarItemFilter(nil)
         addChild(itemsAddViewController, container: settingsContainer)
     }
     
     func newItemsEditViewController() {
-        let itemsEditViewController: ItemsEditViewController = instantiate("ItemsEditViewController", storyboard: "ItemsEditView")
+        let itemsEditViewController: ItemsEditViewController = instantiate("ItemsEditViewController", storyboard: "ItemsEdit")
         itemsEditViewController.delegate = self
         itemsEditTextFieldDelegate = itemsEditViewController
         tableViewDelegate?.tableViewEditing()
@@ -91,14 +91,14 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsSortViewController() {
-        let itemsSortViewController: ItemsSortViewController = instantiate("ItemsSortViewController", storyboard: "ItemsSortView")
+        let itemsSortViewController: ItemsSortViewController = instantiate("ItemsSortViewController", storyboard: "ItemsSort")
         itemsSortViewController.delegate = self
         navBarItemFilter(nil)
         addChild(itemsSortViewController, container: settingsContainer)
     }
     
     func newItemsSearchViewController() {
-        let itemsSearchViewController: ItemsSearchViewController = instantiate("ItemsSearchViewController", storyboard: "ItemsSearchView")
+        let itemsSearchViewController: ItemsSearchViewController = instantiate("ItemsSearchViewController", storyboard: "ItemsSearch")
         itemsSearchViewController.delegate = self
         itemsSearchViewController.research = research
         tableViewDelegate?.kindItem(.researchingItems)
@@ -109,7 +109,7 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsFilterViewController() {
-        let itemsFilterViewController: ItemsFilterViewController = instantiate("ItemsFilterViewController", storyboard: "ItemsFilterView")
+        let itemsFilterViewController: ItemsFilterViewController = instantiate("ItemsFilterViewController", storyboard: "ItemsFilter")
         itemsFilterViewController.delegate = self
         navBarItemFilter(nil)
         tableViewDelegate?.filter()

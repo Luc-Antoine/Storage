@@ -33,13 +33,6 @@ extension UIViewController {
     
     // MARK: - Navigation
     
-//    func instantiate<T>(_ identifier: String, container: UIView, storyboard: String, bundle: Bundle? = nil) -> T {
-//        let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
-//        let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
-//        addChild(viewController, container: container)
-//        return viewController as! T
-//    }
-    
     func instantiate<T>(_ identifier: String, storyboard: String, bundle: Bundle? = nil) -> T {
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
         let viewController = storyboard.instantiateViewController(withIdentifier: identifier)

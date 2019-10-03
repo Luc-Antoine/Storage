@@ -66,7 +66,7 @@ class FeaturesViewController: UIViewController {
     }
     
     func newFeaturesSettingsViewController() {
-        let featuresSettingsViewController: FeaturesSettingsViewController = instantiate("FeaturesSettingsViewController", storyboard: "FeaturesSettingsView")
+        let featuresSettingsViewController: FeaturesSettingsViewController = instantiate("FeaturesSettingsViewController", storyboard: "FeaturesSettings")
         featuresSettingsViewController.delegate = self
         navBarOption(.add)
         tableViewDelegate?.reloadData()
@@ -74,14 +74,14 @@ class FeaturesViewController: UIViewController {
     }
     
     func newFeaturesAddViewController() {
-        let featuresAddViewController: FeaturesAddViewController = instantiate("FeaturesAddViewController", storyboard: "FeaturesAddView")
+        let featuresAddViewController: FeaturesAddViewController = instantiate("FeaturesAddViewController", storyboard: "FeaturesAdd")
         featuresAddViewController.delegate = self
         navBarOption(nil)
         addChild(featuresAddViewController, container: settingsContainer)
     }
     
     func newFeaturesEditViewController() {
-        let featuresEditViewController: FeaturesEditViewController = instantiate("FeaturesEditViewController", storyboard: "FeaturesEditView")
+        let featuresEditViewController: FeaturesEditViewController = instantiate("FeaturesEditViewController", storyboard: "FeaturesEdit")
         featuresEditViewController.delegate = self
         featuresEditTextFieldDelegate = featuresEditViewController
         navBarOption(.delete)
