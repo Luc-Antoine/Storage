@@ -30,12 +30,6 @@ class FeaturesViewController: UIViewController {
         newFeaturesTableViewController()
         newFeaturesSettingsViewController()
         title = item!.name
-        
-//        let dataBase = DataBase()
-//        let allFeature = dataBase.selectAllFeature()
-//        for element in allFeature {
-//            print(element)
-//        }
     }
     
     @IBAction func AddOrEditAction() {

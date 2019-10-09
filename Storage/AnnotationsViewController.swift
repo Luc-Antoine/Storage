@@ -11,7 +11,6 @@ import UIKit
 class AnnotationsViewController: UIViewController {
 
     weak var tableViewDelegate: AnnotationsViewControllerDelegate?
-    weak var annotationEditDelegate: AnnotationsEditDelegate?
     
     var navBarItem: NavBarItem? = .add
     var tableViewStat: TableViewStat?
@@ -22,29 +21,21 @@ class AnnotationsViewController: UIViewController {
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var addOrDeleteButton: UIBarButtonItem!
     
-    private let createDataBase = CreateDataBase()
     private let preferences = Preferences()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initDataBase()
         navigationBarDesign()
         navigationBack()
+        navigationItem.title = "Annotations"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
         newAnnotationsSettingsViewController()
         newAnnotationsTableViewController()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        title = "Annotations"
     }
     
     // MARK: - IBActions
@@ -61,7 +52,7 @@ class AnnotationsViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
+    // MARK: - Childs
     
     func newAnnotationsTableViewController() {
         let annotationsTableViewController: AnnotationsTableViewController = instantiate( "AnnotationsTableViewController", storyboard: "Annotations")
@@ -80,17 +71,9 @@ class AnnotationsViewController: UIViewController {
         addChild(annotationsSettingsViewController, container: settingsContainer)
     }
     
-    func newAnnotationsAddViewController() {
-        let annotationsAddViewController: AnnotationsAddViewController = instantiate("AnnotationsAddViewController", storyboard: "AnnotationsAdd")
-        annotationsAddViewController.delegate = self
-        navBarOption(nil)
-        addChild(annotationsAddViewController, container: settingsContainer)
-    }
-    
     func newAnnotationsEditViewController() {
         let annotationsEditViewController: AnnotationsEditViewController = instantiate("AnnotationsEditViewController", storyboard: "AnnotationsEdit")
         annotationsEditViewController.delegate = self
-        annotationEditDelegate = annotationsEditViewController
         tableViewDelegate?.tableViewEditing()
         tableViewStat = .editing
         navBarOption(.delete)
@@ -126,19 +109,6 @@ class AnnotationsViewController: UIViewController {
         tableViewStat = nil
     }
     
-    // MARK: - DataBase Functions
-    
-    func initDataBase() {
-        guard !preferences.dataBaseCreated() else { return }
-        createDataBase.execute()
-        createDataBase.preferencesDefault()
-        preferences.lastFeatureId(-1)
-        preferences.dataBaseCreated(true)
-        
-        let demonstration = Demonstration()
-        demonstration.run()
-    }
-    
     // MARK: - Navigation Controller Function
     
     func navBarOption(_ option: NavBarItem?) {
@@ -159,37 +129,21 @@ class AnnotationsViewController: UIViewController {
             }
         }
     }
-
 }
 
 // MARK: - AnnotationsTableViewControllerDelegate
 
 protocol AnnotationsTableViewControllerDelegate: AnyObject {
-    func newAnnotationDetailsTableViewController(_ annotation: Annotation)
-    func editTextField(_ text: String)
-    func editTextFieldEndEditing()
-    func annotationSelected(_ annotation: Annotation?)
+    func newAnnotationDetailsTableViewController(_ annotation: Annotation, _ distance: String)
 }
 
 extension AnnotationsViewController: AnnotationsTableViewControllerDelegate {
     
-    func newAnnotationDetailsTableViewController(_ annotation: Annotation) {
+    func newAnnotationDetailsTableViewController(_ annotation: Annotation, _ distance: String) {
         let annotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
         annotationDetailsTableViewController.annotation = annotation
+        annotationDetailsTableViewController.distance = distance
         navigationController?.pushViewController(annotationDetailsTableViewController, animated: true)
-    }
-    
-    func editTextField(_ text: String) {
-        annotationEditDelegate?.text(text)
-    }
-    
-    func editTextFieldEndEditing() {
-        annotationEditDelegate?.editTextFieldEndEditing()
-    }
-    
-    func annotationSelected(_ annotation: Annotation?) {
-        annotationEditDelegate?.textFieldBackViewBorder(annotation)
-        lastAnnotationSelected = annotation
     }
 }
 
@@ -218,50 +172,17 @@ extension AnnotationsViewController: AnnotationsSettingsViewControllerDelegate {
     }
 }
 
-// MARK: - AnnotationsAddViewControllerDelegate
-
-protocol AnnotationsAddViewControllerDelegate: AnyObject {
-    func addAnnotation(_ annotation: Annotation?)
-    func newChildSettings()
-}
-
-extension AnnotationsViewController: AnnotationsAddViewControllerDelegate {
-    func addAnnotation(_ annotation: Annotation?) {
-        tableViewDelegate?.addAnnotation(annotation)
-    }
-}
-
 // MARK: - AnnotationsEditViewControllerDelegate
 
 protocol AnnotationsEditViewControllerDelegate: AnyObject {
-    func itemsTableViewEditing()
-    func itemsTableViewEndEditing()
-    func editNameAnnotation(_ name: String) -> Bool
-    func textFieldDidResearching(_ text: String)
+    func annotationsTableViewEditing()
     func newChildSettings()
-    func annotationSelected() -> Annotation?
 }
 
 extension AnnotationsViewController: AnnotationsEditViewControllerDelegate {
     
-    func itemsTableViewEditing() {
+    func annotationsTableViewEditing() {
         tableViewDelegate?.tableViewEditing()
-    }
-    
-    func itemsTableViewEndEditing() {
-        tableViewDelegate?.tableViewEndEditing()
-    }
-    
-    func textFieldDidResearching(_ text: String) {
-        tableViewDelegate?.textFieldDidResearching(text)
-    }
-    
-    func editNameAnnotation(_ name: String) -> Bool {
-        return tableViewDelegate?.update(name) ?? false
-    }
-    
-    func annotationSelected() -> Annotation? {
-        return lastAnnotationSelected
     }
 }
 
@@ -295,6 +216,10 @@ protocol AnnotationsSearchViewControllerDelegate: AnyObject {
 }
 
 extension AnnotationsViewController: AnnotationsSearchViewControllerDelegate {
+    func textFieldDidResearching(_ text: String) {
+        tableViewDelegate?.textFieldDidResearching(text)
+    }
+    
     func removeSearch() {
         tableViewDelegate?.textFieldDidEndResearching()
         research = nil

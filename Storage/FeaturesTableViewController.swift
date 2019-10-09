@@ -15,13 +15,14 @@ class FeaturesTableViewController: UITableViewController {
     var category: Category?
     var item: Item?
     var oldFeature: Feature?
-    //var feature: Feature?
     var features: [Feature] = []
     var nameFeatures: [NameFeature] = []
     var nameFeaturesSelected: [NameFeature] = []
     var lastIndexPath: IndexPath? {
         didSet {
-            delegate?.featureSelected(lastIndexPath == nil ? nil : features[lastIndexPath!.row])
+            guard lastIndexPath != nil else { return }
+            guard self.features.indices.contains(lastIndexPath!.row) else { return }
+            delegate?.featureSelected(features[lastIndexPath!.row])
         }
     }
     var featureName: String = ""
@@ -159,7 +160,6 @@ extension FeaturesTableViewController: UITextFieldDelegate {
         guard featureName != textField.text! else { return }
         let nameFeature = nameFeatures[textField.tag]
         let lastId = featureList.lastFeatureId()
-        print("lastId : \(lastId)")
         let feature = Feature(id: lastId, name: textField.text!, count: 1, itemId: item!.id, nameFeatureId: nameFeature.id, featureId: lastId)
         update(feature, textField.tag)
         if features.indices.contains(textField.tag) {
@@ -168,11 +168,6 @@ extension FeaturesTableViewController: UITextFieldDelegate {
             features.append(feature)
         }
         tableView.reloadRows(at: [IndexPath(row: textField.tag, section: 0)], with: .none)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return")
-        return true
     }
 }
 

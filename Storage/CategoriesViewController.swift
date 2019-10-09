@@ -58,6 +58,7 @@ class CategoriesViewController: UIViewController {
             break
         case .delete:
             tableViewDelegate?.removeCategories()
+            categoryEditDelegate?.text("")
             break
         }
     }

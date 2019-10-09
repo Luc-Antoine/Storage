@@ -52,15 +52,6 @@ class ItemsTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        loadItems()
-//        loadNameFeatures()
-//        loadFeatures()
-//        reloadData()
-    }
 
     // MARK: - Table view data source
 
@@ -265,19 +256,6 @@ class ItemsTableViewController: UITableViewController {
     }
 }
 
-
-
-//extension ItemsTableViewController: UITextFieldDelegate {
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        textFieldDidBeginEditing()
-//        tableView.reloadData()
-//    }
-//    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        textFieldDidEndEditing()
-//    }
-//}
-
 // MARK: - ItemCellDelegate
 
 protocol ItemCellDelegate {
@@ -378,7 +356,7 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
     }
     
     func removeItems() {
-        let items = itemsList.removeItems(selectedItems, category!.id)
+        let items = itemsList.removeItems(selectedItems, nameFeatures, category!.id)
         self.items = items
         tableView.reloadData()
     }

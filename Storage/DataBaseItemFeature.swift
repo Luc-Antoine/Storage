@@ -51,19 +51,6 @@ extension DataBase {
         }
     }
     
-    func update(_ itemId: Int, _ nameFeatureId: Int, _ featureId: Int) {
-        do {
-            try dbQueue!.write({ db in
-                try db.execute(
-                    sql: "UPDATE Item_feature SET features_id = :features_id WHERE item_id = :item_id AND name_features_id = :name_features_id",
-                    arguments: ["item_id":itemId, "name_features_id":nameFeatureId, "features_id":featureId]
-                )
-            })
-        } catch {
-            NSLog(error.localizedDescription)
-        }
-    }
-    
     func delete(_ item: Item, nameFeature: NameFeature, feature: Feature) {
         do {
             try dbQueue!.write({ db in
@@ -77,12 +64,12 @@ extension DataBase {
         }
     }
     
-    func delete(_ item: Item) {
+    func delete(_ item: Item, nameFeature: NameFeature) {
         do {
             try dbQueue!.write({ db in
                 try db.execute(
-                    sql: "DELETE FROM `Item_feature` WHERE item_id = :item_id",
-                    arguments: ["item_id":item.id]
+                    sql: "DELETE FROM `Item_feature` WHERE item_id = :item_id AND name_features_id = :name_features_id",
+                    arguments: ["item_id":item.id,"name_features_id":nameFeature.id]
                 )
             })
         } catch {

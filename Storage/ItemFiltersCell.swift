@@ -24,5 +24,4 @@ class ItemFiltersCell: UITableViewCell {
     func unselect() {
         backView.backgroundColor = UIColor.white
     }
-
 }

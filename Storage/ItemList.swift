@@ -29,9 +29,9 @@ class ItemList {
         dataBase.update(item)
     }
     
-    func removeItems(_ items: [Item], _ id: Int) -> [Item] {
+    func removeItems(_ items: [Item], _ namesFeature: [NameFeature], _ id: Int) -> [Item] {
         guard items.count > 0 else { return [] }
-        dataBase.delete(items)
+        dataBase.delete(items, namesFeature: namesFeature)
         return all(id)
     }
     

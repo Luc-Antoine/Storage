@@ -24,5 +24,4 @@ class ItemFeaturesCell: UITableViewCell {
     func unselect() {
         backView.backgroundColor = UIColor.white
     }
-
 }

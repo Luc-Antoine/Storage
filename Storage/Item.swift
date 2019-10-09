@@ -38,7 +38,7 @@ extension Item: FetchableRecord, PersistableRecord {
     }
     
     func encode(to container: inout PersistenceContainer) {
-        print(container)
+        
     }
 }
 

@@ -18,17 +18,16 @@ class AnnotationsTableViewController: UITableViewController {
     var annotationsSort: Sort = .increasing
     var modify: Bool = false
     var research: Research?
-    var lastIndexPath: IndexPath? {
-        didSet {
-            delegate?.annotationSelected(lastIndexPath == nil ? nil : annotations[lastIndexPath!.row])
-        }
-    }
+    var currentLocation: Position?
+    var lastIndexPath: IndexPath?
     
     private let annotationList = AnnotationList()
+    private let lastLocation = LastLocation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        lastLocation.annotationsTableViewControllerLocationDelegate = self
         annotations = annotationsSort.sort(annotationList.all())
         if research != nil {
             textFieldDidResearching(research!.search)
@@ -69,19 +68,18 @@ class AnnotationsTableViewController: UITableViewController {
         if modify {
             selectedAnnotations.append(annotations[indexPath.row])
             lastIndexPath = indexPath
-            delegate?.editTextField(annotations[indexPath.row].name)
         } else {
+            let distance: String = lastLocation.calculateDistance(position: Position(lat: annotations[indexPath.row].lat, lng: annotations[indexPath.row].lng))
             if research != nil {
-                delegate?.newAnnotationDetailsTableViewController(researchingAnnotations[indexPath.row])
+                delegate?.newAnnotationDetailsTableViewController(researchingAnnotations[indexPath.row], distance)
             } else {
-                delegate?.newAnnotationDetailsTableViewController(annotations[indexPath.row])
+                delegate?.newAnnotationDetailsTableViewController(annotations[indexPath.row], distance)
             }
         }
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         lastIndexPath = nil
-        delegate?.editTextFieldEndEditing()
         guard modify else { return }
         let index = selectedAnnotations.firstIndex(of: annotations[indexPath.row])
         guard index != nil else { return }
@@ -133,7 +131,7 @@ protocol AnnotationsViewControllerDelegate: AnyObject {
     func annotationsSort(_ sort: Sort)
     func tableViewAnnotationsSort() -> Sort
     func addAnnotation(_ annotation: Annotation?)
-    func update(_ name: String) -> Bool
+    func update(_ title: String, _ subtitle: String, _ comment: String) -> Bool
     func removeAnnotations()
     func textFieldDidBeginResearching()
     func textFieldDidEndResearching()
@@ -169,11 +167,12 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
         tableView.reloadData()
     }
     
-    func update(_ name: String) -> Bool {
+    func update(_ title: String, _ subtitle: String, _ comment: String) -> Bool {
         guard lastIndexPath != nil else { return false }
         var annotation = annotations[lastIndexPath!.row]
-//        annotation.name = name
-        
+        annotation.title = title
+        annotation.subtitle = subtitle
+        annotation.comment = comment
         annotations[lastIndexPath!.row] = annotation
         annotationList.update(annotation)
         tableView.reloadRows(at: [lastIndexPath!], with: .none)
@@ -227,6 +226,17 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
         tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 15, bottom: 0, right: 0)
         modify = false
         lastIndexPath = nil
+        tableView.reloadData()
+    }
+}
+
+protocol AnnotationsTableViewControllerLocationDelegate: AnyObject {
+    func reloadCurrentLocation(_ position: Position)
+}
+
+extension AnnotationsTableViewController: AnnotationsTableViewControllerLocationDelegate {
+    func reloadCurrentLocation(_ position: Position) {
+        currentLocation = position
         tableView.reloadData()
     }
 }

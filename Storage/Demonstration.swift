@@ -8,7 +8,6 @@
 
 import Foundation
 
-// CategoriesController initDataBase()
 class Demonstration {
     private let dataBase = DataBase()
     

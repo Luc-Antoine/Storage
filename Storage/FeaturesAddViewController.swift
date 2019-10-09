@@ -33,5 +33,4 @@ class FeaturesAddViewController: UIViewController {
         delegate?.add(editTextField.text!.removingEndingSpaces())
         editTextField.text = ""
     }
-
 }

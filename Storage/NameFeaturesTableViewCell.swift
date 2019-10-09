@@ -15,13 +15,4 @@ class NameFeaturesTableViewCell: UITableViewCell {
     func configureCell(_ nameFeature: String) {
         nameFeatureLabel.text = nameFeature
     }
-    
-//    func select() {
-//        backView.backgroundColor = UIColor.separator
-//    }
-//    
-//    func unselect() {
-//        backView.backgroundColor = UIColor.white
-//    }
-
 }

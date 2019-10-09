@@ -27,7 +27,7 @@
                                             <constraint firstAttribute="height" constant="28" id="hGc-SL-b0g"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="Edit"/>
+                                            <segment title="Modify"/>
                                             <segment title="Sort"/>
                                             <segment title="Search"/>
                                         </segments>

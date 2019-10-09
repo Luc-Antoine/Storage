@@ -38,5 +38,4 @@ class AnnotationsTableViewCell: UITableViewCell {
             self.favorite = false
         }
     }
-
 }

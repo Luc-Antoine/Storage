@@ -1,15 +1,15 @@
 //
-//  Location.swift
+//  LastLocation.swift
 //  Storage
 //
-//  Created by Luc-Antoine Dupont on 22/03/2017.
-//  Copyright © 2017 Luc-Antoine Dupont. All rights reserved.
+//  Created by Luc-Antoine Dupont on 06/10/2019.
+//  Copyright © 2019 Luc-Antoine Dupont. All rights reserved.
 //
 
 import Foundation
 import CoreLocation
 
-class Location: NSObject, CLLocationManagerDelegate {
+class LastLocation: NSObject, CLLocationManagerDelegate {
     var currentLocation: CLLocation? = nil
     var showUserLocation: Bool?
     var isAuthorised = false {
@@ -25,6 +25,8 @@ class Location: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    var annotationsTableViewControllerLocationDelegate: AnnotationsTableViewControllerLocationDelegate?
+    
     private let locationManager = CLLocationManager()
     
     override init() {
@@ -36,22 +38,21 @@ class Location: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.last
+        annotationsTableViewDelegate(Position(lat: currentLocation!.coordinate.latitude, lng: currentLocation!.coordinate.longitude))
+        locationManager.stopUpdatingLocation()
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         isAuthorised = (status == .authorizedWhenInUse)
     }
     
-    func distance(of position: Position) -> CLLocationDistance {
-        let location = CLLocation(latitude: position.lat, longitude: position.lng)
-        return currentLocation?.distance(from: location) ?? Double.infinity
-    }
-    
-    func calculateDistance(distance: Double) -> String {
+    func calculateDistance(position: Position) -> String {
         let numberFormatter = NumberFormatter()
         var unit: String = ""
         var number: NSNumber = 0
         numberFormatter.maximumFractionDigits = 0
+        let distance = self.distance(of: position)
         if distance >= 1000 {
             number = NSNumber(floatLiteral: distance / 1000)
             unit = " km"
@@ -61,10 +62,15 @@ class Location: NSObject, CLLocationManagerDelegate {
         }
         return numberFormatter.string(from: number)! + unit
     }
-}
-
-extension CLLocationCoordinate2D {
-    var position: Position {
-        return Position(lat: latitude, lng: longitude)
+    
+    // MARK: - Location Delegates
+    
+    private func annotationsTableViewDelegate(_ position: Position) {
+        annotationsTableViewControllerLocationDelegate?.reloadCurrentLocation(position)
+    }
+    
+    private func distance(of position: Position) -> CLLocationDistance {
+        let location = CLLocation(latitude: position.lat, longitude: position.lng)
+        return currentLocation?.distance(from: location) ?? Double.infinity
     }
 }

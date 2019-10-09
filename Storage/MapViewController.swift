@@ -24,7 +24,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var index: Int?
     var lat: CLLocationDegrees?
     var lng: CLLocationDegrees?
-    var unLoadMap: Bool?
     var listMKOverlay: [MKOverlay] = []
     
     var pinAnnotationView: MKPinAnnotationView?
@@ -39,37 +38,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 23.0), NSAttributedString.Key.foregroundColor: UIColor.white]        
         mapView.delegate = self
         self.tabBarController?.delegate = self
         
+        navigationBarDesign()
+        navigationBack()
         annotations = annotationList.all()
         addGestureRecognizer()
+        navigationBarDesign()
+        navigationBack()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         initMap()
-        updateNavigationControllers()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showAnnotation()
+        showAnnotations()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         updatePosition()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        guard unLoadMap == nil else { return }
-        //memoryManager()
     }
     
     deinit {
@@ -80,7 +75,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func newAnnotationDetailsTableViewController(_ annotation: Annotation) {
         let newAnnotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
+        let position = location.distance(of: Position.init(lat: annotation.lat, lng: annotation.lng))
+        newAnnotationDetailsTableViewController.distance = location.calculateDistance(distance: position)
         newAnnotationDetailsTableViewController.annotation = annotation
+        newAnnotationDetailsTableViewController.fromMap = true
+        newAnnotationDetailsTableViewController.mapViewControllerDelegate = self
         navigationController?.pushViewController(newAnnotationDetailsTableViewController, animated: true)
     }
     
@@ -89,8 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         newAnnotationDetailsTableViewController.lat = lat
         newAnnotationDetailsTableViewController.lng = lng
         newAnnotationDetailsTableViewController.fromMap = true
-        newAnnotationDetailsTableViewController.title = NSLocalizedString("Add annotation", comment: "")
-        newAnnotationDetailsTableViewController.addAnnotationDelegate = self
+        newAnnotationDetailsTableViewController.mapViewControllerDelegate = self
         navigationController?.pushViewController(newAnnotationDetailsTableViewController, animated: true)
     }
     
@@ -112,12 +110,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             // Coordonnées de l'utilisateur
             mapView.mapType = MKMapType.standard
             mapView.showsUserLocation = true
-            
-            /*if lat == nil {
-                lat = (locationManager!.location?.coordinate.latitude)!
-                lng = (locationManager!.location?.coordinate.longitude)!
-                showRoute(destinationLat: lat!, destiantionLng: lng!)
-            }*/
             
             if annotation != nil {
                 lat = annotation!.lat
@@ -154,7 +146,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         lng = annotation.coordinate.longitude
     }
     
-    func showAnnotation() {
+    func showAnnotations() {
         for i in 0..<annotations.count {
             let lat = annotations[i].lat
             let lng = annotations[i].lng
@@ -176,38 +168,45 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    func showAnnotation(_ newAnnotation: Annotation) {
+        let pinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(newAnnotation.lat, newAnnotation.lng)
+        let position = location.distance(of: Position.init(lat: newAnnotation.lat, lng: newAnnotation.lng))
+        let pointAnnotation = CustomPointAnnotation()
+        pointAnnotation.coordinate = pinLocation
+        pointAnnotation.title = newAnnotation.title
+        pointAnnotation.subtitle = location.calculateDistance(distance: position)
+        pointAnnotation.imageName = "Pin"
+        pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
+        mapView.addAnnotation(pinAnnotationView!.annotation!)
+    }
+    
     // MARK: - Custom Annotation
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation.isKind(of: MKUserLocation.self) { return nil }
         if !(annotation is CustomPointAnnotation) { return nil }
-        
+
         let reuseIdentifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        
+
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView?.canShowCallout = true
         } else {
             annotationView?.annotation = annotation
         }
-        
+
         let pin = annotation as! CustomPointAnnotation
         annotationView?.image = UIImage(named: pin.imageName)
-        
+
         annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        
-        //showRoute(destinationLat: annotation.coordinate.latitude, destiantionLng: annotation.coordinate.longitude)
-        
+
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        for i in 0..<annotations.count {
-            if view.annotation?.title! == annotations[i].title {
-                index = i
-            }
-        }
+        
+        index = annotations.firstIndex(where: { $0.title == view.annotation?.title })
         
         if control == view.rightCalloutAccessoryView {
             newAnnotationDetailsTableViewController(annotations[index!])
@@ -218,13 +217,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard !(view.annotation is MKUserLocation) else { return }
+        
+        let annotationView: AnnotationModaleWindowViewController = instantiate("AnnotationModaleWindowViewController", storyboard: "AnnotationModaleWindow")
+        //annotationView.configureView(distance: "Titre", title: "Suvtitle", subtitle: "3 km")
+        annotationView.delegate = self
+        self.present(annotationView, animated: true, completion: nil)
+        
         showRoute(destinationLat: view.annotation!.coordinate.latitude, destiantionLng: view.annotation!.coordinate.longitude)
-    }
-    
-    // MARK: - Tab Bar Navigation Controller Delegate
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        unLoadMap = true
     }
     
     // MARK: - Navigation Controller
@@ -239,21 +238,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotation = nil
         lat = nil
         lng = nil
-    }
-    
-    private func updateNavigationControllers() {
-        switch navigationController!.viewControllers.count {
-        case 3:
-            navigationController!.viewControllers.remove(at: 1)
-            
-        case 4:
-            let viewControllerFirst = navigationController?.viewControllers.first
-            let viewControllerLast = navigationController?.viewControllers.last
-            navigationController?.viewControllers = [viewControllerFirst!, viewControllerLast!]
-            
-        default:
-            break
-        }
     }
     
     //MARK: - Custom Route
@@ -334,18 +318,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 }
 
-protocol AddAnnotationDelegate: AnyObject {
-    func addAnnotation(annotation: Annotation)
+protocol MapViewControllerDelegate: AnyObject {
+    func addAnnotation(_ annotation: Annotation)
+    func updateAnnotation(_ annotation: Annotation)
+    func detailsLastAnnotation(_ annotation: Annotation)
 }
 
-extension MapViewController: AddAnnotationDelegate {
+extension MapViewController: MapViewControllerDelegate {
     
-    func addAnnotation(annotation: Annotation) {
-        self.annotations.append(annotation)
+    func addAnnotation(_ annotation: Annotation) {
+        annotations.append(annotation)
         lat = annotation.lat
         lng = annotation.lng
-        showAnnotation()
+        showAnnotation(annotation)
         showRoute(destinationLat: lat!, destiantionLng: lng!)
+    }
+    
+    func updateAnnotation(_ annotation: Annotation) {
+        let index = annotations.firstIndex(where: { $0.id == annotation.id })
+        guard index != nil else { return }
+        annotations[index!] = annotation
+    }
+    
+    func detailsLastAnnotation(_ annotation: Annotation) {
+        self.annotation = annotation
     }
 }
 
@@ -358,7 +354,7 @@ extension MapViewController: RemoveAnnotationDelegate {
     func removeAnnotation(annotation: Annotation) {
         var index: Int = 0
         
-        for i in 0..<self.annotations.count { // self.annotation! = nil !!!!
+        for i in 0..<self.annotations.count {
             if self.annotations[i].id == annotation.id {
                 index = i
                 break
@@ -366,6 +362,21 @@ extension MapViewController: RemoveAnnotationDelegate {
         }
         self.annotations.remove(at: index)
         mapView.removeAnnotations(mapView.annotations)
-        showAnnotation()
+        showAnnotations()
+    }
+}
+
+protocol AnnotationModaleWindowDelegate: AnyObject {
+    func removeView()
+    func showAnnotation()
+}
+
+extension MapViewController: AnnotationModaleWindowDelegate {
+    func removeView() {
+        
+    }
+    
+    func showAnnotation() {
+        
     }
 }

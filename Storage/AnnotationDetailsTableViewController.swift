@@ -14,23 +14,19 @@ class AnnotationDetailsTableViewController: UITableViewController {
         case add, close, confirm, delete
     }
     
-    weak var addAnnotationDelegate: AddAnnotationDelegate?
+    weak var mapViewControllerDelegate: MapViewControllerDelegate?
     weak var removeAnnotationDelegate: RemoveAnnotationDelegate?
 
-//    var cells: [AnnotationView] = []
     var annotations: [Annotation] = []
     var annotation: Annotation?
+    var distance: String = ""
     var lat: Double?
     var lng: Double?
     var index: Int?
-    var add: Bool = false
     var fromMap: Bool = false
     
     @IBOutlet weak var mapButton: UIBarButtonItem!
-    @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var titleBackView: UIView!
     @IBOutlet weak var subtitleBackView: UIView!
@@ -42,11 +38,15 @@ class AnnotationDetailsTableViewController: UITableViewController {
     
     private let db = DataBase()
     private let annotationList = AnnotationList()
+    private let location = Location()
     private let preferences = Preferences()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationBarDesign()
+        navigationBack()
+        navigationItem.title = distance
         data()
         delegates()
         design()
@@ -54,10 +54,38 @@ class AnnotationDetailsTableViewController: UITableViewController {
         tapGestureReconizer()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        guard annotation != nil else { return }
+        mapViewControllerDelegate?.detailsLastAnnotation(annotation!)
+    }
+    
     // MARK: - IBActions
     
-    @IBAction func goToMap(_ sender: Any) {
-        
+    @IBAction func goToMap() {
+        newMapViewController()
+    }
+    
+    @IBAction func save() {
+        guard titleTextField!.text != "" && subtitleTextField!.text != "" else {
+            if titleTextField!.text == "" {
+                titleTextField!.becomeFirstResponder()
+            } else {
+                subtitleTextField!.becomeFirstResponder()
+            }
+            return
+        }
+        let newAnnotation = Annotation(id: annotation?.id ?? 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: annotation?.favorite ?? false)
+        if annotation != nil {
+            annotationList.update(newAnnotation)
+            mapViewControllerDelegate?.updateAnnotation(newAnnotation)
+        } else {
+            annotation = newAnnotation
+            annotationList.add(newAnnotation)
+            mapViewControllerDelegate?.addAnnotation(newAnnotation)
+        }
+        let _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func confirm() {
@@ -94,30 +122,22 @@ class AnnotationDetailsTableViewController: UITableViewController {
         let _ = navigationController?.popViewController(animated: true)
     }
     
-    // Table View Data Source
+    // MARK: - Navigation
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch cells[indexPath.row] {
-//        case .buttonAnnotation:
-//            return 78
-//        case .titleAnnotation:
-//            return 84
-//        case .subtitleAnnotation:
-//            return 84
-//        case .commentAnnotation:
-//            return 180
-//        }
-//    }
+    func newMapViewController() {
+        let mapViewController: MapViewController = instantiate("MapViewController", storyboard: "Map")
+        mapViewController.annotation = annotation
+        navigationController?.pushViewController(mapViewController, animated: true)
+    }
     
     func prepareTableView() {
-        if addAnnotationDelegate != nil {
-            add = true
-        }
         if fromMap {
             mapButton.isEnabled = false
             mapButton.image = nil
+        } else {
+            mapButton.isEnabled = true
+            mapButton.image = UIImage(named: "Mappin")
         }
-//        cells = [.buttonAnnotation, .titleAnnotation, .subtitleAnnotation, .commentAnnotation]
     }
     
     // MARK: - Private functions
@@ -131,7 +151,11 @@ class AnnotationDetailsTableViewController: UITableViewController {
     // MARK: - Design
     
     private func data() {
-        guard annotation != nil else { return }
+        guard annotation != nil else {
+            navigationItem.title = "Nouvelle"
+            titleTextField.becomeFirstResponder()
+            return
+        }
         lat = annotation!.lat
         lng = annotation!.lng
         titleTextField.text = annotation!.title
@@ -144,25 +168,13 @@ class AnnotationDetailsTableViewController: UITableViewController {
         titleBackView.borderActive()
         subtitleBackView.borderActive()
         commentTextView.borderActive()
-        
-        if fromMap {
-            confirmButton.isHidden = true
-            deleteButton.isHidden = true
-        } else {
-            addButton.isHidden = true
-            cancelButton.isHidden = true
-        }
     }
     
     private func delegates() {
         titleTextField.delegate = self
         subtitleTextField.delegate = self
         commentTextView.delegate = self
-        
-        confirmButton.borderFocus()
-        addButton.borderFocus()
-        deleteButton.borderFocus()
-        cancelButton.borderFocus()
+        saveButton.borderFocus()
     }
     
     private func disableMapButton() {
@@ -219,8 +231,6 @@ extension AnnotationDetailsTableViewController: UITextViewDelegate {
         textView.text = textView.text.removingEndingSpaces()
         textView.borderActive()
     }
-    
-    //textViewShouldRetu
 }
 
 // MARK: - UIGestureRecognizerDelegate

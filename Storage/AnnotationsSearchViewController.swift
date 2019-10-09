@@ -53,5 +53,4 @@ class AnnotationsSearchViewController: UIViewController {
         delegate?.researching(searchTextField.text)
         delegate?.newChildSettings()
     }
-
 }

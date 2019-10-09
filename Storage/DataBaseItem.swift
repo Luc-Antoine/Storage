@@ -57,32 +57,22 @@ extension DataBase {
         }
     }
     
-    func delete(_ items: [Item]) {
-        do {
-            try dbQueue!.write({ db in
-                for item in items {
+    func delete(_ items: [Item], namesFeature: [NameFeature]) {
+        for item in items {
+            for nameFeature in namesFeature {
+                delete(item, nameFeature: nameFeature)
+            }
+            
+            do {
+                try dbQueue!.write({ db in
                     try db.execute(
                         sql: "DELETE FROM `Item` WHERE id = :id",
                         arguments: ["id":item.id]
                     )
-                }
-            })
-        } catch {
-            NSLog(error.localizedDescription)
+                })
+            } catch {
+                NSLog(error.localizedDescription)
+            }
         }
     }
-    
-    func delete(_ categoryId: Int) {
-        do {
-            try dbQueue!.write({ db in
-                try db.execute(
-                    sql: "DELETE FROM `Item` WHERE category_id = :category_id",
-                    arguments: ["category_id":categoryId]
-                )
-            })
-        } catch {
-            NSLog(error.localizedDescription)
-        }
-    }
-    
 }

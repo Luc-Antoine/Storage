@@ -11,11 +11,11 @@ import Foundation
 class FeatureList {
     private let dataBase = DataBase()
     
-    func all(_ id: Int) -> [Feature] { // category!.id
+    func all(_ id: Int) -> [Feature] {
         return dataBase.select(id)
     }
     
-    func all(_ id: Int) -> [NameFeature] { // item!.id
+    func all(_ id: Int) -> [NameFeature] {
         return dataBase.select(id)
     }
     
@@ -42,7 +42,6 @@ class FeatureList {
     
     func update(_ feature: Feature, _ index: Int, _ item: Item, _ nameFeature: NameFeature) {
         let featureAlreadySaved: Feature? = dataBase.check(feature)
-        print("featureAlreadySaved : \(featureAlreadySaved)")
         if featureAlreadySaved != nil {
             dataBase.increase(featureAlreadySaved!)
             dataBase.insert(item, nameFeature: nameFeature, feature: featureAlreadySaved!)

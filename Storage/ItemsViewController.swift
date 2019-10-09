@@ -44,6 +44,7 @@ class ItemsViewController: UIViewController {
             break
         case .delete:
             tableViewDelegate?.removeItems()
+            itemsEditTextFieldDelegate?.text("")
             break
         case .filter:
             tableViewDelegate?.kindItem(.nameFeatures)
@@ -118,15 +119,9 @@ class ItemsViewController: UIViewController {
     
     func newChildSettings() {
         newItemsSettingsViewController()
-        guard tableViewStat != nil else { return }
-        switch tableViewStat! {
-        case .editing:
+        if tableViewStat == .editing {
             tableViewDelegate?.tableViewEndEditing()
             tableViewStat = nil
-            break
-        case .searching:
-//            tableViewDelegate?.textFieldDidEndEditing()
-            break
         }
     }
     
@@ -296,15 +291,11 @@ extension ItemsViewController: ItemsSortViewControllerDelegate {
 protocol ItemsSearchViewControllerDelegate: AnyObject {
     func textFieldDidResearching(_ text: String)
     func newChildSettings()
-//    func endResearching()
     func removeSearch()
     func researching(_ text: String?)
 }
 
 extension ItemsViewController: ItemsSearchViewControllerDelegate {
-//    func endResearching() {
-//        tableViewDelegate?.kindItem(.items)
-//    }
     
     func removeSearch() {
         tableViewDelegate?.textFieldDidEndResearching()
@@ -339,7 +330,6 @@ extension ItemsViewController: ItemsFilterViewControllerDelegate {
     
     func tableViewKindItem() -> KindItem? {
         return tableViewDelegate?.tableViewKindItem()
-        
     }
 }
 

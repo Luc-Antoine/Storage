@@ -40,7 +40,7 @@ extension DataBase {
             try dbQueue!.write({ db in
                 try db.execute(
                     sql: "UPDATE Annotation SET title = :title, subtitle = :subtitle, comment = :comment WHERE id = :id",
-                    arguments: ["id":annotation.id, "favorite":annotation.favorite])
+                    arguments: ["id":annotation.id, "title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment])
             })
         } catch {
             NSLog(error.localizedDescription)

@@ -36,9 +36,6 @@
                         <viewLayoutGuide key="safeArea" id="eVj-TP-c2v"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="7eg-aU-epC">
-                        <barButtonItem key="backBarButtonItem" title=" Back" id="Ivu-ue-QAl">
-                            <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Add" id="JGZ-ys-rwl">
                             <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

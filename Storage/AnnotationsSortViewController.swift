@@ -29,5 +29,4 @@ class AnnotationsSortViewController: UIViewController {
         delegate?.sortChoice(Sort.init(rawValue: sortSegmentedControl.selectedSegmentIndex)!)
         
     }
-
 }

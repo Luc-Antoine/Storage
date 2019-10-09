@@ -27,98 +27,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOC-wG-ddo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="66"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wpi-R3-NAr">
-                                                            <rect key="frame" x="16" y="18" width="90" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="Roe-gg-RdX"/>
-                                                                <constraint firstAttribute="height" constant="30" id="RqH-ye-gCX"/>
-                                                            </constraints>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Ok">
-                                                                <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="confirm" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="OVh-je-V2D"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvg-r1-1j2">
-                                                            <rect key="frame" x="16" y="18" width="90" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Add">
-                                                                <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="addAnnotation" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="gfo-JL-IFO"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-md-TKd">
+                                                    <rect key="frame" x="16" y="18" width="382" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qvg-r1-1j2" secondAttribute="trailing" constant="20" symbolic="YES" id="6oR-lF-KrU"/>
-                                                        <constraint firstItem="Wpi-R3-NAr" firstAttribute="centerY" secondItem="cOC-wG-ddo" secondAttribute="centerY" id="8n1-wH-kDE"/>
-                                                        <constraint firstItem="Wpi-R3-NAr" firstAttribute="leading" secondItem="cOC-wG-ddo" secondAttribute="leading" constant="16" id="DlN-qU-9pB"/>
-                                                        <constraint firstItem="Qvg-r1-1j2" firstAttribute="width" secondItem="Wpi-R3-NAr" secondAttribute="width" id="bot-wa-5Xz"/>
-                                                        <constraint firstItem="Qvg-r1-1j2" firstAttribute="leading" secondItem="Wpi-R3-NAr" secondAttribute="leading" id="fmf-aQ-LBF"/>
-                                                        <constraint firstItem="Qvg-r1-1j2" firstAttribute="height" secondItem="Wpi-R3-NAr" secondAttribute="height" id="pFb-lS-PQ2"/>
-                                                        <constraint firstItem="Qvg-r1-1j2" firstAttribute="centerY" secondItem="Wpi-R3-NAr" secondAttribute="centerY" id="pfv-SG-NkS"/>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wpi-R3-NAr" secondAttribute="trailing" constant="20" symbolic="YES" id="qPm-wu-2BG"/>
+                                                        <constraint firstAttribute="height" constant="30" id="BoZ-QW-vnZ"/>
                                                     </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dC4-Py-5Me">
-                                                    <rect key="frame" x="207" y="0.0" width="207" height="66"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPC-p1-4A9">
-                                                            <rect key="frame" x="101" y="18" width="90" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="Vip-Pk-uSm"/>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="phi-MR-muM"/>
-                                                            </constraints>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Delete">
-                                                                <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="deleteAnnotation" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="HIa-Sm-tpE"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbk-zh-OYX">
-                                                            <rect key="frame" x="101" y="18" width="90" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" title="Cancel">
-                                                                <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="cancel" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="Xgb-d9-hJU"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="Nbk-zh-OYX" firstAttribute="trailing" secondItem="OPC-p1-4A9" secondAttribute="trailing" id="33Y-cE-0Ql"/>
-                                                        <constraint firstItem="Nbk-zh-OYX" firstAttribute="height" secondItem="OPC-p1-4A9" secondAttribute="height" id="8xO-2K-i4v"/>
-                                                        <constraint firstItem="Nbk-zh-OYX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dC4-Py-5Me" secondAttribute="leading" constant="20" symbolic="YES" id="AMP-X7-Vhn"/>
-                                                        <constraint firstItem="OPC-p1-4A9" firstAttribute="centerY" secondItem="dC4-Py-5Me" secondAttribute="centerY" id="CWK-Pb-b8G"/>
-                                                        <constraint firstItem="Nbk-zh-OYX" firstAttribute="centerY" secondItem="OPC-p1-4A9" secondAttribute="centerY" id="DWs-yi-4Ia"/>
-                                                        <constraint firstItem="Nbk-zh-OYX" firstAttribute="width" secondItem="OPC-p1-4A9" secondAttribute="width" id="Fha-VG-0K1"/>
-                                                        <constraint firstItem="OPC-p1-4A9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dC4-Py-5Me" secondAttribute="leading" constant="20" symbolic="YES" id="cM4-lW-p5z"/>
-                                                        <constraint firstAttribute="trailing" secondItem="OPC-p1-4A9" secondAttribute="trailing" constant="16" id="oAw-91-aqX"/>
-                                                    </constraints>
-                                                </view>
+                                                    <state key="normal" title="Save">
+                                                        <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="save" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="bvW-4T-DLH"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cOC-wG-ddo" firstAttribute="width" secondItem="51j-PG-bM9" secondAttribute="width" multiplier="0.5" id="18G-Bt-Dca"/>
-                                                <constraint firstItem="cOC-wG-ddo" firstAttribute="leading" secondItem="51j-PG-bM9" secondAttribute="leading" id="BOM-CB-JZk"/>
-                                                <constraint firstItem="dC4-Py-5Me" firstAttribute="bottom" secondItem="cOC-wG-ddo" secondAttribute="bottom" id="Fei-BB-Yyy"/>
-                                                <constraint firstItem="cOC-wG-ddo" firstAttribute="top" secondItem="51j-PG-bM9" secondAttribute="top" id="Ntq-EO-HiV"/>
-                                                <constraint firstItem="dC4-Py-5Me" firstAttribute="width" secondItem="cOC-wG-ddo" secondAttribute="width" id="fhX-8Y-a2C"/>
-                                                <constraint firstAttribute="bottom" secondItem="cOC-wG-ddo" secondAttribute="bottom" id="htn-gS-FgR"/>
-                                                <constraint firstAttribute="trailing" secondItem="dC4-Py-5Me" secondAttribute="trailing" id="nJN-dD-oGZ"/>
-                                                <constraint firstItem="dC4-Py-5Me" firstAttribute="top" secondItem="cOC-wG-ddo" secondAttribute="top" id="vA4-LL-wSu"/>
+                                                <constraint firstItem="f6z-md-TKd" firstAttribute="centerY" secondItem="51j-PG-bM9" secondAttribute="centerY" id="AG3-eB-7EW"/>
+                                                <constraint firstItem="f6z-md-TKd" firstAttribute="leading" secondItem="51j-PG-bM9" secondAttribute="leading" constant="16" id="Nhx-nv-5LJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="f6z-md-TKd" secondAttribute="trailing" constant="16" id="iHr-Dn-aMr"/>
+                                                <constraint firstItem="f6z-md-TKd" firstAttribute="centerX" secondItem="51j-PG-bM9" secondAttribute="centerX" id="zVY-cV-nuK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -263,17 +189,14 @@
                     <navigationItem key="navigationItem" title="Title" id="guy-Bh-3wa">
                         <barButtonItem key="rightBarButtonItem" image="Mappin" id="xYB-yA-XAm">
                             <connections>
-                                <action selector="goToMap:" destination="Fdc-7Q-oQa" id="pYr-Sr-O1f"/>
+                                <action selector="goToMap" destination="Fdc-7Q-oQa" id="A9a-ga-acx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButton" destination="Qvg-r1-1j2" id="w9K-fe-EMM"/>
-                        <outlet property="cancelButton" destination="Nbk-zh-OYX" id="i2E-jM-KGW"/>
                         <outlet property="commentTextView" destination="dak-Ca-tPR" id="FAh-ed-OC7"/>
-                        <outlet property="confirmButton" destination="Wpi-R3-NAr" id="oZa-7N-YQl"/>
-                        <outlet property="deleteButton" destination="OPC-p1-4A9" id="UhX-f2-BFr"/>
                         <outlet property="mapButton" destination="xYB-yA-XAm" id="fZd-1b-myZ"/>
+                        <outlet property="saveButton" destination="f6z-md-TKd" id="K6c-2x-PjJ"/>
                         <outlet property="subtitleBackView" destination="ziH-pa-7SO" id="osN-Xa-v4h"/>
                         <outlet property="subtitleTextField" destination="G2i-3e-Xeg" id="kLb-ba-LEJ"/>
                         <outlet property="titleBackView" destination="yZc-DY-lh3" id="LsD-Pz-qfZ"/>

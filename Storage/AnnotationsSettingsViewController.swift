@@ -27,5 +27,4 @@ class AnnotationsSettingsViewController: UIViewController {
         remove()
         delegate?.navigationSettings(settings.selectedSegmentIndex)
     }
-
 }
