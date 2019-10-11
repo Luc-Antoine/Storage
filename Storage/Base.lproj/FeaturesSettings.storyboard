@@ -22,8 +22,9 @@
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyc-Db-fUx">
-                                        <rect key="frame" x="20" y="12" width="374" height="30"/>
-                                        <state key="normal" title="Éditer">
+                                        <rect key="frame" x="20" y="10.5" width="374" height="33"/>
+                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
+                                        <state key="normal" title="Edit">
                                             <color key="titleColor" red="0.027450980390000001" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>

@@ -17,6 +17,7 @@ class ItemsSortViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sortSegmentedControl.font()
         sortSegmentedControl.selectedSegmentIndex = delegate?.categoriesSortIndex()?.rawValue ?? 0
     }
     

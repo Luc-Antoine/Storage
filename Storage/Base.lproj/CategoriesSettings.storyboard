@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLs-52-7av">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Wnu-fp-xR2">
+                                    <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Wnu-fp-xR2">
                                         <rect key="frame" x="16" y="13" width="382" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="ZW9-c8-n8s"/>
@@ -31,9 +31,9 @@
                                             <segment title="Sort"/>
                                             <segment title="Search"/>
                                         </segments>
-                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.027450980392156862" green="0.3529411764705882" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="settingsDisplay:" destination="LVe-KP-zxk" eventType="valueChanged" id="KTH-vz-QAQ"/>
+                                            <action selector="settingsDisplay:" destination="LVe-KP-zxk" eventType="valueChanged" id="sL4-Oj-K2R"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>

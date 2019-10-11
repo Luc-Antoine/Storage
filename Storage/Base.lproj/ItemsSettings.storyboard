@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="e1M-GN-MtL">
-                                        <rect key="frame" x="20" y="13" width="374" height="29"/>
+                                        <rect key="frame" x="16" y="13" width="382" height="29"/>
                                         <segments>
                                             <segment title="Edit"/>
                                             <segment title="Sort"/>
@@ -37,7 +37,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="e1M-GN-MtL" firstAttribute="leading" secondItem="uyc-PK-EPM" secondAttribute="leading" constant="20" id="Dey-z0-hVX"/>
+                                    <constraint firstItem="e1M-GN-MtL" firstAttribute="leading" secondItem="uyc-PK-EPM" secondAttribute="leading" constant="16" id="Dey-z0-hVX"/>
                                     <constraint firstItem="e1M-GN-MtL" firstAttribute="centerY" secondItem="uyc-PK-EPM" secondAttribute="centerY" id="NVf-nd-FpD"/>
                                     <constraint firstAttribute="height" constant="54" id="UxD-eE-qUB"/>
                                     <constraint firstItem="e1M-GN-MtL" firstAttribute="centerX" secondItem="uyc-PK-EPM" secondAttribute="centerX" id="j8x-ga-xGL"/>

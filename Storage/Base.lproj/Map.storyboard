@@ -25,6 +25,13 @@
                                     <outletCollection property="gestureRecognizers" destination="WsR-16-pps" appends="YES" id="Hgh-Jh-aex"/>
                                 </connections>
                             </mapView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trJ-OO-QY0">
+                                <rect key="frame" x="62" y="179" width="290" height="90"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="ahO-51-6wM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -32,6 +39,9 @@
                             <constraint firstItem="MMp-Bk-I0B" firstAttribute="bottom" secondItem="eVj-TP-c2v" secondAttribute="bottom" id="QVt-HP-j43"/>
                             <constraint firstItem="MMp-Bk-I0B" firstAttribute="leading" secondItem="eVj-TP-c2v" secondAttribute="leading" id="T2m-mJ-74I"/>
                             <constraint firstItem="MMp-Bk-I0B" firstAttribute="top" secondItem="eVj-TP-c2v" secondAttribute="top" id="Xvd-3B-XYO"/>
+                            <constraint firstItem="trJ-OO-QY0" firstAttribute="width" secondItem="nwC-g1-YBi" secondAttribute="width" multiplier="0.7" id="guH-Xm-8GZ"/>
+                            <constraint firstItem="trJ-OO-QY0" firstAttribute="centerX" secondItem="nwC-g1-YBi" secondAttribute="centerX" id="jD0-k7-j2S"/>
+                            <constraint firstItem="trJ-OO-QY0" firstAttribute="centerY" secondItem="nwC-g1-YBi" secondAttribute="centerY" multiplier="0.5" id="kKS-ge-zTC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eVj-TP-c2v"/>
                     </view>
@@ -46,6 +56,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="MMp-Bk-I0B" id="FmK-XJ-3mV"/>
+                        <outlet property="modaleContainerView" destination="trJ-OO-QY0" id="0TF-eN-QCH"/>
                         <outlet property="newAnnotation" destination="JGZ-ys-rwl" id="jqI-lD-tso"/>
                     </connections>
                 </viewController>

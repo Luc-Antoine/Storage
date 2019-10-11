@@ -33,12 +33,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beX-y5-dqR">
-                                        <rect key="frame" x="63.5" y="5" width="80" height="44"/>
+                                        <rect key="frame" x="63.5" y="12" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="5fe-Bw-ccc"/>
-                                            <constraint firstAttribute="height" constant="44" id="Met-eL-hE4"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="5fe-Bw-ccc"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
                                         <state key="normal" title="Annuler">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -47,12 +46,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41S-2N-ZIm">
-                                        <rect key="frame" x="270.5" y="5" width="80" height="44"/>
+                                        <rect key="frame" x="270.5" y="12" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="V5P-xW-cYA"/>
-                                            <constraint firstAttribute="width" constant="80" id="zF6-es-SwX"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="zF6-es-SwX"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
                                         <state key="normal" title="Valider">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -73,9 +71,11 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ZcG-Ug-91P" firstAttribute="centerY" secondItem="3bV-Pq-EWY" secondAttribute="centerY" id="1O9-bM-8eg"/>
+                                    <constraint firstItem="beX-y5-dqR" firstAttribute="height" secondItem="ZcG-Ug-91P" secondAttribute="height" id="C4u-y0-omD"/>
                                     <constraint firstItem="ZcG-Ug-91P" firstAttribute="leading" secondItem="jLj-kH-hEg" secondAttribute="leading" constant="20" id="GsP-Dw-ASb"/>
                                     <constraint firstItem="3bV-Pq-EWY" firstAttribute="leading" secondItem="ZcG-Ug-91P" secondAttribute="trailing" constant="10" id="H4E-bN-hh4"/>
                                     <constraint firstItem="3bV-Pq-EWY" firstAttribute="centerX" secondItem="jLj-kH-hEg" secondAttribute="centerX" id="Xpv-hf-I6d"/>
+                                    <constraint firstItem="41S-2N-ZIm" firstAttribute="height" secondItem="ZcG-Ug-91P" secondAttribute="height" id="ZIQ-Sm-W0v"/>
                                     <constraint firstAttribute="height" constant="54" id="ZLg-aa-6vK"/>
                                     <constraint firstItem="3bV-Pq-EWY" firstAttribute="centerY" secondItem="jLj-kH-hEg" secondAttribute="centerY" id="aHm-9X-9vP"/>
                                     <constraint firstItem="beX-y5-dqR" firstAttribute="centerX" secondItem="jLj-kH-hEg" secondAttribute="centerX" multiplier="0.5" id="gLW-gH-7dh"/>

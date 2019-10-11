@@ -1,0 +1,9 @@
+
+/* Class = "UISegmentedControl"; Wnu-fp-xR2.segmentTitles[0] = "Edit"; ObjectID = "Wnu-fp-xR2"; */
+"Wnu-fp-xR2.segmentTitles[0]" = "Éditer";
+
+/* Class = "UISegmentedControl"; Wnu-fp-xR2.segmentTitles[1] = "Sort"; ObjectID = "Wnu-fp-xR2"; */
+"Wnu-fp-xR2.segmentTitles[1]" = "Trier";
+
+/* Class = "UISegmentedControl"; Wnu-fp-xR2.segmentTitles[2] = "Search"; ObjectID = "Wnu-fp-xR2"; */
+"Wnu-fp-xR2.segmentTitles[2]" = "Rechercher";

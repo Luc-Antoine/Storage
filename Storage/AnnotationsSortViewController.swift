@@ -17,6 +17,7 @@ class AnnotationsSortViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sortSegmentedControl.font()
         sortSegmentedControl.selectedSegmentIndex = delegate?.annotationsSortIndex()?.rawValue ?? 0
     }
     

@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "MPe-34-Hrz"; */
+"MPe-34-Hrz.text" = "Sous-titre";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "f6z-md-TKd"; */
+"f6z-md-TKd.normalTitle" = "Enregistrer";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "guy-Bh-3wa"; */
+"guy-Bh-3wa.title" = "Titre";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "j8G-KV-rCO"; */
+"j8G-KV-rCO.text" = "Titre";
+
+/* Class = "UILabel"; text = "Comment"; ObjectID = "rEc-lR-4bc"; */
+"rEc-lR-4bc.text" = "Commentaire";

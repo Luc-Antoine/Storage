@@ -1,0 +1,9 @@
+
+/* Class = "UISegmentedControl"; 5HG-MQ-KWI.segmentTitles[0] = "Modify"; ObjectID = "5HG-MQ-KWI"; */
+"5HG-MQ-KWI.segmentTitles[0]" = "Modifier";
+
+/* Class = "UISegmentedControl"; 5HG-MQ-KWI.segmentTitles[1] = "Sort"; ObjectID = "5HG-MQ-KWI"; */
+"5HG-MQ-KWI.segmentTitles[1]" = "Trier";
+
+/* Class = "UISegmentedControl"; 5HG-MQ-KWI.segmentTitles[2] = "Search"; ObjectID = "5HG-MQ-KWI"; */
+"5HG-MQ-KWI.segmentTitles[2]" = "Rechercher";

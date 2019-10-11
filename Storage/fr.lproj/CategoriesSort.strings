@@ -1,0 +1,12 @@
+
+/* Class = "UISegmentedControl"; xA3-Td-x3y.segmentTitles[0] = "A -> Z"; ObjectID = "xA3-Td-x3y"; */
+"xA3-Td-x3y.segmentTitles[0]" = "A -> Z";
+
+/* Class = "UISegmentedControl"; xA3-Td-x3y.segmentTitles[1] = "Z -> A"; ObjectID = "xA3-Td-x3y"; */
+"xA3-Td-x3y.segmentTitles[1]" = "Z -> A";
+
+/* Class = "UISegmentedControl"; xA3-Td-x3y.segmentTitles[2] = "Favorites"; ObjectID = "xA3-Td-x3y"; */
+"xA3-Td-x3y.segmentTitles[2]" = "Favoris";
+
+/* Class = "UISegmentedControl"; xA3-Td-x3y.segmentTitles[3] = "Others"; ObjectID = "xA3-Td-x3y"; */
+"xA3-Td-x3y.segmentTitles[3]" = "Autres";

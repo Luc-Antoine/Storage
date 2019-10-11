@@ -215,7 +215,7 @@ extension ItemsViewController: ItemsSettingsViewControllerDelegate {
     func filterTitle() -> String {
         let filters: Int = tableViewDelegate?.featuresFilteredByItemCount() ?? 0
         guard filters > 0 else { return NSLocalizedString("Filter", comment: "") }
-        return NSLocalizedString("Filter ", comment: "") + "(\(filters))"
+        return NSLocalizedString("Filter", comment: "") + " (\(filters))"
     }
 }
 

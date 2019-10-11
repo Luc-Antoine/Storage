@@ -19,8 +19,10 @@ class AnnotationsSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard searchCount > 0 else { return }
-        settings.setTitle(NSLocalizedString("Search", comment: "") + " (\(searchCount))", forSegmentAt: 2)
+        settings.font()
+        
+//        guard searchCount > 0 else { return }
+//        settings.setTitle(NSLocalizedString("Search", comment: "") + " (\(searchCount))", forSegmentAt: 2)
     }
     
     @IBAction func settingsDisplay(_ sender: Any) {

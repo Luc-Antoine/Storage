@@ -1,9 +1,8 @@
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "Euz-KU-Nmf"; */
-"Euz-KU-Nmf.text" = "Label";
-
 /* Class = "UINavigationItem"; title = "Category"; ObjectID = "M44-o3-M0K"; */
 "M44-o3-M0K.title" = "Catégories";
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "eyW-9S-t03"; */
 "eyW-9S-t03.title" = "Retour";
+
+/* Class = "UITabBarItem"; title = "Objets"; ObjectID = "xX2-Fh-Z61"; */
+"xX2-Fh-Z61.title" = "Objets";

@@ -24,7 +24,7 @@ class FeaturesTableViewCell: UITableViewCell {
     
     func configureCell(nameFeature: NameFeature, featureName: String, featureCount: Int) {
         self.nameFeature = nameFeature
-        nameFeatureLabel.text = nameFeature.name + " :"
+        nameFeatureLabel.text = nameFeature.name
         featureTextField.text = featureName
         featuresButton.isHidden = featureCount == 0
         featuresImage.isHidden = featuresButton.isHidden

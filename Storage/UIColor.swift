@@ -20,4 +20,16 @@ extension UIColor {
     static var mainColor: UIColor {
         return rgb(7,90,172)
     }
+    
+    static var selected: UIColor {
+        return rgb(94, 148, 201)
+    }
+    
+    static var active: UIColor {
+        return rgb(143, 181, 217)
+    }
+    
+    static var nightBlue: UIColor {
+        return rgb(3, 55, 105)
+    }
 }

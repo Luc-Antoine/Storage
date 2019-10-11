@@ -32,6 +32,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="BoZ-QW-vnZ"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
                                                     <state key="normal" title="Save">
                                                         <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -43,7 +44,6 @@
                                             <constraints>
                                                 <constraint firstItem="f6z-md-TKd" firstAttribute="centerY" secondItem="51j-PG-bM9" secondAttribute="centerY" id="AG3-eB-7EW"/>
                                                 <constraint firstItem="f6z-md-TKd" firstAttribute="leading" secondItem="51j-PG-bM9" secondAttribute="leading" constant="16" id="Nhx-nv-5LJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="f6z-md-TKd" secondAttribute="trailing" constant="16" id="iHr-Dn-aMr"/>
                                                 <constraint firstItem="f6z-md-TKd" firstAttribute="centerX" secondItem="51j-PG-bM9" secondAttribute="centerX" id="zVY-cV-nuK"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -61,7 +61,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="wIU-Hn-fZF"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
                                                     <color key="textColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -69,9 +69,9 @@
                                                     <rect key="frame" x="16" y="24" width="382" height="30"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="annotationTitle" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UT0-3Z-VhA">
-                                                            <rect key="frame" x="4" y="5.5" width="378" height="19"/>
+                                                            <rect key="frame" x="4" y="3" width="378" height="24"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                                         </textField>
                                                     </subviews>
@@ -107,7 +107,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="1CI-Jr-J1m"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
                                                     <color key="textColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -115,9 +115,9 @@
                                                     <rect key="frame" x="16" y="24" width="382" height="30"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="annotationSubtitle" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="G2i-3e-Xeg">
-                                                            <rect key="frame" x="4" y="5.5" width="378" height="19"/>
+                                                            <rect key="frame" x="4" y="3" width="378" height="24"/>
                                                             <nil key="textColor"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                                         </textField>
                                                     </subviews>
@@ -153,7 +153,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="NaH-bx-Kj1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
                                                     <color key="textColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -163,7 +163,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="IcQ-lB-yh2"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>

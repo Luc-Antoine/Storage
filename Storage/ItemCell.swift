@@ -23,7 +23,7 @@ class ItemCell: UITableViewCell {
     }
     
     func configureCell(_ item: Item) {
-        nameLabel.text = item.name + "\(item.id)"
+        nameLabel.text = item.name
         updateFavorite(item.favorite)
     }
     

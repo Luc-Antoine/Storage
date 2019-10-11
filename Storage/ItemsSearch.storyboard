@@ -39,7 +39,7 @@
                                                 <rect key="frame" x="4" y="0.0" width="290" height="30"/>
                                                 <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="textFieldChanged" destination="Fe1-MO-Dqj" eventType="editingChanged" id="jA5-n0-5kc"/>

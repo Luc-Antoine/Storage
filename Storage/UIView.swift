@@ -27,4 +27,13 @@ extension UIView {
         self.layer.cornerRadius = 4
         self.layer.borderColor = UIColor.rgb(201, 203, 205).cgColor
     }
+    
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+//        self.layer.borderWidth = 1
+//        self.layer.borderColor = UIColor.rgb(7, 90, 172).cgColor
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
 }

@@ -20,8 +20,9 @@ class ItemsSettingsViewController: UIViewController {
         super.viewDidLoad()
         
         settings.setTitle(delegate?.filterTitle(), forSegmentAt: 3)
-        guard searchCount > 0 else { return }
-        settings.setTitle(NSLocalizedString("Search", comment: "") + " (\(searchCount))", forSegmentAt: 2)
+        settings.font()
+//        guard searchCount > 0 else { return }
+//        settings.setTitle(NSLocalizedString("Search", comment: "") + " (\(searchCount))", forSegmentAt: 2)
     }
     
     @IBAction func settingsDisplay(_ sender: Any) {
