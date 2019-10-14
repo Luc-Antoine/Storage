@@ -253,6 +253,7 @@ class ItemsTableViewController: UITableViewController {
         nameFeaturesFiltered.removeAll()
         featuresFilteredByItem.removeAll()
         featuresFilteredByName.removeAll()
+        featuresFiltered.removeAll()
     }
 }
 
@@ -312,7 +313,7 @@ protocol ItemsViewControllerDelegate: AnyObject {
     func tableViewEditing()
     func tableViewEndEditing()
     func kindItem(_ kind: KindItem)
-    func tableViewKindItem() -> KindItem
+    func tableViewKindItem() -> KindItem?
     func featuresFilteredByItemCount() -> Int
     func filter()
     func filters()
@@ -409,7 +410,27 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         kindItem = kind
     }
     
-    func tableViewKindItem() -> KindItem {
+    func tableViewKindItem() -> KindItem? {
+        switch kindItem {
+        case .items:
+            break
+        case .filteredItems:
+            break
+        case .researchingItems:
+            break
+        case .nameFeatures:
+            if nameFeaturesFiltered.count == 0 {
+                return nil
+            }
+            break
+        case .features:
+            if featuresFilteredByItem.count == 0 {
+                return nil
+            }
+            break
+        case .filtersEditing:
+            break
+        }
         return kindItem
     }
     

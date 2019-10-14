@@ -69,7 +69,7 @@ class ItemsViewController: UIViewController {
     func newItemsSettingsViewController() {
         let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", storyboard: "ItemsSettings")
         itemsSettingsViewController.delegate = self
-        itemsSettingsViewController.searchCount = research?.count ?? 0
+        itemsSettingsViewController.filterCount = tableViewDelegate?.featuresFilteredByItemCount() ?? 0
         navBarItemFilter(.add)
         addChild(itemsSettingsViewController, container: settingsContainer)
     }
@@ -314,6 +314,7 @@ protocol ItemsFilterViewControllerDelegate: AnyObject {
     func filters()
     func newChildSettings()
     func cancelFilter()
+    func resetFilters()
     func tableViewKindItem() -> KindItem?
 }
 
@@ -323,8 +324,13 @@ extension ItemsViewController: ItemsFilterViewControllerDelegate {
     }
     
     func cancelFilter() {
-        tableViewDelegate?.resetFilters()
+        tableViewDelegate?.kindItem(.filteredItems)
+        tableViewDelegate?.reloadData()
+    }
+    
+    func resetFilters() {
         tableViewDelegate?.kindItem(.items)
+        tableViewDelegate?.resetFilters()
         tableViewDelegate?.reloadData()
     }
     

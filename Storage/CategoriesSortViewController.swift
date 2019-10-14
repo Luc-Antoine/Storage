@@ -29,6 +29,5 @@ class CategoriesSortViewController: UIViewController {
     
     @IBAction func sortChoice() {
         delegate?.sortChoice(Sort.init(rawValue: sortSegmentedControl.selectedSegmentIndex)!)
-        
     }
 }

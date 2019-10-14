@@ -16,15 +16,17 @@ class ItemsFilterViewController: UIViewController {
         super.viewDidLoad()
         
         validateButtonTitle()
-        cancelButton.border()
-        validateButton.border()
+        newView.borderFocus()
+        newView.clipsToBounds = true
+        buttonsView.borderFocus()
+        buttonsView.clipsToBounds = true
     }
     
-    @IBOutlet weak var filterTextField: UITextField!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var validateButton: UIButton!
+    @IBOutlet weak var newView: UIView!
+    @IBOutlet weak var buttonsView: UIView!
     
     @IBAction func confirm() {
+        guard delegate?.tableViewKindItem() != nil else { return }
         delegate?.filters()
         validateButtonTitle()
         guard delegate?.tableViewKindItem() == .filteredItems else { return }
@@ -33,16 +35,24 @@ class ItemsFilterViewController: UIViewController {
     }
     
     @IBAction func removeView() {
+        delegate?.cancelFilter()
         remove()
         delegate?.newChildSettings()
-        delegate?.cancelFilter()
+    }
+    
+    @IBAction func cancelFilter() {
+        delegate?.resetFilters()
+        remove()
+        delegate?.newChildSettings()
     }
     
     private func validateButtonTitle() {
         if delegate?.tableViewKindItem() == .filtersEditing {
-            validateButton.setTitle("Nouveau", for: .normal)
+            newView.isHidden = false
+            buttonsView.isHidden = true
         } else {
-            validateButton.setTitle("Valider", for: .normal)
+            newView.isHidden = true
+            buttonsView.isHidden = false
         }
     }
 }

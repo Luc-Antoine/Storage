@@ -1,6 +1,15 @@
 
-/* Class = "UIButton"; normalTitle = "Valider"; ObjectID = "41S-2N-ZIm"; */
-"41S-2N-ZIm.normalTitle" = "Valider";
+/* Class = "UIButton"; normalTitle = "Validate"; ObjectID = "FU8-GE-xVp"; */
+"FU8-GE-xVp.normalTitle" = "Valider";
 
-/* Class = "UIButton"; normalTitle = "Annuler"; ObjectID = "beX-y5-dqR"; */
-"beX-y5-dqR.normalTitle" = "Annuler";
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "KhJ-J0-cSH"; */
+"KhJ-J0-cSH.normalTitle" = "Annuler";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "YLJ-W0-LTM"; */
+"YLJ-W0-LTM.normalTitle" = "Annuler";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "nrP-Tw-95e"; */
+"nrP-Tw-95e.normalTitle" = "Confirmer";
+
+/* Class = "UIButton"; normalTitle = "New"; ObjectID = "q68-oT-tYJ"; */
+"q68-oT-tYJ.normalTitle" = "Nouveau";

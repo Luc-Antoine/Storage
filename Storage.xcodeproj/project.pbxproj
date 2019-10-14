@@ -208,6 +208,10 @@
 		3F41CBB91E79DC540018763E /* DataBaseAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseAnnotation.swift; sourceTree = "<group>"; };
 		3F4C017E2332BE1200F49A72 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3F4C01802332C90700F49A72 /* CreateDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDataBase.swift; sourceTree = "<group>"; };
+		3F57E3482354728600779427 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CategoriesSettings.strings; sourceTree = "<group>"; };
+		3F57E34A2354793C00779427 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AnnotationsSettings.strings; sourceTree = "<group>"; };
+		3F57E34C23547E4800779427 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ItemsSettings.strings; sourceTree = "<group>"; };
+		3F57E3502354C3DC00779427 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ItemsFilter.strings; sourceTree = "<group>"; };
 		3F6216FB1E4B53D000D1584C /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		3F767E2622785B4900CC32F2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3F767E2C2278642300CC32F2 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -226,20 +230,16 @@
 		3FAD106D230A933700A0216D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FC56FCF234F52980038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Categories.strings; sourceTree = "<group>"; };
 		3FC56FD1234F52C20038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CategoriesSettings.storyboard; sourceTree = "<group>"; };
-		3FC56FD4234F52C60038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CategoriesSettings.strings; sourceTree = "<group>"; };
 		3FC56FDB234F53110038D3B4 /* CategoriesAdd.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CategoriesAdd.storyboard; sourceTree = "<group>"; };
 		3FC56FDE234F54130038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CategoriesSort.storyboard; sourceTree = "<group>"; };
 		3FC56FE1234F54170038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CategoriesSort.strings; sourceTree = "<group>"; };
 		3FC56FE8234F54300038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ItemsSettings.storyboard; sourceTree = "<group>"; };
-		3FC56FEB234F54330038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ItemsSettings.strings; sourceTree = "<group>"; };
 		3FC56FED234F544A0038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ItemsSort.storyboard; sourceTree = "<group>"; };
 		3FC56FF0234F544D0038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ItemsSort.strings; sourceTree = "<group>"; };
 		3FC56FF2234F54530038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ItemsFilter.storyboard; sourceTree = "<group>"; };
-		3FC56FF5234F54560038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ItemsFilter.strings; sourceTree = "<group>"; };
 		3FC56FFC234F546B0038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FeaturesSettings.storyboard; sourceTree = "<group>"; };
 		3FC56FFF234F54700038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/FeaturesSettings.strings; sourceTree = "<group>"; };
 		3FC57006234F59640038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AnnotationsSettings.storyboard; sourceTree = "<group>"; };
-		3FC57009234F59690038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AnnotationsSettings.strings; sourceTree = "<group>"; };
 		3FC5700B234F59730038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AnnotationsSort.storyboard; sourceTree = "<group>"; };
 		3FC5700E234F59750038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AnnotationsSort.strings; sourceTree = "<group>"; };
 		3FC57010234F59860038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AnnotationDetails.storyboard; sourceTree = "<group>"; };
@@ -1150,7 +1150,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FC56FD1234F52C20038D3B4 /* Base */,
-				3FC56FD4234F52C60038D3B4 /* fr */,
+				3F57E3482354728600779427 /* fr */,
 			);
 			name = CategoriesSettings.storyboard;
 			sourceTree = "<group>";
@@ -1176,7 +1176,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FC56FE8234F54300038D3B4 /* Base */,
-				3FC56FEB234F54330038D3B4 /* fr */,
+				3F57E34C23547E4800779427 /* fr */,
 			);
 			name = ItemsSettings.storyboard;
 			sourceTree = "<group>";
@@ -1194,7 +1194,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FC56FF2234F54530038D3B4 /* Base */,
-				3FC56FF5234F54560038D3B4 /* fr */,
+				3F57E3502354C3DC00779427 /* fr */,
 			);
 			name = ItemsFilter.storyboard;
 			sourceTree = "<group>";
@@ -1228,7 +1228,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FC57006234F59640038D3B4 /* Base */,
-				3FC57009234F59690038D3B4 /* fr */,
+				3F57E34A2354793C00779427 /* fr */,
 			);
 			name = AnnotationsSettings.storyboard;
 			sourceTree = "<group>";

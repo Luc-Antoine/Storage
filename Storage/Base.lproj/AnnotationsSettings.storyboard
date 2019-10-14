@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GEB-rC-MHN">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GEB-rC-MHN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,28 +19,67 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-MH-jip">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="5HG-MQ-KWI">
-                                        <rect key="frame" x="16" y="13" width="382" height="29"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNu-3Z-NF7">
+                                        <rect key="frame" x="16" y="12" width="382" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-PI-h28">
+                                                <rect key="frame" x="0.0" y="1" width="126.5" height="28"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="13"/>
+                                                <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Modify">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="modify" destination="GEB-rC-MHN" eventType="touchUpInside" id="wqE-sF-dKv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSv-WJ-3CF">
+                                                <rect key="frame" x="127.5" y="1" width="127" height="28"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="13"/>
+                                                <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Sort">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sort" destination="GEB-rC-MHN" eventType="touchUpInside" id="bxx-vW-ZbO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-6p-URw">
+                                                <rect key="frame" x="255.5" y="1" width="126.5" height="28"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="13"/>
+                                                <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Search">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="search" destination="GEB-rC-MHN" eventType="touchUpInside" id="Ate-Vc-uHO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="hGc-SL-b0g"/>
+                                            <constraint firstAttribute="height" constant="30" id="EQB-C5-tZY"/>
+                                            <constraint firstAttribute="trailing" secondItem="FHK-6p-URw" secondAttribute="trailing" id="J6M-b1-owA"/>
+                                            <constraint firstItem="CSv-WJ-3CF" firstAttribute="centerY" secondItem="KNu-3Z-NF7" secondAttribute="centerY" id="RNc-KL-p0n"/>
+                                            <constraint firstItem="FHK-6p-URw" firstAttribute="centerY" secondItem="KNu-3Z-NF7" secondAttribute="centerY" id="Uq2-pv-fFB"/>
+                                            <constraint firstItem="f1U-PI-h28" firstAttribute="centerY" secondItem="KNu-3Z-NF7" secondAttribute="centerY" id="V9l-jo-FQO"/>
+                                            <constraint firstItem="f1U-PI-h28" firstAttribute="width" secondItem="CSv-WJ-3CF" secondAttribute="width" id="bD3-LC-Vcm"/>
+                                            <constraint firstItem="f1U-PI-h28" firstAttribute="leading" secondItem="KNu-3Z-NF7" secondAttribute="leading" id="hep-5Z-ZyH"/>
+                                            <constraint firstItem="CSv-WJ-3CF" firstAttribute="leading" secondItem="f1U-PI-h28" secondAttribute="trailing" constant="1" id="vSn-nx-GCW"/>
+                                            <constraint firstItem="CSv-WJ-3CF" firstAttribute="centerX" secondItem="KNu-3Z-NF7" secondAttribute="centerX" id="vt5-9n-ufI"/>
+                                            <constraint firstItem="f1U-PI-h28" firstAttribute="width" secondItem="FHK-6p-URw" secondAttribute="width" id="xtl-Yd-1Fb"/>
                                         </constraints>
-                                        <segments>
-                                            <segment title="Modify"/>
-                                            <segment title="Sort"/>
-                                            <segment title="Search"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="settingsDisplay:" destination="GEB-rC-MHN" eventType="valueChanged" id="hwd-le-AIF"/>
-                                        </connections>
-                                    </segmentedControl>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="5HG-MQ-KWI" firstAttribute="centerY" secondItem="Ves-MH-jip" secondAttribute="centerY" id="Tjh-Lh-A93"/>
+                                    <constraint firstItem="KNu-3Z-NF7" firstAttribute="centerX" secondItem="Ves-MH-jip" secondAttribute="centerX" id="blB-fY-liB"/>
+                                    <constraint firstItem="KNu-3Z-NF7" firstAttribute="centerY" secondItem="Ves-MH-jip" secondAttribute="centerY" id="g5T-fR-2qa"/>
                                     <constraint firstAttribute="height" constant="54" id="qoE-qT-oix"/>
-                                    <constraint firstItem="5HG-MQ-KWI" firstAttribute="centerX" secondItem="Ves-MH-jip" secondAttribute="centerX" id="vlx-Vs-znN"/>
-                                    <constraint firstItem="5HG-MQ-KWI" firstAttribute="leading" secondItem="Ves-MH-jip" secondAttribute="leading" constant="16" id="z50-vd-7pW"/>
+                                    <constraint firstItem="KNu-3Z-NF7" firstAttribute="leading" secondItem="54H-0s-J8Z" secondAttribute="leading" constant="16" id="wat-Zw-ifr"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="54H-0s-J8Z"/>
                             </view>
@@ -56,7 +93,8 @@
                         <viewLayoutGuide key="safeArea" id="L6E-1B-xzN"/>
                     </view>
                     <connections>
-                        <outlet property="settings" destination="5HG-MQ-KWI" id="qGi-kd-8F8"/>
+                        <outlet property="bunttonsView" destination="KNu-3Z-NF7" id="fog-5d-KSM"/>
+                        <outlet property="searchButton" destination="FHK-6p-URw" id="2Pc-F5-Gne"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Un-qp-jOm" userLabel="First Responder" sceneMemberID="firstResponder"/>

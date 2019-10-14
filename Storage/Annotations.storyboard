@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rUO-1R-0Ep">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rUO-1R-0Ep">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,19 +66,16 @@
                         <color key="separatorColor" red="0.85490196080000003" green="0.90588235289999997" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnnotationsTableViewCell" rowHeight="64" id="EdC-rI-yYd" customClass="AnnotationsTableViewCell" customModule="Storage" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="64"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnnotationsTableViewCell" rowHeight="65" id="EdC-rI-yYd" customClass="AnnotationsTableViewCell" customModule="Storage" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EdC-rI-yYd" id="5A4-Jv-fae">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="63.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwb-XL-DPj">
-                                            <rect key="frame" x="16" y="10.5" width="349" height="20"/>
+                                            <rect key="frame" x="16" y="10" width="349" height="20.5"/>
                                             <color key="tintColor" red="0.094117647060000004" green="0.22352941179999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="Jww-9t-ga1"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
                                             <color key="textColor" red="0.011764705882352941" green="0.21568627450980393" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" red="0.094117647060000004" green="0.22352941179999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,7 +91,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8d-SV-cgd">
-                                            <rect key="frame" x="16" y="34.5" width="349" height="20"/>
+                                            <rect key="frame" x="16" y="34.5" width="349" height="20.5"/>
                                             <color key="tintColor" red="0.094117647060000004" green="0.22352941179999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -110,7 +105,6 @@
                                         <constraint firstItem="gfc-vU-rkN" firstAttribute="centerY" secondItem="5A4-Jv-fae" secondAttribute="centerY" id="cSu-Z2-RBa"/>
                                         <constraint firstAttribute="bottom" secondItem="U8d-SV-cgd" secondAttribute="bottom" constant="10" id="cgu-GF-Cc8"/>
                                         <constraint firstItem="U8d-SV-cgd" firstAttribute="height" secondItem="Mwb-XL-DPj" secondAttribute="height" id="cwV-GA-BIJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="U8d-SV-cgd" secondAttribute="bottom" constant="10" id="rLY-sB-Obg"/>
                                         <constraint firstItem="Mwb-XL-DPj" firstAttribute="top" secondItem="5A4-Jv-fae" secondAttribute="top" constant="10" id="rqr-vY-urA"/>
                                         <constraint firstItem="Mwb-XL-DPj" firstAttribute="leading" secondItem="5A4-Jv-fae" secondAttribute="leading" constant="16" id="u8q-pI-YxT"/>
                                         <constraint firstItem="gfc-vU-rkN" firstAttribute="leading" secondItem="Mwb-XL-DPj" secondAttribute="trailing" id="uwG-EY-yVX"/>

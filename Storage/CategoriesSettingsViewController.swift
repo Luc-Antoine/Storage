@@ -14,19 +14,31 @@ class CategoriesSettingsViewController: UIViewController {
     
     var searchCount: Int = 0
     
-    @IBOutlet weak var settings: UISegmentedControl!
+    @IBOutlet weak var buttonsView: UIView!
+    @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        settings.font()
-        settings.rounded()
+        buttonsView.borderFocus()
+        buttonsView.clipsToBounds = true
         guard searchCount > 0 else { return }
-        settings.searching(2)
+        searchButton.backgroundColor = UIColor.mainColor
+        searchButton.setTitleColor(UIColor.white, for: .normal)
     }
     
-    @IBAction func settingsDisplay(_ sender: Any) {
+    @IBAction func edit() {
         remove()
-        delegate?.navigationSettings(settings.selectedSegmentIndex)
+        delegate?.navigationSettings(0)
+    }
+    
+    @IBAction func sort() {
+        remove()
+        delegate?.navigationSettings(1)
+    }
+    
+    @IBAction func search() {
+        remove()
+        delegate?.navigationSettings(2)
     }
 }

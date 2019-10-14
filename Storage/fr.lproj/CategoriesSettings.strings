@@ -1,9 +1,9 @@
 
-/* Class = "UISegmentedControl"; Wnu-fp-xR2.segmentTitles[0] = "Edit"; ObjectID = "Wnu-fp-xR2"; */
-"Wnu-fp-xR2.segmentTitles[0]" = "Éditer";
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "J23-eM-sQY"; */
+"J23-eM-sQY.normalTitle" = "Éditer";
 
-/* Class = "UISegmentedControl"; Wnu-fp-xR2.segmentTitles[1] = "Sort"; ObjectID = "Wnu-fp-xR2"; */
-"Wnu-fp-xR2.segmentTitles[1]" = "Trier";
+/* Class = "UIButton"; normalTitle = "Sort"; ObjectID = "Pv4-6g-Sw8"; */
+"Pv4-6g-Sw8.normalTitle" = "Trier";
 
-/* Class = "UISegmentedControl"; Wnu-fp-xR2.segmentTitles[2] = "Search"; ObjectID = "Wnu-fp-xR2"; */
-"Wnu-fp-xR2.segmentTitles[2]" = "Rechercher";
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "gnR-Zq-Gid"; */
+"gnR-Zq-Gid.normalTitle" = "Rechercher";

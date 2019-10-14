@@ -1,12 +1,9 @@
 
-/* Class = "UISegmentedControl"; e1M-GN-MtL.segmentTitles[0] = "Edit"; ObjectID = "e1M-GN-MtL"; */
-"e1M-GN-MtL.segmentTitles[0]" = "Éditer";
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "4qb-bT-OYJ"; */
+"4qb-bT-OYJ.normalTitle" = "Éditer";
 
-/* Class = "UISegmentedControl"; e1M-GN-MtL.segmentTitles[1] = "Sort"; ObjectID = "e1M-GN-MtL"; */
-"e1M-GN-MtL.segmentTitles[1]" = "Trier";
+/* Class = "UIButton"; normalTitle = "Sort"; ObjectID = "Sdz-E1-ukQ"; */
+"Sdz-E1-ukQ.normalTitle" = "Trier";
 
-/* Class = "UISegmentedControl"; e1M-GN-MtL.segmentTitles[2] = "Search"; ObjectID = "e1M-GN-MtL"; */
-"e1M-GN-MtL.segmentTitles[2]" = "Rechercher";
-
-/* Class = "UISegmentedControl"; e1M-GN-MtL.segmentTitles[3] = "Filter"; ObjectID = "e1M-GN-MtL"; */
-"e1M-GN-MtL.segmentTitles[3]" = "Filtrer";
+/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "t1R-Gf-9Pg"; */
+"t1R-Gf-9Pg.normalTitle" = "Filtrer";

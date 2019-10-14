@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,67 +19,104 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLj-kH-hEg">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcG-Ug-91P">
-                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uef-o4-jtw">
+                                        <rect key="frame" x="16" y="12" width="382" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLJ-W0-LTM">
+                                                <rect key="frame" x="0.0" y="-0.5" width="126.5" height="31"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelFilter" destination="G7U-Om-2Py" eventType="touchUpInside" id="s8P-cm-le2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q68-oT-tYJ">
+                                                <rect key="frame" x="127.5" y="-0.5" width="127" height="31"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                                <state key="normal" title="New">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="confirm" destination="G7U-Om-2Py" eventType="touchUpInside" id="p8P-Ad-tEW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-Tw-95e">
+                                                <rect key="frame" x="255.5" y="-0.5" width="126.5" height="31"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                                <state key="normal" title="Confirm">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="removeView" destination="G7U-Om-2Py" eventType="touchUpInside" id="MTU-PF-tPI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="cQ0-1t-tex"/>
-                                            <constraint firstAttribute="height" constant="30" id="gu9-yY-dSL"/>
+                                            <constraint firstAttribute="trailing" secondItem="nrP-Tw-95e" secondAttribute="trailing" id="2pf-Lf-E8z"/>
+                                            <constraint firstItem="q68-oT-tYJ" firstAttribute="centerY" secondItem="uef-o4-jtw" secondAttribute="centerY" id="IIB-eC-Euf"/>
+                                            <constraint firstAttribute="height" constant="30" id="MeS-hX-80Y"/>
+                                            <constraint firstItem="q68-oT-tYJ" firstAttribute="leading" secondItem="YLJ-W0-LTM" secondAttribute="trailing" constant="1" id="N2F-km-aco"/>
+                                            <constraint firstItem="YLJ-W0-LTM" firstAttribute="width" secondItem="q68-oT-tYJ" secondAttribute="width" id="QVw-mF-PPF"/>
+                                            <constraint firstItem="YLJ-W0-LTM" firstAttribute="width" secondItem="nrP-Tw-95e" secondAttribute="width" id="UOp-ed-d8t"/>
+                                            <constraint firstItem="YLJ-W0-LTM" firstAttribute="centerY" secondItem="uef-o4-jtw" secondAttribute="centerY" id="bCt-zb-rXD"/>
+                                            <constraint firstItem="nrP-Tw-95e" firstAttribute="centerY" secondItem="uef-o4-jtw" secondAttribute="centerY" id="cYd-9F-pNx"/>
+                                            <constraint firstItem="YLJ-W0-LTM" firstAttribute="leading" secondItem="uef-o4-jtw" secondAttribute="leading" id="lAO-Jh-F0P"/>
+                                            <constraint firstItem="nrP-Tw-95e" firstAttribute="leading" secondItem="q68-oT-tYJ" secondAttribute="trailing" constant="1" id="qWb-zf-Vku"/>
                                         </constraints>
-                                        <state key="normal" image="CancelButton"/>
-                                        <connections>
-                                            <action selector="removeView" destination="G7U-Om-2Py" eventType="touchUpInside" id="HEP-qZ-h4d"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beX-y5-dqR">
-                                        <rect key="frame" x="63.5" y="12" width="80" height="30"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AuS-af-jAg">
+                                        <rect key="frame" x="16" y="12" width="382" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhJ-J0-cSH">
+                                                <rect key="frame" x="0.0" y="-0.5" width="190.5" height="31"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelFilter" destination="G7U-Om-2Py" eventType="touchUpInside" id="wD1-39-TRd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FU8-GE-xVp">
+                                                <rect key="frame" x="191.5" y="-0.5" width="190.5" height="31"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                                <state key="normal" title="Validate">
+                                                    <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="confirm" destination="G7U-Om-2Py" eventType="touchUpInside" id="iUJ-Yi-rNH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="5fe-Bw-ccc"/>
+                                            <constraint firstItem="KhJ-J0-cSH" firstAttribute="width" secondItem="FU8-GE-xVp" secondAttribute="width" id="3Oz-mM-3jd"/>
+                                            <constraint firstAttribute="trailing" secondItem="FU8-GE-xVp" secondAttribute="trailing" id="IhI-0V-5gH"/>
+                                            <constraint firstItem="FU8-GE-xVp" firstAttribute="leading" secondItem="KhJ-J0-cSH" secondAttribute="trailing" constant="1" id="NFx-Ne-g7F"/>
+                                            <constraint firstItem="KhJ-J0-cSH" firstAttribute="centerY" secondItem="AuS-af-jAg" secondAttribute="centerY" id="WSa-m4-78z"/>
+                                            <constraint firstItem="FU8-GE-xVp" firstAttribute="centerY" secondItem="AuS-af-jAg" secondAttribute="centerY" id="f9d-c6-8P5"/>
+                                            <constraint firstItem="KhJ-J0-cSH" firstAttribute="leading" secondItem="AuS-af-jAg" secondAttribute="leading" id="hao-cF-Pls"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
-                                        <state key="normal" title="Annuler">
-                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="removeView" destination="G7U-Om-2Py" eventType="touchUpInside" id="mjT-Ws-dWp"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41S-2N-ZIm">
-                                        <rect key="frame" x="270.5" y="12" width="80" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="zF6-es-SwX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
-                                        <state key="normal" title="Valider">
-                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="confirm" destination="G7U-Om-2Py" eventType="touchUpInside" id="i9S-uv-W7F"/>
-                                        </connections>
-                                    </button>
-                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3bV-Pq-EWY">
-                                        <rect key="frame" x="60" y="13" width="294" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="fxp-iA-XsK"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ZcG-Ug-91P" firstAttribute="centerY" secondItem="3bV-Pq-EWY" secondAttribute="centerY" id="1O9-bM-8eg"/>
-                                    <constraint firstItem="beX-y5-dqR" firstAttribute="height" secondItem="ZcG-Ug-91P" secondAttribute="height" id="C4u-y0-omD"/>
-                                    <constraint firstItem="ZcG-Ug-91P" firstAttribute="leading" secondItem="jLj-kH-hEg" secondAttribute="leading" constant="20" id="GsP-Dw-ASb"/>
-                                    <constraint firstItem="3bV-Pq-EWY" firstAttribute="leading" secondItem="ZcG-Ug-91P" secondAttribute="trailing" constant="10" id="H4E-bN-hh4"/>
-                                    <constraint firstItem="3bV-Pq-EWY" firstAttribute="centerX" secondItem="jLj-kH-hEg" secondAttribute="centerX" id="Xpv-hf-I6d"/>
-                                    <constraint firstItem="41S-2N-ZIm" firstAttribute="height" secondItem="ZcG-Ug-91P" secondAttribute="height" id="ZIQ-Sm-W0v"/>
+                                    <constraint firstItem="C5N-5T-m8Z" firstAttribute="trailing" secondItem="uef-o4-jtw" secondAttribute="trailing" constant="16" id="6RK-qj-cBl"/>
+                                    <constraint firstItem="AuS-af-jAg" firstAttribute="bottom" secondItem="uef-o4-jtw" secondAttribute="bottom" id="F2U-yK-Cf1"/>
+                                    <constraint firstItem="uef-o4-jtw" firstAttribute="leading" secondItem="jLj-kH-hEg" secondAttribute="leading" constant="16" id="QtF-r7-Ac0"/>
+                                    <constraint firstItem="uef-o4-jtw" firstAttribute="centerY" secondItem="jLj-kH-hEg" secondAttribute="centerY" id="WQ0-Ln-RvA"/>
                                     <constraint firstAttribute="height" constant="54" id="ZLg-aa-6vK"/>
-                                    <constraint firstItem="3bV-Pq-EWY" firstAttribute="centerY" secondItem="jLj-kH-hEg" secondAttribute="centerY" id="aHm-9X-9vP"/>
-                                    <constraint firstItem="beX-y5-dqR" firstAttribute="centerX" secondItem="jLj-kH-hEg" secondAttribute="centerX" multiplier="0.5" id="gLW-gH-7dh"/>
-                                    <constraint firstItem="41S-2N-ZIm" firstAttribute="centerY" secondItem="jLj-kH-hEg" secondAttribute="centerY" id="j2Y-Im-YwK"/>
-                                    <constraint firstItem="beX-y5-dqR" firstAttribute="centerY" secondItem="jLj-kH-hEg" secondAttribute="centerY" id="qCu-P7-FNP"/>
-                                    <constraint firstItem="41S-2N-ZIm" firstAttribute="centerX" secondItem="jLj-kH-hEg" secondAttribute="centerX" multiplier="1.5" id="v6i-5H-3gS"/>
+                                    <constraint firstItem="AuS-af-jAg" firstAttribute="top" secondItem="uef-o4-jtw" secondAttribute="top" id="d1h-cR-jlX"/>
+                                    <constraint firstItem="AuS-af-jAg" firstAttribute="trailing" secondItem="uef-o4-jtw" secondAttribute="trailing" id="gqY-dc-X8j"/>
+                                    <constraint firstItem="AuS-af-jAg" firstAttribute="leading" secondItem="uef-o4-jtw" secondAttribute="leading" id="mv4-EN-7ap"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="C5N-5T-m8Z"/>
                             </view>
@@ -95,8 +130,8 @@
                         <viewLayoutGuide key="safeArea" id="nhz-vL-uhA"/>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="beX-y5-dqR" id="f2J-sR-beU"/>
-                        <outlet property="validateButton" destination="41S-2N-ZIm" id="jxc-ub-lc0"/>
+                        <outlet property="buttonsView" destination="AuS-af-jAg" id="Pn4-tx-dx9"/>
+                        <outlet property="newView" destination="uef-o4-jtw" id="QfE-0Z-Axw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUi-Ne-t22" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,7 +139,4 @@
             <point key="canvasLocation" x="112" y="92"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="CancelButton" width="36" height="36"/>
-    </resources>
 </document>

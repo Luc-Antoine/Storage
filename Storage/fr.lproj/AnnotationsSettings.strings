@@ -1,9 +1,9 @@
 
-/* Class = "UISegmentedControl"; 5HG-MQ-KWI.segmentTitles[0] = "Modify"; ObjectID = "5HG-MQ-KWI"; */
-"5HG-MQ-KWI.segmentTitles[0]" = "Modifier";
+/* Class = "UIButton"; normalTitle = "Sort"; ObjectID = "CSv-WJ-3CF"; */
+"CSv-WJ-3CF.normalTitle" = "Trier";
 
-/* Class = "UISegmentedControl"; 5HG-MQ-KWI.segmentTitles[1] = "Sort"; ObjectID = "5HG-MQ-KWI"; */
-"5HG-MQ-KWI.segmentTitles[1]" = "Trier";
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "FHK-6p-URw"; */
+"FHK-6p-URw.normalTitle" = "Rechercher";
 
-/* Class = "UISegmentedControl"; 5HG-MQ-KWI.segmentTitles[2] = "Search"; ObjectID = "5HG-MQ-KWI"; */
-"5HG-MQ-KWI.segmentTitles[2]" = "Rechercher";
+/* Class = "UIButton"; normalTitle = "Modify"; ObjectID = "f1U-PI-h28"; */
+"f1U-PI-h28.normalTitle" = "Modifier";
