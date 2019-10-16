@@ -25,6 +25,7 @@ class CategoriesAddViewController: UIViewController {
     }
     
     @IBAction func addCategory() {
+        guard nameCategoryTextField.text != "" else { return }
         delegate?.addCategory(nameCategoryTextField.text?.removingEndingSpaces())
         nameCategoryTextField.text = ""
     }

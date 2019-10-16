@@ -32,11 +32,6 @@ class ItemsEditViewController: UIViewController {
         delegate?.newChildSettings()
     }
     
-    @IBAction func textFieldChanged() {
-        guard editTextField.text != nil else { return }
-        delegate?.textFieldDidResearching(editTextField.text!)
-    }
-    
     @IBAction func updateNameFeatures() {
         guard editTextField.text != "" else { return }
         let result: Bool = delegate?.editNameItem(editTextField.text!) ?? false

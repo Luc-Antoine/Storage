@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,29 +19,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7d-so-T86">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLz-la-nur">
-                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButton" translatesAutoresizingMaskIntoConstraints="NO" id="bVo-D4-vVw">
+                                        <rect key="frame" x="16" y="12" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Ft2-TF-HWM"/>
-                                            <constraint firstAttribute="height" constant="30" id="e3B-2g-41K"/>
+                                            <constraint firstAttribute="height" constant="30" id="7J2-fW-Qxn"/>
+                                            <constraint firstAttribute="width" constant="30" id="kPt-hE-7wg"/>
                                         </constraints>
-                                        <state key="normal" image="CancelButton"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLz-la-nur">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="m8x-yH-1ij"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="removeView" destination="Qq7-BX-cX9" eventType="touchUpInside" id="XBH-02-XhR"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2Y-ju-aTa">
-                                        <rect key="frame" x="60" y="12" width="294" height="30"/>
+                                        <rect key="frame" x="56" y="12" width="302" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gMf-Uy-47b">
-                                                <rect key="frame" x="4" y="0.0" width="290" height="30"/>
+                                                <rect key="frame" x="4" y="0.0" width="298" height="30"/>
                                                 <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="textFieldChanged" destination="Qq7-BX-cX9" eventType="editingChanged" id="Mqe-aM-IHm"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,13 +54,12 @@
                                             <constraint firstItem="gMf-Uy-47b" firstAttribute="leading" secondItem="u2Y-ju-aTa" secondAttribute="leading" constant="4" id="yxq-3A-9Q2"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Update" translatesAutoresizingMaskIntoConstraints="NO" id="0j0-mk-YR2">
+                                        <rect key="frame" x="368" y="12" width="30" height="30"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Je-V3-rNX">
-                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="LFN-Al-TUB"/>
-                                            <constraint firstAttribute="height" constant="30" id="wyI-ra-0bF"/>
-                                        </constraints>
-                                        <state key="normal" image="Update">
+                                        <rect key="frame" x="358" y="0.0" width="56" height="54"/>
+                                        <state key="normal">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -71,14 +69,22 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2Je-V3-rNX" firstAttribute="centerY" secondItem="u2Y-ju-aTa" secondAttribute="centerY" id="3yV-x8-RLd"/>
-                                    <constraint firstItem="MPw-Vi-bVt" firstAttribute="trailing" secondItem="2Je-V3-rNX" secondAttribute="trailing" constant="20" id="8IZ-3m-UBv"/>
+                                    <constraint firstItem="2Je-V3-rNX" firstAttribute="top" secondItem="tLz-la-nur" secondAttribute="top" id="1CX-zW-gyc"/>
+                                    <constraint firstAttribute="trailing" secondItem="0j0-mk-YR2" secondAttribute="trailing" constant="16" id="3R6-ny-KDr"/>
+                                    <constraint firstItem="MPw-Vi-bVt" firstAttribute="trailing" secondItem="2Je-V3-rNX" secondAttribute="trailing" id="8IZ-3m-UBv"/>
+                                    <constraint firstItem="0j0-mk-YR2" firstAttribute="width" secondItem="bVo-D4-vVw" secondAttribute="width" id="CZf-yw-q0t"/>
                                     <constraint firstItem="u2Y-ju-aTa" firstAttribute="centerY" secondItem="C7d-so-T86" secondAttribute="centerY" id="FJs-M3-ybh"/>
-                                    <constraint firstItem="u2Y-ju-aTa" firstAttribute="leading" secondItem="tLz-la-nur" secondAttribute="trailing" constant="10" id="MeU-7E-mGH"/>
-                                    <constraint firstItem="2Je-V3-rNX" firstAttribute="leading" secondItem="u2Y-ju-aTa" secondAttribute="trailing" constant="10" id="bUe-Qj-VMe"/>
-                                    <constraint firstItem="tLz-la-nur" firstAttribute="centerY" secondItem="u2Y-ju-aTa" secondAttribute="centerY" id="bxI-QX-WDd"/>
+                                    <constraint firstItem="bVo-D4-vVw" firstAttribute="centerY" secondItem="C7d-so-T86" secondAttribute="centerY" id="MaB-5Y-LVh"/>
+                                    <constraint firstItem="u2Y-ju-aTa" firstAttribute="leading" secondItem="tLz-la-nur" secondAttribute="trailing" id="MeU-7E-mGH"/>
+                                    <constraint firstItem="MPw-Vi-bVt" firstAttribute="bottom" secondItem="tLz-la-nur" secondAttribute="bottom" id="VXN-BG-FAV"/>
+                                    <constraint firstItem="bVo-D4-vVw" firstAttribute="leading" secondItem="C7d-so-T86" secondAttribute="leading" constant="16" id="ZIk-l1-SgB"/>
+                                    <constraint firstItem="2Je-V3-rNX" firstAttribute="leading" secondItem="u2Y-ju-aTa" secondAttribute="trailing" id="bUe-Qj-VMe"/>
+                                    <constraint firstItem="tLz-la-nur" firstAttribute="top" secondItem="MPw-Vi-bVt" secondAttribute="top" id="e6X-AK-4gS"/>
                                     <constraint firstAttribute="height" constant="54" id="iQa-av-ufd"/>
-                                    <constraint firstItem="tLz-la-nur" firstAttribute="leading" secondItem="C7d-so-T86" secondAttribute="leading" constant="20" id="nbh-i9-r0c"/>
+                                    <constraint firstItem="0j0-mk-YR2" firstAttribute="height" secondItem="bVo-D4-vVw" secondAttribute="height" id="nKL-Zy-8Ll"/>
+                                    <constraint firstItem="tLz-la-nur" firstAttribute="leading" secondItem="C7d-so-T86" secondAttribute="leading" id="nbh-i9-r0c"/>
+                                    <constraint firstItem="2Je-V3-rNX" firstAttribute="bottom" secondItem="tLz-la-nur" secondAttribute="bottom" id="okx-gW-m1L"/>
+                                    <constraint firstItem="0j0-mk-YR2" firstAttribute="centerY" secondItem="bVo-D4-vVw" secondAttribute="centerY" id="rCO-XY-ES8"/>
                                     <constraint firstItem="u2Y-ju-aTa" firstAttribute="centerX" secondItem="C7d-so-T86" secondAttribute="centerX" id="zA1-NS-bc4"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="MPw-Vi-bVt"/>
@@ -104,7 +110,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CancelButton" width="36" height="36"/>
-        <image name="Update" width="36" height="36"/>
+        <image name="CancelButton" width="44" height="44"/>
+        <image name="Update" width="44" height="44"/>
     </resources>
 </document>

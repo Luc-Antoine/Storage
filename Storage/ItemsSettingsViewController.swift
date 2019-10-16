@@ -48,6 +48,6 @@ class ItemsSettingsViewController: UIViewController {
     
     @IBAction func filter() {
         remove()
-        delegate?.navigationSettings(3)
+        delegate?.navigationSettings(2)
     }
 }

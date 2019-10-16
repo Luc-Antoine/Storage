@@ -19,8 +19,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGS-fm-bZ7">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButton" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-Wf-O9m">
+                                        <rect key="frame" x="16" y="12" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="umg-Zl-hS0"/>
+                                            <constraint firstAttribute="height" constant="30" id="vyV-5V-T9I"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcT-C2-J3B">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="xxP-5r-SZg"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="removeView" destination="Wok-Jn-qOS" eventType="touchUpInside" id="Mh8-yb-4TA"/>
+                                        </connections>
+                                    </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OVy-4O-nfO">
-                                        <rect key="frame" x="60" y="11.5" width="334" height="32"/>
+                                        <rect key="frame" x="56" y="11.5" width="342" height="32"/>
                                         <color key="backgroundColor" red="0.85490196080000003" green="0.90588235289999997" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <segments>
                                             <segment title="A -&gt; Z"/>
@@ -33,25 +49,17 @@
                                             <action selector="sortChoice" destination="Wok-Jn-qOS" eventType="valueChanged" id="7Rq-Ig-qVY"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcT-C2-J3B">
-                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="mRM-HJ-IXG"/>
-                                            <constraint firstAttribute="width" constant="30" id="xLF-Ct-AVf"/>
-                                        </constraints>
-                                        <state key="normal" image="CancelButton"/>
-                                        <connections>
-                                            <action selector="removeView" destination="Wok-Jn-qOS" eventType="touchUpInside" id="Mh8-yb-4TA"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="fx2-rx-zPx" firstAttribute="trailing" secondItem="OVy-4O-nfO" secondAttribute="trailing" constant="20" id="JlA-pI-eTj"/>
+                                    <constraint firstItem="GRS-Wf-O9m" firstAttribute="leading" secondItem="EGS-fm-bZ7" secondAttribute="leading" constant="16" id="3sP-Gi-BN0"/>
+                                    <constraint firstItem="GRS-Wf-O9m" firstAttribute="centerY" secondItem="EGS-fm-bZ7" secondAttribute="centerY" id="95F-nV-fCC"/>
+                                    <constraint firstItem="fx2-rx-zPx" firstAttribute="bottom" secondItem="tcT-C2-J3B" secondAttribute="bottom" id="9TM-H0-Fne"/>
+                                    <constraint firstItem="fx2-rx-zPx" firstAttribute="trailing" secondItem="OVy-4O-nfO" secondAttribute="trailing" constant="16" id="JlA-pI-eTj"/>
                                     <constraint firstItem="OVy-4O-nfO" firstAttribute="centerY" secondItem="EGS-fm-bZ7" secondAttribute="centerY" id="Jsh-eq-qFq"/>
-                                    <constraint firstItem="tcT-C2-J3B" firstAttribute="centerY" secondItem="OVy-4O-nfO" secondAttribute="centerY" id="Kuv-5C-9tC"/>
-                                    <constraint firstItem="tcT-C2-J3B" firstAttribute="leading" secondItem="EGS-fm-bZ7" secondAttribute="leading" constant="20" id="dfz-Ef-hbl"/>
-                                    <constraint firstItem="OVy-4O-nfO" firstAttribute="leading" secondItem="tcT-C2-J3B" secondAttribute="trailing" constant="10" id="ghP-Fe-T0i"/>
+                                    <constraint firstItem="tcT-C2-J3B" firstAttribute="leading" secondItem="fx2-rx-zPx" secondAttribute="leading" id="LS5-tw-XzV"/>
+                                    <constraint firstItem="OVy-4O-nfO" firstAttribute="leading" secondItem="tcT-C2-J3B" secondAttribute="trailing" id="ghP-Fe-T0i"/>
+                                    <constraint firstItem="tcT-C2-J3B" firstAttribute="top" secondItem="fx2-rx-zPx" secondAttribute="top" id="iUv-Y5-hOz"/>
                                     <constraint firstAttribute="height" constant="54" id="wNS-BZ-eOq"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="fx2-rx-zPx"/>
@@ -75,6 +83,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CancelButton" width="36" height="36"/>
+        <image name="CancelButton" width="48" height="48"/>
     </resources>
 </document>

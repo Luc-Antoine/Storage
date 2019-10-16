@@ -9,7 +9,7 @@
 import UIKit
 
 enum KindItem {
-    case items, filteredItems, researchingItems, nameFeatures, features, filtersEditing
+    case items, filteredItems, nameFeatures, features, filtersEditing
 }
 
 class ItemsTableViewController: UITableViewController {
@@ -21,7 +21,6 @@ class ItemsTableViewController: UITableViewController {
     var items: [Item] = []
     var filteredItems: [Item] = []
     var selectedItems: [Item] = []
-    var researchingItems: [Item] = []
     var nameFeatures: [NameFeature] = []
     var nameFeaturesFiltered: [NameFeature] = []
     var features: [Feature] = []
@@ -30,7 +29,6 @@ class ItemsTableViewController: UITableViewController {
     var featuresFiltered: [Feature] = []
     var itemsSort: Sort = .increasing
     var modify: Bool = false
-    var research: Research?
     var lastIndexPath: IndexPath? {
         didSet {
             delegate?.itemSelected(lastIndexPath == nil ? nil : items[lastIndexPath!.row])
@@ -46,11 +44,6 @@ class ItemsTableViewController: UITableViewController {
         loadNameFeatures()
         loadFeatures()
         reloadData()
-        if research != nil {
-            textFieldDidResearching(research!.search)
-        } else {
-            tableView.reloadData()
-        }
     }
 
     // MARK: - Table view data source
@@ -65,8 +58,6 @@ class ItemsTableViewController: UITableViewController {
             return items.count
         case .filteredItems:
             return filteredItems.count
-        case .researchingItems:
-            return researchingItems.count
         case .nameFeatures:
             return nameFeatures.count
         case .features:
@@ -88,11 +79,6 @@ class ItemsTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.identifier, for: indexPath) as! ItemCell
             cell.configureCell(filteredItems[indexPath.row])
             cell.index = indexPath.row
-            cell.delegate = self
-            return cell
-        case .researchingItems:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.identifier, for: indexPath) as! ItemCell
-            cell.configureCell(researchingItems[indexPath.row])
             cell.delegate = self
             return cell
         case .nameFeatures:
@@ -149,9 +135,6 @@ class ItemsTableViewController: UITableViewController {
             if navBarItemFilter == .add {
                 delegate?.newFeaturesViewController(filteredItems[indexPath.row])
             }
-            break
-        case .researchingItems:
-            delegate?.newFeaturesViewController(researchingItems[indexPath.row])
             break
         case .nameFeatures:
             nameFeaturesFiltered = nameFeaturesFiltered.set(nameFeatures[indexPath.row])
@@ -227,8 +210,6 @@ class ItemsTableViewController: UITableViewController {
         case .items:
             break
         case .filteredItems:
-            break
-        case .researchingItems:
             break
         case .nameFeatures:
             filterFeatures()
@@ -306,10 +287,6 @@ protocol ItemsViewControllerDelegate: AnyObject {
     func addItem(_ name: String?)
     func update(_ name: String) -> Bool
     func removeItems()
-    func textFieldDidBeginResearching()
-    func textFieldDidEndResearching()
-    func textFieldDidResearching(_ text: String)
-    func searchCount() -> Int
     func tableViewEditing()
     func tableViewEndEditing()
     func kindItem(_ kind: KindItem)
@@ -332,7 +309,6 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
     func itemsSort(_ sort: Sort) {
         itemsSort = sort
         items = itemsSort.sort(items)
-        researchingItems = itemsSort.sort(researchingItems)
         tableView.reloadData()
     }
     
@@ -362,44 +338,16 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         tableView.reloadData()
     }
     
-    // MARK: - Search Functions
-    
-    func textFieldDidBeginResearching() {
-        research = Research.init(search: "", count: 0)
-        filteredItems = items
-    }
-    
-    func textFieldDidEndResearching() {
-        research = nil
-        kindItem = .items
-        tableView.reloadData()
-    }
-    
-    func textFieldDidResearching(_ text: String) {
-        if text == "" {
-            researchingItems = items
-        } else {
-            researchingItems = items.filter({ (results) -> Bool in
-                return results.name.lowercased().contains(text.lowercased())
-            })
-        }
-        tableView.reloadData()
-    }
-    
-    func searchCount() -> Int {
-        return researchingItems.count
-    }
-    
     func tableViewEditing() {
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.setEditing(true, animated: true)
-        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 40, bottom: 0, right: 0)
+        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 0)
     }
     
     func tableViewEndEditing() {
         tableView.allowsMultipleSelectionDuringEditing = false
         tableView.setEditing(false, animated: false)
-        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 15, bottom: 0, right: 0)
+        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 0)
         lastIndexPath = nil
         tableView.reloadData()
     }
@@ -415,8 +363,6 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
         case .items:
             break
         case .filteredItems:
-            break
-        case .researchingItems:
             break
         case .nameFeatures:
             if nameFeaturesFiltered.count == 0 {

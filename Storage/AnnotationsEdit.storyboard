@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="88R-kk-zu3">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="88R-kk-zu3">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,13 +19,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNK-rd-sdR">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-KJ-SzE">
-                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButton" translatesAutoresizingMaskIntoConstraints="NO" id="2sg-8X-9oK">
+                                        <rect key="frame" x="16" y="12" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="IGJ-eX-DA3"/>
-                                            <constraint firstAttribute="width" constant="30" id="vrv-oQ-cFe"/>
+                                            <constraint firstAttribute="width" constant="30" id="Fsd-cw-JED"/>
+                                            <constraint firstAttribute="height" constant="30" id="T3t-V8-xmr"/>
                                         </constraints>
-                                        <state key="normal" image="CancelButton"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAS-KJ-SzE">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="L05-4t-F0h"/>
+                                        </constraints>
                                         <connections>
                                             <action selector="removeView" destination="88R-kk-zu3" eventType="touchUpInside" id="Ayn-tP-Hqk"/>
                                         </connections>
@@ -35,8 +38,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="uAS-KJ-SzE" firstAttribute="centerY" secondItem="CNK-rd-sdR" secondAttribute="centerY" id="lCd-qs-nqi"/>
-                                    <constraint firstItem="uAS-KJ-SzE" firstAttribute="leading" secondItem="vDn-dq-jq3" secondAttribute="leading" constant="20" id="mNa-Z9-l7I"/>
+                                    <constraint firstItem="uAS-KJ-SzE" firstAttribute="top" secondItem="vDn-dq-jq3" secondAttribute="top" id="BUJ-JJ-ZmK"/>
+                                    <constraint firstItem="2sg-8X-9oK" firstAttribute="centerY" secondItem="CNK-rd-sdR" secondAttribute="centerY" id="BuM-zf-wNG"/>
+                                    <constraint firstItem="vDn-dq-jq3" firstAttribute="bottom" secondItem="uAS-KJ-SzE" secondAttribute="bottom" id="IhJ-bk-VLu"/>
+                                    <constraint firstItem="2sg-8X-9oK" firstAttribute="leading" secondItem="CNK-rd-sdR" secondAttribute="leading" constant="16" id="eXT-a6-prQ"/>
+                                    <constraint firstItem="uAS-KJ-SzE" firstAttribute="leading" secondItem="vDn-dq-jq3" secondAttribute="leading" id="mNa-Z9-l7I"/>
                                     <constraint firstAttribute="height" constant="54" id="o6H-l5-95K"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="vDn-dq-jq3"/>
@@ -57,6 +63,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CancelButton" width="36" height="36"/>
+        <image name="CancelButton" width="48" height="48"/>
     </resources>
 </document>

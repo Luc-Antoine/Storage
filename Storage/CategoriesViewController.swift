@@ -129,11 +129,9 @@ class CategoriesViewController: UIViewController {
         guard !preferences.dataBaseCreated() else { return }
         createDataBase.execute()
         createDataBase.preferencesDefault()
+        createDataBase.demo()
         preferences.lastFeatureId(-1)
         preferences.dataBaseCreated(true)
-        
-        let demonstration = Demonstration()
-        demonstration.run()
     }
     
     // MARK: - Navigation Controller Function

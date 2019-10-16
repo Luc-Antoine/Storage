@@ -118,7 +118,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if annotation != nil {
                 lat = annotation!.lat
                 lng = annotation!.lng
-                showAnnotationView()
                 showRoute(destinationLat: lat!, destiantionLng: lng!)
             } else {
                 if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
@@ -226,17 +225,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         annotation = annotations[index!]
         guard annotation != nil else { return }
-        
-//        self.mapView.centerCoordinate = CLLocationCoordinate2D(latitude: annotation!.lat, longitude: annotation!.lng)
-//        let annotationView: AnnotationModaleWindowViewController = instantiate("AnnotationModaleWindowViewController", storyboard: "AnnotationModaleWindow")
-//        let distance = location.calculateDistance(distance: location.distance(of: Position.init(lat: annotation!.lat, lng: annotation!.lng)))
-//        annotationView.titleText = annotation!.title
-//        annotationView.subtitleText = annotation!.subtitle
-//        annotationView.distanceText = distance
-//        annotationView.delegate = self
-//        modaleWindowDelegate = annotationView
-//        addChild(annotationView, container: modaleContainerView)
-//        modaleContainerView.isHidden = false
         showAnnotationView()
         showRoute(destinationLat: view.annotation!.coordinate.latitude, destiantionLng: view.annotation!.coordinate.longitude)
     }
@@ -266,7 +254,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         lng = nil
     }
     
-    //MARK: - Custom Route
+    // MARK: - Custom Route
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
@@ -346,6 +334,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         pinAnnotationView = nil
     }
 }
+
+// MARK: - Protocols
 
 protocol MapViewControllerDelegate: AnyObject {
     func addAnnotation(_ annotation: Annotation)

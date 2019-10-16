@@ -26,4 +26,9 @@ class CreateDataBase {
         preferences.itemSort(0)
         preferences.annotationSort(0)
     }
+    
+    func demo() {
+        let demonstration = Demonstration()
+        demonstration.french()
+    }
 }

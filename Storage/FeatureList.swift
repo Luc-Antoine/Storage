@@ -44,10 +44,10 @@ class FeatureList {
         let featureAlreadySaved: Feature? = dataBase.check(feature)
         if featureAlreadySaved != nil {
             dataBase.increase(featureAlreadySaved!)
-            dataBase.insert(item, nameFeature: nameFeature, feature: featureAlreadySaved!)
+            dataBase.insert(item.id, nameFeatureId: nameFeature.id, featureId: featureAlreadySaved!.id)
         } else {
             dataBase.insert(feature)
-            dataBase.insert(item, nameFeature: nameFeature, feature: feature)
+            dataBase.insert(item.id, nameFeatureId: nameFeature.id, featureId: feature.id)
         }
     }
     

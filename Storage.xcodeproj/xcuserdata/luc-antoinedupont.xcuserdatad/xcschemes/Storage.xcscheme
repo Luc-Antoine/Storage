@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Storage.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F905E8523565D26002FDAA7"
+               BuildableName = "Storage UITests.xctest"
+               BlueprintName = "Storage UITests"
+               ReferencedContainer = "container:Storage.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -27,6 +41,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3F2E0F041E3888FA00B63C71"
+            BuildableName = "Storage.app"
+            BlueprintName = "Storage"
+            ReferencedContainer = "container:Storage.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -48,18 +71,27 @@
                ReferencedContainer = "container:Storage.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F905E8523565D26002FDAA7"
+               BuildableName = "Storage UITests.xctest"
+               BlueprintName = "Storage UITests"
+               ReferencedContainer = "container:Storage.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F6C3D5623571DC600CCAA57"
+               BuildableName = "StorageSnapshotUITests.xctest"
+               BlueprintName = "StorageSnapshotUITests"
+               ReferencedContainer = "container:Storage.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F2E0F041E3888FA00B63C71"
-            BuildableName = "Storage.app"
-            BlueprintName = "Storage"
-            ReferencedContainer = "container:Storage.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -88,8 +120,6 @@
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

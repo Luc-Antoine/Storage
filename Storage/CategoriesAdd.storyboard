@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,24 +19,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ceg-iR-8OO">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAE-Cz-Or1">
-                                        <rect key="frame" x="20" y="12" width="30" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButton" translatesAutoresizingMaskIntoConstraints="NO" id="aEy-kF-wjX">
+                                        <rect key="frame" x="16" y="12" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="7Kk-FT-ulJ"/>
-                                            <constraint firstAttribute="width" constant="30" id="H79-hL-cpg"/>
+                                            <constraint firstAttribute="width" constant="30" id="ANo-Hs-lzs"/>
+                                            <constraint firstAttribute="height" constant="30" id="Ak1-cl-KhU"/>
                                         </constraints>
-                                        <state key="normal" image="CancelButton"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAE-Cz-Or1">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
                                         <connections>
                                             <action selector="close" destination="Y3w-CR-M4G" eventType="touchUpInside" id="JEX-lW-fNg"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34D-zI-x6a">
-                                        <rect key="frame" x="60" y="12" width="294" height="30"/>
+                                        <rect key="frame" x="56" y="12" width="302" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6ny-i3-u3G">
-                                                <rect key="frame" x="4" y="0.0" width="290" height="30"/>
+                                                <rect key="frame" x="4" y="0.0" width="298" height="30"/>
                                                 <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textField>
@@ -52,12 +51,12 @@
                                             <constraint firstAttribute="height" constant="30" id="ylk-op-Mjs"/>
                                         </constraints>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Confirm" translatesAutoresizingMaskIntoConstraints="NO" id="Jwy-hc-gus">
+                                        <rect key="frame" x="368" y="12" width="30" height="30"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJw-dl-9OH">
-                                        <rect key="frame" x="364" y="12" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="hhE-Cb-7dV"/>
-                                        </constraints>
-                                        <state key="normal" image="Confirm">
+                                        <rect key="frame" x="358" y="0.0" width="56" height="54"/>
+                                        <state key="normal">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -67,15 +66,24 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hJw-dl-9OH" secondAttribute="trailing" constant="20" id="0Ir-MI-Cj2"/>
+                                    <constraint firstItem="Jwy-hc-gus" firstAttribute="height" secondItem="aEy-kF-wjX" secondAttribute="height" id="1XK-Rv-OlB"/>
+                                    <constraint firstItem="34D-zI-x6a" firstAttribute="leading" secondItem="bAE-Cz-Or1" secondAttribute="trailing" id="1ie-0j-wM5"/>
                                     <constraint firstAttribute="height" constant="54" id="3ht-Yd-V3r"/>
+                                    <constraint firstItem="34D-zI-x6a" firstAttribute="leading" secondItem="Ceg-iR-8OO" secondAttribute="leading" constant="56" id="4RX-yz-ia4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jwy-hc-gus" secondAttribute="trailing" constant="16" id="Bju-uy-3jb"/>
+                                    <constraint firstItem="bAE-Cz-Or1" firstAttribute="top" secondItem="pqw-Wu-qO1" secondAttribute="top" id="C7I-GU-xXe"/>
                                     <constraint firstItem="34D-zI-x6a" firstAttribute="centerY" secondItem="Ceg-iR-8OO" secondAttribute="centerY" id="EN6-p6-3Bi"/>
-                                    <constraint firstItem="hJw-dl-9OH" firstAttribute="leading" secondItem="34D-zI-x6a" secondAttribute="trailing" constant="10" id="Rwm-qE-c9W"/>
+                                    <constraint firstItem="pqw-Wu-qO1" firstAttribute="trailing" secondItem="hJw-dl-9OH" secondAttribute="trailing" id="Ka6-su-jlq"/>
+                                    <constraint firstItem="Jwy-hc-gus" firstAttribute="width" secondItem="aEy-kF-wjX" secondAttribute="width" id="MEU-fX-DHQ"/>
+                                    <constraint firstItem="aEy-kF-wjX" firstAttribute="leading" secondItem="Ceg-iR-8OO" secondAttribute="leading" constant="16" id="O61-iZ-z1m"/>
+                                    <constraint firstItem="pqw-Wu-qO1" firstAttribute="bottom" secondItem="bAE-Cz-Or1" secondAttribute="bottom" id="VMU-pw-E6M"/>
+                                    <constraint firstItem="hJw-dl-9OH" firstAttribute="leading" secondItem="34D-zI-x6a" secondAttribute="trailing" id="di0-hp-w25"/>
+                                    <constraint firstItem="aEy-kF-wjX" firstAttribute="centerY" secondItem="Ceg-iR-8OO" secondAttribute="centerY" id="exn-cw-VbN"/>
+                                    <constraint firstItem="Jwy-hc-gus" firstAttribute="centerY" secondItem="aEy-kF-wjX" secondAttribute="centerY" id="gVo-T7-1EC"/>
+                                    <constraint firstItem="hJw-dl-9OH" firstAttribute="top" secondItem="pqw-Wu-qO1" secondAttribute="top" id="hCR-Rf-5c7"/>
                                     <constraint firstItem="34D-zI-x6a" firstAttribute="centerX" secondItem="Ceg-iR-8OO" secondAttribute="centerX" id="ihg-1X-IDg"/>
-                                    <constraint firstItem="34D-zI-x6a" firstAttribute="leading" secondItem="bAE-Cz-Or1" secondAttribute="trailing" constant="10" id="pF5-Og-VfN"/>
-                                    <constraint firstItem="bAE-Cz-Or1" firstAttribute="centerY" secondItem="34D-zI-x6a" secondAttribute="centerY" id="rqT-mJ-Mgl"/>
-                                    <constraint firstItem="hJw-dl-9OH" firstAttribute="centerY" secondItem="34D-zI-x6a" secondAttribute="centerY" id="tgo-NT-T07"/>
-                                    <constraint firstItem="bAE-Cz-Or1" firstAttribute="leading" secondItem="Ceg-iR-8OO" secondAttribute="leading" constant="20" id="xs9-i7-qOC"/>
+                                    <constraint firstItem="pqw-Wu-qO1" firstAttribute="bottom" secondItem="hJw-dl-9OH" secondAttribute="bottom" id="rCH-XI-3LE"/>
+                                    <constraint firstItem="bAE-Cz-Or1" firstAttribute="leading" secondItem="Ceg-iR-8OO" secondAttribute="leading" id="xs9-i7-qOC"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="pqw-Wu-qO1"/>
                             </view>
@@ -101,7 +109,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CancelButton" width="36" height="36"/>
-        <image name="Confirm" width="36" height="36"/>
+        <image name="CancelButton" width="48" height="48"/>
+        <image name="Confirm" width="48" height="48"/>
     </resources>
 </document>

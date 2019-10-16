@@ -16,7 +16,6 @@ class ItemsViewController: UIViewController {
     var category: Category?
     var navBarItemFilter: NavBarItemFilter? = .add
     var tableViewStat: TableViewStat?
-    var research: Research?
     var lastItemSelected: Item?
     
     @IBOutlet weak var settingsContainer: UIView!
@@ -62,7 +61,6 @@ class ItemsViewController: UIViewController {
         itemsTableViewController.category = category
         tableViewDelegate = itemsTableViewController
         itemsTableViewController.itemsSort = Sort(rawValue: preferences.itemSort()) ?? .increasing
-        itemsTableViewController.research = research
         addChild(itemsTableViewController, container: tableViewContainer)
     }
     
@@ -96,17 +94,6 @@ class ItemsViewController: UIViewController {
         itemsSortViewController.delegate = self
         navBarItemFilter(nil)
         addChild(itemsSortViewController, container: settingsContainer)
-    }
-    
-    func newItemsSearchViewController() {
-        let itemsSearchViewController: ItemsSearchViewController = instantiate("ItemsSearchViewController", storyboard: "ItemsSearch")
-        itemsSearchViewController.delegate = self
-        itemsSearchViewController.research = research
-        tableViewDelegate?.kindItem(.researchingItems)
-        tableViewDelegate?.textFieldDidBeginResearching()
-        tableViewStat = .searching
-        navBarItemFilter(nil)
-        addChild(itemsSearchViewController, container: settingsContainer)
     }
     
     func newItemsFilterViewController() {
@@ -202,9 +189,6 @@ extension ItemsViewController: ItemsSettingsViewControllerDelegate {
             newItemsSortViewController()
             break
         case 2:
-            newItemsSearchViewController()
-            break
-        case 3:
             newItemsFilterViewController()
             break
         default:
@@ -238,7 +222,6 @@ protocol ItemsEditViewControllerDelegate: AnyObject {
     func itemsTableViewEditing()
     func itemsTableViewEndEditing()
     func editNameItem(_ name: String) -> Bool
-    func textFieldDidResearching(_ text: String)
     func newChildSettings()
     func itemSelected() -> Item?
 }
@@ -251,10 +234,6 @@ extension ItemsViewController: ItemsEditViewControllerDelegate {
     
     func itemsTableViewEndEditing() {
         tableViewDelegate?.tableViewEndEditing()
-    }
-    
-    func textFieldDidResearching(_ text: String) {
-        tableViewDelegate?.textFieldDidResearching(text)
     }
     
     func editNameItem(_ name: String) -> Bool {
@@ -283,28 +262,6 @@ extension ItemsViewController: ItemsSortViewControllerDelegate {
     
     func categoriesSortIndex() -> Sort? {
         return Sort(rawValue: preferences.itemSort())
-    }
-}
-
-// MARK: - ItemsSearchViewControllerDelegate
-
-protocol ItemsSearchViewControllerDelegate: AnyObject {
-    func textFieldDidResearching(_ text: String)
-    func newChildSettings()
-    func removeSearch()
-    func researching(_ text: String?)
-}
-
-extension ItemsViewController: ItemsSearchViewControllerDelegate {
-    
-    func removeSearch() {
-        tableViewDelegate?.textFieldDidEndResearching()
-        research = nil
-    }
-    
-    func researching(_ text: String?) {
-        guard text != nil || text != "" else { return }
-        research = Research.init(search: text!, count: tableViewDelegate?.searchCount() ?? 0)
     }
 }
 

@@ -38,12 +38,12 @@ extension DataBase {
         }
     }
     
-    func insert(_ item: Item, nameFeature: NameFeature, feature: Feature) {
+    func insert(_ itemId: Int, nameFeatureId: Int, featureId: Int) {
         do {
             try dbQueue!.write({ db in
                 try db.execute(
                     sql: "INSERT INTO Item_feature (item_id, name_features_id, features_id) VALUES (:item_id, :name_features_id,:features_id)",
-                    arguments: ["item_id":item.id, "name_features_id":nameFeature.id, "features_id":feature.id]
+                    arguments: ["item_id":itemId, "name_features_id":nameFeatureId, "features_id":featureId]
                 )
             })
         } catch {

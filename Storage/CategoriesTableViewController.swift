@@ -214,14 +214,14 @@ extension CategoriesTableViewController: CategoriesViewControllerDelegate {
     func tableViewEditing() {
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.setEditing(true, animated: true)
-        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 40, bottom: 0, right: 0)
+        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 0)
         modify = true
     }
     
     func tableViewEndEditing() {
         tableView.allowsMultipleSelectionDuringEditing = false
         tableView.setEditing(false, animated: false)
-        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 15, bottom: 0, right: 0)
+        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 0)
         modify = false
         lastIndexPath = nil
         tableView.reloadData()

@@ -31,11 +31,6 @@ class CategoriesEditViewController: UIViewController {
         delegate?.newChildSettings()
     }
     
-    @IBAction func textFieldChanged() {
-        guard editTextField.text != nil else { return }
-        delegate?.textFieldDidResearching(editTextField.text!)
-    }
-    
     @IBAction func updateNameCategory() {
         guard editTextField.text != "" else { return }
         let result: Bool = delegate?.editNameCategory(editTextField.text!) ?? false

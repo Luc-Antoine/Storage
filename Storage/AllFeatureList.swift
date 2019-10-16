@@ -20,7 +20,7 @@ class AllFeatureList {
     }
     
     func insert(_ item: Item, _ nameFeature: NameFeature, _ feature: Feature) {
-        dataBase.insert(item, nameFeature: nameFeature, feature: feature)
+        dataBase.insert(item.id, nameFeatureId: nameFeature.id, featureId: feature.id)
     }
     
     func increase(_ feature: Feature) {
