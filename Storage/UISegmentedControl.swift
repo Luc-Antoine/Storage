@@ -12,8 +12,12 @@ extension UISegmentedControl {
     func font() {
         self.setTitleTextAttributes([
             NSAttributedString.Key.font: UIFont(name: "Charter-Roman", size: 13)!,
-            NSAttributedString.Key.foregroundColor: UIColor.mainColor
+            NSAttributedString.Key.foregroundColor: UIColor.white
         ], for: .normal)
+        self.setTitleTextAttributes([
+            NSAttributedString.Key.font: UIFont(name: "Charter-Roman", size: 13)!,
+            NSAttributedString.Key.foregroundColor: UIColor.mainColor
+        ], for: .selected)
     }
     
     func rounded() {

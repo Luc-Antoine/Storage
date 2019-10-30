@@ -19,18 +19,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDG-gz-MZs">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButton" translatesAutoresizingMaskIntoConstraints="NO" id="h8i-RF-WzG">
-                                        <rect key="frame" x="16" y="12" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="bH2-3T-wDy"/>
-                                            <constraint firstAttribute="width" constant="30" id="vjY-6s-Iz5"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4a-nh-o1h">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4a-nh-o1h">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="txc-pj-fnt"/>
                                         </constraints>
+                                        <state key="normal" image="CancelButton"/>
                                         <connections>
                                             <action selector="removeView" destination="Fes-1f-28q" eventType="touchUpInside" id="vZ3-0b-Ndy"/>
                                         </connections>
@@ -54,15 +48,12 @@
                                             <constraint firstItem="LLu-sq-why" firstAttribute="leading" secondItem="ifi-YD-oEM" secondAttribute="leading" constant="4" id="ing-XD-65h"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Confirm" translatesAutoresizingMaskIntoConstraints="NO" id="NRo-bR-blu">
-                                        <rect key="frame" x="368" y="12" width="30" height="30"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-qr-ABw">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6e-qr-ABw">
                                         <rect key="frame" x="358" y="0.0" width="56" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="nUR-s4-otO"/>
                                         </constraints>
-                                        <state key="normal">
+                                        <state key="normal" image="Confirm">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -73,20 +64,14 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="s6e-qr-ABw" firstAttribute="leading" secondItem="ifi-YD-oEM" secondAttribute="trailing" id="0rA-vy-ypL"/>
-                                    <constraint firstItem="NRo-bR-blu" firstAttribute="height" secondItem="h8i-RF-WzG" secondAttribute="height" id="1d6-x0-CQU"/>
                                     <constraint firstItem="ifi-YD-oEM" firstAttribute="leading" secondItem="N4a-nh-o1h" secondAttribute="trailing" id="3MK-oG-hAl"/>
                                     <constraint firstAttribute="trailing" secondItem="s6e-qr-ABw" secondAttribute="trailing" id="7rO-QW-3qz"/>
-                                    <constraint firstItem="h8i-RF-WzG" firstAttribute="leading" secondItem="hDG-gz-MZs" secondAttribute="leading" constant="16" id="Erh-la-7Rq"/>
                                     <constraint firstItem="N4a-nh-o1h" firstAttribute="top" secondItem="Vnz-rN-hH8" secondAttribute="top" id="GuI-49-jjD"/>
                                     <constraint firstItem="s6e-qr-ABw" firstAttribute="top" secondItem="Vnz-rN-hH8" secondAttribute="top" id="Tv5-hZ-GDa"/>
-                                    <constraint firstItem="NRo-bR-blu" firstAttribute="centerY" secondItem="h8i-RF-WzG" secondAttribute="centerY" id="WWy-VO-NfF"/>
-                                    <constraint firstAttribute="trailing" secondItem="NRo-bR-blu" secondAttribute="trailing" constant="16" id="bwt-kf-SM9"/>
                                     <constraint firstItem="ifi-YD-oEM" firstAttribute="centerX" secondItem="hDG-gz-MZs" secondAttribute="centerX" id="dOB-8Z-Dkc"/>
                                     <constraint firstItem="Vnz-rN-hH8" firstAttribute="bottom" secondItem="s6e-qr-ABw" secondAttribute="bottom" id="g50-4x-mkL"/>
                                     <constraint firstItem="Vnz-rN-hH8" firstAttribute="bottom" secondItem="N4a-nh-o1h" secondAttribute="bottom" id="iBR-Bl-7PU"/>
-                                    <constraint firstItem="NRo-bR-blu" firstAttribute="width" secondItem="h8i-RF-WzG" secondAttribute="width" id="iHS-fR-QQe"/>
                                     <constraint firstItem="N4a-nh-o1h" firstAttribute="leading" secondItem="hDG-gz-MZs" secondAttribute="leading" id="kG0-k8-76B"/>
-                                    <constraint firstItem="h8i-RF-WzG" firstAttribute="centerY" secondItem="hDG-gz-MZs" secondAttribute="centerY" id="nMA-DB-0KY"/>
                                     <constraint firstAttribute="height" constant="54" id="wvZ-fb-NyQ"/>
                                     <constraint firstItem="ifi-YD-oEM" firstAttribute="centerY" secondItem="hDG-gz-MZs" secondAttribute="centerY" id="xBK-ir-7xr"/>
                                 </constraints>
@@ -112,7 +97,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CancelButton" width="48" height="48"/>
-        <image name="Confirm" width="48" height="48"/>
+        <image name="CancelButton" width="44" height="44"/>
+        <image name="Confirm" width="44" height="44"/>
     </resources>
 </document>

@@ -65,6 +65,8 @@
 		3F7F9AC322F9CFD800A5AE4C /* DataBaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F9AC222F9CFD800A5AE4C /* DataBaseCategory.swift */; };
 		3F7F9AC522F9D00800A5AE4C /* DataBaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F9AC422F9D00800A5AE4C /* DataBaseItem.swift */; };
 		3F8A60F023428A0E0052C559 /* Annotations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A60EF23428A0E0052C559 /* Annotations.storyboard */; };
+		3F92B9BE235859BE0003C207 /* FastlaneSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F92B9BD235859BE0003C207 /* FastlaneSnapshot.swift */; };
+		3F92B9C623585A1B0003C207 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F92B9C523585A1B0003C207 /* SnapshotHelper.swift */; };
 		3F9336BF1E432C33008A2AAA /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9336BE1E432C33008A2AAA /* DataBase.swift */; };
 		3F9C81392279867B00FF10F8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C81382279867B00FF10F8 /* CategoriesViewController.swift */; };
 		3F9C813C2279997B00FF10F8 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9C813B2279997B00FF10F8 /* UITableViewCell.swift */; };
@@ -135,6 +137,13 @@
 			remoteInfo = Storage;
 		};
 		3F2E0F251E3888FA00B63C71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F2E0EFD1E3888FA00B63C71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F2E0F041E3888FA00B63C71;
+			remoteInfo = Storage;
+		};
+		3F92B9C0235859BE0003C207 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F2E0EFD1E3888FA00B63C71 /* Project object */;
 			proxyType = 1;
@@ -215,6 +224,10 @@
 		3F7F9AC222F9CFD800A5AE4C /* DataBaseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseCategory.swift; sourceTree = "<group>"; };
 		3F7F9AC422F9D00800A5AE4C /* DataBaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseItem.swift; sourceTree = "<group>"; };
 		3F8A60EF23428A0E0052C559 /* Annotations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Annotations.storyboard; sourceTree = "<group>"; };
+		3F92B9BB235859BE0003C207 /* FastlaneSnapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneSnapshot.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F92B9BD235859BE0003C207 /* FastlaneSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneSnapshot.swift; sourceTree = "<group>"; };
+		3F92B9BF235859BE0003C207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F92B9C523585A1B0003C207 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		3F9336BE1E432C33008A2AAA /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		3F960D241F1CC186005170D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F960D261F1CC195005170D8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -307,6 +320,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3F2E0F211E3888FA00B63C71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F92B9B8235859BE0003C207 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -495,6 +515,7 @@
 				3F2E0F071E3888FA00B63C71 /* Storage */,
 				3F2E0F1C1E3888FA00B63C71 /* StorageTests */,
 				3F2E0F271E3888FA00B63C71 /* StorageUITests */,
+				3F92B9BC235859BE0003C207 /* FastlaneSnapshot */,
 				3F2E0F061E3888FA00B63C71 /* Products */,
 				3FCFB9FA1E3931FC00CA7220 /* Frameworks */,
 				02A0A27A7DA6E780DCA3F21D /* Pods */,
@@ -507,6 +528,7 @@
 				3F2E0F051E3888FA00B63C71 /* Storage.app */,
 				3F2E0F191E3888FA00B63C71 /* StorageTests.xctest */,
 				3F2E0F241E3888FA00B63C71 /* StorageUITests.xctest */,
+				3F92B9BB235859BE0003C207 /* FastlaneSnapshot.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -580,6 +602,16 @@
 				3FA98CDC235075B1007C7CCA /* Appearance.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		3F92B9BC235859BE0003C207 /* FastlaneSnapshot */ = {
+			isa = PBXGroup;
+			children = (
+				3F92B9C523585A1B0003C207 /* SnapshotHelper.swift */,
+				3F92B9BD235859BE0003C207 /* FastlaneSnapshot.swift */,
+				3F92B9BF235859BE0003C207 /* Info.plist */,
+			);
+			path = FastlaneSnapshot;
 			sourceTree = "<group>";
 		};
 		3F9336BB1E432BC4008A2AAA /* Model */ = {
@@ -826,6 +858,24 @@
 			productReference = 3F2E0F241E3888FA00B63C71 /* StorageUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		3F92B9BA235859BE0003C207 /* FastlaneSnapshot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F92B9C2235859BE0003C207 /* Build configuration list for PBXNativeTarget "FastlaneSnapshot" */;
+			buildPhases = (
+				3F92B9B7235859BE0003C207 /* Sources */,
+				3F92B9B8235859BE0003C207 /* Frameworks */,
+				3F92B9B9235859BE0003C207 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F92B9C1235859BE0003C207 /* PBXTargetDependency */,
+			);
+			name = FastlaneSnapshot;
+			productName = FastlaneSnapshot;
+			productReference = 3F92B9BB235859BE0003C207 /* FastlaneSnapshot.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -862,6 +912,12 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3F2E0F041E3888FA00B63C71;
 					};
+					3F92B9BA235859BE0003C207 = {
+						CreatedOnToolsVersion = 11.1;
+						DevelopmentTeam = PC6C5M7298;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3F2E0F041E3888FA00B63C71;
+					};
 				};
 			};
 			buildConfigurationList = 3F2E0F001E3888FA00B63C71 /* Build configuration list for PBXProject "Storage" */;
@@ -881,6 +937,7 @@
 				3F2E0F041E3888FA00B63C71 /* Storage */,
 				3F2E0F181E3888FA00B63C71 /* StorageTests */,
 				3F2E0F231E3888FA00B63C71 /* StorageUITests */,
+				3F92B9BA235859BE0003C207 /* FastlaneSnapshot */,
 			);
 		};
 /* End PBXProject section */
@@ -930,6 +987,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3F2E0F221E3888FA00B63C71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F92B9B9235859BE0003C207 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1087,6 +1151,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F92B9B7235859BE0003C207 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F92B9BE235859BE0003C207 /* FastlaneSnapshot.swift in Sources */,
+				3F92B9C623585A1B0003C207 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1099,6 +1172,11 @@
 			isa = PBXTargetDependency;
 			target = 3F2E0F041E3888FA00B63C71 /* Storage */;
 			targetProxy = 3F2E0F251E3888FA00B63C71 /* PBXContainerItemProxy */;
+		};
+		3F92B9C1235859BE0003C207 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F2E0F041E3888FA00B63C71 /* Storage */;
+			targetProxy = 3F92B9C0235859BE0003C207 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1383,6 +1461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Storage/Storage.entitlements;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = PC6C5M7298;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
@@ -1403,6 +1482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Storage/Storage.entitlements;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = PC6C5M7298;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Storage/Info.plist;
@@ -1474,6 +1554,51 @@
 			};
 			name = Release;
 		};
+		3F92B9C3235859BE0003C207 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PC6C5M7298;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FastlaneSnapshot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Luc-A.FastlaneSnapshot";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Storage;
+			};
+			name = Debug;
+		};
+		3F92B9C4235859BE0003C207 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PC6C5M7298;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FastlaneSnapshot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Luc-A.FastlaneSnapshot";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Storage;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1509,6 +1634,15 @@
 			buildConfigurations = (
 				3F2E0F341E3888FA00B63C71 /* Debug */,
 				3F2E0F351E3888FA00B63C71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F92B9C2235859BE0003C207 /* Build configuration list for PBXNativeTarget "FastlaneSnapshot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F92B9C3235859BE0003C207 /* Debug */,
+				3F92B9C4235859BE0003C207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -19,18 +19,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Irz-ue-Iu1">
                                 <rect key="frame" x="0.0" y="421" width="414" height="54"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButton" translatesAutoresizingMaskIntoConstraints="NO" id="uU7-JK-m85">
-                                        <rect key="frame" x="16" y="12" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="1kP-pf-y9s"/>
-                                            <constraint firstAttribute="width" constant="30" id="gwK-Fw-m5v"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-0B-7gQ">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-0B-7gQ">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="t2K-7m-Vwf"/>
                                         </constraints>
+                                        <state key="normal" image="CancelButton"/>
                                         <connections>
                                             <action selector="removeView" destination="Thn-7Q-Z9I" eventType="touchUpInside" id="gW4-pI-2PW"/>
                                         </connections>
@@ -57,12 +51,9 @@
                                             <constraint firstAttribute="trailing" secondItem="5Rg-Yx-aak" secondAttribute="trailing" id="ky4-Fl-F5z"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Confirm" translatesAutoresizingMaskIntoConstraints="NO" id="5QY-tT-QEn">
-                                        <rect key="frame" x="350" y="3" width="48" height="48"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uv1-5P-cx8">
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uv1-5P-cx8">
                                         <rect key="frame" x="358" y="0.0" width="56" height="54"/>
-                                        <state key="normal">
+                                        <state key="normal" image="Confirm">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -74,19 +65,15 @@
                                 <constraints>
                                     <constraint firstItem="uv1-5P-cx8" firstAttribute="leading" secondItem="zvO-F1-qmE" secondAttribute="trailing" id="BXH-d7-IMF"/>
                                     <constraint firstItem="zvO-F1-qmE" firstAttribute="leading" secondItem="LTk-0B-7gQ" secondAttribute="trailing" id="CBo-Wn-Ga5"/>
-                                    <constraint firstItem="uU7-JK-m85" firstAttribute="leading" secondItem="Irz-ue-Iu1" secondAttribute="leading" constant="16" id="Cbq-cb-WoP"/>
                                     <constraint firstItem="LTk-0B-7gQ" firstAttribute="top" secondItem="4Kr-0x-Nwc" secondAttribute="top" id="IV8-I6-kU1"/>
                                     <constraint firstItem="4Kr-0x-Nwc" firstAttribute="bottom" secondItem="LTk-0B-7gQ" secondAttribute="bottom" id="Jcb-Mh-hjt"/>
                                     <constraint firstItem="LTk-0B-7gQ" firstAttribute="leading" secondItem="4Kr-0x-Nwc" secondAttribute="leading" id="Moh-Jr-DHI"/>
-                                    <constraint firstItem="uU7-JK-m85" firstAttribute="centerY" secondItem="Irz-ue-Iu1" secondAttribute="centerY" id="Vdq-f2-P3s"/>
                                     <constraint firstItem="4Kr-0x-Nwc" firstAttribute="trailing" secondItem="uv1-5P-cx8" secondAttribute="trailing" id="Wv9-Dy-KHf"/>
                                     <constraint firstItem="zvO-F1-qmE" firstAttribute="centerX" secondItem="Irz-ue-Iu1" secondAttribute="centerX" id="YrB-j5-BYE"/>
                                     <constraint firstItem="zvO-F1-qmE" firstAttribute="centerY" secondItem="Irz-ue-Iu1" secondAttribute="centerY" id="c0W-4N-gdR"/>
                                     <constraint firstItem="4Kr-0x-Nwc" firstAttribute="bottom" secondItem="uv1-5P-cx8" secondAttribute="bottom" id="lpm-yh-4BG"/>
                                     <constraint firstAttribute="height" constant="54" id="poN-3j-TyZ"/>
-                                    <constraint firstItem="5QY-tT-QEn" firstAttribute="centerY" secondItem="Irz-ue-Iu1" secondAttribute="centerY" id="s1Z-iO-hMp"/>
                                     <constraint firstItem="uv1-5P-cx8" firstAttribute="top" secondItem="4Kr-0x-Nwc" secondAttribute="top" id="tOy-Pg-fL0"/>
-                                    <constraint firstAttribute="trailing" secondItem="5QY-tT-QEn" secondAttribute="trailing" constant="16" id="zFx-I1-dts"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="4Kr-0x-Nwc"/>
                             </view>
@@ -111,7 +98,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CancelButton" width="48" height="48"/>
-        <image name="Confirm" width="48" height="48"/>
+        <image name="CancelButton" width="44" height="44"/>
+        <image name="Confirm" width="44" height="44"/>
     </resources>
 </document>

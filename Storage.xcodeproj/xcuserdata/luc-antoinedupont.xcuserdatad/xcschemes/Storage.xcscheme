@@ -91,6 +91,16 @@
                ReferencedContainer = "container:Storage.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3F92B9BA235859BE0003C207"
+               BuildableName = "FastlaneSnapshot.xctest"
+               BlueprintName = "FastlaneSnapshot"
+               ReferencedContainer = "container:Storage.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

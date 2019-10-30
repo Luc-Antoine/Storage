@@ -24,6 +24,7 @@ class ItemsAddViewController: UIViewController {
     }
     
     @IBAction func addItem() {
+        guard nameItemTextField.text != nil else { return }
         delegate?.addItem(nameItemTextField.text?.removingEndingSpaces())
         nameItemTextField.text = ""
     }
