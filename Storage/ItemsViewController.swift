@@ -28,9 +28,15 @@ class ItemsViewController: UIViewController {
         super.viewDidLoad()
 
         navigationBack()
+        
+        title = category!.name
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         newItemsTableViewController()
         newItemsSettingsViewController()
-        title = category!.name
     }
     
     // MARK: - IBActions

@@ -20,15 +20,19 @@ class CategoriesEditViewController: UIViewController {
         super.viewDidLoad()
         
         textFieldBackView.borderInactive()
-        delegate?.itemsTableViewEditing()
+        delegate?.categoryTableViewEditing()
         editTextField.delegate = self
         confirmButton.isHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        removeSelf()
+    }
+    
     @IBAction func removeView() {
-        editTextField.resignFirstResponder()
-        remove()
-        delegate?.newChildSettings()
+        removeSelf()
     }
     
     @IBAction func updateNameCategory() {
@@ -37,6 +41,12 @@ class CategoriesEditViewController: UIViewController {
         if result {
             editTextField.resignFirstResponder()
         }
+    }
+    
+    private func removeSelf() {
+        editTextField.resignFirstResponder()
+        remove()
+        delegate?.newChildSettings()
     }
 }
 

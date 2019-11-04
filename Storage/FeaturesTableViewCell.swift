@@ -27,7 +27,7 @@ class FeaturesTableViewCell: UITableViewCell {
         nameFeatureLabel.text = nameFeature.name
         featureTextField.text = featureName
         featuresButton.isHidden = featureCount == 0
-        featuresImage.isHidden = featuresButton.isHidden
+        //featuresImage.isHidden = featuresButton.isHidden
         featureTextField.borderActive()
     }
 }

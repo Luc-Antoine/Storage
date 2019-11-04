@@ -19,6 +19,7 @@ class AllFeaturesViewController: UIViewController {
     
     @IBOutlet weak var textFieldBackView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var hideKeyboardButtonItem: UIBarButtonItem!
     
@@ -27,10 +28,12 @@ class AllFeaturesViewController: UIViewController {
         super.viewDidLoad()
         
         searchTextField.delegate = self
-        textFieldBackView.borderActive()
+        searchButton.border()
         newAllFeaturesTableViewController()
         title = nameFeature!.name
     }
+    
+    // MARK: - IBActions
     
     @IBAction func searchTextFieldChanged() {
         tableViewDelegate?.researching(searchTextField.text ?? "")
@@ -38,6 +41,14 @@ class AllFeaturesViewController: UIViewController {
     
     @IBAction func hideKeyboard() {
         searchTextField.resignFirstResponder()
+        searchTextField.isHidden = true
+        searchButton.isHidden = false
+    }
+    
+    @IBAction func researching() {
+        searchTextField.becomeFirstResponder()
+        searchButton.isHidden = true
+        searchTextField.isHidden = false
     }
     
     // MARK: - Navigation

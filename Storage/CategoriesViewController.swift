@@ -39,10 +39,11 @@ class CategoriesViewController: UIViewController {
         initDataBase()
         navigationBarDesign()
         navigationBack()
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         newCategoriesSettingsViewController()
         newCategoriesTableViewController()
@@ -227,8 +228,7 @@ extension CategoriesViewController: CategoriesAddViewControllerDelegate {
 // MARK: - CategoriesEditViewControllerDelegate
 
 protocol CategoriesEditViewControllerDelegate: AnyObject {
-    func itemsTableViewEditing()
-    func itemsTableViewEndEditing()
+    func categoryTableViewEditing()
     func editNameCategory(_ name: String) -> Bool
     func textFieldDidResearching(_ text: String)
     func newChildSettings()
@@ -237,12 +237,8 @@ protocol CategoriesEditViewControllerDelegate: AnyObject {
 
 extension CategoriesViewController: CategoriesEditViewControllerDelegate {
     
-    func itemsTableViewEditing() {
+    func categoryTableViewEditing() {
         tableViewDelegate?.tableViewEditing()
-    }
-    
-    func itemsTableViewEndEditing() {
-        tableViewDelegate?.tableViewEndEditing()
     }
     
     func textFieldDidResearching(_ text: String) {

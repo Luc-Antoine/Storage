@@ -112,7 +112,7 @@ class ItemsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -123,8 +123,7 @@ class ItemsTableViewController: UITableViewController {
                 selectedItems.append(items[indexPath.row])
                 lastIndexPath = indexPath
                 delegate?.editTextField(items[indexPath.row].name)
-            }
-            if navBarItemFilter == .add {
+            } else {
                 delegate?.newFeaturesViewController(items[indexPath.row])
             }
             break

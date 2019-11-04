@@ -54,7 +54,6 @@
 		3F2E0F621E38B1D000B63C71 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E0F611E38B1D000B63C71 /* MapViewController.swift */; };
 		3F2FD75723263D9E006E36A6 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FD75623263D9E006E36A6 /* CategoryList.swift */; };
 		3F3060692326D5750035F68B /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3060682326D5750035F68B /* ItemList.swift */; };
-		3F37EF0D1F21524D0070FA72 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F37EF0C1F21524D0070FA72 /* CoreData.framework */; };
 		3F38FD0A22FA095200196CCC /* DataBaseTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38FD0922FA095200196CCC /* DataBaseTables.swift */; };
 		3F41CBBA1E79DC540018763E /* DataBaseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41CBB91E79DC540018763E /* DataBaseAnnotation.swift */; };
 		3F4C017F2332BE1200F49A72 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C017E2332BE1200F49A72 /* UIImageView.swift */; };
@@ -237,6 +236,7 @@
 		3FA01BB8227CC8A80080BA2C /* CategoriesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesNavigationController.swift; sourceTree = "<group>"; };
 		3FA98CDC235075B1007C7CCA /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		3FA98CDE23507AB3007C7CCA /* UISegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControl.swift; sourceTree = "<group>"; };
+		3FA99AAD236C7AC300EE9129 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AllFeatures.strings; sourceTree = "<group>"; };
 		3FAD106D230A933700A0216D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FC56FCF234F52980038D3B4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Categories.strings; sourceTree = "<group>"; };
 		3FC56FD1234F52C20038D3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CategoriesSettings.storyboard; sourceTree = "<group>"; };
@@ -305,7 +305,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F37EF0D1F21524D0070FA72 /* CoreData.framework in Frameworks */,
 				3F223A971E6DF42900D95F48 /* AdSupport.framework in Frameworks */,
 				3FCFB9FC1E3931FC00CA7220 /* MapKit.framework in Frameworks */,
 				5546655EB12F7635A3407D4D /* Pods_Storage.framework in Frameworks */,
@@ -1282,6 +1281,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FC57016234F5DFB0038D3B4 /* en */,
+				3FA99AAD236C7AC300EE9129 /* fr */,
 			);
 			name = AllFeatures.storyboard;
 			sourceTree = "<group>";
@@ -1461,13 +1461,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Storage/Storage.entitlements;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEVELOPMENT_TEAM = PC6C5M7298;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Storage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.luc-A.Storage";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1482,12 +1483,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Storage/Storage.entitlements;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.2.1;
 				DEVELOPMENT_TEAM = PC6C5M7298;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Storage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.luc-A.Storage";
 				PRODUCT_NAME = "$(TARGET_NAME)";

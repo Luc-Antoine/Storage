@@ -42,6 +42,7 @@ class FeaturesViewController: UIViewController {
         case .delete:
             if tableViewDelegate?.delete() ?? false {
                 tableViewDelegate?.tableViewEndEditing()
+                featuresEditTextFieldDelegate?.text("")
             }
             break
         }

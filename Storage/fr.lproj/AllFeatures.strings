@@ -2,5 +2,8 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "HzP-eZ-cxm"; */
 "HzP-eZ-cxm.text" = "Label";
 
+/* Class = "UIButton"; normalTitle = "Research"; ObjectID = "dd4-tJ-Vlq"; */
+"dd4-tJ-Vlq.normalTitle" = "Rechercher";
+
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "gaH-xP-7eQ"; */
 "gaH-xP-7eQ.title" = "Title";

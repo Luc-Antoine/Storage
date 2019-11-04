@@ -50,6 +50,10 @@ class FastlaneSnapshot: XCTestCase {
     func testGenerateScreenshots() {
         let app = XCUIApplication()
         let tablesQuery = app.tables
+        screenshotEnglish(app, tablesQuery)
+    }
+    
+    private func screenshotFrench(_ app: XCUIElement, _ tablesQuery: XCUIElementQuery) {
         snapshot("Categories")
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Livres"]/*[[".cells.staticTexts[\"Livres\"]",".staticTexts[\"Livres\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         snapshot("Items")
@@ -61,8 +65,32 @@ class FastlaneSnapshot: XCTestCase {
         snapshot("Annotations")
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Château de Chantilly"]/*[[".cells.staticTexts[\"Château de Chantilly\"]",".staticTexts[\"Château de Chantilly\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         snapshot("AnnotationDetails")
-        app.navigationBars["74 km"].children(matching: .button).element(boundBy: 1).tap()
-        snapshot("Map")
+//        let button = app.navigationBars["39 km"].children(matching: .button).element(boundBy: 1)
+//        button.tap()
+//        snapshot("Map")
+    }
+    
+    private func screenshotEnglish(_ app: XCUIElement, _ tablesQuery: XCUIElementQuery) {
+        snapshot("Categories")
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Books"]/*[[".cells.staticTexts[\"Books\"]",".staticTexts[\"Books\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("Items")
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Orléans"]/*[[".cells.staticTexts[\"Orléans\"]",".staticTexts[\"Orléans\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("Features")
+        
+        tablesQuery.cells.containing(.staticText, identifier:"Author").buttons["Details"].tap()
+        snapshot("FeatureChoice")
+        
+        app.tabBars.buttons["Carte"].tap()
+        //        app.alerts["Allow “Storage” to access your location?"].scrollViews.otherElements.buttons["Allow While Using App"].tap()
+        snapshot("Annotations")
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Empire State Building"]/*[[".cells.staticTexts[\"Empire State Building\"]",".staticTexts[\"Empire State Building\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("AnnotationDetails")
+        
+//        app.navigationBars["4139 km"].children(matching: .button).element(boundBy: 1).tap()
+//        snapshot("Map")
     }
 
 }

@@ -92,18 +92,12 @@
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Details" translatesAutoresizingMaskIntoConstraints="NO" id="8eN-L2-3uS">
-                                                    <rect key="frame" x="274" y="35" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Q6l-7v-G6C"/>
-                                                        <constraint firstAttribute="width" constant="30" id="YH5-I2-gT2"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJ1-hP-E6t">
-                                                    <rect key="frame" x="264" y="0.0" width="56" height="70"/>
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJ1-hP-E6t">
+                                                    <rect key="frame" x="264" y="30" width="56" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="56" id="DL8-7b-os9"/>
                                                     </constraints>
+                                                    <state key="normal" image="Details"/>
                                                     <connections>
                                                         <action selector="instantiateAllFeaturesController" destination="a0V-Xd-VTe" eventType="touchUpInside" id="RMt-Tl-R6I"/>
                                                     </connections>
@@ -111,16 +105,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="8eN-L2-3uS" firstAttribute="centerY" secondItem="NSl-A6-lB5" secondAttribute="centerY" id="CxF-H6-mDA"/>
-                                                <constraint firstAttribute="trailing" secondItem="8eN-L2-3uS" secondAttribute="trailing" constant="16" id="FiD-cv-IdJ"/>
                                                 <constraint firstItem="NSl-A6-lB5" firstAttribute="leading" secondItem="jVC-2Z-z1Y" secondAttribute="leading" id="JaH-aS-TUg"/>
                                                 <constraint firstItem="jVC-2Z-z1Y" firstAttribute="top" secondItem="lBE-Wg-iOP" secondAttribute="top" constant="5" id="MO0-Dh-1zc"/>
                                                 <constraint firstItem="NSl-A6-lB5" firstAttribute="trailing" secondItem="jVC-2Z-z1Y" secondAttribute="trailing" id="QmE-Ui-ptp"/>
                                                 <constraint firstAttribute="trailing" secondItem="pJ1-hP-E6t" secondAttribute="trailing" id="ahW-wJ-amO"/>
                                                 <constraint firstItem="jVC-2Z-z1Y" firstAttribute="leading" secondItem="lBE-Wg-iOP" secondAttribute="leading" constant="16" id="hDE-p6-Tbk"/>
                                                 <constraint firstItem="pJ1-hP-E6t" firstAttribute="leading" secondItem="jVC-2Z-z1Y" secondAttribute="trailing" id="jGd-ST-0ZP"/>
+                                                <constraint firstItem="pJ1-hP-E6t" firstAttribute="centerY" secondItem="NSl-A6-lB5" secondAttribute="centerY" id="sFZ-j8-lca"/>
                                                 <constraint firstAttribute="bottom" secondItem="NSl-A6-lB5" secondAttribute="bottom" constant="5" id="wYH-S1-LCq"/>
-                                                <constraint firstItem="pJ1-hP-E6t" firstAttribute="top" secondItem="lBE-Wg-iOP" secondAttribute="top" id="wxj-Un-1m6"/>
                                                 <constraint firstAttribute="bottom" secondItem="pJ1-hP-E6t" secondAttribute="bottom" id="zsm-DH-MHW"/>
                                             </constraints>
                                         </view>
@@ -135,7 +127,6 @@
                                 <connections>
                                     <outlet property="featureTextField" destination="NSl-A6-lB5" id="diE-kq-rYX"/>
                                     <outlet property="featuresButton" destination="pJ1-hP-E6t" id="tbN-K0-CzG"/>
-                                    <outlet property="featuresImage" destination="8eN-L2-3uS" id="ZVT-cS-NB0"/>
                                     <outlet property="nameFeatureLabel" destination="jVC-2Z-z1Y" id="QKO-Yv-MHT"/>
                                 </connections>
                             </tableViewCell>

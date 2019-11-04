@@ -30,7 +30,15 @@ class CategoriesSearchViewController: UIViewController {
         delegate?.textFieldDidResearching(searchTextField.text!)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        guard searchTextField.text != "" else { return }
+        saveSearch()
+    }
+    
     @IBAction func removeView() {
+        searchTextField.text = ""
         delegate?.removeSearch()
         searchTextField.resignFirstResponder()
         remove()
@@ -48,6 +56,10 @@ class CategoriesSearchViewController: UIViewController {
     }
     
     @IBAction func confirmSearch() {
+        saveSearch()
+    }
+    
+    private func saveSearch() {
         searchTextField.resignFirstResponder()
         remove()
         delegate?.researching(searchTextField.text)

@@ -29,6 +29,11 @@ class CreateDataBase {
     
     func demo() {
         let demonstration = Demonstration()
-        demonstration.french()
+        let language = Locale.current.languageCode
+        if language == "fr" {
+            demonstration.french()
+        } else {
+            demonstration.english()
+        }
     }
 }

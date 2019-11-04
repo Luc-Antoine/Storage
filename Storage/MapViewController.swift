@@ -65,16 +65,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         showAnnotations()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        //updatePosition()
-    }
-    
-    deinit {
-        print("Map Deallocated")
-    }
-    
     // MARK: - Navigation
     
     func newAnnotationDetailsTableViewController(_ annotation: Annotation) {
