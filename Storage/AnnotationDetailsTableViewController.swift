@@ -152,7 +152,7 @@ class AnnotationDetailsTableViewController: UITableViewController {
     
     private func data() {
         guard annotation != nil else {
-            navigationItem.title = "Nouvelle"
+            navigationItem.title = NSLocalizedString("New address", comment: "")
             titleTextField.becomeFirstResponder()
             return
         }

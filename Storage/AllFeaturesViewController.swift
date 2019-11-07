@@ -27,10 +27,10 @@ class AllFeaturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title(nameFeature!.name)
         searchTextField.delegate = self
         searchButton.border()
         newAllFeaturesTableViewController()
-        title = nameFeature!.name
     }
     
     // MARK: - IBActions

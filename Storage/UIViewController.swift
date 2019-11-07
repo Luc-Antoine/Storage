@@ -31,6 +31,20 @@ extension UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    func title(_ text: String) {
+        self.title = text
+        let frame = CGRect(x: 0, y: 0, width: 200, height: 40)
+        let tlabel = UILabel(frame: frame)
+        tlabel.text = self.title
+        tlabel.numberOfLines = 0
+        tlabel.textColor = UIColor.nightBlue
+        tlabel.font = UIFont(name: "Futura-Bold", size: 18)
+        tlabel.backgroundColor = UIColor.clear
+        tlabel.adjustsFontSizeToFitWidth = true
+        tlabel.textAlignment = .center
+        self.navigationItem.titleView = tlabel
+    }
+    
     // MARK: - Navigation
     
     func instantiate<T>(_ identifier: String, storyboard: String, bundle: Bundle? = nil) -> T {
