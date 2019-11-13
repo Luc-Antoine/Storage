@@ -30,8 +30,8 @@ class Demonstration {
         dataBase.insert(Feature(id: 4, name: "Yann Moix", count: 1, itemId: 2, nameFeatureId: 1, featureId: 4))
         dataBase.insert(Feature(id: 5, name: "Roman", count: 1, itemId: 2, nameFeatureId: 2, featureId: 5))
         
-        dataBase.insert(Feature(id: 7, name: "Chrisitan Jacq", count: 1, itemId: 3, nameFeatureId: 1, featureId: 6))
-        dataBase.insert(Feature(id: 8, name: "Historique", count: 1, itemId: 3, nameFeatureId: 2, featureId: 7))
+        dataBase.insert(Feature(id: 6, name: "Chrisitan Jacq", count: 1, itemId: 3, nameFeatureId: 1, featureId: 6))
+        dataBase.insert(Feature(id: 7, name: "Historique", count: 1, itemId: 3, nameFeatureId: 2, featureId: 7))
         
         dataBase.insert(1, nameFeatureId: 1, featureId: 1)
         dataBase.insert(1, nameFeatureId: 2, featureId: 2)
@@ -53,17 +53,17 @@ class Demonstration {
         dataBase.insert(NameFeature(id: 5, name: "Institut", categoryId: 2))
         dataBase.insert(NameFeature(id: 6, name: "Année", categoryId: 2))
         
-        dataBase.insert(Feature(id: 10, name: "Espagne", count: 1, itemId: 4, nameFeatureId: 4, featureId: 8))
-        dataBase.insert(Feature(id: 11, name: "Banco de Espana", count: 1, itemId: 4, nameFeatureId: 5, featureId: 9))
-        dataBase.insert(Feature(id: 12, name: "1979", count: 1, itemId: 4, nameFeatureId: 6, featureId: 10))
+        dataBase.insert(Feature(id: 8, name: "Espagne", count: 1, itemId: 4, nameFeatureId: 4, featureId: 8))
+        dataBase.insert(Feature(id: 9, name: "Banco de Espana", count: 1, itemId: 4, nameFeatureId: 5, featureId: 9))
+        dataBase.insert(Feature(id: 10, name: "1979", count: 1, itemId: 4, nameFeatureId: 6, featureId: 10))
         
-        dataBase.insert(Feature(id: 13, name: "Martinique", count: 1, itemId: 5, nameFeatureId: 4, featureId: 11))
-        dataBase.insert(Feature(id: 14, name: "Banque de la Martinique", count: 1, itemId: 5, nameFeatureId: 5, featureId: 12))
-        dataBase.insert(Feature(id: 15, name: "1943", count: 1, itemId: 5, nameFeatureId: 6, featureId: 13))
+        dataBase.insert(Feature(id: 11, name: "Martinique", count: 1, itemId: 5, nameFeatureId: 4, featureId: 11))
+        dataBase.insert(Feature(id: 12, name: "Banque de la Martinique", count: 1, itemId: 5, nameFeatureId: 5, featureId: 12))
+        dataBase.insert(Feature(id: 13, name: "1943", count: 1, itemId: 5, nameFeatureId: 6, featureId: 13))
         
-        dataBase.insert(Feature(id: 16, name: "Autriche", count: 1, itemId: 6, nameFeatureId: 4, featureId: 14))
-        dataBase.insert(Feature(id: 17, name: "Oberosterreich", count: 1, itemId: 6, nameFeatureId: 5, featureId: 15))
-        dataBase.insert(Feature(id: 18, name: "1921", count: 1, itemId: 6, nameFeatureId: 6, featureId: 16))
+        dataBase.insert(Feature(id: 14, name: "Autriche", count: 1, itemId: 6, nameFeatureId: 4, featureId: 14))
+        dataBase.insert(Feature(id: 15, name: "Oberosterreich", count: 1, itemId: 6, nameFeatureId: 5, featureId: 15))
+        dataBase.insert(Feature(id: 16, name: "1921", count: 1, itemId: 6, nameFeatureId: 6, featureId: 16))
         
         dataBase.insert(4, nameFeatureId: 4, featureId: 8)
         dataBase.insert(4, nameFeatureId: 5, featureId: 9)
@@ -95,15 +95,13 @@ class Demonstration {
         
         dataBase.insert(Feature(id: 1, name: "Harlan Coben", count: 1, itemId: 1, nameFeatureId: 1, featureId: 1))
         dataBase.insert(Feature(id: 2, name: "Thriller", count: 1, itemId: 1, nameFeatureId: 2, featureId: 2))
-        dataBase.insert(Feature(id: 3, name: "2019", count: 1, itemId: 1, nameFeatureId: 3, featureId: 3))
+        dataBase.insert(Feature(id: 3, name: "2019", count: 3, itemId: 1, nameFeatureId: 3, featureId: 3))
         
         dataBase.insert(Feature(id: 4, name: "Yann Moix", count: 1, itemId: 2, nameFeatureId: 1, featureId: 4))
         dataBase.insert(Feature(id: 5, name: "Novel", count: 1, itemId: 2, nameFeatureId: 2, featureId: 5))
-        dataBase.insert(Feature(id: 6, name: "2019", count: 2, itemId: 2, nameFeatureId: 3, featureId: 3))
         
-        dataBase.insert(Feature(id: 7, name: "Chrisitan Jacq", count: 1, itemId: 3, nameFeatureId: 1, featureId: 6))
-        dataBase.insert(Feature(id: 8, name: "History", count: 1, itemId: 3, nameFeatureId: 2, featureId: 7))
-        dataBase.insert(Feature(id: 9, name: "2019", count: 3, itemId: 3, nameFeatureId: 3, featureId: 3))
+        dataBase.insert(Feature(id: 6, name: "Chrisitan Jacq", count: 1, itemId: 3, nameFeatureId: 1, featureId: 6))
+        dataBase.insert(Feature(id: 7, name: "History", count: 1, itemId: 3, nameFeatureId: 2, featureId: 7))
         
         dataBase.insert(1, nameFeatureId: 1, featureId: 1)
         dataBase.insert(1, nameFeatureId: 2, featureId: 2)
@@ -125,17 +123,17 @@ class Demonstration {
         dataBase.insert(NameFeature(id: 5, name: "Institution", categoryId: 2))
         dataBase.insert(NameFeature(id: 6, name: "Year", categoryId: 2))
         
-        dataBase.insert(Feature(id: 10, name: "Spain", count: 1, itemId: 4, nameFeatureId: 4, featureId: 8))
-        dataBase.insert(Feature(id: 11, name: "Banco de Espana", count: 1, itemId: 4, nameFeatureId: 5, featureId: 9))
-        dataBase.insert(Feature(id: 12, name: "1979", count: 1, itemId: 4, nameFeatureId: 6, featureId: 10))
+        dataBase.insert(Feature(id: 8, name: "Spain", count: 1, itemId: 4, nameFeatureId: 4, featureId: 8))
+        dataBase.insert(Feature(id: 9, name: "Banco de Espana", count: 1, itemId: 4, nameFeatureId: 5, featureId: 9))
+        dataBase.insert(Feature(id: 10, name: "1979", count: 1, itemId: 4, nameFeatureId: 6, featureId: 10))
         
-        dataBase.insert(Feature(id: 13, name: "Martinique", count: 1, itemId: 5, nameFeatureId: 4, featureId: 11))
-        dataBase.insert(Feature(id: 14, name: "Banque de la Martinique", count: 1, itemId: 5, nameFeatureId: 5, featureId: 12))
-        dataBase.insert(Feature(id: 15, name: "1943", count: 1, itemId: 5, nameFeatureId: 6, featureId: 13))
+        dataBase.insert(Feature(id: 11, name: "Martinique", count: 1, itemId: 5, nameFeatureId: 4, featureId: 11))
+        dataBase.insert(Feature(id: 12, name: "Banque de la Martinique", count: 1, itemId: 5, nameFeatureId: 5, featureId: 12))
+        dataBase.insert(Feature(id: 13, name: "1943", count: 1, itemId: 5, nameFeatureId: 6, featureId: 13))
         
-        dataBase.insert(Feature(id: 16, name: "Austria", count: 1, itemId: 6, nameFeatureId: 4, featureId: 14))
-        dataBase.insert(Feature(id: 17, name: "Oberosterreich", count: 1, itemId: 6, nameFeatureId: 5, featureId: 15))
-        dataBase.insert(Feature(id: 18, name: "1921", count: 1, itemId: 6, nameFeatureId: 6, featureId: 16))
+        dataBase.insert(Feature(id: 14, name: "Austria", count: 1, itemId: 6, nameFeatureId: 4, featureId: 14))
+        dataBase.insert(Feature(id: 15, name: "Oberosterreich", count: 1, itemId: 6, nameFeatureId: 5, featureId: 15))
+        dataBase.insert(Feature(id: 16, name: "1921", count: 1, itemId: 6, nameFeatureId: 6, featureId: 16))
         
         dataBase.insert(4, nameFeatureId: 4, featureId: 8)
         dataBase.insert(4, nameFeatureId: 5, featureId: 9)

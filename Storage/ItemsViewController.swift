@@ -27,9 +27,8 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title(category!.name)
         navigationBack()
-        
-        title = category!.name
     }
     
     override func viewWillAppear(_ animated: Bool) {

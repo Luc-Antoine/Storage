@@ -26,10 +26,10 @@ class FeaturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title(item!.name)
         navigationBack()
         newFeaturesTableViewController()
         newFeaturesSettingsViewController()
-        title = item!.name
     }
     
     @IBAction func AddOrEditAction() {

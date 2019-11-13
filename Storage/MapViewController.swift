@@ -309,20 +309,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     private func design() {
         modaleContainerView.borderFocus()
     }
-    
-    private func memoryManager() {
-        mapView.delegate = nil
-        mapView.removeFromSuperview()
-        mapView.mapType = MKMapType.satellite
-        mapView = nil
-        
-        locationManager = nil
-        annotations = []
-        annotation = nil
-        lat = nil
-        lng = nil
-        pinAnnotationView = nil
-    }
 }
 
 // MARK: - Protocols
@@ -383,5 +369,28 @@ extension MapViewController: AnnotationModaleWindowDelegate {
     func showAnnotation() {
         guard annotation != nil else { return }
         newAnnotationDetailsTableViewController(annotation!)
+    }
+}
+
+// MARK: - AnnotationsViewControllerToMapViewDelegate
+
+protocol AnnotationsViewControllerToMapViewDelegate: AnyObject {
+    func memoryManager()
+}
+
+extension MapViewController: AnnotationsViewControllerToMapViewDelegate {
+    
+    func memoryManager() {
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.delegate = nil
+        mapView.removeFromSuperview()
+        mapView = nil
+        
+        locationManager = nil
+        annotations = []
+        annotation = nil
+        lat = nil
+        lng = nil
+        pinAnnotationView = nil
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class AnnotationsViewController: UIViewController {
 
     weak var tableViewDelegate: AnnotationsViewControllerDelegate?
+    weak var mapViewDelegate: AnnotationsViewControllerToMapViewDelegate?
     
     var navBarItem: NavBarItem? = .add
     var tableViewStat: TableViewStat?
@@ -36,6 +37,7 @@ class AnnotationsViewController: UIViewController {
         
         newAnnotationsSettingsViewController()
         newAnnotationsTableViewController()
+        mapViewDelegate?.memoryManager()
     }
     
     // MARK: - IBActions
@@ -99,6 +101,7 @@ class AnnotationsViewController: UIViewController {
     
     func newMapViewController() {
         let mapViewController: MapViewController = instantiate("MapViewController", storyboard: "Map")
+        mapViewDelegate = mapViewController
         navigationController?.pushViewController(mapViewController, animated: true)
     }
     
