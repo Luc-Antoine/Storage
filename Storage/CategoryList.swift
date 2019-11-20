@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CategoryList {
+struct CategoryList {
     private let dataBase = DataBase()
     
     func all() -> [Category] {

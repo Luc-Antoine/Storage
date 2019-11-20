@@ -33,6 +33,10 @@
 		3F22A4812306F240008AB0BD /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F22A4802306F240008AB0BD /* UIButton.swift */; };
 		3F22A4832306F9A8008AB0BD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F22A4822306F9A8008AB0BD /* UIViewController.swift */; };
 		3F25674E2346212F0094B0E6 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25674D2346212F0094B0E6 /* Position.swift */; };
+		3F27128223855FD6002FFC7A /* SortView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F27128123855FD6002FFC7A /* SortView.storyboard */; };
+		3F27128523855FF3002FFC7A /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27128423855FF3002FFC7A /* SortViewController.swift */; };
+		3F27128723856709002FFC7A /* SortViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27128623856709002FFC7A /* SortViewModel.swift */; };
+		3F271289238587B2002FFC7A /* SortViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F271288238587B2002FFC7A /* SortViewDelegate.swift */; };
 		3F2754511E8322CC00633E29 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2754501E8322CC00633E29 /* Location.swift */; };
 		3F28A72D230A8F1B00E89741 /* ItemNameFeaturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28A72C230A8F1B00E89741 /* ItemNameFeaturesCell.swift */; };
 		3F28A72F230A8F3700E89741 /* ItemFeaturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28A72E230A8F3700E89741 /* ItemFeaturesCell.swift */; };
@@ -179,6 +183,10 @@
 		3F22A4802306F240008AB0BD /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		3F22A4822306F9A8008AB0BD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		3F25674D2346212F0094B0E6 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		3F27128123855FD6002FFC7A /* SortView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SortView.storyboard; sourceTree = "<group>"; };
+		3F27128423855FF3002FFC7A /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
+		3F27128623856709002FFC7A /* SortViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewModel.swift; sourceTree = "<group>"; };
+		3F271288238587B2002FFC7A /* SortViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewDelegate.swift; sourceTree = "<group>"; };
 		3F2754501E8322CC00633E29 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3F28A72C230A8F1B00E89741 /* ItemNameFeaturesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNameFeaturesCell.swift; sourceTree = "<group>"; };
 		3F28A72E230A8F3700E89741 /* ItemFeaturesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeaturesCell.swift; sourceTree = "<group>"; };
@@ -413,6 +421,25 @@
 				3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */,
 			);
 			name = AnnotationViewController;
+			sourceTree = "<group>";
+		};
+		3F27127F23855F9E002FFC7A /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				3F27128023855FB3002FFC7A /* SortView */,
+			);
+			name = UIViews;
+			sourceTree = "<group>";
+		};
+		3F27128023855FB3002FFC7A /* SortView */ = {
+			isa = PBXGroup;
+			children = (
+				3F27128123855FD6002FFC7A /* SortView.storyboard */,
+				3F27128423855FF3002FFC7A /* SortViewController.swift */,
+				3F27128623856709002FFC7A /* SortViewModel.swift */,
+				3F271288238587B2002FFC7A /* SortViewDelegate.swift */,
+			);
+			name = SortView;
 			sourceTree = "<group>";
 		};
 		3F29046422B96AD000CF8BCB /* UIExtension */ = {
@@ -653,6 +680,7 @@
 			isa = PBXGroup;
 			children = (
 				3F29046422B96AD000CF8BCB /* UIExtension */,
+				3F27127F23855F9E002FFC7A /* UIViews */,
 				3F767E2522785AB500CC32F2 /* Main */,
 				3FD283D71F7A9505002540A2 /* Collector */,
 				3F0451D01E574291001629B2 /* Map */,
@@ -961,6 +989,7 @@
 				3FC56FEC234F544A0038D3B4 /* ItemsSort.storyboard in Resources */,
 				3FC5700A234F59730038D3B4 /* AnnotationsSort.storyboard in Resources */,
 				3FC56FFB234F546B0038D3B4 /* FeaturesSettings.storyboard in Resources */,
+				3F27128223855FD6002FFC7A /* SortView.storyboard in Resources */,
 				3FC56FE2234F541F0038D3B4 /* Items.storyboard in Resources */,
 				3F1F4ABF232A964200483ACF /* FeaturesEdit.storyboard in Resources */,
 				3F08E92D2326F1EF00AC16FD /* ItemsEdit.storyboard in Resources */,
@@ -1071,6 +1100,7 @@
 				3FEC2B6323043C98008C26F6 /* String.swift in Sources */,
 				3FD638CF22BE1B4B007FA00F /* ItemsSettingsViewController.swift in Sources */,
 				3F9C81392279867B00FF10F8 /* CategoriesViewController.swift in Sources */,
+				3F27128723856709002FFC7A /* SortViewModel.swift in Sources */,
 				3FCAD63B22A3DD02002F20CD /* CategoriesSortViewController.swift in Sources */,
 				3F0F5F6022FAE2AE007E1DC5 /* Item.swift in Sources */,
 				3F0F5F6222FAE2B8007E1DC5 /* Annotation.swift in Sources */,
@@ -1093,6 +1123,7 @@
 				3FC99A03234E216D007DADB2 /* AnnotationModaleWindowViewController.swift in Sources */,
 				3F13ECAC2302BFC4006A25C6 /* FeaturesAddViewController.swift in Sources */,
 				3F2AD50523083140006E9077 /* ItemFeature.swift in Sources */,
+				3F271289238587B2002FFC7A /* SortViewDelegate.swift in Sources */,
 				3F2DA23523072F7800A0798B /* FilesManager.swift in Sources */,
 				3F9336BF1E432C33008A2AAA /* DataBase.swift in Sources */,
 				3FF4E6CF23425D3E00F32578 /* AnnotationDetailsTableViewController.swift in Sources */,
@@ -1104,6 +1135,7 @@
 				3FCAD63D22A3DD12002F20CD /* ItemsFilterViewController.swift in Sources */,
 				3F6216FC1E4B53D000D1584C /* UserDefaults.swift in Sources */,
 				3F0F5F5E22FAE28B007E1DC5 /* Category.swift in Sources */,
+				3F27128523855FF3002FFC7A /* SortViewController.swift in Sources */,
 				3F41CBBA1E79DC540018763E /* DataBaseAnnotation.swift in Sources */,
 				3F767E2D2278642300CC32F2 /* CategoriesTableViewController.swift in Sources */,
 				3F13EC9523029BCD006A25C6 /* FeaturesViewController.swift in Sources */,
