@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="627-at-Gzf">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="vtC-aJ-tIw" customClass="SearchViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L6k-fm-n3N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jP-f3-Owm">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxL-Nf-pol">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="ooC-tz-AhO"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButton"/>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubX-vW-WmU">
+                                        <rect key="frame" x="56" y="12" width="302" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mr0-Pa-gNl">
+                                                <rect key="frame" x="4" y="0.0" width="298" height="30"/>
+                                                <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Mr0-Pa-gNl" firstAttribute="top" secondItem="ubX-vW-WmU" secondAttribute="top" id="hXs-x1-0jD"/>
+                                            <constraint firstAttribute="height" constant="30" id="nSk-Vm-yJu"/>
+                                            <constraint firstItem="Mr0-Pa-gNl" firstAttribute="leading" secondItem="ubX-vW-WmU" secondAttribute="leading" constant="4" id="pFT-2W-kAX"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mr0-Pa-gNl" secondAttribute="bottom" id="qM6-Wb-YQM"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mr0-Pa-gNl" secondAttribute="trailing" id="zp3-RW-lVh"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxt-ix-iZw">
+                                        <rect key="frame" x="358" y="0.0" width="56" height="54"/>
+                                        <state key="normal" image="Confirm">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gxL-Nf-pol" firstAttribute="leading" secondItem="7jP-f3-Owm" secondAttribute="leading" id="6xE-kF-uuC"/>
+                                    <constraint firstItem="ubX-vW-WmU" firstAttribute="leading" secondItem="gxL-Nf-pol" secondAttribute="trailing" id="A0W-lP-mJa"/>
+                                    <constraint firstItem="ubX-vW-WmU" firstAttribute="centerX" secondItem="7jP-f3-Owm" secondAttribute="centerX" id="UtA-7V-Riz"/>
+                                    <constraint firstItem="mxt-ix-iZw" firstAttribute="leading" secondItem="ubX-vW-WmU" secondAttribute="trailing" id="cfc-wm-wIZ"/>
+                                    <constraint firstItem="qsk-FV-f3D" firstAttribute="bottom" secondItem="gxL-Nf-pol" secondAttribute="bottom" id="hRo-Wk-MSW"/>
+                                    <constraint firstItem="qsk-FV-f3D" firstAttribute="trailing" secondItem="mxt-ix-iZw" secondAttribute="trailing" id="jb8-Ps-FKb"/>
+                                    <constraint firstItem="mxt-ix-iZw" firstAttribute="centerY" secondItem="ubX-vW-WmU" secondAttribute="centerY" id="l0B-Eb-YkK"/>
+                                    <constraint firstItem="mxt-ix-iZw" firstAttribute="top" secondItem="gxL-Nf-pol" secondAttribute="top" id="nub-77-VHN"/>
+                                    <constraint firstItem="mxt-ix-iZw" firstAttribute="bottom" secondItem="gxL-Nf-pol" secondAttribute="bottom" id="oRv-o6-Yic"/>
+                                    <constraint firstItem="gxL-Nf-pol" firstAttribute="top" secondItem="qsk-FV-f3D" secondAttribute="top" id="pzx-tv-S2B"/>
+                                    <constraint firstAttribute="height" constant="54" id="tPW-IP-iSn"/>
+                                    <constraint firstItem="ubX-vW-WmU" firstAttribute="centerY" secondItem="7jP-f3-Owm" secondAttribute="centerY" id="uPt-qe-nXi"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="qsk-FV-f3D"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7jP-f3-Owm" firstAttribute="centerY" secondItem="L6k-fm-n3N" secondAttribute="centerY" id="I0C-1M-Lb8"/>
+                            <constraint firstItem="7jP-f3-Owm" firstAttribute="leading" secondItem="cn8-Gh-9aK" secondAttribute="leading" id="e0q-6V-Bjw"/>
+                            <constraint firstItem="7jP-f3-Owm" firstAttribute="centerX" secondItem="L6k-fm-n3N" secondAttribute="centerX" id="iPg-cN-qCg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cn8-Gh-9aK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8rg-B5-hr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111.59420289855073" y="99.776785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="44" height="44"/>
+        <image name="Confirm" width="44" height="44"/>
+    </resources>
+</document>

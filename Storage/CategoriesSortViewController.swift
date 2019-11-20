@@ -10,24 +10,24 @@ import UIKit
 
 class CategoriesSortViewController: UIViewController {
     
-    weak var delegate: CategoriesSortViewControllerDelegate?
-    
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        sortSegmentedControl.font()
-        sortSegmentedControl.selectedSegmentIndex = delegate?.categoriesSortIndex()?.rawValue ?? 0
-    }
-    
-    @IBAction func removeView() {
-        remove()
-        delegate?.newChildSettings()
-    }
-    
-    @IBAction func sortChoice() {
-        delegate?.sortChoice(Sort.init(rawValue: sortSegmentedControl.selectedSegmentIndex)!)
-    }
+//    weak var delegate: CategoriesSortViewControllerDelegate?
+//    
+//    @IBOutlet weak var closeButton: UIButton!
+//    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        
+//        sortSegmentedControl.font()
+//        sortSegmentedControl.selectedSegmentIndex = delegate?.categoriesSortIndex()?.rawValue ?? 0
+//    }
+//    
+//    @IBAction func removeView() {
+//        remove()
+//        delegate?.newChildSettings()
+//    }
+//    
+//    @IBAction func sortChoice() {
+//        delegate?.sortChoice(Sort.init(rawValue: sortSegmentedControl.selectedSegmentIndex)!)
+//    }
 }

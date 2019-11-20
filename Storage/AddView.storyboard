@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add View Controller-->
+        <scene sceneID="rOV-4f-cxx">
+            <objects>
+                <viewController storyboardIdentifier="AddViewController" id="Nzr-kr-iDh" customClass="AddViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yk9-bn-cg4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Miv-5q-tH7">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBS-4p-9tj">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
+                                        <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="close" destination="Nzr-kr-iDh" eventType="touchUpInside" id="8Xx-rD-51M"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryG-9W-lpI">
+                                        <rect key="frame" x="56" y="12" width="302" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XUO-Sv-O4N">
+                                                <rect key="frame" x="4" y="0.0" width="298" height="30"/>
+                                                <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="XUO-Sv-O4N" secondAttribute="trailing" id="Gcp-qc-ZGv"/>
+                                            <constraint firstItem="XUO-Sv-O4N" firstAttribute="leading" secondItem="ryG-9W-lpI" secondAttribute="leading" constant="4" id="Pae-Cc-iRn"/>
+                                            <constraint firstAttribute="height" constant="30" id="UT4-Yr-Ttr"/>
+                                            <constraint firstAttribute="bottom" secondItem="XUO-Sv-O4N" secondAttribute="bottom" id="jxk-t8-fGg"/>
+                                            <constraint firstItem="XUO-Sv-O4N" firstAttribute="top" secondItem="ryG-9W-lpI" secondAttribute="top" id="onp-tc-Qv3"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RO5-A4-j6T">
+                                        <rect key="frame" x="358" y="0.0" width="56" height="54"/>
+                                        <state key="normal" image="Confirm">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="add" destination="Nzr-kr-iDh" eventType="touchUpInside" id="RzJ-AY-b7W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qBS-4p-9tj" firstAttribute="leading" secondItem="Miv-5q-tH7" secondAttribute="leading" id="0hz-pQ-Wij"/>
+                                    <constraint firstItem="8tl-2z-fS2" firstAttribute="bottom" secondItem="RO5-A4-j6T" secondAttribute="bottom" id="Ady-0L-nhL"/>
+                                    <constraint firstItem="ryG-9W-lpI" firstAttribute="leading" secondItem="qBS-4p-9tj" secondAttribute="trailing" id="BsF-5v-3Lo"/>
+                                    <constraint firstItem="ryG-9W-lpI" firstAttribute="centerX" secondItem="Miv-5q-tH7" secondAttribute="centerX" id="Dlf-yn-q7n"/>
+                                    <constraint firstItem="ryG-9W-lpI" firstAttribute="centerY" secondItem="Miv-5q-tH7" secondAttribute="centerY" id="L1q-kF-4qy"/>
+                                    <constraint firstItem="ryG-9W-lpI" firstAttribute="leading" secondItem="Miv-5q-tH7" secondAttribute="leading" constant="56" id="VjX-Rj-W6c"/>
+                                    <constraint firstItem="8tl-2z-fS2" firstAttribute="bottom" secondItem="qBS-4p-9tj" secondAttribute="bottom" id="ftC-xz-2Lc"/>
+                                    <constraint firstAttribute="height" constant="54" id="lC8-bz-NKs"/>
+                                    <constraint firstItem="RO5-A4-j6T" firstAttribute="leading" secondItem="ryG-9W-lpI" secondAttribute="trailing" id="m9Q-0M-66c"/>
+                                    <constraint firstItem="qBS-4p-9tj" firstAttribute="top" secondItem="8tl-2z-fS2" secondAttribute="top" id="nrn-26-4X3"/>
+                                    <constraint firstItem="RO5-A4-j6T" firstAttribute="top" secondItem="8tl-2z-fS2" secondAttribute="top" id="onA-NQ-aqF"/>
+                                    <constraint firstItem="8tl-2z-fS2" firstAttribute="trailing" secondItem="RO5-A4-j6T" secondAttribute="trailing" id="ywK-5T-D0l"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="8tl-2z-fS2"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Miv-5q-tH7" firstAttribute="centerY" secondItem="yk9-bn-cg4" secondAttribute="centerY" id="cDX-U8-XPh"/>
+                            <constraint firstItem="Miv-5q-tH7" firstAttribute="centerX" secondItem="yk9-bn-cg4" secondAttribute="centerX" id="tRs-Lg-NxM"/>
+                            <constraint firstItem="Miv-5q-tH7" firstAttribute="leading" secondItem="e0x-55-tG1" secondAttribute="leading" id="uyq-Cq-KpO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e0x-55-tG1"/>
+                    </view>
+                    <connections>
+                        <outlet property="BackButton" destination="qBS-4p-9tj" id="46M-PW-uaW"/>
+                        <outlet property="confirmeButton" destination="RO5-A4-j6T" id="CfL-8r-dfR"/>
+                        <outlet property="nameTextField" destination="XUO-Sv-O4N" id="iAQ-Ga-FEE"/>
+                        <outlet property="textFieldBackView" destination="ryG-9W-lpI" id="ZCC-5I-Icy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tlS-ZX-luJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="150"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="44" height="44"/>
+        <image name="Confirm" width="44" height="44"/>
+    </resources>
+</document>

@@ -16,6 +16,14 @@
 		3F0F5F6022FAE2AE007E1DC5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F5F5F22FAE2AE007E1DC5 /* Item.swift */; };
 		3F0F5F6222FAE2B8007E1DC5 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F5F6122FAE2B8007E1DC5 /* Annotation.swift */; };
 		3F0FF39F234343BD000D730B /* AnnotationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FF39E234343BD000D730B /* AnnotationsTableViewController.swift */; };
+		3F1022492385D8D20008EE96 /* AddView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1022482385D8D20008EE96 /* AddView.storyboard */; };
+		3F10224D2385D90D0008EE96 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10224C2385D90D0008EE96 /* AddViewController.swift */; };
+		3F10224F2385D91E0008EE96 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F10224E2385D91E0008EE96 /* AddViewModel.swift */; };
+		3F1022512385D92D0008EE96 /* AddViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1022502385D92D0008EE96 /* AddViewDelegate.swift */; };
+		3F1022542385EAE50008EE96 /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F1022532385EAE50008EE96 /* SearchView.storyboard */; };
+		3F1022562385EAF60008EE96 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1022552385EAF60008EE96 /* SearchViewController.swift */; };
+		3F1022582385EB070008EE96 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1022572385EB070008EE96 /* SearchViewModel.swift */; };
+		3F10225A2385EB2A0008EE96 /* SearchViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1022592385EB2A0008EE96 /* SearchViewDelegate.swift */; };
 		3F13EC9523029BCD006A25C6 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13EC9423029BCD006A25C6 /* FeaturesViewController.swift */; };
 		3F13EC9723029BE1006A25C6 /* FeaturesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13EC9623029BE1006A25C6 /* FeaturesTableViewController.swift */; };
 		3F13EC992302A586006A25C6 /* DataBaseNameFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F13EC982302A586006A25C6 /* DataBaseNameFeatures.swift */; };
@@ -166,6 +174,14 @@
 		3F0F5F5F22FAE2AE007E1DC5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3F0F5F6122FAE2B8007E1DC5 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		3F0FF39E234343BD000D730B /* AnnotationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsTableViewController.swift; sourceTree = "<group>"; };
+		3F1022482385D8D20008EE96 /* AddView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddView.storyboard; sourceTree = "<group>"; };
+		3F10224C2385D90D0008EE96 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		3F10224E2385D91E0008EE96 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		3F1022502385D92D0008EE96 /* AddViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewDelegate.swift; sourceTree = "<group>"; };
+		3F1022532385EAE50008EE96 /* SearchView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchView.storyboard; sourceTree = "<group>"; };
+		3F1022552385EAF60008EE96 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3F1022572385EB070008EE96 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		3F1022592385EB2A0008EE96 /* SearchViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDelegate.swift; sourceTree = "<group>"; };
 		3F13EC9423029BCD006A25C6 /* FeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewController.swift; sourceTree = "<group>"; };
 		3F13EC9623029BE1006A25C6 /* FeaturesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesTableViewController.swift; sourceTree = "<group>"; };
 		3F13EC982302A586006A25C6 /* DataBaseNameFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseNameFeatures.swift; sourceTree = "<group>"; };
@@ -362,6 +378,28 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
+		3F1022472385D8B30008EE96 /* AddView */ = {
+			isa = PBXGroup;
+			children = (
+				3F1022482385D8D20008EE96 /* AddView.storyboard */,
+				3F10224C2385D90D0008EE96 /* AddViewController.swift */,
+				3F10224E2385D91E0008EE96 /* AddViewModel.swift */,
+				3F1022502385D92D0008EE96 /* AddViewDelegate.swift */,
+			);
+			name = AddView;
+			sourceTree = "<group>";
+		};
+		3F1022522385EACE0008EE96 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				3F1022532385EAE50008EE96 /* SearchView.storyboard */,
+				3F1022552385EAF60008EE96 /* SearchViewController.swift */,
+				3F1022572385EB070008EE96 /* SearchViewModel.swift */,
+				3F1022592385EB2A0008EE96 /* SearchViewDelegate.swift */,
+			);
+			name = SearchView;
+			sourceTree = "<group>";
+		};
 		3F13ECA02302BF08006A25C6 /* FeaturesSettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +464,8 @@
 		3F27127F23855F9E002FFC7A /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				3F1022472385D8B30008EE96 /* AddView */,
+				3F1022522385EACE0008EE96 /* SearchView */,
 				3F27128023855FB3002FFC7A /* SortView */,
 			);
 			name = UIViews;
@@ -992,6 +1032,7 @@
 				3F27128223855FD6002FFC7A /* SortView.storyboard in Resources */,
 				3FC56FE2234F541F0038D3B4 /* Items.storyboard in Resources */,
 				3F1F4ABF232A964200483ACF /* FeaturesEdit.storyboard in Resources */,
+				3F1022492385D8D20008EE96 /* AddView.storyboard in Resources */,
 				3F08E92D2326F1EF00AC16FD /* ItemsEdit.storyboard in Resources */,
 				3FC56FD0234F52C20038D3B4 /* CategoriesSettings.storyboard in Resources */,
 				3FC99A01234E2149007DADB2 /* AnnotationModaleWindow.storyboard in Resources */,
@@ -1002,6 +1043,7 @@
 				3F1F4ABD232A962800483ACF /* FeaturesAdd.storyboard in Resources */,
 				3FC56FDC234F53110038D3B4 /* CategoriesAdd.storyboard in Resources */,
 				3FF7FC7B23200408006A9311 /* CategoriesEdit.storyboard in Resources */,
+				3F1022542385EAE50008EE96 /* SearchView.storyboard in Resources */,
 				3FC5700F234F59860038D3B4 /* AnnotationDetails.storyboard in Resources */,
 				3FF4E6C523423D7300F32578 /* AnnotationsSearch.storyboard in Resources */,
 			);
@@ -1084,9 +1126,11 @@
 				3FE1E05E232F6A99002E46A6 /* AllFeatureList.swift in Sources */,
 				3FF4E6C323423D6200F32578 /* AnnotationsSortViewController.swift in Sources */,
 				3FF4E6CD2342480500F32578 /* AnnotationList.swift in Sources */,
+				3F1022582385EB070008EE96 /* SearchViewModel.swift in Sources */,
 				3F2FD75723263D9E006E36A6 /* CategoryList.swift in Sources */,
 				3F15720223471FFF004DFFC2 /* NavBar.swift in Sources */,
 				3FF399BF234A12A600045F92 /* LastLocation.swift in Sources */,
+				3F10224F2385D91E0008EE96 /* AddViewModel.swift in Sources */,
 				3F7F9AC322F9CFD800A5AE4C /* DataBaseCategory.swift in Sources */,
 				3FCAD63922A3DCF2002F20CD /* CategoriesSearchViewController.swift in Sources */,
 				3F4C017F2332BE1200F49A72 /* UIImageView.swift in Sources */,
@@ -1108,8 +1152,10 @@
 				3F38FD0A22FA095200196CCC /* DataBaseTables.swift in Sources */,
 				3FCAD63F22A3DD5C002F20CD /* CategoriesSettingsViewController.swift in Sources */,
 				3F02D8C92317BDC60095ED44 /* Demonstration.swift in Sources */,
+				3F1022512385D92D0008EE96 /* AddViewDelegate.swift in Sources */,
 				3F13EC992302A586006A25C6 /* DataBaseNameFeatures.swift in Sources */,
 				3F13EC9F2302A71B006A25C6 /* Feature.swift in Sources */,
+				3F10224D2385D90D0008EE96 /* AddViewController.swift in Sources */,
 				3F22A4812306F240008AB0BD /* UIButton.swift in Sources */,
 				3FA98CDF23507AB3007C7CCA /* UISegmentedControl.swift in Sources */,
 				3FF4E6CB23423FFC00F32578 /* AnnotationsSettingsViewController.swift in Sources */,
@@ -1122,6 +1168,7 @@
 				3F3060692326D5750035F68B /* ItemList.swift in Sources */,
 				3FC99A03234E216D007DADB2 /* AnnotationModaleWindowViewController.swift in Sources */,
 				3F13ECAC2302BFC4006A25C6 /* FeaturesAddViewController.swift in Sources */,
+				3F1022562385EAF60008EE96 /* SearchViewController.swift in Sources */,
 				3F2AD50523083140006E9077 /* ItemFeature.swift in Sources */,
 				3F271289238587B2002FFC7A /* SortViewDelegate.swift in Sources */,
 				3F2DA23523072F7800A0798B /* FilesManager.swift in Sources */,
@@ -1156,6 +1203,7 @@
 				3F2AD507230838F2006E9077 /* DataBaseItemFeature.swift in Sources */,
 				3F13EC9B2302A597006A25C6 /* DataBaseFeatures.swift in Sources */,
 				3F2A83742303508A005891DB /* FeaturesTableViewCell.swift in Sources */,
+				3F10225A2385EB2A0008EE96 /* SearchViewDelegate.swift in Sources */,
 				3FDAA273230597550025EDFC /* AllFeaturesViewController.swift in Sources */,
 				3F2754511E8322CC00633E29 /* Location.swift in Sources */,
 				3F13EC9D2302A710006A25C6 /* NameFeature.swift in Sources */,

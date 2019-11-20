@@ -70,7 +70,7 @@ class CategoriesViewController: UIViewController {
         let categoriesTableViewController: CategoriesTableViewController = instantiate( "CategoriesTableViewController", storyboard: "Categories")
         categoriesTableViewController.delegate = self
         tableViewDelegate = categoriesTableViewController
-        categoriesTableViewController.categoriesSort = categoriesSortIndex() ?? .increasing
+        categoriesTableViewController.categoriesSort = Sort(rawValue: preferences.categorySort()) ?? .increasing
         categoriesTableViewController.research = research
         addChild(categoriesTableViewController, container: tableViewContainer)
     }
@@ -84,10 +84,17 @@ class CategoriesViewController: UIViewController {
     }
     
     func newCategoriesAddViewController() {
-        let categoriesAddViewController: CategoriesAddViewController = instantiate("CategoriesAddViewController", storyboard: "CategoriesAdd")
-        categoriesAddViewController.delegate = self
+        let addViewController: AddViewController = instantiate("AddViewController", storyboard: "AddView")
+        var addViewModel = AddViewModel()
+        addViewModel.delegate = self
+        addViewController.viewModel = addViewModel
         navBarOption(nil)
-        addChild(categoriesAddViewController, container: settingsContainer)
+        addChild(addViewController, container: settingsContainer)
+        
+//        let categoriesAddViewController: CategoriesAddViewController = instantiate("CategoriesAddViewController", storyboard: "CategoriesAdd")
+//        categoriesAddViewController.delegate = self
+//        navBarOption(nil)
+//        addChild(categoriesAddViewController, container: settingsContainer)
     }
     
     func newCategoriesEditViewController() {
@@ -222,13 +229,19 @@ extension CategoriesViewController: CategoriesSettingsViewControllerDelegate {
 
 // MARK: - CategoriesAddViewControllerDelegate
 
-protocol CategoriesAddViewControllerDelegate: AnyObject {
-    func addCategory(_ name: String?)
-    func newChildSettings()
-}
+//protocol CategoriesAddViewControllerDelegate: AnyObject {
+//    func addCategory(_ name: String?)
+//    func newChildSettings()
+//}
+//
+//extension CategoriesViewController: CategoriesAddViewControllerDelegate {
+//    func addCategory(_ name: String?) {
+//        tableViewDelegate?.addCategories(name)
+//    }
+//}
 
-extension CategoriesViewController: CategoriesAddViewControllerDelegate {
-    func addCategory(_ name: String?) {
+extension CategoriesViewController: AddViewDelegate {
+    func add(name: String) {
         tableViewDelegate?.addCategories(name)
     }
 }
@@ -264,23 +277,23 @@ extension CategoriesViewController: CategoriesEditViewControllerDelegate {
 
 // MARK: - CategoriesSortViewControllerDelegate
 
-protocol CategoriesSortViewControllerDelegate: AnyObject {
-    func sortChoice(_ categoriesSort: Sort)
-    func categoriesSortIndex() -> Sort?
-    func newChildSettings()
-}
-
-extension CategoriesViewController: CategoriesSortViewControllerDelegate {
-    
-    func sortChoice(_ categoriesSort: Sort) {
-        preferences.categorySort(categoriesSort.rawValue)
-        tableViewDelegate?.categoriesSort(categoriesSort)
-    }
-    
-    func categoriesSortIndex() -> Sort? {
-        return Sort(rawValue: preferences.categorySort())
-    }
-}
+//protocol CategoriesSortViewControllerDelegate: AnyObject {
+//    func sortChoice(_ categoriesSort: Sort)
+//    func categoriesSortIndex() -> Sort?
+//    func newChildSettings()
+//}
+//
+//extension CategoriesViewController: CategoriesSortViewControllerDelegate {
+//
+//    func sortChoice(_ categoriesSort: Sort) {
+//        preferences.categorySort(categoriesSort.rawValue)
+//        tableViewDelegate?.categoriesSort(categoriesSort)
+//    }
+//
+//    func categoriesSortIndex() -> Sort? {
+//        return Sort(rawValue: preferences.categorySort())
+//    }
+//}
 
 extension CategoriesViewController: SortViewDelegate {
     func newSort(_ sort: Sort) {
