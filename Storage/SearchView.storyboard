@@ -25,6 +25,9 @@
                                             <constraint firstAttribute="width" constant="56" id="ooC-tz-AhO"/>
                                         </constraints>
                                         <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="vtC-aJ-tIw" eventType="touchUpInside" id="DnW-pt-84f"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ubX-vW-WmU">
                                         <rect key="frame" x="56" y="12" width="302" height="30"/>
@@ -34,6 +37,9 @@
                                                 <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="textFieldChanged" destination="vtC-aJ-tIw" eventType="editingChanged" id="ltW-dg-GRw"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,6 +56,9 @@
                                         <state key="normal" image="Confirm">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="confirmSearch" destination="vtC-aJ-tIw" eventType="touchUpInside" id="tGw-CH-azQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,6 +87,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cn8-Gh-9aK"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="mxt-ix-iZw" id="m0m-p8-3in"/>
+                        <outlet property="searchTextField" destination="Mr0-Pa-gNl" id="SOz-rD-g3t"/>
+                        <outlet property="textFieldBackView" destination="ubX-vW-WmU" id="gTp-ph-XHH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8rg-B5-hr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

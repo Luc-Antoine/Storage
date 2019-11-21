@@ -11,8 +11,6 @@ import UIKit
 class SearchViewController: UIViewController {
     
     var viewModel: SearchViewModel?
-
-    weak var delegate: CategoriesSearchViewControllerDelegate?
     
     var research: Research?
     
@@ -29,27 +27,26 @@ class SearchViewController: UIViewController {
         guard research != nil else { return }
         confirmButton.isHidden = false
         searchTextField.text = research!.search
-        delegate?.textFieldDidResearching(searchTextField.text!)
+        viewModel?.textFieldDidResearching(searchTextField.text!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        guard searchTextField.text != "" else { return }
         saveSearch()
     }
     
     @IBAction func removeView() {
         searchTextField.text = ""
-        delegate?.removeSearch()
+        viewModel?.removeSearch()
         searchTextField.resignFirstResponder()
         remove()
-        delegate?.newChildSettings()
+        viewModel?.newChildSettings()
     }
     
     @IBAction func textFieldChanged() {
         guard searchTextField.text != nil else { return }
-        delegate?.textFieldDidResearching(searchTextField.text!)
+        viewModel?.textFieldDidResearching(searchTextField.text!)
         if searchTextField.text != "" {
             confirmButton.isHidden = false
         } else {
@@ -62,9 +59,11 @@ class SearchViewController: UIViewController {
     }
     
     private func saveSearch() {
+        guard searchTextField.text != nil else { return }
+        guard searchTextField.text != "" else { return }
         searchTextField.resignFirstResponder()
         remove()
-        delegate?.researching(searchTextField.text)
-        delegate?.newChildSettings()
+        viewModel?.researching(searchTextField.text!)
+        viewModel?.newChildSettings()
     }
 }

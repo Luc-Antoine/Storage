@@ -9,5 +9,8 @@
 import Foundation
 
 protocol SearchViewDelegate: AnyObject {
-    
+    func textFieldDidResearching(_ text: String)
+    func newChildSettings()
+    func removeSearch()
+    func researching(_ text: String?)
 }

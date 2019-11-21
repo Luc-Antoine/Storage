@@ -123,13 +123,23 @@ class CategoriesViewController: UIViewController {
     }
     
     func newCategoriesSearchViewController() {
-        let categoriesSearchViewController: CategoriesSearchViewController = instantiate("CategoriesSearchViewController", storyboard: "CategoriesSearch")
-        categoriesSearchViewController.delegate = self
-        categoriesSearchViewController.research = research
+        let searchViewController: SearchViewController = instantiate("SearchViewController", storyboard: "SearchView")
+        var searchViewModel = SearchViewModel()
+        searchViewModel.delegate = self
+        searchViewController.viewModel = searchViewModel
+        searchViewController.research = research
         tableViewDelegate?.textFieldDidBeginResearching()
         tableViewStat = .searching
         navBarOption(nil)
-        addChild(categoriesSearchViewController, container: settingsContainer)
+        addChild(searchViewController, container: settingsContainer)
+        
+//        let categoriesSearchViewController: CategoriesSearchViewController = instantiate("CategoriesSearchViewController", storyboard: "CategoriesSearch")
+//        categoriesSearchViewController.delegate = self
+//        categoriesSearchViewController.research = research
+//        tableViewDelegate?.textFieldDidBeginResearching()
+//        tableViewStat = .searching
+//        navBarOption(nil)
+//        addChild(categoriesSearchViewController, container: settingsContainer)
     }
     
     func newChildSettings() {
@@ -303,14 +313,26 @@ extension CategoriesViewController: SortViewDelegate {
 
 // MARK: - CategoriesSearchViewControllerDelegate
 
-protocol CategoriesSearchViewControllerDelegate: AnyObject {
-    func textFieldDidResearching(_ text: String)
-    func newChildSettings()
-    func removeSearch()
-    func researching(_ text: String?)
-}
+//protocol CategoriesSearchViewControllerDelegate: AnyObject {
+//    func textFieldDidResearching(_ text: String)
+//    func newChildSettings()
+//    func removeSearch()
+//    func researching(_ text: String?)
+//}
+//
+//extension CategoriesViewController: CategoriesSearchViewControllerDelegate {
+//    func removeSearch() {
+//        tableViewDelegate?.textFieldDidEndResearching()
+//        research = nil
+//    }
+//    
+//    func researching(_ text: String?) {
+//        guard text != nil || text != "" else { return }
+//        research = Research.init(search: text!, count: tableViewDelegate?.searchCount() ?? 0)
+//    }
+//}
 
-extension CategoriesViewController: CategoriesSearchViewControllerDelegate {
+extension CategoriesViewController: SearchViewDelegate {
     func removeSearch() {
         tableViewDelegate?.textFieldDidEndResearching()
         research = nil
