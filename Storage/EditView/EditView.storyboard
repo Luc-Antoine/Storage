@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit View Controller-->
+        <scene sceneID="N01-g7-tnu">
+            <objects>
+                <viewController storyboardIdentifier="EditViewController" id="I3k-D4-9vc" customClass="EditViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H6I-9a-UlA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9i-KV-bmH">
+                                <rect key="frame" x="0.0" y="421" width="414" height="54"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9o-4p-Q8C">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="O9A-80-Yf8"/>
+                                        </constraints>
+                                        <state key="normal" image="CancelButton"/>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9BC-JB-hz7">
+                                        <rect key="frame" x="56" y="12" width="302" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eE3-0G-Zfc">
+                                                <rect key="frame" x="4" y="0.0" width="298" height="30"/>
+                                                <color key="tintColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="eE3-0G-Zfc" firstAttribute="top" secondItem="9BC-JB-hz7" secondAttribute="top" id="Udw-C9-a22"/>
+                                            <constraint firstAttribute="bottom" secondItem="eE3-0G-Zfc" secondAttribute="bottom" id="alk-Kb-zV0"/>
+                                            <constraint firstAttribute="height" constant="30" id="jqv-cz-3ba"/>
+                                            <constraint firstAttribute="trailing" secondItem="eE3-0G-Zfc" secondAttribute="trailing" id="wHg-wc-2qf"/>
+                                            <constraint firstItem="eE3-0G-Zfc" firstAttribute="leading" secondItem="9BC-JB-hz7" secondAttribute="leading" constant="4" id="xYq-P8-tqW"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-QL-Yxs">
+                                        <rect key="frame" x="358" y="0.0" width="56" height="54"/>
+                                        <state key="normal" image="Update">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="m9o-4p-Q8C" firstAttribute="leading" secondItem="nps-oY-0Ky" secondAttribute="leading" id="6jx-lm-0Ki"/>
+                                    <constraint firstItem="nps-oY-0Ky" firstAttribute="trailing" secondItem="4Dr-QL-Yxs" secondAttribute="trailing" id="Agn-hU-rpP"/>
+                                    <constraint firstItem="9BC-JB-hz7" firstAttribute="centerX" secondItem="o9i-KV-bmH" secondAttribute="centerX" id="Fuz-ce-P52"/>
+                                    <constraint firstAttribute="height" constant="54" id="KdC-gq-A1g"/>
+                                    <constraint firstItem="4Dr-QL-Yxs" firstAttribute="top" secondItem="m9o-4p-Q8C" secondAttribute="top" id="NIc-2D-dVg"/>
+                                    <constraint firstItem="4Dr-QL-Yxs" firstAttribute="baseline" secondItem="m9o-4p-Q8C" secondAttribute="baseline" id="Qaa-fl-lYa"/>
+                                    <constraint firstItem="4Dr-QL-Yxs" firstAttribute="leading" secondItem="9BC-JB-hz7" secondAttribute="trailing" id="Ze4-DM-jWW"/>
+                                    <constraint firstItem="4Dr-QL-Yxs" firstAttribute="firstBaseline" secondItem="m9o-4p-Q8C" secondAttribute="firstBaseline" id="fvi-nz-aAS"/>
+                                    <constraint firstItem="m9o-4p-Q8C" firstAttribute="top" secondItem="nps-oY-0Ky" secondAttribute="top" id="gtB-3y-uEb"/>
+                                    <constraint firstItem="4Dr-QL-Yxs" firstAttribute="width" secondItem="m9o-4p-Q8C" secondAttribute="width" id="kMo-XP-bRV"/>
+                                    <constraint firstItem="9BC-JB-hz7" firstAttribute="centerY" secondItem="o9i-KV-bmH" secondAttribute="centerY" id="l4Y-LX-Dzf"/>
+                                    <constraint firstItem="4Dr-QL-Yxs" firstAttribute="bottom" secondItem="m9o-4p-Q8C" secondAttribute="bottom" id="lLm-at-7IL"/>
+                                    <constraint firstItem="nps-oY-0Ky" firstAttribute="bottom" secondItem="m9o-4p-Q8C" secondAttribute="bottom" id="qPM-2J-J4a"/>
+                                    <constraint firstItem="9BC-JB-hz7" firstAttribute="leading" secondItem="m9o-4p-Q8C" secondAttribute="trailing" id="vWw-L4-sMn"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="nps-oY-0Ky"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o9i-KV-bmH" firstAttribute="centerX" secondItem="H6I-9a-UlA" secondAttribute="centerX" id="1Mu-4v-rDz"/>
+                            <constraint firstItem="o9i-KV-bmH" firstAttribute="leading" secondItem="H6I-9a-UlA" secondAttribute="leading" id="UlM-eJ-PY1"/>
+                            <constraint firstItem="o9i-KV-bmH" firstAttribute="centerY" secondItem="H6I-9a-UlA" secondAttribute="centerY" id="kMN-Zm-gMS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pOj-K5-OBI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YEX-cS-PjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.53623188405798" y="88.392857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="44" height="44"/>
+        <image name="Update" width="44" height="44"/>
+    </resources>
+</document>
