@@ -10,7 +10,7 @@ import UIKit
 
 class EditViewController: UIViewController {
     
-    weak var delegate: CategoriesEditViewControllerDelegate?
+    var viewModel: EditViewModel?
 
     @IBOutlet weak var textFieldBackView: UIView!
     @IBOutlet weak var editTextField: UITextField!
@@ -20,7 +20,7 @@ class EditViewController: UIViewController {
         super.viewDidLoad()
         
         textFieldBackView.borderInactive()
-        delegate?.categoryTableViewEditing()
+        viewModel?.categoryTableViewEditing()
         editTextField.delegate = self
         confirmButton.isHidden = true
     }
@@ -37,7 +37,7 @@ class EditViewController: UIViewController {
     
     @IBAction func updateNameCategory() {
         guard editTextField.text != "" else { return }
-        let result: Bool = delegate?.editNameCategory(editTextField.text!) ?? false
+        let result: Bool = viewModel?.editNameCategory(editTextField.text!) ?? false
         if result {
             editTextField.resignFirstResponder()
         }
@@ -46,7 +46,7 @@ class EditViewController: UIViewController {
     private func removeSelf() {
         editTextField.resignFirstResponder()
         remove()
-        delegate?.newChildSettings()
+        viewModel?.newChildSettings()
     }
 }
 
@@ -54,7 +54,7 @@ class EditViewController: UIViewController {
 
 extension EditViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return delegate?.categorySelected() != nil
+        return viewModel?.categorySelected() != nil
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -69,13 +69,13 @@ extension EditViewController: UITextFieldDelegate {
 
 // MARK: - CategoriesEditTextFieldDelegate
 
-protocol EditDelegate: AnyObject {
+protocol EditViewControllerDelegate: AnyObject {
     func text(_ string: String)
     func editTextFieldEndEditing()
     func textFieldBackViewBorder(_ category: Category?)
 }
 
-extension EditViewController: EditDelegate {
+extension EditViewController: EditViewControllerDelegate {
     
     func text(_ string: String) {
         editTextField.text = string

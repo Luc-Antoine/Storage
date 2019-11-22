@@ -25,6 +25,9 @@
                                             <constraint firstAttribute="width" constant="56" id="O9A-80-Yf8"/>
                                         </constraints>
                                         <state key="normal" image="CancelButton"/>
+                                        <connections>
+                                            <action selector="removeView" destination="I3k-D4-9vc" eventType="touchUpInside" id="T5s-xf-AtF"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9BC-JB-hz7">
                                         <rect key="frame" x="56" y="12" width="302" height="30"/>
@@ -50,6 +53,9 @@
                                         <state key="normal" image="Update">
                                             <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="updateNameCategory" destination="I3k-D4-9vc" eventType="touchUpInside" id="Heg-KP-rpj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -80,6 +86,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pOj-K5-OBI"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="4Dr-QL-Yxs" id="JAi-eh-IBg"/>
+                        <outlet property="editTextField" destination="eE3-0G-Zfc" id="Mf0-So-TdT"/>
+                        <outlet property="textFieldBackView" destination="9BC-JB-hz7" id="Aj7-FY-Gmq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YEX-cS-PjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
