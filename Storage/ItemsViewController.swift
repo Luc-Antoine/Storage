@@ -78,10 +78,12 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsAddViewController() {
-        let itemsAddViewController: ItemsAddViewController = instantiate("ItemsAddViewController", storyboard: "ItemsAdd")
-        itemsAddViewController.delegate = self
+        let addViewController: AddViewController = instantiate("AddViewController", storyboard: "AddView")
+        var addViewModel = AddViewModel()
+        addViewModel.delegate = self
+        addViewController.viewModel = addViewModel
         navBarItemFilter(nil)
-        addChild(itemsAddViewController, container: settingsContainer)
+        addChild(addViewController, container: settingsContainer)
     }
     
     func newItemsEditViewController() {
@@ -208,15 +210,10 @@ extension ItemsViewController: ItemsSettingsViewControllerDelegate {
     }
 }
 
-// MARK: - ItemsAddViewControllerDelegate
+// MARK: - AddViewDelegate
 
-protocol ItemsAddViewControllerDelegate: AnyObject {
-    func addItem(_ name: String?)
-    func newChildSettings()
-}
-
-extension ItemsViewController: ItemsAddViewControllerDelegate {
-    func addItem(_ name: String?) {
+extension ItemsViewController: AddViewDelegate {
+    func add(_ name: String) {
         tableViewDelegate?.addItem(name)
     }
 }

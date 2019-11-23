@@ -90,11 +90,6 @@ class CategoriesViewController: UIViewController {
         addViewController.viewModel = addViewModel
         navBarOption(nil)
         addChild(addViewController, container: settingsContainer)
-        
-//        let categoriesAddViewController: CategoriesAddViewController = instantiate("CategoriesAddViewController", storyboard: "CategoriesAdd")
-//        categoriesAddViewController.delegate = self
-//        navBarOption(nil)
-//        addChild(categoriesAddViewController, container: settingsContainer)
     }
     
     func newCategoriesEditViewController() {
@@ -248,21 +243,10 @@ extension CategoriesViewController: CategoriesSettingsViewControllerDelegate {
     }
 }
 
-// MARK: - CategoriesAddViewControllerDelegate
-
-//protocol CategoriesAddViewControllerDelegate: AnyObject {
-//    func addCategory(_ name: String?)
-//    func newChildSettings()
-//}
-//
-//extension CategoriesViewController: CategoriesAddViewControllerDelegate {
-//    func addCategory(_ name: String?) {
-//        tableViewDelegate?.addCategories(name)
-//    }
-//}
+// MARK: - AddViewDelegate
 
 extension CategoriesViewController: AddViewDelegate {
-    func add(name: String) {
+    func add(_ name: String) {
         tableViewDelegate?.addCategories(name)
     }
 }

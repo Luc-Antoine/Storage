@@ -13,7 +13,7 @@ struct AddViewModel {
     weak var delegate: AddViewDelegate?
     
     func add(_ name: String) {
-        delegate?.add(name: name)
+        delegate?.add(name)
     }
     
     func newChildSettings() {

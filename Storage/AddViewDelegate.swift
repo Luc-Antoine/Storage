@@ -10,5 +10,5 @@ import Foundation
 
 protocol AddViewDelegate: AnyObject {
     func newChildSettings()
-    func add(name: String)
+    func add(_ name: String)
 }

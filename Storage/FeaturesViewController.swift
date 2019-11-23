@@ -69,10 +69,12 @@ class FeaturesViewController: UIViewController {
     }
     
     func newFeaturesAddViewController() {
-        let featuresAddViewController: FeaturesAddViewController = instantiate("FeaturesAddViewController", storyboard: "FeaturesAdd")
-        featuresAddViewController.delegate = self
+        let addViewController: AddViewController = instantiate("AddViewController", storyboard: "AddView")
+        var addViewModel = AddViewModel()
+        addViewModel.delegate = self
+        addViewController.viewModel = addViewModel
         navBarOption(nil)
-        addChild(featuresAddViewController, container: settingsContainer)
+        addChild(addViewController, container: settingsContainer)
     }
     
     func newFeaturesEditViewController() {
@@ -157,14 +159,9 @@ extension FeaturesViewController: FeaturesSettingsViewControllerDelegate {
     
 }
 
-// MARK: - FeaturesAddViewControllerDelegate
+// MARK: - AddViewDelegate
 
-protocol FeaturesAddViewControllerDelegate: AnyObject {
-    func add(_ name: String)
-    func newFeaturesSettingsViewController()
-}
-
-extension FeaturesViewController: FeaturesAddViewControllerDelegate {
+extension FeaturesViewController: AddViewDelegate {
     
     func add(_ name: String) {
         let nameFeature = NameFeature(id: 0, name: name, categoryId: category!.id)
