@@ -76,11 +76,13 @@ class CategoriesViewController: UIViewController {
     }
     
     func newCategoriesSettingsViewController() {
-        let categoriesSettingsViewController: CategoriesSettingsViewController = instantiate("CategoriesSettingsViewController", storyboard: "CategoriesSettings")
-        categoriesSettingsViewController.delegate = self
-        categoriesSettingsViewController.searchCount = research?.count ?? 0
+        let settingsViewController: SettingsViewController = instantiate("SettingsViewController", storyboard: "SettingsView")
+        var settingsViewModel = SettingsViewModel()
+        settingsViewModel.delegate = self
+        settingsViewController.viewModel = settingsViewModel
+        settingsViewController.searchCount = research?.count ?? 0
         navBarOption(.add)
-        addChild(categoriesSettingsViewController, container: settingsContainer)
+        addChild(settingsViewController, container: settingsContainer)
     }
     
     func newCategoriesAddViewController() {
@@ -206,13 +208,9 @@ extension CategoriesViewController: CategoriesTableViewControllerDelegate {
 }
 
 
-// MARK: - CategoriesSettingsViewControllerDelegate
+// MARK: - SettingsViewDelegate
 
-protocol CategoriesSettingsViewControllerDelegate: AnyObject {
-    func navigationSettings(_ index: Int)
-}
-
-extension CategoriesViewController: CategoriesSettingsViewControllerDelegate {
+extension CategoriesViewController: SettingsViewDelegate {
     func navigationSettings(_ index: Int) {
         switch index {
         case 0:

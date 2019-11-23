@@ -66,11 +66,14 @@ class AnnotationsViewController: UIViewController {
     }
     
     func newAnnotationsSettingsViewController() {
-        let annotationsSettingsViewController: AnnotationsSettingsViewController = instantiate("AnnotationsSettingsViewController", storyboard: "AnnotationsSettings")
-        annotationsSettingsViewController.delegate = self
-        annotationsSettingsViewController.searchCount = research?.count ?? 0
+        let settingsViewController: SettingsViewController = instantiate("SettingsViewController", storyboard: "SettingsView")
+        var settingsViewModel = SettingsViewModel()
+        settingsViewModel.delegate = self
+        settingsViewController.viewModel = settingsViewModel
+        settingsViewController.data = "annotations"
+        settingsViewController.searchCount = research?.count ?? 0
         navBarOption(.add)
-        addChild(annotationsSettingsViewController, container: settingsContainer)
+        addChild(settingsViewController, container: settingsContainer)
     }
     
     func newAnnotationsEditViewController() {
@@ -157,13 +160,9 @@ extension AnnotationsViewController: AnnotationsTableViewControllerDelegate {
 }
 
 
-// MARK: - AnnotationsSettingsViewControllerDelegate
+// MARK: - SettingsViewDelegate
 
-protocol AnnotationsSettingsViewControllerDelegate: AnyObject {
-    func navigationSettings(_ index: Int)
-}
-
-extension AnnotationsViewController: AnnotationsSettingsViewControllerDelegate {
+extension AnnotationsViewController: SettingsViewDelegate {
     func navigationSettings(_ index: Int) {
         switch index {
         case 0:

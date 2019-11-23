@@ -70,11 +70,14 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsSettingsViewController() {
-        let itemsSettingsViewController: ItemsSettingsViewController = instantiate("ItemsSettingsViewController", storyboard: "ItemsSettings")
-        itemsSettingsViewController.delegate = self
-        itemsSettingsViewController.filterCount = tableViewDelegate?.featuresFilteredByItemCount() ?? 0
+        let settingsViewController: SettingsViewController = instantiate("SettingsViewController", storyboard: "SettingsView")
+        var settingsViewModel = SettingsViewModel()
+        settingsViewModel.delegate = self
+        settingsViewController.viewModel = settingsViewModel
+        settingsViewController.data = "items"
+        settingsViewController.filterCount = tableViewDelegate?.featuresFilteredByItemCount() ?? 0
         navBarItemFilter(.add)
-        addChild(itemsSettingsViewController, container: settingsContainer)
+        addChild(settingsViewController, container: settingsContainer)
     }
     
     func newItemsAddViewController() {
@@ -182,14 +185,9 @@ extension ItemsViewController: ItemsTableViewControllerDelegate {
     }
 }
 
-// MARK: - ItemsSettingsViewControllerDelegate
+// MARK: - SettingsViewDelegate
 
-protocol ItemsSettingsViewControllerDelegate: AnyObject {
-    func navigationSettings(_ index: Int)
-    func filterTitle() -> String
-}
-
-extension ItemsViewController: ItemsSettingsViewControllerDelegate {
+extension ItemsViewController: SettingsViewDelegate {
     func navigationSettings(_ index: Int) {
         switch index {
         case 0:
