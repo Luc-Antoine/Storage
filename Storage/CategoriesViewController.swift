@@ -121,11 +121,6 @@ class CategoriesViewController: UIViewController {
         sortViewController.data = "categories"
         navBarOption(nil)
         addChild(sortViewController, container: settingsContainer)
-        
-//        let categoriesSortViewController: CategoriesSortViewController = instantiate("CategoriesSortViewController", storyboard: "CategoriesSort")
-//        categoriesSortViewController.delegate = self
-//        navBarOption(nil)
-//        addChild(categoriesSortViewController, container: settingsContainer)
     }
     
     func newCategoriesSearchViewController() {
@@ -272,25 +267,7 @@ extension CategoriesViewController: EditViewDelegate {
     }
 }
 
-// MARK: - CategoriesSortViewControllerDelegate
-
-//protocol CategoriesSortViewControllerDelegate: AnyObject {
-//    func sortChoice(_ categoriesSort: Sort)
-//    func categoriesSortIndex() -> Sort?
-//    func newChildSettings()
-//}
-//
-//extension CategoriesViewController: CategoriesSortViewControllerDelegate {
-//
-//    func sortChoice(_ categoriesSort: Sort) {
-//        preferences.categorySort(categoriesSort.rawValue)
-//        tableViewDelegate?.categoriesSort(categoriesSort)
-//    }
-//
-//    func categoriesSortIndex() -> Sort? {
-//        return Sort(rawValue: preferences.categorySort())
-//    }
-//}
+// MARK: - SortViewDelegate
 
 extension CategoriesViewController: SortViewDelegate {
     func newSort(_ sort: Sort) {

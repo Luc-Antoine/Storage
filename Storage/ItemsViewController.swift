@@ -97,10 +97,13 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsSortViewController() {
-        let itemsSortViewController: ItemsSortViewController = instantiate("ItemsSortViewController", storyboard: "ItemsSort")
-        itemsSortViewController.delegate = self
+        let sortViewController: SortViewController = instantiate("SortViewController", storyboard: "SortView")
+        var sortViewModel = SortViewModel()
+        sortViewModel.delegate = self
+        sortViewController.viewModel = sortViewModel
+        sortViewController.data = "items"
         navBarItemFilter(nil)
-        addChild(itemsSortViewController, container: settingsContainer)
+        addChild(sortViewController, container: settingsContainer)
     }
     
     func newItemsFilterViewController() {
@@ -247,19 +250,12 @@ extension ItemsViewController: ItemsEditViewControllerDelegate {
     }
 }
 
-// MARK: - ItemsSortViewControllerDelegate
+// MARK: - SortViewDelegate
 
-protocol ItemsSortViewControllerDelegate: AnyObject {
-    func sortChoice(_ itemsSort: Sort)
-    func categoriesSortIndex() -> Sort?
-    func newChildSettings()
-}
-
-extension ItemsViewController: ItemsSortViewControllerDelegate {
-    
-    func sortChoice(_ itemsSort: Sort) {
-        preferences.itemSort(itemsSort.rawValue)
-        tableViewDelegate?.itemsSort(itemsSort)
+extension ItemsViewController: SortViewDelegate {
+    func newSort(_ sort: Sort) {
+        preferences.itemSort(sort.rawValue)
+        tableViewDelegate?.itemsSort(sort)
     }
     
     func categoriesSortIndex() -> Sort? {

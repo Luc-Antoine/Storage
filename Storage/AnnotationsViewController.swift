@@ -83,10 +83,13 @@ class AnnotationsViewController: UIViewController {
     }
     
     func newAnnotationsSortViewController() {
-        let annotationsSortViewController: AnnotationsSortViewController = instantiate("AnnotationsSortViewController", storyboard: "AnnotationsSort")
-        annotationsSortViewController.delegate = self
+        let sortViewController: SortViewController = instantiate("SortViewController", storyboard: "SortView")
+        var sortViewModel = SortViewModel()
+        sortViewModel.delegate = self
+        sortViewController.data = "annotations"
+        sortViewController.viewModel = sortViewModel
         navBarOption(nil)
-        addChild(annotationsSortViewController, container: settingsContainer)
+        addChild(sortViewController, container: settingsContainer)
     }
     
     func newAnnotationsSearchViewController() {
@@ -192,19 +195,12 @@ extension AnnotationsViewController: AnnotationsEditViewControllerDelegate {
     }
 }
 
-// MARK: - AnnotationsSortViewControllerDelegate
+// MARK: - SortViewDelegate
 
-protocol AnnotationsSortViewControllerDelegate: AnyObject {
-    func sortChoice(_ annotationsSort: Sort)
-    func annotationsSortIndex() -> Sort?
-    func newChildSettings()
-}
-
-extension AnnotationsViewController: AnnotationsSortViewControllerDelegate {
-    
-    func sortChoice(_ annotationsSort: Sort) {
-        preferences.annotationSort(annotationsSort.rawValue)
-        tableViewDelegate?.annotationsSort(annotationsSort)
+extension AnnotationsViewController: SortViewDelegate {
+    func newSort(_ sort: Sort) {
+        preferences.annotationSort(sort.rawValue)
+        tableViewDelegate?.annotationsSort(sort)
     }
     
     func annotationsSortIndex() -> Sort? {
