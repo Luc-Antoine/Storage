@@ -90,13 +90,16 @@ class AnnotationsViewController: UIViewController {
     }
     
     func newAnnotationsSearchViewController() {
-        let annotationsSearchViewController: AnnotationsSearchViewController = instantiate("AnnotationsSearchViewController", storyboard: "AnnotationsSearch")
-        annotationsSearchViewController.delegate = self
-        annotationsSearchViewController.research = research
+        let searchViewController: SearchViewController = instantiate("SearchViewController", storyboard: "SearchView")
+        var searchViewModel = SearchViewModel()
+        searchViewModel.delegate = self
+        searchViewController.viewModel = searchViewModel
+        
+        searchViewController.research = research
         tableViewDelegate?.textFieldDidBeginResearching()
         tableViewStat = .searching
         navBarOption(nil)
-        addChild(annotationsSearchViewController, container: settingsContainer)
+        addChild(searchViewController, container: settingsContainer)
     }
     
     func newMapViewController() {
@@ -209,16 +212,9 @@ extension AnnotationsViewController: AnnotationsSortViewControllerDelegate {
     }
 }
 
-// MARK: - AnnotationsSearchViewControllerDelegate
+// MARK: - SearchViewDelegate
 
-protocol AnnotationsSearchViewControllerDelegate: AnyObject {
-    func textFieldDidResearching(_ text: String)
-    func newChildSettings()
-    func removeSearch()
-    func researching(_ text: String?)
-}
-
-extension AnnotationsViewController: AnnotationsSearchViewControllerDelegate {
+extension AnnotationsViewController: SearchViewDelegate {
     func textFieldDidResearching(_ text: String) {
         tableViewDelegate?.textFieldDidResearching(text)
     }

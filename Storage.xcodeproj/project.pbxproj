@@ -103,7 +103,6 @@
 		3FC99A03234E216D007DADB2 /* AnnotationModaleWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99A02234E216D007DADB2 /* AnnotationModaleWindowViewController.swift */; };
 		3FCAD63422A3D3AA002F20CD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAD63322A3D3AA002F20CD /* CategoryCell.swift */; };
 		3FCAD63722A3DCE3002F20CD /* CategoriesEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAD63622A3DCE3002F20CD /* CategoriesEditViewController.swift */; };
-		3FCAD63922A3DCF2002F20CD /* CategoriesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAD63822A3DCF2002F20CD /* CategoriesSearchViewController.swift */; };
 		3FCAD63B22A3DD02002F20CD /* CategoriesSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAD63A22A3DD02002F20CD /* CategoriesSortViewController.swift */; };
 		3FCAD63D22A3DD12002F20CD /* ItemsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAD63C22A3DD12002F20CD /* ItemsFilterViewController.swift */; };
 		3FCAD63F22A3DD5C002F20CD /* CategoriesSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCAD63E22A3DD5C002F20CD /* CategoriesSettingsViewController.swift */; };
@@ -124,14 +123,11 @@
 		3FF4E6BD23423D3400F32578 /* AnnotationsEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6BC23423D3400F32578 /* AnnotationsEdit.storyboard */; };
 		3FF4E6BF23423D3E00F32578 /* AnnotationsEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */; };
 		3FF4E6C323423D6200F32578 /* AnnotationsSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C223423D6200F32578 /* AnnotationsSortViewController.swift */; };
-		3FF4E6C523423D7300F32578 /* AnnotationsSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C423423D7300F32578 /* AnnotationsSearch.storyboard */; };
-		3FF4E6C723423D8900F32578 /* AnnotationsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6C623423D8900F32578 /* AnnotationsSearchViewController.swift */; };
 		3FF4E6CB23423FFC00F32578 /* AnnotationsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CA23423FFC00F32578 /* AnnotationsSettingsViewController.swift */; };
 		3FF4E6CD2342480500F32578 /* AnnotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CC2342480500F32578 /* AnnotationList.swift */; };
 		3FF4E6CF23425D3E00F32578 /* AnnotationDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */; };
 		3FF6E0E61F1CC15A001F5D02 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF6E0E81F1CC15A001F5D02 /* Localizable.strings */; };
 		3FF7FC7B23200408006A9311 /* CategoriesEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF7FC7A23200408006A9311 /* CategoriesEdit.storyboard */; };
-		3FF7FC7F2320042B006A9311 /* CategoriesSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF7FC7E2320042B006A9311 /* CategoriesSearch.storyboard */; };
 		3FFCEBAA22A9BCD800622092 /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCEBA922A9BCD800622092 /* MapNavigationController.swift */; };
 		3FFE1379233F941A00416AAC /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFE1378233F941A00416AAC /* UIView.swift */; };
 		5546655EB12F7635A3407D4D /* Pods_Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD9A82909783FAF573F8AFD /* Pods_Storage.framework */; };
@@ -284,7 +280,6 @@
 		3FC99A02234E216D007DADB2 /* AnnotationModaleWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationModaleWindowViewController.swift; sourceTree = "<group>"; };
 		3FCAD63322A3D3AA002F20CD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		3FCAD63622A3DCE3002F20CD /* CategoriesEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesEditViewController.swift; sourceTree = "<group>"; };
-		3FCAD63822A3DCF2002F20CD /* CategoriesSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSearchViewController.swift; sourceTree = "<group>"; };
 		3FCAD63A22A3DD02002F20CD /* CategoriesSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSortViewController.swift; sourceTree = "<group>"; };
 		3FCAD63C22A3DD12002F20CD /* ItemsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsFilterViewController.swift; sourceTree = "<group>"; };
 		3FCAD63E22A3DD5C002F20CD /* CategoriesSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSettingsViewController.swift; sourceTree = "<group>"; };
@@ -306,14 +301,11 @@
 		3FF4E6BC23423D3400F32578 /* AnnotationsEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsEdit.storyboard; sourceTree = "<group>"; };
 		3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsEditViewController.swift; sourceTree = "<group>"; };
 		3FF4E6C223423D6200F32578 /* AnnotationsSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsSortViewController.swift; sourceTree = "<group>"; };
-		3FF4E6C423423D7300F32578 /* AnnotationsSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsSearch.storyboard; sourceTree = "<group>"; };
-		3FF4E6C623423D8900F32578 /* AnnotationsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsSearchViewController.swift; sourceTree = "<group>"; };
 		3FF4E6CA23423FFC00F32578 /* AnnotationsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsSettingsViewController.swift; sourceTree = "<group>"; };
 		3FF4E6CC2342480500F32578 /* AnnotationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationList.swift; sourceTree = "<group>"; };
 		3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDetailsTableViewController.swift; sourceTree = "<group>"; };
 		3FF6E0E71F1CC15A001F5D02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FF7FC7A23200408006A9311 /* CategoriesEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesEdit.storyboard; sourceTree = "<group>"; };
-		3FF7FC7E2320042B006A9311 /* CategoriesSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesSearch.storyboard; sourceTree = "<group>"; };
 		3FFCEBA922A9BCD800622092 /* MapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
 		3FFE1378233F941A00416AAC /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		6AD9A82909783FAF573F8AFD /* Pods_Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -741,7 +733,6 @@
 				3FCAD63E22A3DD5C002F20CD /* CategoriesSettingsViewController.swift */,
 				3FE00D4F22A9102400B5B008 /* CategoriesEditViewController */,
 				3FE00D5122A910A800B5B008 /* CategoriesSortViewController */,
-				3FE00D5022A9108300B5B008 /* CategoriesSearchController */,
 			);
 			name = CategoriesSettingsViewController;
 			sourceTree = "<group>";
@@ -788,15 +779,6 @@
 			name = CategoriesEditViewController;
 			sourceTree = "<group>";
 		};
-		3FE00D5022A9108300B5B008 /* CategoriesSearchController */ = {
-			isa = PBXGroup;
-			children = (
-				3FF7FC7E2320042B006A9311 /* CategoriesSearch.storyboard */,
-				3FCAD63822A3DCF2002F20CD /* CategoriesSearchViewController.swift */,
-			);
-			name = CategoriesSearchController;
-			sourceTree = "<group>";
-		};
 		3FE00D5122A910A800B5B008 /* CategoriesSortViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,7 +795,6 @@
 				3FF4E6CA23423FFC00F32578 /* AnnotationsSettingsViewController.swift */,
 				3FF4E6B323423BD800F32578 /* AnnotationsEditViewController */,
 				3FF4E6B423423BF900F32578 /* AnnotationsSortViewController */,
-				3FF4E6B523423C1000F32578 /* AnnotationsSearchViewController */,
 			);
 			name = AnnotationsSettingsViewController;
 			sourceTree = "<group>";
@@ -834,15 +815,6 @@
 				3FF4E6C223423D6200F32578 /* AnnotationsSortViewController.swift */,
 			);
 			name = AnnotationsSortViewController;
-			sourceTree = "<group>";
-		};
-		3FF4E6B523423C1000F32578 /* AnnotationsSearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3FF4E6C423423D7300F32578 /* AnnotationsSearch.storyboard */,
-				3FF4E6C623423D8900F32578 /* AnnotationsSearchViewController.swift */,
-			);
-			name = AnnotationsSearchViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1002,7 +974,6 @@
 				3F2E0F101E3888FA00B63C71 /* Assets.xcassets in Resources */,
 				3F8A60F023428A0E0052C559 /* Annotations.storyboard in Resources */,
 				3F2E0F0E1E3888FA00B63C71 /* Main.storyboard in Resources */,
-				3FF7FC7F2320042B006A9311 /* CategoriesSearch.storyboard in Resources */,
 				3FC56FEC234F544A0038D3B4 /* ItemsSort.storyboard in Resources */,
 				3FC5700A234F59730038D3B4 /* AnnotationsSort.storyboard in Resources */,
 				3F0C393F23872E2200523CA7 /* EditView.storyboard in Resources */,
@@ -1021,7 +992,6 @@
 				3FF7FC7B23200408006A9311 /* CategoriesEdit.storyboard in Resources */,
 				3F1022542385EAE50008EE96 /* SearchView.storyboard in Resources */,
 				3FC5700F234F59860038D3B4 /* AnnotationDetails.storyboard in Resources */,
-				3FF4E6C523423D7300F32578 /* AnnotationsSearch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,7 +1068,6 @@
 			files = (
 				3F073BBE232B83AD00AFC644 /* FeatureList.swift in Sources */,
 				3F22A4832306F9A8008AB0BD /* UIViewController.swift in Sources */,
-				3FF4E6C723423D8900F32578 /* AnnotationsSearchViewController.swift in Sources */,
 				3FE1E05E232F6A99002E46A6 /* AllFeatureList.swift in Sources */,
 				3FF4E6C323423D6200F32578 /* AnnotationsSortViewController.swift in Sources */,
 				3FF4E6CD2342480500F32578 /* AnnotationList.swift in Sources */,
@@ -1108,7 +1077,6 @@
 				3FF399BF234A12A600045F92 /* LastLocation.swift in Sources */,
 				3F10224F2385D91E0008EE96 /* AddViewModel.swift in Sources */,
 				3F7F9AC322F9CFD800A5AE4C /* DataBaseCategory.swift in Sources */,
-				3FCAD63922A3DCF2002F20CD /* CategoriesSearchViewController.swift in Sources */,
 				3F4C017F2332BE1200F49A72 /* UIImageView.swift in Sources */,
 				3F7F9AC522F9D00800A5AE4C /* DataBaseItem.swift in Sources */,
 				3FCAD63422A3D3AA002F20CD /* CategoryCell.swift in Sources */,
