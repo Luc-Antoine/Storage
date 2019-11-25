@@ -326,16 +326,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		3F0451D01E574291001629B2 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				3F16B26D2334CE0300EEC683 /* AnnotationsViewController */,
-				3F16B26E2334CE2300EEC683 /* MapViewController */,
-				3F16B26F2334CE5900EEC683 /* AnnotationViewController */,
-			);
-			name = Map;
-			sourceTree = "<group>";
-		};
 		3F0C393D23872DF800523CA7 /* EditView */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,145 +336,6 @@
 				3F9B0211238AB5ED00EDF168 /* EditToViewControllersDelegate.swift */,
 			);
 			path = EditView;
-			sourceTree = "<group>";
-		};
-		3F1022472385D8B30008EE96 /* AddView */ = {
-			isa = PBXGroup;
-			children = (
-				3F1022482385D8D20008EE96 /* AddView.storyboard */,
-				3F10224C2385D90D0008EE96 /* AddViewController.swift */,
-				3F10224E2385D91E0008EE96 /* AddViewModel.swift */,
-				3F1022502385D92D0008EE96 /* AddViewDelegate.swift */,
-			);
-			name = AddView;
-			sourceTree = "<group>";
-		};
-		3F1022522385EACE0008EE96 /* SearchView */ = {
-			isa = PBXGroup;
-			children = (
-				3F1022532385EAE50008EE96 /* SearchView.storyboard */,
-				3F1022552385EAF60008EE96 /* SearchViewController.swift */,
-				3F1022572385EB070008EE96 /* SearchViewModel.swift */,
-				3F1022592385EB2A0008EE96 /* SearchViewDelegate.swift */,
-			);
-			name = SearchView;
-			sourceTree = "<group>";
-		};
-		3F13ECA02302BF08006A25C6 /* FeaturesSettingsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3FC56FFD234F546B0038D3B4 /* FeaturesSettings.storyboard */,
-				3F13ECA32302BF49006A25C6 /* FeaturesSettingsViewController.swift */,
-			);
-			name = FeaturesSettingsViewController;
-			sourceTree = "<group>";
-		};
-		3F16B26D2334CE0300EEC683 /* AnnotationsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3F8A60EF23428A0E0052C559 /* Annotations.storyboard */,
-				3FFCEBA922A9BCD800622092 /* MapNavigationController.swift */,
-				3FC999FB234DCE13007DADB2 /* AnnotationsViewController.swift */,
-				3F0FF39E234343BD000D730B /* AnnotationsTableViewController.swift */,
-				3FF4E6B623423C9B00F32578 /* AnnotationsTableViewCell.swift */,
-				3FF4E6B323423BD800F32578 /* AnnotationsEditViewController */,
-			);
-			name = AnnotationsViewController;
-			sourceTree = "<group>";
-		};
-		3F16B26E2334CE2300EEC683 /* MapViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3F2AD086234FBF2B00790FF0 /* Map.storyboard */,
-				3F2E0F611E38B1D000B63C71 /* MapViewController.swift */,
-				3FC999FF234E210F007DADB2 /* AnnotationModaleWindow */,
-			);
-			name = MapViewController;
-			sourceTree = "<group>";
-		};
-		3F16B26F2334CE5900EEC683 /* AnnotationViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3FC57011234F59860038D3B4 /* AnnotationDetails.storyboard */,
-				3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */,
-			);
-			name = AnnotationViewController;
-			sourceTree = "<group>";
-		};
-		3F27127F23855F9E002FFC7A /* UIViews */ = {
-			isa = PBXGroup;
-			children = (
-				3FE59C5923897EBB00ADADF3 /* SettingsView */,
-				3F1022472385D8B30008EE96 /* AddView */,
-				3F0C393D23872DF800523CA7 /* EditView */,
-				3F1022522385EACE0008EE96 /* SearchView */,
-				3F27128023855FB3002FFC7A /* SortView */,
-			);
-			name = UIViews;
-			sourceTree = "<group>";
-		};
-		3F27128023855FB3002FFC7A /* SortView */ = {
-			isa = PBXGroup;
-			children = (
-				3F7DEA0E2389DE34004C33A2 /* SortView.storyboard */,
-				3F27128423855FF3002FFC7A /* SortViewController.swift */,
-				3F27128623856709002FFC7A /* SortViewModel.swift */,
-				3F271288238587B2002FFC7A /* SortViewDelegate.swift */,
-			);
-			name = SortView;
-			sourceTree = "<group>";
-		};
-		3F29046422B96AD000CF8BCB /* UIExtension */ = {
-			isa = PBXGroup;
-			children = (
-				3F22A4802306F240008AB0BD /* UIButton.swift */,
-				3FAD106D230A933700A0216D /* UIColor.swift */,
-				3F4C017E2332BE1200F49A72 /* UIImageView.swift */,
-				3FA98CDE23507AB3007C7CCA /* UISegmentedControl.swift */,
-				3F9C813B2279997B00FF10F8 /* UITableViewCell.swift */,
-				3FFE1378233F941A00416AAC /* UIView.swift */,
-				3F22A4822306F9A8008AB0BD /* UIViewController.swift */,
-			);
-			name = UIExtension;
-			sourceTree = "<group>";
-		};
-		3F29046722B96BF200CF8BCB /* Items */ = {
-			isa = PBXGroup;
-			children = (
-				3FC56FE4234F541F0038D3B4 /* Items.storyboard */,
-				3F29046C22B9706000CF8BCB /* ItemsViewController.swift */,
-				3F29046A22B9704E00CF8BCB /* ItemsTableViewController.swift */,
-				3FD638E022BE5C07007FA00F /* ItemCell.swift */,
-				3F28A72C230A8F1B00E89741 /* ItemNameFeaturesCell.swift */,
-				3F28A72E230A8F3700E89741 /* ItemFeaturesCell.swift */,
-				3F28A730230A8F6200E89741 /* ItemFiltersCell.swift */,
-				3F29047322B97F6D00CF8BCB /* ItemsFilterViewController */,
-			);
-			name = Items;
-			sourceTree = "<group>";
-		};
-		3F29047322B97F6D00CF8BCB /* ItemsFilterViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3FC56FF3234F54530038D3B4 /* ItemsFilter.storyboard */,
-				3FCAD63C22A3DD12002F20CD /* ItemsFilterViewController.swift */,
-			);
-			name = ItemsFilterViewController;
-			sourceTree = "<group>";
-		};
-		3F2DA2362307300400A0798B /* DataBase */ = {
-			isa = PBXGroup;
-			children = (
-				3F9336BE1E432C33008A2AAA /* DataBase.swift */,
-				3F38FD0922FA095200196CCC /* DataBaseTables.swift */,
-				3F7F9AC222F9CFD800A5AE4C /* DataBaseCategory.swift */,
-				3F7F9AC422F9D00800A5AE4C /* DataBaseItem.swift */,
-				3F13EC982302A586006A25C6 /* DataBaseNameFeatures.swift */,
-				3F13EC9A2302A597006A25C6 /* DataBaseFeatures.swift */,
-				3F2AD506230838F2006E9077 /* DataBaseItemFeature.swift */,
-				3F41CBB91E79DC540018763E /* DataBaseAnnotation.swift */,
-			);
-			name = DataBase;
 			sourceTree = "<group>";
 		};
 		3F2E0EFC1E3888FA00B63C71 = {
@@ -514,16 +365,13 @@
 		3F2E0F071E3888FA00B63C71 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				3F9C813A2279994F00FF10F8 /* Extention */,
+				3F5FB48B238BE91900E82789 /* Extensions */,
+				3F5FB48A238BE90F00E82789 /* Data */,
+				3F5FB48C238BE95800E82789 /* Model */,
+				3F5FB49F238BED6000E82789 /* View */,
+				3F5FB4A0238BED9700E82789 /* Main */,
 				3F34C8FA1E69FC9C0056BBC7 /* Storage.entitlements */,
-				3F9336BC1E432BCC008A2AAA /* Data */,
-				3F9336BB1E432BC4008A2AAA /* Model */,
-				3F9336BD1E432C13008A2AAA /* View */,
-				3F2E0F081E3888FA00B63C71 /* AppDelegate.swift */,
-				3F2E0F0F1E3888FA00B63C71 /* Assets.xcassets */,
-				3F2E0F111E3888FA00B63C71 /* LaunchScreen.storyboard */,
 				3F2E0F141E3888FA00B63C71 /* Info.plist */,
-				3FF6E0E81F1CC15A001F5D02 /* Localizable.strings */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -546,52 +394,77 @@
 			path = StorageUITests;
 			sourceTree = "<group>";
 		};
-		3F32BF87230206DE002CFB84 /* Features */ = {
+		3F5FB485238BE78F00E82789 /* AddView */ = {
 			isa = PBXGroup;
 			children = (
-				3FC56FF8234F545E0038D3B4 /* Features.storyboard */,
-				3F13EC9423029BCD006A25C6 /* FeaturesViewController.swift */,
-				3F13EC9623029BE1006A25C6 /* FeaturesTableViewController.swift */,
-				3F2A83732303508A005891DB /* FeaturesTableViewCell.swift */,
-				3FEC2B60230423C6008C26F6 /* NameFeaturesTableViewCell.swift */,
-				3F13ECA02302BF08006A25C6 /* FeaturesSettingsViewController */,
+				3F1022482385D8D20008EE96 /* AddView.storyboard */,
+				3F10224C2385D90D0008EE96 /* AddViewController.swift */,
+				3F10224E2385D91E0008EE96 /* AddViewModel.swift */,
+				3F1022502385D92D0008EE96 /* AddViewDelegate.swift */,
 			);
-			name = Features;
+			path = AddView;
 			sourceTree = "<group>";
 		};
-		3F767E1F2278420D00CC32F2 /* Categories */ = {
+		3F5FB487238BE81F00E82789 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
-				3FE00D4922A90FBE00B5B008 /* Categories.storyboard */,
-				3FA01BB8227CC8A80080BA2C /* CategoriesNavigationController.swift */,
-				3F9C81382279867B00FF10F8 /* CategoriesViewController.swift */,
-				3F767E2C2278642300CC32F2 /* CategoriesTableViewController.swift */,
-				3FCAD63322A3D3AA002F20CD /* CategoryCell.swift */,
+				3F1022532385EAE50008EE96 /* SearchView.storyboard */,
+				3F1022552385EAF60008EE96 /* SearchViewController.swift */,
+				3F1022572385EB070008EE96 /* SearchViewModel.swift */,
+				3F1022592385EB2A0008EE96 /* SearchViewDelegate.swift */,
 			);
-			name = Categories;
+			path = SearchView;
 			sourceTree = "<group>";
 		};
-		3F767E2522785AB500CC32F2 /* Main */ = {
+		3F5FB488238BE87700E82789 /* SortView */ = {
 			isa = PBXGroup;
 			children = (
-				3F2E0F0C1E3888FA00B63C71 /* Main.storyboard */,
-				3F767E2622785B4900CC32F2 /* TabBarViewController.swift */,
-				3FA98CDC235075B1007C7CCA /* Appearance.swift */,
+				3F7DEA0E2389DE34004C33A2 /* SortView.storyboard */,
+				3F27128423855FF3002FFC7A /* SortViewController.swift */,
+				3F27128623856709002FFC7A /* SortViewModel.swift */,
+				3F271288238587B2002FFC7A /* SortViewDelegate.swift */,
 			);
-			name = Main;
+			path = SortView;
 			sourceTree = "<group>";
 		};
-		3F92B9BC235859BE0003C207 /* FastlaneSnapshot */ = {
+		3F5FB489238BE8DC00E82789 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				3F92B9C523585A1B0003C207 /* SnapshotHelper.swift */,
-				3F92B9BD235859BE0003C207 /* FastlaneSnapshot.swift */,
-				3F92B9BF235859BE0003C207 /* Info.plist */,
+				3F9336BE1E432C33008A2AAA /* DataBase.swift */,
+				3F38FD0922FA095200196CCC /* DataBaseTables.swift */,
+				3F7F9AC222F9CFD800A5AE4C /* DataBaseCategory.swift */,
+				3F7F9AC422F9D00800A5AE4C /* DataBaseItem.swift */,
+				3F13EC982302A586006A25C6 /* DataBaseNameFeatures.swift */,
+				3F13EC9A2302A597006A25C6 /* DataBaseFeatures.swift */,
+				3F2AD506230838F2006E9077 /* DataBaseItemFeature.swift */,
+				3F41CBB91E79DC540018763E /* DataBaseAnnotation.swift */,
 			);
-			path = FastlaneSnapshot;
+			path = DataBase;
 			sourceTree = "<group>";
 		};
-		3F9336BB1E432BC4008A2AAA /* Model */ = {
+		3F5FB48A238BE90F00E82789 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FB489238BE8DC00E82789 /* DataBase */,
+				3F02D8C82317BDC60095ED44 /* Demonstration.swift */,
+				3F2DA23423072F7800A0798B /* FilesManager.swift */,
+				3F2754501E8322CC00633E29 /* Location.swift */,
+				3FF399BE234A12A600045F92 /* LastLocation.swift */,
+				3F6216FB1E4B53D000D1584C /* UserDefaults.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3F5FB48B238BE91900E82789 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F02A3C7230C1D8500E7E8BA /* Array.swift */,
+				3FEC2B6223043C98008C26F6 /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3F5FB48C238BE95800E82789 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3F4C01802332C90700F49A72 /* CreateDataBase.swift */,
@@ -611,50 +484,216 @@
 				3F15720123471FFF004DFFC2 /* NavBar.swift */,
 				3F25674D2346212F0094B0E6 /* Position.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		3F9336BC1E432BCC008A2AAA /* Data */ = {
+		3F5FB48E238BE9C700E82789 /* UIExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				3F2DA2362307300400A0798B /* DataBase */,
-				3F02D8C82317BDC60095ED44 /* Demonstration.swift */,
-				3F2DA23423072F7800A0798B /* FilesManager.swift */,
-				3F2754501E8322CC00633E29 /* Location.swift */,
-				3FF399BE234A12A600045F92 /* LastLocation.swift */,
-				3F6216FB1E4B53D000D1584C /* UserDefaults.swift */,
+				3F22A4802306F240008AB0BD /* UIButton.swift */,
+				3FAD106D230A933700A0216D /* UIColor.swift */,
+				3F4C017E2332BE1200F49A72 /* UIImageView.swift */,
+				3FA98CDE23507AB3007C7CCA /* UISegmentedControl.swift */,
+				3F9C813B2279997B00FF10F8 /* UITableViewCell.swift */,
+				3FFE1378233F941A00416AAC /* UIView.swift */,
+				3F22A4822306F9A8008AB0BD /* UIViewController.swift */,
 			);
-			name = Data;
+			path = UIExtensions;
 			sourceTree = "<group>";
 		};
-		3F9336BD1E432C13008A2AAA /* View */ = {
+		3F5FB48F238BE9E300E82789 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
-				3F29046422B96AD000CF8BCB /* UIExtension */,
-				3F27127F23855F9E002FFC7A /* UIViews */,
-				3F767E2522785AB500CC32F2 /* Main */,
-				3FD283D71F7A9505002540A2 /* Collector */,
-				3F0451D01E574291001629B2 /* Map */,
+				3FE59C5923897EBB00ADADF3 /* SettingsView */,
+				3F5FB485238BE78F00E82789 /* AddView */,
+				3F0C393D23872DF800523CA7 /* EditView */,
+				3F5FB487238BE81F00E82789 /* SearchView */,
+				3F5FB488238BE87700E82789 /* SortView */,
 			);
-			name = View;
+			path = UIViews;
 			sourceTree = "<group>";
 		};
-		3F9C813A2279994F00FF10F8 /* Extention */ = {
+		3F5FB490238BEA1A00E82789 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3F02A3C7230C1D8500E7E8BA /* Array.swift */,
-				3FEC2B6223043C98008C26F6 /* String.swift */,
+				3F2E0F0C1E3888FA00B63C71 /* Main.storyboard */,
+				3F767E2622785B4900CC32F2 /* TabBarViewController.swift */,
+				3FA98CDC235075B1007C7CCA /* Appearance.swift */,
 			);
-			name = Extention;
+			path = Main;
 			sourceTree = "<group>";
 		};
-		3FC999FF234E210F007DADB2 /* AnnotationModaleWindow */ = {
+		3F5FB491238BEA5600E82789 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				3FE00D4922A90FBE00B5B008 /* Categories.storyboard */,
+				3FA01BB8227CC8A80080BA2C /* CategoriesNavigationController.swift */,
+				3F9C81382279867B00FF10F8 /* CategoriesViewController.swift */,
+				3F767E2C2278642300CC32F2 /* CategoriesTableViewController.swift */,
+				3FCAD63322A3D3AA002F20CD /* CategoryCell.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		3F5FB492238BEA6C00E82789 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FB493238BEA8B00E82789 /* ItemsFilterViewController */,
+				3FC56FE4234F541F0038D3B4 /* Items.storyboard */,
+				3F29046C22B9706000CF8BCB /* ItemsViewController.swift */,
+				3F29046A22B9704E00CF8BCB /* ItemsTableViewController.swift */,
+				3FD638E022BE5C07007FA00F /* ItemCell.swift */,
+				3F28A72C230A8F1B00E89741 /* ItemNameFeaturesCell.swift */,
+				3F28A72E230A8F3700E89741 /* ItemFeaturesCell.swift */,
+				3F28A730230A8F6200E89741 /* ItemFiltersCell.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		3F5FB493238BEA8B00E82789 /* ItemsFilterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FC56FF3234F54530038D3B4 /* ItemsFilter.storyboard */,
+				3FCAD63C22A3DD12002F20CD /* ItemsFilterViewController.swift */,
+			);
+			path = ItemsFilterViewController;
+			sourceTree = "<group>";
+		};
+		3F5FB494238BEABC00E82789 /* FeaturesSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FC56FFD234F546B0038D3B4 /* FeaturesSettings.storyboard */,
+				3F13ECA32302BF49006A25C6 /* FeaturesSettingsViewController.swift */,
+			);
+			path = FeaturesSettingsViewController;
+			sourceTree = "<group>";
+		};
+		3F5FB495238BEADF00E82789 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3FC56FF8234F545E0038D3B4 /* Features.storyboard */,
+				3F13EC9423029BCD006A25C6 /* FeaturesViewController.swift */,
+				3F13EC9623029BE1006A25C6 /* FeaturesTableViewController.swift */,
+				3F2A83732303508A005891DB /* FeaturesTableViewCell.swift */,
+				3FEC2B60230423C6008C26F6 /* NameFeaturesTableViewCell.swift */,
+				3F5FB494238BEABC00E82789 /* FeaturesSettingsViewController */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3F5FB496238BEB0300E82789 /* AllFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				3FC57002234F59340038D3B4 /* AllFeatures.storyboard */,
+				3FDAA272230597550025EDFC /* AllFeaturesViewController.swift */,
+				3FDAA274230597630025EDFC /* AllFeaturesTableViewController.swift */,
+				3FDAA276230597720025EDFC /* AllFeaturesTableViewCell.swift */,
+			);
+			path = AllFeatures;
+			sourceTree = "<group>";
+		};
+		3F5FB497238BEC1B00E82789 /* AnnotationsEditViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4E6BC23423D3400F32578 /* AnnotationsEdit.storyboard */,
+				3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */,
+			);
+			path = AnnotationsEditViewController;
+			sourceTree = "<group>";
+		};
+		3F5FB498238BEC3700E82789 /* AnnotationsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F8A60EF23428A0E0052C559 /* Annotations.storyboard */,
+				3FFCEBA922A9BCD800622092 /* MapNavigationController.swift */,
+				3FC999FB234DCE13007DADB2 /* AnnotationsViewController.swift */,
+				3F0FF39E234343BD000D730B /* AnnotationsTableViewController.swift */,
+				3FF4E6B623423C9B00F32578 /* AnnotationsTableViewCell.swift */,
+				3F5FB497238BEC1B00E82789 /* AnnotationsEditViewController */,
+			);
+			path = AnnotationsViewController;
+			sourceTree = "<group>";
+		};
+		3F5FB499238BEC5000E82789 /* AnnotationModaleWindow */ = {
 			isa = PBXGroup;
 			children = (
 				3FC99A00234E2149007DADB2 /* AnnotationModaleWindow.storyboard */,
 				3FC99A02234E216D007DADB2 /* AnnotationModaleWindowViewController.swift */,
 			);
-			name = AnnotationModaleWindow;
+			path = AnnotationModaleWindow;
+			sourceTree = "<group>";
+		};
+		3F5FB49A238BEC8000E82789 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F2AD086234FBF2B00790FF0 /* Map.storyboard */,
+				3F2E0F611E38B1D000B63C71 /* MapViewController.swift */,
+				3F5FB499238BEC5000E82789 /* AnnotationModaleWindow */,
+			);
+			path = MapViewController;
+			sourceTree = "<group>";
+		};
+		3F5FB49B238BECA100E82789 /* AnnotationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FC57011234F59860038D3B4 /* AnnotationDetails.storyboard */,
+				3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */,
+			);
+			path = AnnotationViewController;
+			sourceTree = "<group>";
+		};
+		3F5FB49C238BED0D00E82789 /* Collector */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FB491238BEA5600E82789 /* Categories */,
+				3F5FB492238BEA6C00E82789 /* Items */,
+				3F5FB495238BEADF00E82789 /* Features */,
+				3F5FB496238BEB0300E82789 /* AllFeatures */,
+			);
+			path = Collector;
+			sourceTree = "<group>";
+		};
+		3F5FB49E238BED3200E82789 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FB498238BEC3700E82789 /* AnnotationsViewController */,
+				3F5FB49A238BEC8000E82789 /* MapViewController */,
+				3F5FB49B238BECA100E82789 /* AnnotationViewController */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		3F5FB49F238BED6000E82789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F5FB48E238BE9C700E82789 /* UIExtensions */,
+				3F5FB48F238BE9E300E82789 /* UIViews */,
+				3F5FB490238BEA1A00E82789 /* Main */,
+				3F5FB49C238BED0D00E82789 /* Collector */,
+				3F5FB49E238BED3200E82789 /* Map */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F5FB4A0238BED9700E82789 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3F2E0F081E3888FA00B63C71 /* AppDelegate.swift */,
+				3F2E0F0F1E3888FA00B63C71 /* Assets.xcassets */,
+				3F2E0F111E3888FA00B63C71 /* LaunchScreen.storyboard */,
+				3FF6E0E81F1CC15A001F5D02 /* Localizable.strings */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3F92B9BC235859BE0003C207 /* FastlaneSnapshot */ = {
+			isa = PBXGroup;
+			children = (
+				3F92B9C523585A1B0003C207 /* SnapshotHelper.swift */,
+				3F92B9BD235859BE0003C207 /* FastlaneSnapshot.swift */,
+				3F92B9BF235859BE0003C207 /* Info.plist */,
+			);
+			path = FastlaneSnapshot;
 			sourceTree = "<group>";
 		};
 		3FCFB9FA1E3931FC00CA7220 /* Frameworks */ = {
@@ -668,28 +707,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3FD283D71F7A9505002540A2 /* Collector */ = {
-			isa = PBXGroup;
-			children = (
-				3F767E1F2278420D00CC32F2 /* Categories */,
-				3F29046722B96BF200CF8BCB /* Items */,
-				3F32BF87230206DE002CFB84 /* Features */,
-				3FDAA26D230596BA0025EDFC /* AllFeatures */,
-			);
-			name = Collector;
-			sourceTree = "<group>";
-		};
-		3FDAA26D230596BA0025EDFC /* AllFeatures */ = {
-			isa = PBXGroup;
-			children = (
-				3FC57002234F59340038D3B4 /* AllFeatures.storyboard */,
-				3FDAA272230597550025EDFC /* AllFeaturesViewController.swift */,
-				3FDAA274230597630025EDFC /* AllFeaturesTableViewController.swift */,
-				3FDAA276230597720025EDFC /* AllFeaturesTableViewCell.swift */,
-			);
-			name = AllFeatures;
-			sourceTree = "<group>";
-		};
 		3FE59C5923897EBB00ADADF3 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,15 +716,6 @@
 				3FE59C6023897F0C00ADADF3 /* SettingsViewDelegate.swift */,
 			);
 			path = SettingsView;
-			sourceTree = "<group>";
-		};
-		3FF4E6B323423BD800F32578 /* AnnotationsEditViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3FF4E6BC23423D3400F32578 /* AnnotationsEdit.storyboard */,
-				3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */,
-			);
-			name = AnnotationsEditViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
