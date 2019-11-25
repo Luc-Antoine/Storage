@@ -19,7 +19,7 @@ enum CategoriesSegmentedIndex: Int {
 class CategoriesViewController: UIViewController {
     
     weak var tableViewDelegate: CategoriesViewControllerDelegate?
-    weak var editViewControllerDelegate: EditViewControllerDelegate?
+    weak var editToViewControllersDelegate: EditToViewControllersDelegate?
     
     var navBarItem: NavBarItem? = .add
     var tableViewStat: TableViewStat?
@@ -59,7 +59,7 @@ class CategoriesViewController: UIViewController {
             break
         case .delete:
             tableViewDelegate?.removeCategories()
-            editViewControllerDelegate?.text("")
+            editToViewControllersDelegate?.text("")
             break
         }
     }
@@ -100,19 +100,11 @@ class CategoriesViewController: UIViewController {
         editViewModel.delegate = self
         
         editViewController.viewModel = editViewModel
-        editViewControllerDelegate = editViewController
+        editToViewControllersDelegate = editViewController
         tableViewDelegate?.tableViewEditing()
         tableViewStat = .editing
         navBarOption(.delete)
         addChild(editViewController, container: settingsContainer)
-        
-//        let categoriesEditViewController: CategoriesEditViewController = instantiate("CategoriesEditViewController", storyboard: "CategoriesEdit")
-//        categoriesEditViewController.delegate = self
-//        categoryEditDelegate = categoriesEditViewController
-//        tableViewDelegate?.tableViewEditing()
-//        tableViewStat = .editing
-//        navBarOption(.delete)
-//        addChild(categoriesEditViewController, container: settingsContainer)
     }
     
     func newCategoriesSortViewController() {
@@ -194,16 +186,16 @@ extension CategoriesViewController: CategoriesTableViewControllerDelegate {
     }
     
     func editTextField(_ text: String) {
-        editViewControllerDelegate?.text(text)
+        editToViewControllersDelegate?.text(text)
     }
     
     func editTextFieldEndEditing() {
-        editViewControllerDelegate?.editTextFieldEndEditing()
+        editToViewControllersDelegate?.editTextFieldEndEditing()
     }
     
     func categorySelected(_ category: Category?) {
-        editViewControllerDelegate?.textFieldBackViewBorder(category)
         lastCategorySelected = category
+        editToViewControllersDelegate?.textFieldBackViewBorder(category != nil)
     }
 }
 
@@ -236,19 +228,14 @@ extension CategoriesViewController: AddViewDelegate {
     }
 }
 
-// MARK: - CategoriesEditViewControllerDelegate
-
-//protocol CategoriesEditViewControllerDelegate: AnyObject {
-//    func categoryTableViewEditing()
-//    func editNameCategory(_ name: String) -> Bool
-//    func textFieldDidResearching(_ text: String)
-//    func newChildSettings()
-//    func categorySelected() -> Category?
-//}
+// MARK: - EditViewDelegate
 
 extension CategoriesViewController: EditViewDelegate {
+    func objectSelected() -> Bool {
+        return lastCategorySelected != nil
+    }
     
-    func categoryTableViewEditing() {
+    func tableViewEditing() {
         tableViewDelegate?.tableViewEditing()
     }
     
@@ -256,12 +243,8 @@ extension CategoriesViewController: EditViewDelegate {
         tableViewDelegate?.textFieldDidResearching(text)
     }
     
-    func editNameCategory(_ name: String) -> Bool {
+    func editNameObject(_ name: String) -> Bool {
         return tableViewDelegate?.update(name) ?? false
-    }
-    
-    func categorySelected() -> Category? {
-        return lastCategorySelected
     }
 }
 

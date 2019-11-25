@@ -54,7 +54,7 @@ class EditViewController: UIViewController {
 
 extension EditViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return viewModel?.categorySelected() != nil
+        return viewModel?.objectSelected() ?? false
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -67,15 +67,9 @@ extension EditViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - CategoriesEditTextFieldDelegate
+// MARK: - EditToViewControllersDelegate
 
-protocol EditViewControllerDelegate: AnyObject {
-    func text(_ string: String)
-    func editTextFieldEndEditing()
-    func textFieldBackViewBorder(_ category: Category?)
-}
-
-extension EditViewController: EditViewControllerDelegate {
+extension EditViewController: EditToViewControllersDelegate {
     
     func text(_ string: String) {
         editTextField.text = string
@@ -88,11 +82,11 @@ extension EditViewController: EditViewControllerDelegate {
         confirmButton.isHidden = true
     }
     
-    func textFieldBackViewBorder(_ category: Category?) {
+    func textFieldBackViewBorder(_ bool: Bool) {
         if editTextField.isFirstResponder {
             textFieldBackView.borderFocus()
         } else {
-            if category != nil {
+            if bool {
                 textFieldBackView.borderActive()
             } else {
                 textFieldBackView.borderInactive()

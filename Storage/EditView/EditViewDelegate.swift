@@ -9,9 +9,13 @@
 import Foundation
 
 protocol EditViewDelegate: AnyObject {
-    func categoryTableViewEditing()
-    func editNameCategory(_ name: String) -> Bool
-    func textFieldDidResearching(_ text: String)
+    func tableViewEditing()
+    func editNameObject(_ name: String) -> Bool
     func newChildSettings()
-    func categorySelected() -> Category?
+    func objectSelected() -> Bool
+}
+
+extension EditViewDelegate {
+    func textFieldDidResearching(_ text: String) {}
+    func tableViewEndEditing() {}
 }

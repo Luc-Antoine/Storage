@@ -11,7 +11,7 @@ import UIKit
 class ItemsViewController: UIViewController {
     
     weak var tableViewDelegate: ItemsViewControllerDelegate?
-    weak var itemsEditTextFieldDelegate: ItemsEditTextFieldDelegate?
+    weak var editToViewControllersDelegate: EditToViewControllersDelegate?
     
     var category: Category?
     var navBarItemFilter: NavBarItemFilter? = .add
@@ -48,7 +48,7 @@ class ItemsViewController: UIViewController {
             break
         case .delete:
             tableViewDelegate?.removeItems()
-            itemsEditTextFieldDelegate?.text("")
+            editToViewControllersDelegate?.text("")
             break
         case .filter:
             tableViewDelegate?.kindItem(.nameFeatures)
@@ -90,13 +90,15 @@ class ItemsViewController: UIViewController {
     }
     
     func newItemsEditViewController() {
-        let itemsEditViewController: ItemsEditViewController = instantiate("ItemsEditViewController", storyboard: "ItemsEdit")
-        itemsEditViewController.delegate = self
-        itemsEditTextFieldDelegate = itemsEditViewController
+        let editViewController: EditViewController = instantiate("EditViewController", storyboard: "EditView")
+        var editViewModel = EditViewModel()
+        editViewModel.delegate = self
+        editViewController.viewModel = editViewModel
+        editToViewControllersDelegate = editViewController
         tableViewDelegate?.tableViewEditing()
         tableViewStat = .editing
         navBarItemFilter(.delete)
-        addChild(itemsEditViewController, container: settingsContainer)
+        addChild(editViewController, container: settingsContainer)
     }
     
     func newItemsSortViewController() {
@@ -172,15 +174,15 @@ extension ItemsViewController: ItemsTableViewControllerDelegate {
     }
     
     func editTextField(_ text: String) {
-        itemsEditTextFieldDelegate?.text(text)
+        editToViewControllersDelegate?.text(text)
     }
     
     func editTextFieldEndEditing() {
-        itemsEditTextFieldDelegate?.editTextFieldEndEditing()
+        editToViewControllersDelegate?.editTextFieldEndEditing()
     }
     
     func itemSelected(_ item: Item?) {
-        itemsEditTextFieldDelegate?.textFieldBackViewBorder(item)
+        editToViewControllersDelegate?.textFieldBackViewBorder(item != nil)
         lastItemSelected = item
     }
 }
@@ -219,32 +221,23 @@ extension ItemsViewController: AddViewDelegate {
     }
 }
 
-// MARK: - ItemsEditViewControllerDelegate
+// MARK: - EditViewDelegate
 
-protocol ItemsEditViewControllerDelegate: AnyObject {
-    func itemsTableViewEditing()
-    func itemsTableViewEndEditing()
-    func editNameItem(_ name: String) -> Bool
-    func newChildSettings()
-    func itemSelected() -> Item?
-}
-
-extension ItemsViewController: ItemsEditViewControllerDelegate {
+extension ItemsViewController: EditViewDelegate {
+    func objectSelected() -> Bool {
+        return lastItemSelected != nil
+    }
     
-    func itemsTableViewEditing() {
+    func tableViewEditing() {
         tableViewDelegate?.tableViewEditing()
     }
     
-    func itemsTableViewEndEditing() {
+    func tableViewEndEditing() {
         tableViewDelegate?.tableViewEndEditing()
     }
     
-    func editNameItem(_ name: String) -> Bool {
+    func editNameObject(_ name: String) -> Bool {
         return tableViewDelegate?.update(name) ?? false
-    }
-    
-    func itemSelected() -> Item? {
-        return lastItemSelected
     }
 }
 

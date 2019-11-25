@@ -12,11 +12,11 @@ struct EditViewModel {
     weak var delegate: EditViewDelegate?
     
     func categoryTableViewEditing() {
-        delegate?.categoryTableViewEditing()
+        delegate?.tableViewEditing()
     }
     
     func editNameCategory(_ name: String) -> Bool {
-        return delegate?.editNameCategory(name) ?? false
+        return delegate?.editNameObject(name) ?? false
     }
     
     func textFieldDidResearching(_ text: String) {
@@ -27,7 +27,7 @@ struct EditViewModel {
         delegate?.newChildSettings()
     }
     
-    func categorySelected() -> Category? {
-        return delegate?.categorySelected()
+    func objectSelected() -> Bool {
+        return delegate?.objectSelected() ?? false
     }
 }

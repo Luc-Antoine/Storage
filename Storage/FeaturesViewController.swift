@@ -12,7 +12,7 @@ class FeaturesViewController: UIViewController {
     
     weak var tableViewDelegate: FeaturesViewControllerDelegate?
     weak var featuresTableViewDelegate: FeaturesTableViewDelegate?
-    weak var featuresEditTextFieldDelegate: FeaturesEditTextFieldDelegate?
+    weak var editToViewControllersDelegate: EditToViewControllersDelegate?
     
     var category: Category?
     var item: Item?
@@ -42,7 +42,7 @@ class FeaturesViewController: UIViewController {
         case .delete:
             if tableViewDelegate?.delete() ?? false {
                 tableViewDelegate?.tableViewEndEditing()
-                featuresEditTextFieldDelegate?.text("")
+                editToViewControllersDelegate?.text("")
             }
             break
         }
@@ -78,12 +78,14 @@ class FeaturesViewController: UIViewController {
     }
     
     func newFeaturesEditViewController() {
-        let featuresEditViewController: FeaturesEditViewController = instantiate("FeaturesEditViewController", storyboard: "FeaturesEdit")
-        featuresEditViewController.delegate = self
-        featuresEditTextFieldDelegate = featuresEditViewController
+        let editViewController: EditViewController = instantiate("EditViewController", storyboard: "EditView")
+        var editViewModel = EditViewModel()
+        editViewModel.delegate = self
+        editViewController.viewModel = editViewModel
+        editToViewControllersDelegate = editViewController
         navBarOption(.delete)
         tableViewDelegate?.reloadData()
-        addChild(featuresEditViewController, container: settingsContainer)
+        addChild(editViewController, container: settingsContainer)
     }
     
     func newChildSettings() {
@@ -136,15 +138,15 @@ extension FeaturesViewController: FeaturesTableViewControllerDelegate {
     }
     
     func editTextField(_ text: String) {
-        featuresEditTextFieldDelegate?.text(text)
+        editToViewControllersDelegate?.text(text)
     }
     
     func editTextFieldEndEditing() {
-        featuresEditTextFieldDelegate?.editTextFieldEndEditing()
+        editToViewControllersDelegate?.editTextFieldEndEditing()
     }
     
     func featureSelected(_ feature: Feature?) {
-        featuresEditTextFieldDelegate?.textFieldBackViewBorder(feature)
+        editToViewControllersDelegate?.textFieldBackViewBorder(feature != nil)
         lastFeatureSelected = feature
     }
 }
@@ -162,38 +164,28 @@ extension FeaturesViewController: FeaturesSettingsViewControllerDelegate {
 // MARK: - AddViewDelegate
 
 extension FeaturesViewController: AddViewDelegate {
-    
     func add(_ name: String) {
         let nameFeature = NameFeature(id: 0, name: name, categoryId: category!.id)
         tableViewDelegate?.add(nameFeature)
     }
 }
 
-// MARK: - FeaturesEditViewControllerDelegate
+// MARK: - EditViewDelegate
 
-protocol FeaturesEditViewControllerDelegate: AnyObject {
-    func featuresTableViewEditing()
-    func featuresTableViewEndEditing()
-    func editNameFeature(_ name: String) -> Bool
-    func newFeaturesSettingsViewController()
-    func featureSelected() -> Feature?
-}
-
-extension FeaturesViewController: FeaturesEditViewControllerDelegate {
-    
-    func featuresTableViewEditing() {
+extension FeaturesViewController: EditViewDelegate {
+    func tableViewEditing() {
         tableViewDelegate?.tableViewEditing()
+    }
+    
+    func editNameObject(_ name: String) -> Bool {
+        return tableViewDelegate?.update(name) ?? false
+    }
+    
+    func objectSelected() -> Bool {
+        return lastFeatureSelected != nil
     }
     
     func featuresTableViewEndEditing() {
         tableViewDelegate?.tableViewEndEditing()
-    }
-    
-    func editNameFeature(_ name: String) -> Bool {
-        return tableViewDelegate?.update(name) ?? false
-    }
-    
-    func featureSelected() -> Feature? {
-        return lastFeatureSelected
     }
 }
