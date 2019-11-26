@@ -164,6 +164,7 @@ extension CategoriesTableViewController: CategoriesViewControllerDelegate {
     
     func addCategories(_ name: String?) {
         categories = categoryList.add(name ?? "")
+        categoriesSort(categoriesSort)
         tableView.reloadData()
     }
     
@@ -181,6 +182,7 @@ extension CategoriesTableViewController: CategoriesViewControllerDelegate {
     func removeCategories() {
         let categories = categoryList.remove(selectedCategories)
         self.categories = categories
+        categoriesSort(categoriesSort)
         tableView.reloadData()
     }
     

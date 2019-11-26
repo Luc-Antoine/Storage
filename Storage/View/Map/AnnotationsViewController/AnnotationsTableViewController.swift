@@ -183,6 +183,7 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
     func removeAnnotations() {
         annotationList.remove(selectedAnnotations)
         self.annotations = annotationList.all()
+        annotationsSort(annotationsSort)
         tableView.reloadData()
     }
     

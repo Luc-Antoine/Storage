@@ -201,6 +201,7 @@ protocol FeaturesViewControllerDelegate: AnyObject {
     func reloadData()
     func separator()
     func delete() -> Bool
+    func isEditing() -> Bool
     func update(_ name: String) -> Bool
     func add(_ nameFeature: NameFeature)
 }
@@ -210,18 +211,17 @@ extension FeaturesTableViewController: FeaturesViewControllerDelegate {
     // MARK: - Editing Functions
     
     func tableViewEditing() {
+        isEditing = true
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.setEditing(true, animated: true)
         tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 0)
     }
     
     func tableViewEndEditing() {
+        isEditing = false
         tableView.allowsMultipleSelectionDuringEditing = false
         tableView.setEditing(false, animated: false)
-        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 0)
-        loadFeatures()
-        loadNameFeatures()
-        lastIndexPath = nil
+        tableView.layoutMargins = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         tableView.reloadData()
     }
     
@@ -243,6 +243,14 @@ extension FeaturesTableViewController: FeaturesViewControllerDelegate {
         guard nameFeaturesSelected.count > 0 else { return false }
         featureList.remove(nameFeaturesSelected)
         nameFeaturesSelected.removeAll()
+        loadFeatures()
+        loadNameFeatures()
+        lastIndexPath = nil
+        tableView.reloadData()
         return true
+    }
+    
+    func isEditing() -> Bool {
+        return isEditing
     }
 }

@@ -41,7 +41,6 @@ class FeaturesViewController: UIViewController {
             break
         case .delete:
             if tableViewDelegate?.delete() ?? false {
-//                tableViewDelegate?.tableViewEndEditing()
                 editToViewControllersDelegate?.text("")
             }
             break
@@ -90,6 +89,9 @@ class FeaturesViewController: UIViewController {
     
     func newChildSettings() {
         newFeaturesSettingsViewController()
+        if tableViewDelegate?.isEditing() ?? false {
+            tableViewDelegate?.tableViewEndEditing()
+        }
     }
     
     func navBarOption(_ option: NavBarItem?) {

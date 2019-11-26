@@ -207,33 +207,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CE6791FF-2CEB-46B1-B1F2-F724DF75A5BE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Storage/Model/AnnotationList.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "add(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E7208353-E6C5-4069-8A49-E1EFBD5CBF08"
+            uuid = "9F2419DB-5F26-4BB3-A90B-F86D57E132FB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Storage/View/Collector/Features/FeaturesViewController.swift"
+            filePath = "Storage/Data/DataBase/DataBaseNameFeatures.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "AddOrEditAction()"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "delete(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F2419DB-5F26-4BB3-A90B-F86D57E132FB - ed075b6d574d1580"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Storage.DataBase.delete(Swift.Array&lt;Storage.NameFeature&gt;) -&gt; ()"
+                  moduleName = "Storage"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luc-antoinedupont/Documents/Projets/Storage/Storage/Data/DataBase/DataBaseNameFeatures.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "9F2419DB-5F26-4BB3-A90B-F86D57E132FB - 3e3894b7b468b40b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (GRDB.Database) throws -&gt; () in Storage.DataBase.delete(Swift.Array&lt;Storage.NameFeature&gt;) -&gt; ()"
+                  moduleName = "Storage"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luc-antoinedupont/Documents/Projets/Storage/Storage/Data/DataBase/DataBaseNameFeatures.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "156">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

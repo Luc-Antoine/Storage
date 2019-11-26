@@ -114,17 +114,17 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemNameFeaturesCell" id="0zN-q6-5zD" customClass="ItemNameFeaturesCell" customModule="Storage" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="72.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0zN-q6-5zD" id="Dx7-M3-R8W">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K29-26-kSW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxr-lo-ixv">
-                                                    <rect key="frame" x="16" y="9" width="382" height="26"/>
+                                                    <rect key="frame" x="16" y="9" width="382" height="26.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -133,8 +133,9 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Sxr-lo-ixv" firstAttribute="centerX" secondItem="K29-26-kSW" secondAttribute="centerX" id="0do-Ru-qU1"/>
+                                                <constraint firstItem="Sxr-lo-ixv" firstAttribute="top" secondItem="K29-26-kSW" secondAttribute="top" constant="9" id="GhW-7r-oxA"/>
+                                                <constraint firstAttribute="bottom" secondItem="Sxr-lo-ixv" secondAttribute="bottom" constant="8.5" id="ZV0-Bu-gXp"/>
                                                 <constraint firstItem="Sxr-lo-ixv" firstAttribute="leading" secondItem="K29-26-kSW" secondAttribute="leading" constant="16" id="hQt-4I-Ly0"/>
-                                                <constraint firstItem="Sxr-lo-ixv" firstAttribute="centerY" secondItem="K29-26-kSW" secondAttribute="centerY" id="wvq-cc-LEE"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -152,17 +153,17 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemFeaturesCell" id="lCM-Jf-4Z2" customClass="ItemFeaturesCell" customModule="Storage" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="116" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="116.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lCM-Jf-4Z2" id="YSr-VG-zYn">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILh-f4-KEm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wT-ZH-mke">
-                                                    <rect key="frame" x="16" y="9" width="382" height="26"/>
+                                                    <rect key="frame" x="16" y="9" width="382" height="26.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -171,7 +172,8 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="6wT-ZH-mke" firstAttribute="centerX" secondItem="ILh-f4-KEm" secondAttribute="centerX" id="0bF-ir-Mhs"/>
-                                                <constraint firstItem="6wT-ZH-mke" firstAttribute="centerY" secondItem="ILh-f4-KEm" secondAttribute="centerY" id="PQV-Ph-7i1"/>
+                                                <constraint firstItem="6wT-ZH-mke" firstAttribute="top" secondItem="ILh-f4-KEm" secondAttribute="top" constant="9" id="J15-ox-iBe"/>
+                                                <constraint firstAttribute="bottom" secondItem="6wT-ZH-mke" secondAttribute="bottom" constant="8.5" id="szc-RS-FcX"/>
                                                 <constraint firstItem="6wT-ZH-mke" firstAttribute="leading" secondItem="ILh-f4-KEm" secondAttribute="leading" constant="16" id="zze-Uz-ff1"/>
                                             </constraints>
                                         </view>
@@ -190,23 +192,23 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemFiltersCell" id="pfD-lz-FJG" customClass="ItemFiltersCell" customModule="Storage" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="159.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="160.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pfD-lz-FJG" id="F1X-cs-96i">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ng-jN-Vje">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBM-qh-Lsf">
-                                                    <rect key="frame" x="16" y="9" width="334" height="26"/>
+                                                    <rect key="frame" x="16" y="9" width="334" height="26.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CancelButton" translatesAutoresizingMaskIntoConstraints="NO" id="7FP-41-V8H">
-                                                    <rect key="frame" x="365" y="-0.5" width="44" height="44.5"/>
+                                                    <rect key="frame" x="365" y="0.0" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="A4q-gg-yff"/>
                                                         <constraint firstAttribute="height" constant="44" id="ydf-DB-hiX"/>
@@ -215,10 +217,11 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="JBM-qh-Lsf" secondAttribute="bottom" constant="8.5" id="D85-hX-IjY"/>
+                                                <constraint firstItem="JBM-qh-Lsf" firstAttribute="top" secondItem="1ng-jN-Vje" secondAttribute="top" constant="9" id="HHd-sh-Fce"/>
                                                 <constraint firstItem="7FP-41-V8H" firstAttribute="leading" secondItem="JBM-qh-Lsf" secondAttribute="trailing" constant="15" id="WTK-Yc-Uv2"/>
                                                 <constraint firstItem="7FP-41-V8H" firstAttribute="centerY" secondItem="1ng-jN-Vje" secondAttribute="centerY" id="XJ3-tv-PeJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="7FP-41-V8H" secondAttribute="trailing" constant="5" id="e3v-0N-qhs"/>
-                                                <constraint firstItem="JBM-qh-Lsf" firstAttribute="centerY" secondItem="1ng-jN-Vje" secondAttribute="centerY" id="igw-zl-1J1"/>
                                                 <constraint firstItem="JBM-qh-Lsf" firstAttribute="leading" secondItem="1ng-jN-Vje" secondAttribute="leading" constant="16" id="lua-1B-4C8"/>
                                             </constraints>
                                         </view>

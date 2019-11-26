@@ -321,6 +321,7 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
     
     func addItem(_ name: String?) {
         items = itemsList.add(name ?? "", category!.id)
+        itemsSort(itemsSort)
         tableView.reloadData()
     }
     
@@ -338,6 +339,7 @@ extension ItemsTableViewController: ItemsViewControllerDelegate {
     func removeItems() {
         let items = itemsList.removeItems(selectedItems, nameFeatures, category!.id)
         self.items = items
+        itemsSort(itemsSort)
         tableView.reloadData()
     }
     
