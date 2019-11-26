@@ -25,6 +25,7 @@ class AnnotationDetailsTableViewController: UITableViewController {
     var index: Int?
     var fromMap: Bool = false
     
+    @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var mapButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIButton!
     
@@ -76,7 +77,7 @@ class AnnotationDetailsTableViewController: UITableViewController {
             }
             return
         }
-        let newAnnotation = Annotation(id: annotation?.id ?? 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: annotation?.favorite ?? false)
+        let newAnnotation = Annotation(id: annotation?.id ?? 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: annotation?.favorite ?? false, categories: "")
         if annotation != nil {
             annotationList.update(newAnnotation)
             mapViewControllerDelegate?.updateAnnotation(newAnnotation)
@@ -88,38 +89,8 @@ class AnnotationDetailsTableViewController: UITableViewController {
         let _ = navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func confirm() {
-        guard titleTextField!.text != "" && subtitleTextField!.text != "" else { return }
-        annotationList.update(Annotation(id: 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: annotation!.favorite))
-        let _ = navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func addAnnotation() {
-        guard titleTextField!.text != "" && subtitleTextField!.text != "" else {
-            if titleTextField!.text == "" {
-                titleTextField!.becomeFirstResponder()
-            } else {
-                subtitleTextField!.becomeFirstResponder()
-            }
-            return
-        }
-        annotationList.add(Annotation(id: 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: false))
-        let _ = navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func deleteAnnotation() {
-        let redAlert = UIAlertController(title: String(format: NSLocalizedString("Alert", comment: "")), message: String(format: NSLocalizedString("Data lost", comment: "")), preferredStyle: UIAlertController.Style.alert)
-        redAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            self.removeAnnotation()
-        }))
-        redAlert.addAction(UIAlertAction(title: String(format: NSLocalizedString("Cancel", comment: "")), style: .cancel, handler: nil))
-        present(redAlert, animated: true, completion: nil)
-    }
-    
-    @IBAction func cancel() {
-        titleTextField!.text = ""
-        subtitleTextField!.text = ""
-        let _ = navigationController?.popViewController(animated: true)
+    @IBAction func goToAnnotationCategories() {
+        newAnnotationCategoriesTableViewController()
     }
     
     // MARK: - Navigation
@@ -128,6 +99,13 @@ class AnnotationDetailsTableViewController: UITableViewController {
         let mapViewController: MapViewController = instantiate("MapViewController", storyboard: "Map")
         mapViewController.annotation = annotation
         navigationController?.pushViewController(mapViewController, animated: true)
+    }
+    
+    func newAnnotationCategoriesTableViewController() {
+        let annotationCategoriesTableViewController: AnnotationCategoriesTableViewController = instantiate("AnnotationCategoriesTableViewController", storyboard: "AnnotationCategories")
+        annotationCategoriesTableViewController.delegate = self
+        annotationCategoriesTableViewController.categoriesSelected = annotation?.categories.compactMap{ $0.wholeNumberValue} ?? []
+        navigationController?.pushViewController(annotationCategoriesTableViewController, animated: true)
     }
     
     func prepareTableView() {
@@ -174,12 +152,27 @@ class AnnotationDetailsTableViewController: UITableViewController {
         titleTextField.delegate = self
         subtitleTextField.delegate = self
         commentTextView.delegate = self
-        saveButton.borderFocus()
+        buttonsView.borderFocus()
     }
     
     private func disableMapButton() {
         mapButton.image = nil
         mapButton.isEnabled = false
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+protocol AnnotationCategoriesDelegate: AnyObject {
+    func update(_ categoriesId: [Int])
+}
+
+extension AnnotationDetailsTableViewController: AnnotationCategoriesDelegate {
+    func update(_ categoriesId: [Int]) {
+        guard annotation != nil else { return }
+        let stringArray: [String] = categoriesId.map{ String($0) }
+        annotation!.categories = stringArray.joined(separator: ",")
+        annotationList.update(annotation!)
     }
 }
 

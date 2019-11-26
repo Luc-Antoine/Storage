@@ -19,4 +19,17 @@ extension String {
         }
         return self
     }
+    
+    func intArray(_ array: [Int]) -> String {
+        var string: String = ""
+        for int in array {
+            string += String(int) + ","
+        }
+        return String(string.dropLast())
+    }
+    
+    func intArray(_ text: String) -> [Int] {
+        let array = text.components(separatedBy: ",")
+        return array.map { Int($0)!}
+    }
 }

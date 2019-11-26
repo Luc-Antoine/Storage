@@ -67,6 +67,9 @@
 		3F41CBBA1E79DC540018763E /* DataBaseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F41CBB91E79DC540018763E /* DataBaseAnnotation.swift */; };
 		3F4C017F2332BE1200F49A72 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C017E2332BE1200F49A72 /* UIImageView.swift */; };
 		3F4C01812332C90700F49A72 /* CreateDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C01802332C90700F49A72 /* CreateDataBase.swift */; };
+		3F60AD1C238D201700F4423F /* AnnotationCategories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F60AD1B238D201700F4423F /* AnnotationCategories.storyboard */; };
+		3F60AD1E238D203300F4423F /* AnnotationCategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60AD1D238D203300F4423F /* AnnotationCategoriesTableViewController.swift */; };
+		3F60AD20238D222100F4423F /* AnnotationCategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F60AD1F238D222100F4423F /* AnnotationCategoriesTableViewCell.swift */; };
 		3F6216FC1E4B53D000D1584C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6216FB1E4B53D000D1584C /* UserDefaults.swift */; };
 		3F767E2722785B4900CC32F2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F767E2622785B4900CC32F2 /* TabBarViewController.swift */; };
 		3F767E2D2278642300CC32F2 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F767E2C2278642300CC32F2 /* CategoriesTableViewController.swift */; };
@@ -216,6 +219,9 @@
 		3F4C017E2332BE1200F49A72 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3F4C01802332C90700F49A72 /* CreateDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDataBase.swift; sourceTree = "<group>"; };
 		3F57E3502354C3DC00779427 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ItemsFilter.strings; sourceTree = "<group>"; };
+		3F60AD1B238D201700F4423F /* AnnotationCategories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationCategories.storyboard; sourceTree = "<group>"; };
+		3F60AD1D238D203300F4423F /* AnnotationCategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCategoriesTableViewController.swift; sourceTree = "<group>"; };
+		3F60AD1F238D222100F4423F /* AnnotationCategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		3F6216FB1E4B53D000D1584C /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		3F767E2622785B4900CC32F2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3F767E2C2278642300CC32F2 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -538,7 +544,6 @@
 		3F5FB492238BEA6C00E82789 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				3F5FB493238BEA8B00E82789 /* ItemsFilterViewController */,
 				3FC56FE4234F541F0038D3B4 /* Items.storyboard */,
 				3F29046C22B9706000CF8BCB /* ItemsViewController.swift */,
 				3F29046A22B9704E00CF8BCB /* ItemsTableViewController.swift */,
@@ -546,6 +551,7 @@
 				3F28A72C230A8F1B00E89741 /* ItemNameFeaturesCell.swift */,
 				3F28A72E230A8F3700E89741 /* ItemFeaturesCell.swift */,
 				3F28A730230A8F6200E89741 /* ItemFiltersCell.swift */,
+				3F5FB493238BEA8B00E82789 /* ItemsFilterViewController */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -659,6 +665,7 @@
 				3F5FB498238BEC3700E82789 /* AnnotationsViewController */,
 				3F5FB49A238BEC8000E82789 /* MapViewController */,
 				3F5FB49B238BECA100E82789 /* AnnotationViewController */,
+				3F60AD1A238D1FE600F4423F /* AnnotationCategoriesViewController */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -684,6 +691,16 @@
 				3FF6E0E81F1CC15A001F5D02 /* Localizable.strings */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		3F60AD1A238D1FE600F4423F /* AnnotationCategoriesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3F60AD1B238D201700F4423F /* AnnotationCategories.storyboard */,
+				3F60AD1D238D203300F4423F /* AnnotationCategoriesTableViewController.swift */,
+				3F60AD1F238D222100F4423F /* AnnotationCategoriesTableViewCell.swift */,
+			);
+			path = AnnotationCategoriesViewController;
 			sourceTree = "<group>";
 		};
 		3F92B9BC235859BE0003C207 /* FastlaneSnapshot */ = {
@@ -878,6 +895,7 @@
 				3FC56FFB234F546B0038D3B4 /* FeaturesSettings.storyboard in Resources */,
 				3F7DEA0C2389DE34004C33A2 /* SortView.storyboard in Resources */,
 				3FC56FE2234F541F0038D3B4 /* Items.storyboard in Resources */,
+				3F60AD1C238D201700F4423F /* AnnotationCategories.storyboard in Resources */,
 				3F1022492385D8D20008EE96 /* AddView.storyboard in Resources */,
 				3FC99A01234E2149007DADB2 /* AnnotationModaleWindow.storyboard in Resources */,
 				3FC57000234F59340038D3B4 /* AllFeatures.storyboard in Resources */,
@@ -991,6 +1009,7 @@
 				3F1022512385D92D0008EE96 /* AddViewDelegate.swift in Sources */,
 				3F13EC992302A586006A25C6 /* DataBaseNameFeatures.swift in Sources */,
 				3F13EC9F2302A71B006A25C6 /* Feature.swift in Sources */,
+				3F60AD20238D222100F4423F /* AnnotationCategoriesTableViewCell.swift in Sources */,
 				3F10224D2385D90D0008EE96 /* AddViewController.swift in Sources */,
 				3F22A4812306F240008AB0BD /* UIButton.swift in Sources */,
 				3FA98CDF23507AB3007C7CCA /* UISegmentedControl.swift in Sources */,
@@ -1028,6 +1047,7 @@
 				3FFCEBAA22A9BCD800622092 /* MapNavigationController.swift in Sources */,
 				3FAD106E230A933700A0216D /* UIColor.swift in Sources */,
 				3F2E0F621E38B1D000B63C71 /* MapViewController.swift in Sources */,
+				3F60AD1E238D203300F4423F /* AnnotationCategoriesTableViewController.swift in Sources */,
 				3F0FF39F234343BD000D730B /* AnnotationsTableViewController.swift in Sources */,
 				3FC999FC234DCE13007DADB2 /* AnnotationsViewController.swift in Sources */,
 				3FA98CDD235075B1007C7CCA /* Appearance.swift in Sources */,

@@ -59,6 +59,7 @@ extension DataBase {
     }
     
     func delete(_ nameFeatures: [NameFeature]) {
+        print(nameFeatures)
         do {
             try dbQueue!.write({ db in
                 for nameFeature in nameFeatures {

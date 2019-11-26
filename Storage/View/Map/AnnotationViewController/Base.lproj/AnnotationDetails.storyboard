@@ -18,36 +18,60 @@
                         <sections>
                             <tableViewSection id="QcS-Kq-XgB">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="qvh-xG-KeG">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="54" id="qvh-xG-KeG">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qvh-xG-KeG" id="51j-PG-bM9">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-md-TKd">
-                                                    <rect key="frame" x="16" y="18" width="382" height="30"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KB4-ZS-fUz">
+                                                    <rect key="frame" x="16" y="12" width="382" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-md-TKd">
+                                                            <rect key="frame" x="0.0" y="-0.5" width="190.5" height="31"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                                            <state key="normal" title="Save">
+                                                                <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="save" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="bvW-4T-DLH"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFv-af-7mA">
+                                                            <rect key="frame" x="191.5" y="-0.5" width="190.5" height="31"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                                            <state key="normal" title="Categories">
+                                                                <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="goToAnnotationCategories" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="Ndj-F9-DM9"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="BoZ-QW-vnZ"/>
+                                                        <constraint firstAttribute="height" constant="30" id="5GP-B0-pEZ"/>
+                                                        <constraint firstItem="f6z-md-TKd" firstAttribute="centerY" secondItem="KB4-ZS-fUz" secondAttribute="centerY" id="U3k-Zr-KaA"/>
+                                                        <constraint firstItem="qFv-af-7mA" firstAttribute="leading" secondItem="f6z-md-TKd" secondAttribute="trailing" constant="1" id="UWR-4A-IvZ"/>
+                                                        <constraint firstItem="f6z-md-TKd" firstAttribute="width" secondItem="qFv-af-7mA" secondAttribute="width" id="p9h-mu-M9D"/>
+                                                        <constraint firstItem="f6z-md-TKd" firstAttribute="leading" secondItem="KB4-ZS-fUz" secondAttribute="leading" id="sNs-Nt-65T"/>
+                                                        <constraint firstAttribute="trailing" secondItem="qFv-af-7mA" secondAttribute="trailing" id="vKk-gs-hbp"/>
+                                                        <constraint firstItem="qFv-af-7mA" firstAttribute="centerY" secondItem="KB4-ZS-fUz" secondAttribute="centerY" id="ycU-8Y-Z9g"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="17"/>
-                                                    <state key="normal" title="Save">
-                                                        <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="save" destination="Fdc-7Q-oQa" eventType="touchUpInside" id="bvW-4T-DLH"/>
-                                                    </connections>
-                                                </button>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="f6z-md-TKd" firstAttribute="centerY" secondItem="51j-PG-bM9" secondAttribute="centerY" id="AG3-eB-7EW"/>
-                                                <constraint firstItem="f6z-md-TKd" firstAttribute="leading" secondItem="51j-PG-bM9" secondAttribute="leading" constant="16" id="Nhx-nv-5LJ"/>
-                                                <constraint firstItem="f6z-md-TKd" firstAttribute="centerX" secondItem="51j-PG-bM9" secondAttribute="centerX" id="zVY-cV-nuK"/>
+                                                <constraint firstItem="KB4-ZS-fUz" firstAttribute="leading" secondItem="51j-PG-bM9" secondAttribute="leading" constant="16" id="jUh-w5-dlV"/>
+                                                <constraint firstAttribute="trailing" secondItem="KB4-ZS-fUz" secondAttribute="trailing" constant="16" id="vS8-ff-DWh"/>
+                                                <constraint firstItem="KB4-ZS-fUz" firstAttribute="top" secondItem="51j-PG-bM9" secondAttribute="top" constant="12" id="woR-WX-BI3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="56" id="1ez-ge-rKN">
-                                        <rect key="frame" x="0.0" y="94" width="414" height="56"/>
+                                        <rect key="frame" x="0.0" y="82" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1ez-ge-rKN" id="qVK-fI-kCy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -92,7 +116,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="56" id="von-Q3-TSO">
-                                        <rect key="frame" x="0.0" y="150" width="414" height="56"/>
+                                        <rect key="frame" x="0.0" y="138" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="von-Q3-TSO" id="gqy-Dh-0rj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -137,7 +161,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="180" id="1Mx-Fr-dhG">
-                                        <rect key="frame" x="0.0" y="206" width="414" height="180"/>
+                                        <rect key="frame" x="0.0" y="194" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Mx-Fr-dhG" id="97c-dG-pX2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -190,6 +214,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonsView" destination="KB4-ZS-fUz" id="m8e-AY-Oam"/>
                         <outlet property="commentTextView" destination="dak-Ca-tPR" id="FAh-ed-OC7"/>
                         <outlet property="mapButton" destination="xYB-yA-XAm" id="fZd-1b-myZ"/>
                         <outlet property="saveButton" destination="f6z-md-TKd" id="K6c-2x-PjJ"/>

@@ -56,7 +56,8 @@ extension DataBase {
                         comment TEXT,
                         lat DOUBLE,
                         lng DOUBLE,
-                        favorite BOOL
+                        favorite BOOL,
+                        categories TEXT
                     )
                 """)
             })

@@ -75,10 +75,10 @@ class Demonstration {
         dataBase.insert(6, nameFeatureId: 5, featureId: 15)
         dataBase.insert(6, nameFeatureId: 6, featureId: 16)
         
-        dataBase.insert(Annotation(id: 1, title: "Arc de Triomphe", subtitle: "contruit en 1836", comment: "", lat: 48.8738, lng: 2.29504, favorite: false))
-        dataBase.insert(Annotation(id: 2, title: "Tour Eiffel", subtitle: "contruit en 1887", comment: "", lat: 48.8583, lng: 2.2945, favorite: false))
-        dataBase.insert(Annotation(id: 3, title: "Louvre", subtitle: "contruit en 1776", comment: "", lat: 48.8611968051426, lng: 2.33510438781378, favorite: true))
-        dataBase.insert(Annotation(id: 4, title: "Château de Chantilly", subtitle: "contruit en 1882", comment: "", lat: 49.1939, lng: 2.48541, favorite: true))
+        dataBase.insert(Annotation(id: 1, title: "Arc de Triomphe", subtitle: "contruit en 1836", comment: "", lat: 48.8738, lng: 2.29504, favorite: false, categories: ""))
+        dataBase.insert(Annotation(id: 2, title: "Tour Eiffel", subtitle: "contruit en 1887", comment: "", lat: 48.8583, lng: 2.2945, favorite: false, categories: ""))
+        dataBase.insert(Annotation(id: 3, title: "Louvre", subtitle: "contruit en 1776", comment: "", lat: 48.8611968051426, lng: 2.33510438781378, favorite: true, categories: ""))
+        dataBase.insert(Annotation(id: 4, title: "Château de Chantilly", subtitle: "contruit en 1882", comment: "", lat: 49.1939, lng: 2.48541, favorite: true, categories: ""))
     }
     
     func english() {
@@ -145,9 +145,9 @@ class Demonstration {
         dataBase.insert(6, nameFeatureId: 5, featureId: 15)
         dataBase.insert(6, nameFeatureId: 6, featureId: 16)
         
-        dataBase.insert(Annotation(id: 1, title: "Statue of Liberty", subtitle: "built in 1886", comment: "", lat: 40.6892574131197, lng: -74.0446082550508, favorite: false))
-        dataBase.insert(Annotation(id: 2, title: "Miami Seaquarium", subtitle: "built in 1955", comment: "", lat: 25.733276784853068, lng: -80.16524822451174, favorite: false))
-        dataBase.insert(Annotation(id: 3, title: "Empire State Building", subtitle: "built in 1931", comment: "", lat: 40.748452, lng: -73.985595, favorite: true))
-        dataBase.insert(Annotation(id: 4, title: "Big Cypress National Preserve", subtitle: "established by law in 1974", comment: "", lat: 25.768103112056725, lng: -80.8337389677761, favorite: true))
+        dataBase.insert(Annotation(id: 1, title: "Statue of Liberty", subtitle: "built in 1886", comment: "", lat: 40.6892574131197, lng: -74.0446082550508, favorite: false, categories: ""))
+        dataBase.insert(Annotation(id: 2, title: "Miami Seaquarium", subtitle: "built in 1955", comment: "", lat: 25.733276784853068, lng: -80.16524822451174, favorite: false, categories: ""))
+        dataBase.insert(Annotation(id: 3, title: "Empire State Building", subtitle: "built in 1931", comment: "", lat: 40.748452, lng: -73.985595, favorite: true, categories: ""))
+        dataBase.insert(Annotation(id: 4, title: "Big Cypress National Preserve", subtitle: "established by law in 1974", comment: "", lat: 25.768103112056725, lng: -80.8337389677761, favorite: true, categories: ""))
     }
 }

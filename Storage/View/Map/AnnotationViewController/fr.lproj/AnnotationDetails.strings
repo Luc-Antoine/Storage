@@ -5,6 +5,9 @@
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "f6z-md-TKd"; */
 "f6z-md-TKd.normalTitle" = "Enregistrer";
 
+/* Class = "UIButton"; normalTitle = "Categories"; ObjectID = "qFv-af-7mA"; */
+"qFv-af-7mA.normalTitle" = "Catégories";
+
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "guy-Bh-3wa"; */
 "guy-Bh-3wa.title" = "Titre";
 

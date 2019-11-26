@@ -16,8 +16,8 @@ extension DataBase {
         do {
             try dbQueue!.write({ db in
                 try db.execute(
-                    sql: "INSERT INTO Annotation (title, subtitle, comment, lat, lng, favorite) VALUES (:title, :subtitle, :comment, :lat, :lng, :favorite)",
-                    arguments: ["title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment, "lat":annotation.lat, "lng":annotation.lng, "favorite":annotation.favorite])
+                    sql: "INSERT INTO Annotation (title, subtitle, comment, lat, lng, favorite, categories) VALUES (:title, :subtitle, :comment, :lat, :lng, :favorite, :categories)",
+                    arguments: ["title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment, "lat":annotation.lat, "lng":annotation.lng, "favorite":annotation.favorite, "categories":annotation.categories])
             })
         } catch {
             NSLog(error.localizedDescription)
@@ -39,8 +39,8 @@ extension DataBase {
         do {
             try dbQueue!.write({ db in
                 try db.execute(
-                    sql: "UPDATE Annotation SET title = :title, subtitle = :subtitle, comment = :comment WHERE id = :id",
-                    arguments: ["id":annotation.id, "title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment])
+                    sql: "UPDATE Annotation SET title = :title, subtitle = :subtitle, comment = :comment, categories = :categories WHERE id = :id",
+                    arguments: ["id":annotation.id, "title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment, "categories":annotation.categories])
             })
         } catch {
             NSLog(error.localizedDescription)

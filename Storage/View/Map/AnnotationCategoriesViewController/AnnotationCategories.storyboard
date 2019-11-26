@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Annotation Categories Table View Controller-->
+        <scene sceneID="aNh-Xt-veg">
+            <objects>
+                <tableViewController storyboardIdentifier="AnnotationCategoriesTableViewController" id="cSA-aW-Nef" customClass="AnnotationCategoriesTableViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WcP-9x-tMT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="separatorColor" red="0.85490196080000003" green="0.90588235289999997" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnnotationCategoriesTableViewCell" id="xXP-wx-3BO" customClass="AnnotationCategoriesTableViewCell" customModule="Storage" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xXP-wx-3BO" id="6UF-0X-4i6">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awr-db-os6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M95-hY-L40">
+                                                    <rect key="frame" x="16" y="9" width="382" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstItem="M95-hY-L40" firstAttribute="centerY" secondItem="awr-db-os6" secondAttribute="centerY" id="44d-bO-63t"/>
+                                                <constraint firstItem="M95-hY-L40" firstAttribute="centerX" secondItem="awr-db-os6" secondAttribute="centerX" id="CN6-f1-vXB"/>
+                                                <constraint firstItem="M95-hY-L40" firstAttribute="leading" secondItem="awr-db-os6" secondAttribute="leading" constant="16" id="fGq-dR-HqU"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="awr-db-os6" secondAttribute="bottom" id="UwL-bE-bSw"/>
+                                        <constraint firstAttribute="trailing" secondItem="awr-db-os6" secondAttribute="trailing" id="khI-Ls-DSM"/>
+                                        <constraint firstItem="awr-db-os6" firstAttribute="top" secondItem="6UF-0X-4i6" secondAttribute="top" id="rHa-S7-CJe"/>
+                                        <constraint firstItem="awr-db-os6" firstAttribute="leading" secondItem="6UF-0X-4i6" secondAttribute="leading" id="rXg-FK-RAl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="backView" destination="awr-db-os6" id="qqu-qC-C68"/>
+                                    <outlet property="nameLabel" destination="M95-hY-L40" id="Ab9-Am-ajX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cSA-aW-Nef" id="bQi-Ol-OEg"/>
+                            <outlet property="delegate" destination="cSA-aW-Nef" id="Dpu-Bx-Fuu"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGO-LP-OZE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3" y="115"/>
+        </scene>
+    </scenes>
+</document>

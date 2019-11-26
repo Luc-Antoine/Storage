@@ -120,7 +120,8 @@ class ItemsTableViewController: UITableViewController {
         switch kindItem {
         case .items:
             if navBarItemFilter == .delete {
-                selectedItems.append(items[indexPath.row])
+                let itemSelected = items[indexPath.row]
+                selectedItems.append(itemSelected)
                 lastIndexPath = indexPath
                 delegate?.editTextField(items[indexPath.row].name)
             } else {
@@ -168,6 +169,9 @@ class ItemsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let index = selectedItems.firstIndex(of: items[indexPath.row]) {
+            selectedItems.remove(at: index)
+        }
         lastIndexPath = nil
         delegate?.editTextFieldEndEditing()
     }
