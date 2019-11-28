@@ -17,9 +17,10 @@ struct Annotation {
     let lat: Double
     let lng: Double
     var favorite: Bool
-    var categories: String
+    var categories: [Int]
+    var distance: Double
     
-    init(id: Int, title: String, subtitle: String, comment: String, lat: Double, lng: Double, favorite: Bool, categories: String) {
+    init(id: Int, title: String, subtitle: String, comment: String, lat: Double, lng: Double, favorite: Bool, categories: [Int]) {
         self.id = id
         self.title = title
         self.subtitle = subtitle
@@ -28,6 +29,7 @@ struct Annotation {
         self.lng = lng
         self.favorite = favorite
         self.categories = categories
+        self.distance = 0
     }
 }
 
@@ -46,7 +48,8 @@ extension Annotation: FetchableRecord, PersistableRecord {
         lat = row["lat"]
         lng = row["lng"]
         favorite = row["favorite"]
-        categories = row["categories"]
+        categories = String(row["categories"]).stringToIntArray()
+        distance = 0
     }
     
     func encode(to container: inout PersistenceContainer) {

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Annotations Filter View Controller-->
+        <scene sceneID="jRp-U7-xhZ">
+            <objects>
+                <viewController storyboardIdentifier="AnnotationsFilterViewController" id="rXV-SR-pOQ" customClass="AnnotationsFilterViewController" customModule="Storage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2JN-JW-191">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4M-8G-mYI">
+                                <rect key="frame" x="16" y="433" width="382" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dco-6q-JLL">
+                                        <rect key="frame" x="0.0" y="-0.5" width="190.5" height="31"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelFilter" destination="rXV-SR-pOQ" eventType="touchUpInside" id="Old-To-9Fm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdY-Md-F2R">
+                                        <rect key="frame" x="191.5" y="-0.5" width="190.5" height="31"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="15"/>
+                                        <state key="normal" title="Validate">
+                                            <color key="titleColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirm" destination="rXV-SR-pOQ" eventType="touchUpInside" id="hwQ-zI-1Qi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.02745117247" green="0.35294109579999999" blue="0.67450958490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tdY-Md-F2R" secondAttribute="trailing" id="GfQ-lL-JJf"/>
+                                    <constraint firstItem="tdY-Md-F2R" firstAttribute="leading" secondItem="Dco-6q-JLL" secondAttribute="trailing" constant="1" id="O2t-Sn-9Is"/>
+                                    <constraint firstAttribute="height" constant="30" id="O80-Di-eKp"/>
+                                    <constraint firstItem="Dco-6q-JLL" firstAttribute="centerY" secondItem="W4M-8G-mYI" secondAttribute="centerY" id="YwX-Lj-vbF"/>
+                                    <constraint firstItem="tdY-Md-F2R" firstAttribute="centerY" secondItem="W4M-8G-mYI" secondAttribute="centerY" id="qRs-dk-HnZ"/>
+                                    <constraint firstItem="Dco-6q-JLL" firstAttribute="leading" secondItem="W4M-8G-mYI" secondAttribute="leading" id="rd3-IO-cyw"/>
+                                    <constraint firstItem="Dco-6q-JLL" firstAttribute="width" secondItem="tdY-Md-F2R" secondAttribute="width" id="vu9-Wn-He2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="W4M-8G-mYI" firstAttribute="leading" secondItem="WFf-2k-vNW" secondAttribute="leading" constant="16" id="000-fX-FUW"/>
+                            <constraint firstItem="WFf-2k-vNW" firstAttribute="trailing" secondItem="W4M-8G-mYI" secondAttribute="trailing" constant="16" id="Gnl-73-QoS"/>
+                            <constraint firstItem="W4M-8G-mYI" firstAttribute="centerY" secondItem="2JN-JW-191" secondAttribute="centerY" id="SXG-QM-KfL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WFf-2k-vNW"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonsView" destination="W4M-8G-mYI" id="y0Y-pK-UIh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Chj-Xc-mfi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46" y="127"/>
+        </scene>
+    </scenes>
+</document>

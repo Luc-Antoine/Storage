@@ -29,6 +29,21 @@ class Preferences {
         return defaults.object(forKey: "lastFeatureId") as! Int
     }
     
+    // MARK: - Position
+    
+    func lastLocation(_ value: Position) {
+        defaults.set(value.lat, forKey: "latitude")
+        defaults.set(value.lng, forKey: "longitude")
+        print("Last position updated !")
+    }
+    
+//    func lastLocation() -> Position {
+//        let latitude: Double = defaults.object(forKey: "latitude") as! Double
+//        let longitude: Double = defaults.object(forKey: "longitude") as! Double
+//        return Position(lat: latitude, lng: longitude)
+////        return defaults.object(forKey: "lastLocation") as! Position
+//    }
+    
     // MARK: - Sort
     
     func categorySort(_ value: Int) {

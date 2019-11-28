@@ -77,7 +77,7 @@ class AnnotationDetailsTableViewController: UITableViewController {
             }
             return
         }
-        let newAnnotation = Annotation(id: annotation?.id ?? 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: annotation?.favorite ?? false, categories: "")
+        let newAnnotation = Annotation(id: annotation?.id ?? 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: annotation?.favorite ?? false, categories: [])
         if annotation != nil {
             annotationList.update(newAnnotation)
             mapViewControllerDelegate?.updateAnnotation(newAnnotation)
@@ -104,7 +104,8 @@ class AnnotationDetailsTableViewController: UITableViewController {
     func newAnnotationCategoriesTableViewController() {
         let annotationCategoriesTableViewController: AnnotationCategoriesTableViewController = instantiate("AnnotationCategoriesTableViewController", storyboard: "AnnotationCategories")
         annotationCategoriesTableViewController.delegate = self
-        annotationCategoriesTableViewController.categoriesSelected = annotation?.categories.compactMap{ $0.wholeNumberValue} ?? []
+//        annotationCategoriesTableViewController.categoriesSelected = annotation?.categories.compactMap{ $0.wholeNumberValue} ?? []
+        annotationCategoriesTableViewController.categoriesSelected = annotation?.categories ?? []
         navigationController?.pushViewController(annotationCategoriesTableViewController, animated: true)
     }
     
@@ -170,8 +171,9 @@ protocol AnnotationCategoriesDelegate: AnyObject {
 extension AnnotationDetailsTableViewController: AnnotationCategoriesDelegate {
     func update(_ categoriesId: [Int]) {
         guard annotation != nil else { return }
-        let stringArray: [String] = categoriesId.map{ String($0) }
-        annotation!.categories = stringArray.joined(separator: ",")
+//        let stringArray: [String] = categoriesId.map{ String($0) }
+//        annotation!.categories = stringArray.joined(separator: ",")
+        annotation!.categories = categoriesId
         annotationList.update(annotation!)
     }
 }

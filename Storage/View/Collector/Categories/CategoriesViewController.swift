@@ -39,7 +39,6 @@ class CategoriesViewController: UIViewController {
         initDataBase()
         navigationBarDesign()
         navigationBack()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

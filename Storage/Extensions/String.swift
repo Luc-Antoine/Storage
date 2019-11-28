@@ -28,8 +28,9 @@ extension String {
         return String(string.dropLast())
     }
     
-    func intArray(_ text: String) -> [Int] {
-        let array = text.components(separatedBy: ",")
-        return array.map { Int($0)!}
+    func stringToIntArray() -> [Int] {
+        guard self != "" else { return [] }
+        guard self.contains(",") else { return [Int(self)!] }
+        return self.components(separatedBy: ",").map { (Int($0)!) }
     }
 }

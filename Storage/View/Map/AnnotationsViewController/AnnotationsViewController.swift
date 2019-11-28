@@ -12,24 +12,33 @@ class AnnotationsViewController: UIViewController {
 
     weak var tableViewDelegate: AnnotationsViewControllerDelegate?
     weak var mapViewDelegate: AnnotationsViewControllerToMapViewDelegate?
+    weak var filterDelegate: AnnotationCategoriesToAnnotationsViewControllerDelegate?
     
     var navBarItem: NavBarItem? = .add
     var tableViewStat: TableViewStat?
     var research: Research?
     var lastAnnotationSelected: Annotation?
     
+    var categories: [Category] = []
+    var categoriesSelected: [Int] = []
+    var isFiltered: Bool = false
+    
     @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var addOrDeleteButton: UIBarButtonItem!
     
+    private let annotationsViewModel = AnnotationsViewModel()
+    private let categoryList = CategoryList()
     private let preferences = Preferences()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        annotationsViewModel.lastLocationDelegate(self)
         navigationBarDesign()
         navigationBack()
         navigationItem.title = "Annotations"
+        categories = categoryList.all()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,12 +66,23 @@ class AnnotationsViewController: UIViewController {
     // MARK: - Childs
     
     func newAnnotationsTableViewController() {
-        let annotationsTableViewController: AnnotationsTableViewController = instantiate( "AnnotationsTableViewController", storyboard: "Annotations")
+        let annotationsTableViewController: AnnotationsTableViewController = instantiate("AnnotationsTableViewController", storyboard: "Annotations")
         annotationsTableViewController.delegate = self
+        annotationsTableViewController.viewModelDelegate = self
         tableViewDelegate = annotationsTableViewController
         annotationsTableViewController.annotationsSort = annotationsSortIndex() ?? .increasing
         annotationsTableViewController.research = research
+        annotationsTableViewController.categories = categories
+        annotationsTableViewController.categoriesSelected = categoriesSelected
         addChild(annotationsTableViewController, container: tableViewContainer)
+    }
+    
+    func newAnnotationCategoriesTableViewController() {
+        let annotationCategoriesTableViewController: AnnotationCategoriesTableViewController = instantiate("AnnotationCategoriesTableViewController", storyboard: "AnnotationCategories")
+        filterDelegate = annotationCategoriesTableViewController
+        annotationCategoriesTableViewController.categories = categories
+        annotationCategoriesTableViewController.categoriesSelected = categoriesSelected
+        addChild(annotationCategoriesTableViewController, container: tableViewContainer)
     }
     
     func newAnnotationsSettingsViewController() {
@@ -71,9 +91,18 @@ class AnnotationsViewController: UIViewController {
         settingsViewModel.delegate = self
         settingsViewController.viewModel = settingsViewModel
         settingsViewController.data = "annotations"
+        settingsViewController.categoriesSelectedCount = categoriesSelected.count
         settingsViewController.searchCount = research?.count ?? 0
         navBarOption(.add)
         addChild(settingsViewController, container: settingsContainer)
+    }
+    
+    func newAnnotationsFilterViewController() {
+        let annotationsFilterViewController: AnnotationsFilterViewController = instantiate("AnnotationsFilterViewController", storyboard: "AnnotationsFilter")
+        annotationsFilterViewController.delegate = self
+        navBarOption(nil)
+        addChild(annotationsFilterViewController, container: settingsContainer)
+        newAnnotationCategoriesTableViewController()
     }
     
     func newAnnotationsEditViewController() {
@@ -121,6 +150,11 @@ class AnnotationsViewController: UIViewController {
         tableViewStat = nil
     }
     
+    func showAnnotations() {
+        filterDelegate?.remove()
+        newAnnotationsTableViewController()
+    }
+    
     // MARK: - Navigation Controller Function
     
     func navBarOption(_ option: NavBarItem?) {
@@ -150,7 +184,6 @@ protocol AnnotationsTableViewControllerDelegate: AnyObject {
 }
 
 extension AnnotationsViewController: AnnotationsTableViewControllerDelegate {
-    
     func newAnnotationDetailsTableViewController(_ annotation: Annotation, _ distance: String) {
         let annotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
         annotationDetailsTableViewController.annotation = annotation
@@ -169,7 +202,7 @@ extension AnnotationsViewController: SettingsViewDelegate {
             newAnnotationsEditViewController()
             break
         case 1:
-            newAnnotationsSortViewController()
+            newAnnotationsFilterViewController()
             break
         case 2:
             newAnnotationsSearchViewController()
@@ -191,6 +224,29 @@ extension AnnotationsViewController: AnnotationsEditViewControllerDelegate {
     
     func annotationsTableViewEditing() {
         tableViewDelegate?.tableViewEditing()
+    }
+}
+
+// MARK: - AnnotationsFilterViewControllerDelegate
+
+protocol AnnotationsFilterViewControllerDelegate: AnyObject {
+    func newAnnotationsTableViewController()
+    func newChildSettings()
+    func filters()
+    func resetFilters()
+}
+
+extension AnnotationsViewController: AnnotationsFilterViewControllerDelegate {
+    func filters() {
+        isFiltered = true
+        categoriesSelected = filterDelegate?.categoriesFiltered() ?? []
+        showAnnotations()
+    }
+    
+    func resetFilters() {
+        isFiltered = false
+        categoriesSelected.removeAll()
+        showAnnotations()
     }
 }
 
@@ -222,5 +278,22 @@ extension AnnotationsViewController: SearchViewDelegate {
     func researching(_ text: String?) {
         guard text != nil || text != "" else { return }
         research = Research.init(search: text!, count: tableViewDelegate?.searchCount() ?? 0)
+    }
+}
+
+// MARK: - AnnotationsViewModelDelegate
+
+extension AnnotationsViewController: AnnotationsViewModelDelegate {
+    func distanceFormatted(lat: Double, lng: Double) -> String {
+        annotationsViewModel.distanceFormatted(lat: lat, lng: lng)
+    }
+}
+
+// MARK: - LastLocationDelegate
+
+extension AnnotationsViewController: LastLocationDelegate {
+    func lastLocation(_ position: Position) {
+        tableViewDelegate?.reloadData()
+        print("Table View reloaded !")
     }
 }

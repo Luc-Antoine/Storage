@@ -65,3 +65,11 @@ class AnnotationCategoriesTableViewController: UITableViewController {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
+
+// MARK: - AnnotationCategoriesToAnnotationsViewControllerDelegate
+
+extension AnnotationCategoriesTableViewController: AnnotationCategoriesToAnnotationsViewControllerDelegate {
+    func categoriesFiltered() -> [Int] {
+        return categoriesSelected
+    }
+}

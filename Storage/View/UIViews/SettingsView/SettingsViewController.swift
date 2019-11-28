@@ -14,9 +14,11 @@ class SettingsViewController: UIViewController {
     var data: String = ""
     var filterCount: Int = 0
     var searchCount: Int = 0
+    var categoriesSelectedCount: Int = 0
     
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
@@ -26,7 +28,8 @@ class SettingsViewController: UIViewController {
         buttonsView.clipsToBounds = true
         titles()
         searchTitle()
-        filterTitle()
+        filterItems()
+        filterAnnotations()
     }
     
     @IBAction func edit() {
@@ -55,13 +58,14 @@ class SettingsViewController: UIViewController {
             break
         case "annotations":
             editButton.setTitle(NSLocalizedString("Modify", comment: ""), for: .normal)
+            sortButton.setTitle(NSLocalizedString("Filter", comment: ""), for: .normal)
             break
         default:
             break
         }
     }
     
-    private func filterTitle() {
+    private func filterItems() {
         guard filterCount > 0 else { return }
         searchButton.backgroundColor = UIColor.mainColor
         searchButton.setTitleColor(UIColor.white, for: .normal)
@@ -73,6 +77,21 @@ class SettingsViewController: UIViewController {
             }
         } else {
             searchButton.setTitle("\(filterCount) " + NSLocalizedString("Filter", comment: ""), for: .normal)
+        }
+    }
+    
+    private func filterAnnotations() {
+        guard categoriesSelectedCount > 0 else { return }
+        sortButton.backgroundColor = UIColor.mainColor
+        sortButton.setTitleColor(UIColor.white, for: .normal)
+        if Locale.current.languageCode == "fr" {
+            if categoriesSelectedCount > 1 {
+                sortButton.setTitle("\(categoriesSelectedCount) Filtres", for: .normal)
+            } else {
+                sortButton.setTitle("\(categoriesSelectedCount) Filtre", for: .normal)
+            }
+        } else {
+            sortButton.setTitle("\(categoriesSelectedCount) " + NSLocalizedString("Filter", comment: ""), for: .normal)
         }
     }
     

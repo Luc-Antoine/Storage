@@ -10,6 +10,8 @@ import Foundation
 import CoreLocation
 
 class LastLocation: NSObject, CLLocationManagerDelegate {
+    
+    weak var delegate: LastLocationDelegate?
     var currentLocation: CLLocation? = nil
     var showUserLocation: Bool?
     var isAuthorised = false {
@@ -25,9 +27,8 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    var annotationsTableViewControllerLocationDelegate: AnnotationsTableViewControllerLocationDelegate?
-    
     private let locationManager = CLLocationManager()
+    private let preferences = Preferences()
     
     override init() {
         super.init()
@@ -38,9 +39,11 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.last
-        annotationsTableViewDelegate(Position(lat: currentLocation!.coordinate.latitude, lng: currentLocation!.coordinate.longitude))
         locationManager.stopUpdatingLocation()
-        
+        guard currentLocation != nil else { return }
+        let position = Position(lat: currentLocation!.coordinate.latitude, lng: currentLocation!.coordinate.longitude)
+        preferences.lastLocation(position)
+        delegate?.lastLocation(position)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -64,10 +67,6 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
     }
     
     // MARK: - Location Delegates
-    
-    private func annotationsTableViewDelegate(_ position: Position) {
-        annotationsTableViewControllerLocationDelegate?.reloadCurrentLocation(position)
-    }
     
     private func distance(of position: Position) -> CLLocationDistance {
         let location = CLLocation(latitude: position.lat, longitude: position.lng)

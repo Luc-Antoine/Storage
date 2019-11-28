@@ -90,6 +90,7 @@
                         <outlet property="buttonsView" destination="gXA-P7-4MM" id="nNw-Km-K3k"/>
                         <outlet property="editButton" destination="nqd-Wt-Bnm" id="vqg-ao-6yK"/>
                         <outlet property="searchButton" destination="QEw-xd-njb" id="3bv-Li-mMc"/>
+                        <outlet property="sortButton" destination="pzU-Jk-cA2" id="DNF-2U-v6s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZn-a1-YvF" userLabel="First Responder" sceneMemberID="firstResponder"/>

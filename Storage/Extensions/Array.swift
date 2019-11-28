@@ -32,3 +32,13 @@ extension Array where Element: Equatable {
         return array
     }
 }
+
+extension Array where Element == Int {
+    func intArrayToString() -> String {
+        var string: String = ""
+        for int in self {
+            string += String(int) + ","
+        }
+        return String(string.dropLast())
+    }
+}

@@ -11,6 +11,7 @@ import UIKit
 class AnnotationsTableViewController: UITableViewController {
 
     weak var delegate: AnnotationsTableViewControllerDelegate?
+    weak var viewModelDelegate: AnnotationsViewModelDelegate?
     
     var annotations: [Annotation] = []
     var researchingAnnotations: [Annotation] = []
@@ -21,14 +22,19 @@ class AnnotationsTableViewController: UITableViewController {
     var currentLocation: Position?
     var lastIndexPath: IndexPath?
     
+    var categories: [Category] = []
+    var categoriesSelected: [Int] = []
+    
     private let annotationList = AnnotationList()
-    private let lastLocation = LastLocation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lastLocation.annotationsTableViewControllerLocationDelegate = self
-        annotations = annotationsSort.sort(annotationList.all())
+        if categoriesSelected.count > 0 {
+            annotations = find()
+        } else {
+            annotations = annotationsSort.sort(annotationList.all())
+        }
         if research != nil {
             textFieldDidResearching(research!.search)
         } else {
@@ -69,7 +75,7 @@ class AnnotationsTableViewController: UITableViewController {
             selectedAnnotations.append(annotations[indexPath.row])
             lastIndexPath = indexPath
         } else {
-            let distance: String = lastLocation.calculateDistance(position: Position(lat: annotations[indexPath.row].lat, lng: annotations[indexPath.row].lng))
+            let distance: String = viewModelDelegate?.distanceFormatted(lat: annotations[indexPath.row].lat, lng: annotations[indexPath.row].lng) ?? ""
             if research != nil {
                 delegate?.newAnnotationDetailsTableViewController(researchingAnnotations[indexPath.row], distance)
             } else {
@@ -91,6 +97,20 @@ class AnnotationsTableViewController: UITableViewController {
     func scrolling(row: Int) {
         self.tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .none, animated: true)
+    }
+    
+    private func find() -> [Annotation] {
+        let allAnnotations = annotationList.all()
+        var filteredAnnotations: [Annotation] = []
+        for id in categoriesSelected {
+            for annotation in allAnnotations {
+                if annotation.categories.contains(id) {
+                    filteredAnnotations.append(annotation)
+                    continue
+                }
+            }
+        }
+        return filteredAnnotations
     }
 
 }
@@ -163,7 +183,6 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
     
     func addAnnotation(_ annotation: Annotation?) {
         guard annotation != nil else { return }
-        //annotations = annotationList.add(annotation!)
         tableView.reloadData()
     }
     
@@ -231,13 +250,11 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
     }
 }
 
-protocol AnnotationsTableViewControllerLocationDelegate: AnyObject {
-    func reloadCurrentLocation(_ position: Position)
-}
+// MARK: - LastLocationDelegate
 
-extension AnnotationsTableViewController: AnnotationsTableViewControllerLocationDelegate {
-    func reloadCurrentLocation(_ position: Position) {
-        currentLocation = position
-        tableView.reloadData()
-    }
-}
+//extension AnnotationsTableViewController: LastLocationDelegate {
+//    func lastLocation(_ position: Position) {
+//        tableView.reloadData()
+//        print("Table View reloaded !")
+//    }
+//}
