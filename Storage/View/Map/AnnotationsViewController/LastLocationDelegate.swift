@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol LastLocationDelegate: AnyObject {
-    func lastLocation(_ position: Position)
-}
+//protocol LastLocationDelegate: AnyObject {
+//    func lastLocation(_ position: Position)
+//}

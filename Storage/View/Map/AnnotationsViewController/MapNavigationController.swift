@@ -10,6 +10,8 @@ import UIKit
 
 class MapNavigationController: UINavigationController {
     
+    var lastLocation: LastLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +22,7 @@ class MapNavigationController: UINavigationController {
     
     func newAnnotationsViewController() {
         let annotationsViewController: AnnotationsViewController = instantiate("AnnotationsViewController", storyboard: "Annotations")
+        annotationsViewController.lastLocation = lastLocation
         pushViewController(annotationsViewController, animated: true)
     }
 }

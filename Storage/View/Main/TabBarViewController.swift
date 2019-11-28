@@ -11,6 +11,8 @@ import UIKit
 class TabBarViewController: UITabBarController {
     
     weak private var categoryViewController: CategoriesViewController?
+    
+    private let lastLocation = LastLocation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +23,11 @@ class TabBarViewController: UITabBarController {
     // MARK: - Instantiate Functions
     
     func instantiateItems() {
-        let firstViewController = CategoriesNavigationController()
-        firstViewController.tabBarItem = UITabBarItem(title: "Objet", image: UIImage(named: "Collection"), tag: 0)
-        let secondController = MapNavigationController()
-        secondController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Pins"), tag: 1)
-        viewControllers = [firstViewController, secondController]
+        let categoriesNavigationController = CategoriesNavigationController()
+        categoriesNavigationController.tabBarItem = UITabBarItem(title: "Objet", image: UIImage(named: "Collection"), tag: 0)
+        let mapNavigationController = MapNavigationController()
+        mapNavigationController.tabBarItem = UITabBarItem(title: "Carte", image: UIImage(named: "Pins"), tag: 1)
+        mapNavigationController.lastLocation = lastLocation
+        viewControllers = [categoriesNavigationController, mapNavigationController]
     }
 }

@@ -13,6 +13,8 @@ class AnnotationsTableViewController: UITableViewController {
     weak var delegate: AnnotationsTableViewControllerDelegate?
     weak var viewModelDelegate: AnnotationsViewModelDelegate?
     
+    var lastLocation: LastLocation?
+    
     var annotations: [Annotation] = []
     var researchingAnnotations: [Annotation] = []
     var selectedAnnotations: [Annotation] = []
@@ -31,9 +33,9 @@ class AnnotationsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         if categoriesSelected.count > 0 {
-            annotations = find()
+            loadFilteredAnnotations()
         } else {
-            annotations = annotationsSort.sort(annotationList.all())
+            loadAnnotations()
         }
         if research != nil {
             textFieldDidResearching(research!.search)
@@ -99,6 +101,8 @@ class AnnotationsTableViewController: UITableViewController {
         tableView.scrollToRow(at: IndexPath(row: row, section: 0), at: .none, animated: true)
     }
     
+    // MARK: - Private Functions
+    
     private func find() -> [Annotation] {
         let allAnnotations = annotationList.all()
         var filteredAnnotations: [Annotation] = []
@@ -111,6 +115,25 @@ class AnnotationsTableViewController: UITableViewController {
             }
         }
         return filteredAnnotations
+    }
+    
+    private func loadAnnotations() {
+        annotations = annotationList.all()
+        sortAnnotations()
+    }
+    
+    private func loadFilteredAnnotations() {
+        annotations = find()
+        sortAnnotations()
+    }
+    
+    private func sortAnnotations() {
+        guard lastLocation?.isAuthorised ?? false else { return }
+        for i in 0 ..< annotations.count {
+            annotations[i].distance = lastLocation?.distance(of: Position(lat: annotations[i].lat, lng: annotations[i].lng)) ?? 0
+        }
+        annotations = annotations.sorted(by: { $0.distance < $1.distance })
+        tableView.reloadData()
     }
 
 }

@@ -18,6 +18,7 @@ class AnnotationsViewController: UIViewController {
     var tableViewStat: TableViewStat?
     var research: Research?
     var lastAnnotationSelected: Annotation?
+    var lastLocation: LastLocation?
     
     var categories: [Category] = []
     var categoriesSelected: [Int] = []
@@ -27,14 +28,15 @@ class AnnotationsViewController: UIViewController {
     @IBOutlet weak var settingsContainer: UIView!
     @IBOutlet weak var addOrDeleteButton: UIBarButtonItem!
     
-    private let annotationsViewModel = AnnotationsViewModel()
+    private var annotationsViewModel = AnnotationsViewModel()
     private let categoryList = CategoryList()
     private let preferences = Preferences()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        annotationsViewModel.lastLocationDelegate(self)
+//        annotationsViewModel.lastLocationDelegate(self)
+        annotationsViewModel.lastLocation = lastLocation
         navigationBarDesign()
         navigationBack()
         navigationItem.title = "Annotations"
@@ -70,6 +72,7 @@ class AnnotationsViewController: UIViewController {
         annotationsTableViewController.delegate = self
         annotationsTableViewController.viewModelDelegate = self
         tableViewDelegate = annotationsTableViewController
+        annotationsTableViewController.lastLocation = lastLocation
         annotationsTableViewController.annotationsSort = annotationsSortIndex() ?? .increasing
         annotationsTableViewController.research = research
         annotationsTableViewController.categories = categories
@@ -181,6 +184,8 @@ class AnnotationsViewController: UIViewController {
 
 protocol AnnotationsTableViewControllerDelegate: AnyObject {
     func newAnnotationDetailsTableViewController(_ annotation: Annotation, _ distance: String)
+    func distance(position: Position) -> Double
+    func locationIsAuthorised() -> Bool
 }
 
 extension AnnotationsViewController: AnnotationsTableViewControllerDelegate {
@@ -189,6 +194,14 @@ extension AnnotationsViewController: AnnotationsTableViewControllerDelegate {
         annotationDetailsTableViewController.annotation = annotation
         annotationDetailsTableViewController.distance = distance
         navigationController?.pushViewController(annotationDetailsTableViewController, animated: true)
+    }
+    
+    func distance(position: Position) -> Double {
+        return lastLocation?.distance(of: position) ?? Double.infinity
+    }
+    
+    func locationIsAuthorised() -> Bool {
+        return lastLocation?.isAuthorised ?? false
     }
 }
 
@@ -291,9 +304,9 @@ extension AnnotationsViewController: AnnotationsViewModelDelegate {
 
 // MARK: - LastLocationDelegate
 
-extension AnnotationsViewController: LastLocationDelegate {
-    func lastLocation(_ position: Position) {
-        tableViewDelegate?.reloadData()
-        print("Table View reloaded !")
-    }
-}
+//extension AnnotationsViewController: LastLocationDelegate {
+//    func lastLocation(_ position: Position) {
+//        tableViewDelegate?.reloadData()
+//        print("Table View reloaded !")
+//    }
+//}

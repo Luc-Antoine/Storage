@@ -262,10 +262,10 @@
             filePath = "Storage/View/Map/AnnotationsViewController/AnnotationsTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "AnnotationsTableViewController"
-            landmarkType = "21">
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -278,8 +278,8 @@
             filePath = "Storage/View/Map/AnnotationsViewController/AnnotationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "newAnnotationCategoriesTableViewController()"
             landmarkType = "7">
          </BreakpointContent>
@@ -294,8 +294,8 @@
             filePath = "Storage/View/Map/AnnotationsViewController/AnnotationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "AnnotationsFilterViewControllerDelegate"
             landmarkType = "5">
          </BreakpointContent>
@@ -358,8 +358,8 @@
             filePath = "Storage/View/Map/AnnotationsViewController/AnnotationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "showAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -377,6 +377,38 @@
             startingLineNumber = "34"
             endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C47FF6D-B416-4698-B1A8-D8DB6D186F94"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/View/Map/AnnotationsViewController/AnnotationsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7940EDEA-6DDA-43DE-879E-6AFE5A1EB6DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Storage/View/Map/AnnotationsViewController/AnnotationsTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "loadAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

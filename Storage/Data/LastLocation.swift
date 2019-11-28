@@ -11,7 +11,7 @@ import CoreLocation
 
 class LastLocation: NSObject, CLLocationManagerDelegate {
     
-    weak var delegate: LastLocationDelegate?
+//    weak var delegate: LastLocationDelegate?
     var currentLocation: CLLocation? = nil
     var showUserLocation: Bool?
     var isAuthorised = false {
@@ -43,12 +43,18 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
         guard currentLocation != nil else { return }
         let position = Position(lat: currentLocation!.coordinate.latitude, lng: currentLocation!.coordinate.longitude)
         preferences.lastLocation(position)
-        delegate?.lastLocation(position)
+//        delegate?.lastLocation(position)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         isAuthorised = (status == .authorizedWhenInUse)
     }
+    
+    func updateLocation() {
+        locationManager(locationManager, didUpdateLocations: [])
+    }
+    
+    // MARK: - Distance Functions
     
     func calculateDistance(position: Position) -> String {
         let numberFormatter = NumberFormatter()
@@ -66,9 +72,7 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
         return numberFormatter.string(from: number)! + unit
     }
     
-    // MARK: - Location Delegates
-    
-    private func distance(of position: Position) -> CLLocationDistance {
+    func distance(of position: Position) -> CLLocationDistance {
         let location = CLLocation(latitude: position.lat, longitude: position.lng)
         return currentLocation?.distance(from: location) ?? Double.infinity
     }
