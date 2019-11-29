@@ -18,7 +18,6 @@ class AnnotationsTableViewController: UITableViewController {
     var annotations: [Annotation] = []
     var researchingAnnotations: [Annotation] = []
     var selectedAnnotations: [Annotation] = []
-    var annotationsSort: Sort = .increasing
     var modify: Bool = false
     var research: Research?
     var currentLocation: Position?
@@ -171,8 +170,6 @@ extension AnnotationsTableViewController: AnnotationCellDelegate {
 
 protocol AnnotationsViewControllerDelegate: AnyObject {
     func reloadData()
-    func annotationsSort(_ sort: Sort)
-    func tableViewAnnotationsSort() -> Sort
     func addAnnotation(_ annotation: Annotation?)
     func update(_ title: String, _ subtitle: String, _ comment: String) -> Bool
     func removeAnnotations()
@@ -187,22 +184,11 @@ protocol AnnotationsViewControllerDelegate: AnyObject {
 extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
     
     func reloadData() {
-        annotations = annotationsSort.sort(annotationList.all())
+        sortAnnotations()
         tableView.reloadData()
     }
     
     // MARK: - Annotations Functions
-    
-    func annotationsSort(_ sort: Sort) {
-        annotationsSort = sort
-        annotations = annotationsSort.sort(annotations)
-        researchingAnnotations = annotationsSort.sort(researchingAnnotations)
-        tableView.reloadData()
-    }
-    
-    func tableViewAnnotationsSort() -> Sort {
-        return annotationsSort
-    }
     
     func addAnnotation(_ annotation: Annotation?) {
         guard annotation != nil else { return }
@@ -225,7 +211,7 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
     func removeAnnotations() {
         annotationList.remove(selectedAnnotations)
         self.annotations = annotationList.all()
-        annotationsSort(annotationsSort)
+        sortAnnotations()
         tableView.reloadData()
     }
     
@@ -272,12 +258,3 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
         tableView.reloadData()
     }
 }
-
-// MARK: - LastLocationDelegate
-
-//extension AnnotationsTableViewController: LastLocationDelegate {
-//    func lastLocation(_ position: Position) {
-//        tableView.reloadData()
-//        print("Table View reloaded !")
-//    }
-//}

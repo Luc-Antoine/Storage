@@ -10,17 +10,9 @@ import Foundation
 
 struct AnnotationsViewModel {
     
-//    private let lastLocation = LastLocation()
-    
     var lastLocation: LastLocation?
     
     func distanceFormatted(lat: Double, lng: Double) -> String {
         return lastLocation?.calculateDistance(position: Position(lat: lat, lng: lng)) ?? ""
     }
-    
-    
-    
-//    func lastLocationDelegate(_ delegate: AnnotationsViewController) {
-//        lastLocation.delegate = delegate
-//    }
 }

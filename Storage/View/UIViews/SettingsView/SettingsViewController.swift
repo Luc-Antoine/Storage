@@ -27,9 +27,6 @@ class SettingsViewController: UIViewController {
         buttonsView.borderFocus()
         buttonsView.clipsToBounds = true
         titles()
-        searchTitle()
-        filterItems()
-        filterAnnotations()
     }
     
     @IBAction func edit() {
@@ -52,13 +49,17 @@ class SettingsViewController: UIViewController {
     private func titles() {
         switch data {
         case "categories":
+            searchTitle()
             break
         case "items":
             searchButton.setTitle(NSLocalizedString("Filter", comment: ""), for: .normal)
+            filterItems()
             break
         case "annotations":
             editButton.setTitle(NSLocalizedString("Modify", comment: ""), for: .normal)
             sortButton.setTitle(NSLocalizedString("Filter", comment: ""), for: .normal)
+            filterAnnotations()
+            searchTitle()
             break
         default:
             break

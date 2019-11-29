@@ -35,7 +35,6 @@ class AnnotationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        annotationsViewModel.lastLocationDelegate(self)
         annotationsViewModel.lastLocation = lastLocation
         navigationBarDesign()
         navigationBack()
@@ -73,7 +72,6 @@ class AnnotationsViewController: UIViewController {
         annotationsTableViewController.viewModelDelegate = self
         tableViewDelegate = annotationsTableViewController
         annotationsTableViewController.lastLocation = lastLocation
-        annotationsTableViewController.annotationsSort = annotationsSortIndex() ?? .increasing
         annotationsTableViewController.research = research
         annotationsTableViewController.categories = categories
         annotationsTableViewController.categoriesSelected = categoriesSelected
@@ -115,16 +113,6 @@ class AnnotationsViewController: UIViewController {
         tableViewStat = .editing
         navBarOption(.delete)
         addChild(annotationsEditViewController, container: settingsContainer)
-    }
-    
-    func newAnnotationsSortViewController() {
-        let sortViewController: SortViewController = instantiate("SortViewController", storyboard: "SortView")
-        var sortViewModel = SortViewModel()
-        sortViewModel.delegate = self
-        sortViewController.data = "annotations"
-        sortViewController.viewModel = sortViewModel
-        navBarOption(nil)
-        addChild(sortViewController, container: settingsContainer)
     }
     
     func newAnnotationsSearchViewController() {
@@ -263,19 +251,6 @@ extension AnnotationsViewController: AnnotationsFilterViewControllerDelegate {
     }
 }
 
-// MARK: - SortViewDelegate
-
-extension AnnotationsViewController: SortViewDelegate {
-    func newSort(_ sort: Sort) {
-        preferences.annotationSort(sort.rawValue)
-        tableViewDelegate?.annotationsSort(sort)
-    }
-    
-    func annotationsSortIndex() -> Sort? {
-        return Sort(rawValue: preferences.annotationSort())
-    }
-}
-
 // MARK: - SearchViewDelegate
 
 extension AnnotationsViewController: SearchViewDelegate {
@@ -301,12 +276,3 @@ extension AnnotationsViewController: AnnotationsViewModelDelegate {
         annotationsViewModel.distanceFormatted(lat: lat, lng: lng)
     }
 }
-
-// MARK: - LastLocationDelegate
-
-//extension AnnotationsViewController: LastLocationDelegate {
-//    func lastLocation(_ position: Position) {
-//        tableViewDelegate?.reloadData()
-//        print("Table View reloaded !")
-//    }
-//}
