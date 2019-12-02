@@ -15,6 +15,7 @@ class AnnotationsTableViewCell: UITableViewCell {
     var favorite: Bool = false
     
     @IBOutlet weak var titleAnnotation: UILabel!
+    @IBOutlet weak var distanceAnnotation: UILabel!
     @IBOutlet weak var subtitleAnnotation: UILabel!
     @IBOutlet weak var buttonFavorites: UIButton!
     
@@ -23,9 +24,10 @@ class AnnotationsTableViewCell: UITableViewCell {
         delegate?.updateFavorite(index!)
     }
     
-    func configureCell(_ annotation: Annotation) {
+    func configureCell(_ annotation: Annotation, _ distance: String) {
         titleAnnotation.text = annotation.title
         subtitleAnnotation.text = annotation.subtitle
+        distanceAnnotation.text = distance
         update(annotation.favorite)
     }
     

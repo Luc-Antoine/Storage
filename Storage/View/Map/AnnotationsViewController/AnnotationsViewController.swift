@@ -86,6 +86,15 @@ class AnnotationsViewController: UIViewController {
         addChild(annotationCategoriesTableViewController, container: tableViewContainer)
     }
     
+    func newAnnotationDetailsTableViewController(_ annotation: Annotation, _ distance: String) {
+        let annotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
+        annotationDetailsTableViewController.lastLocationDelegate = self
+        annotationDetailsTableViewController.annotation = annotation
+        annotationDetailsTableViewController.distance = distance
+        annotationDetailsTableViewController.annotationsViewModel = annotationsViewModel
+        navigationController?.pushViewController(annotationDetailsTableViewController, animated: true)
+    }
+    
     func newAnnotationsSettingsViewController() {
         let settingsViewController: SettingsViewController = instantiate("SettingsViewController", storyboard: "SettingsView")
         var settingsViewModel = SettingsViewModel()
@@ -131,6 +140,8 @@ class AnnotationsViewController: UIViewController {
     func newMapViewController() {
         let mapViewController: MapViewController = instantiate("MapViewController", storyboard: "Map")
         mapViewDelegate = mapViewController
+        mapViewController.lastLocationDelegate = self
+        mapViewController.annotationsViewModel = annotationsViewModel
         navigationController?.pushViewController(mapViewController, animated: true)
     }
     
@@ -177,12 +188,6 @@ protocol AnnotationsTableViewControllerDelegate: AnyObject {
 }
 
 extension AnnotationsViewController: AnnotationsTableViewControllerDelegate {
-    func newAnnotationDetailsTableViewController(_ annotation: Annotation, _ distance: String) {
-        let annotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
-        annotationDetailsTableViewController.annotation = annotation
-        annotationDetailsTableViewController.distance = distance
-        navigationController?.pushViewController(annotationDetailsTableViewController, animated: true)
-    }
     
     func distance(position: Position) -> Double {
         return lastLocation?.distance(of: position) ?? Double.infinity
@@ -272,7 +277,19 @@ extension AnnotationsViewController: SearchViewDelegate {
 // MARK: - AnnotationsViewModelDelegate
 
 extension AnnotationsViewController: AnnotationsViewModelDelegate {
-    func distanceFormatted(lat: Double, lng: Double) -> String {
-        annotationsViewModel.distanceFormatted(lat: lat, lng: lng)
+    func distance(_ of: Double) -> String {
+        annotationsViewModel.distance(of)
+    }
+}
+
+// MARK: - LastPositionDelegate
+
+protocol LastLocationDelegate: AnyObject {
+    func update(_ position: Position)
+}
+
+extension AnnotationsViewController: LastLocationDelegate {
+    func update(_ position: Position) {
+        lastLocation?.updateLastLocation(position)
     }
 }

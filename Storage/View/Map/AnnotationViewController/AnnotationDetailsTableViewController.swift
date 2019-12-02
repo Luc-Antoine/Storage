@@ -16,8 +16,10 @@ class AnnotationDetailsTableViewController: UITableViewController {
     
     weak var mapViewControllerDelegate: MapViewControllerDelegate?
     weak var removeAnnotationDelegate: RemoveAnnotationDelegate?
+    weak var lastLocationDelegate: LastLocationDelegate?
 
-    var annotations: [Annotation] = []
+    var annotationsViewModel: AnnotationsViewModel?
+    
     var annotation: Annotation?
     var distance: String = ""
     var lat: Double?
@@ -58,6 +60,9 @@ class AnnotationDetailsTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        if location.currentLocation != nil {
+            lastLocationDelegate?.update(Position(lat: location.currentLocation!.coordinate.latitude, lng: location.currentLocation!.coordinate.longitude))
+        }
         guard annotation != nil else { return }
         mapViewControllerDelegate?.detailsLastAnnotation(annotation!)
     }
@@ -97,14 +102,15 @@ class AnnotationDetailsTableViewController: UITableViewController {
     
     func newMapViewController() {
         let mapViewController: MapViewController = instantiate("MapViewController", storyboard: "Map")
+        mapViewController.detailsAnnotationDelegate = self
         mapViewController.annotation = annotation
+        mapViewController.annotationsViewModel = annotationsViewModel
         navigationController?.pushViewController(mapViewController, animated: true)
     }
     
     func newAnnotationCategoriesTableViewController() {
         let annotationCategoriesTableViewController: AnnotationCategoriesTableViewController = instantiate("AnnotationCategoriesTableViewController", storyboard: "AnnotationCategories")
         annotationCategoriesTableViewController.delegate = self
-//        annotationCategoriesTableViewController.categoriesSelected = annotation?.categories.compactMap{ $0.wholeNumberValue} ?? []
         annotationCategoriesTableViewController.categoriesSelected = annotation?.categories ?? []
         navigationController?.pushViewController(annotationCategoriesTableViewController, animated: true)
     }
@@ -171,8 +177,6 @@ protocol AnnotationCategoriesDelegate: AnyObject {
 extension AnnotationDetailsTableViewController: AnnotationCategoriesDelegate {
     func update(_ categoriesId: [Int]) {
         guard annotation != nil else { return }
-//        let stringArray: [String] = categoriesId.map{ String($0) }
-//        annotation!.categories = stringArray.joined(separator: ",")
         annotation!.categories = categoriesId
         annotationList.update(annotation!)
     }
@@ -242,5 +246,17 @@ extension AnnotationDetailsTableViewController: UIGestureRecognizerDelegate {
         titleTextField.resignFirstResponder()
         subtitleTextField.resignFirstResponder()
         commentTextView.resignFirstResponder()
+    }
+}
+
+// MARK: - DetailsAnnotationDelegate
+
+protocol DetailsAnnotationDelegate: AnyObject {
+    func set(_ title: String)
+}
+
+extension AnnotationDetailsTableViewController: DetailsAnnotationDelegate {
+    func set(_ title: String) {
+        self.title = title
     }
 }

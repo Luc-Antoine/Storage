@@ -12,7 +12,23 @@ struct AnnotationsViewModel {
     
     var lastLocation: LastLocation?
     
-    func distanceFormatted(lat: Double, lng: Double) -> String {
-        return lastLocation?.calculateDistance(position: Position(lat: lat, lng: lng)) ?? ""
+    func distance(_ of: Double) -> String {
+        return formatter(of)
+    }
+    
+    func formatter(_ value: Double) -> String {
+        let formatter = MeasurementFormatter()
+        formatter.locale = NSLocale.current
+        formatter.unitOptions = .naturalScale
+        
+        if value < 1000 {
+            let distance: Double = (value.rounded() / 1000)
+            let measurement = Measurement(value: distance, unit: UnitLength.kilometers)
+            return formatter.string(from: measurement)
+        } else {
+            let distance: Double = (value / 1000).rounded()
+            let measurement = Measurement(value: distance, unit: UnitLength.kilometers)
+            return formatter.string(from: measurement)
+        }
     }
 }

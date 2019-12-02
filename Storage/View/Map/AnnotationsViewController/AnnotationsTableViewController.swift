@@ -65,7 +65,7 @@ class AnnotationsTableViewController: UITableViewController {
         } else {
             annotation = annotations[indexPath.row]
         }
-        cell.configureCell(annotation!)
+        cell.configureCell(annotation!, viewModelDelegate?.distance(annotation!.distance) ?? "")
         cell.index = indexPath.row
         cell.delegate = self
         return cell
@@ -76,7 +76,7 @@ class AnnotationsTableViewController: UITableViewController {
             selectedAnnotations.append(annotations[indexPath.row])
             lastIndexPath = indexPath
         } else {
-            let distance: String = viewModelDelegate?.distanceFormatted(lat: annotations[indexPath.row].lat, lng: annotations[indexPath.row].lng) ?? ""
+            let distance: String = viewModelDelegate?.distance(annotations[indexPath.row].distance) ?? ""
             if research != nil {
                 delegate?.newAnnotationDetailsTableViewController(researchingAnnotations[indexPath.row], distance)
             } else {

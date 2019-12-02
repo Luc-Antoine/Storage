@@ -18,7 +18,10 @@ class CustomPointAnnotation: MKPointAnnotation {
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UITabBarControllerDelegate {
     
     weak var modaleWindowDelegate: ModaleWindowDelegate?
+    weak var lastLocationDelegate: LastLocationDelegate?
+    weak var detailsAnnotationDelegate: DetailsAnnotationDelegate?
     
+    var annotationsViewModel: AnnotationsViewModel?
     var locationManager: CLLocationManager? = CLLocationManager()
     var delta: Double = 0.01
     var annotations: [Annotation] = []
@@ -65,12 +68,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         showAnnotations()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let position = location.distance(of: Position.init(lat: annotation?.lat ?? Double.infinity, lng: annotation?.lng ?? Double.infinity))
+        detailsAnnotationDelegate?.set(annotationsViewModel?.distance(position) ?? "")
+        guard location.currentLocation != nil else { return }
+        lastLocationDelegate?.update(Position(lat: location.currentLocation!.coordinate.latitude, lng: location.currentLocation!.coordinate.longitude))
+    }
+    
     // MARK: - Navigation
     
     func newAnnotationDetailsTableViewController(_ annotation: Annotation) {
         let newAnnotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
         let position = location.distance(of: Position.init(lat: annotation.lat, lng: annotation.lng))
-        newAnnotationDetailsTableViewController.distance = location.calculateDistance(distance: position)
+        newAnnotationDetailsTableViewController.distance = annotationsViewModel?.formatter(position) ?? ""
         newAnnotationDetailsTableViewController.annotation = annotation
         newAnnotationDetailsTableViewController.fromMap = true
         newAnnotationDetailsTableViewController.mapViewControllerDelegate = self
@@ -164,7 +176,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let pointAnnotation = CustomPointAnnotation()
         pointAnnotation.coordinate = pinLocation
         pointAnnotation.title = newAnnotation.title
-        pointAnnotation.subtitle = location.calculateDistance(distance: position)
+        pointAnnotation.subtitle = annotationsViewModel?.distance(position)
         pointAnnotation.imageName = "Pin"
         pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
         mapView.addAnnotation(pinAnnotationView!.annotation!)
@@ -193,7 +205,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func showAnnotationView() {
         self.mapView.centerCoordinate = CLLocationCoordinate2D(latitude: annotation!.lat, longitude: annotation!.lng)
         let annotationView: AnnotationModaleWindowViewController = instantiate("AnnotationModaleWindowViewController", storyboard: "AnnotationModaleWindow")
-        let distance = location.calculateDistance(distance: location.distance(of: Position.init(lat: annotation!.lat, lng: annotation!.lng)))
+        let position = location.distance(of: Position.init(lat: annotation!.lat, lng: annotation!.lng))
+        let distance = annotationsViewModel?.formatter(position) ?? ""
         annotationView.titleText = annotation!.title
         annotationView.subtitleText = annotation!.subtitle
         annotationView.distanceText = distance
@@ -225,7 +238,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     private func deSelectAnnotation() {
         annotation = nil
-        self.mapView.removeOverlay(overlay!)
+        if overlay != nil {
+            self.mapView.removeOverlay(overlay!)
+        }
         modaleContainerView.isHidden = true
         modaleWindowDelegate?.removeView()
     }

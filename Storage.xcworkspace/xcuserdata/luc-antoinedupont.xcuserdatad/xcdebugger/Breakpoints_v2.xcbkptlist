@@ -255,48 +255,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DD03822E-DE2A-48FA-A4DB-4C751A6E597D"
+            uuid = "1D3DBAA8-BDF0-4B34-83DA-530E372EBE08"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Storage/View/Map/AnnotationViewController/AnnotationDetailsTableViewController.swift"
+            filePath = "Storage/View/Map/MapViewController/MapViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "update(_:)"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "viewWillDisappear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EC8C1DE7-2A11-472D-9708-68E88273722F"
+            uuid = "023A39DF-BBCE-43CE-96B3-A50A22D058C9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Storage/View/Map/AnnotationViewController/AnnotationDetailsTableViewController.swift"
+            filePath = "Storage/View/Map/MapViewController/MapViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "update(_:)"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "showAnnotations()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "141CC6E1-0484-44FD-8409-0F332676D024"
+            uuid = "1AF5D80D-BE2D-4944-9378-CFB98776940F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Storage/View/Map/AnnotationViewController/AnnotationDetailsTableViewController.swift"
+            filePath = "Storage/View/Map/MapViewController/MapViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "newAnnotationCategoriesTableViewController()"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

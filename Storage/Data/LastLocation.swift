@@ -11,7 +11,6 @@ import CoreLocation
 
 class LastLocation: NSObject, CLLocationManagerDelegate {
     
-//    weak var delegate: LastLocationDelegate?
     var currentLocation: CLLocation? = nil
     var showUserLocation: Bool?
     var isAuthorised = false {
@@ -28,7 +27,6 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
     }
     
     private let locationManager = CLLocationManager()
-    private let preferences = Preferences()
     
     override init() {
         super.init()
@@ -40,10 +38,6 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.last
         locationManager.stopUpdatingLocation()
-        guard currentLocation != nil else { return }
-        let position = Position(lat: currentLocation!.coordinate.latitude, lng: currentLocation!.coordinate.longitude)
-        preferences.lastLocation(position)
-//        delegate?.lastLocation(position)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -54,23 +48,11 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
         locationManager(locationManager, didUpdateLocations: [])
     }
     
-    // MARK: - Distance Functions
-    
-    func calculateDistance(position: Position) -> String {
-        let numberFormatter = NumberFormatter()
-        var unit: String = ""
-        var number: NSNumber = 0
-        numberFormatter.maximumFractionDigits = 0
-        let distance = self.distance(of: position)
-        if distance >= 1000 {
-            number = NSNumber(floatLiteral: distance / 1000)
-            unit = " km"
-        } else {
-            number = NSNumber(floatLiteral: distance)
-            unit = " m"
-        }
-        return numberFormatter.string(from: number)! + unit
+    func updateLastLocation(_ position: Position) {
+        currentLocation = CLLocation(latitude: position.lat, longitude: position.lng)
     }
+    
+    // MARK: - Distance Function
     
     func distance(of position: Position) -> CLLocationDistance {
         let location = CLLocation(latitude: position.lat, longitude: position.lng)

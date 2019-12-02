@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AnnotationsViewModelDelegate: AnyObject {
-    func distanceFormatted(lat: Double, lng: Double) -> String
+    func distance(_ of: Double) -> String
 }

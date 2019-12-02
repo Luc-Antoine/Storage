@@ -73,7 +73,6 @@
 		3F6216FC1E4B53D000D1584C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6216FB1E4B53D000D1584C /* UserDefaults.swift */; };
 		3F67C2F9238E795A005261C1 /* AnnotationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67C2F8238E795A005261C1 /* AnnotationsViewModel.swift */; };
 		3F67C2FB238E7A4E005261C1 /* AnnotationsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67C2FA238E7A4E005261C1 /* AnnotationsViewModelDelegate.swift */; };
-		3F6832EA238FC6290068552E /* AnnotationsFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6832E9238FC6290068552E /* AnnotationsFilter.storyboard */; };
 		3F6832EC238FC6410068552E /* AnnotationsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6832EB238FC6410068552E /* AnnotationsFilterViewController.swift */; };
 		3F6832EE238FD3F90068552E /* AnnotationCategoriesToAnnotationsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6832ED238FD3F90068552E /* AnnotationCategoriesToAnnotationsViewControllerDelegate.swift */; };
 		3F767E2722785B4900CC32F2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F767E2622785B4900CC32F2 /* TabBarViewController.swift */; };
@@ -82,6 +81,7 @@
 		3F7DEA0C2389DE34004C33A2 /* SortView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7DEA0E2389DE34004C33A2 /* SortView.storyboard */; };
 		3F7F9AC322F9CFD800A5AE4C /* DataBaseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F9AC222F9CFD800A5AE4C /* DataBaseCategory.swift */; };
 		3F7F9AC522F9D00800A5AE4C /* DataBaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F9AC422F9D00800A5AE4C /* DataBaseItem.swift */; };
+		3F85E5092395381A00B4613F /* AnnotationsFilter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F85E50B2395381A00B4613F /* AnnotationsFilter.storyboard */; };
 		3F8A60F023428A0E0052C559 /* Annotations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F8A60EF23428A0E0052C559 /* Annotations.storyboard */; };
 		3F92B9BE235859BE0003C207 /* FastlaneSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F92B9BD235859BE0003C207 /* FastlaneSnapshot.swift */; };
 		3F92B9C623585A1B0003C207 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F92B9C523585A1B0003C207 /* SnapshotHelper.swift */; };
@@ -230,7 +230,6 @@
 		3F6216FB1E4B53D000D1584C /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		3F67C2F8238E795A005261C1 /* AnnotationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsViewModel.swift; sourceTree = "<group>"; };
 		3F67C2FA238E7A4E005261C1 /* AnnotationsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsViewModelDelegate.swift; sourceTree = "<group>"; };
-		3F6832E9238FC6290068552E /* AnnotationsFilter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsFilter.storyboard; sourceTree = "<group>"; };
 		3F6832EB238FC6410068552E /* AnnotationsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsFilterViewController.swift; sourceTree = "<group>"; };
 		3F6832ED238FD3F90068552E /* AnnotationCategoriesToAnnotationsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCategoriesToAnnotationsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		3F767E2622785B4900CC32F2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +242,8 @@
 		3F7DEA132389E379004C33A2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AllFeatures.strings; sourceTree = "<group>"; };
 		3F7F9AC222F9CFD800A5AE4C /* DataBaseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseCategory.swift; sourceTree = "<group>"; };
 		3F7F9AC422F9D00800A5AE4C /* DataBaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseItem.swift; sourceTree = "<group>"; };
+		3F85E50A2395381A00B4613F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AnnotationsFilter.storyboard; sourceTree = "<group>"; };
+		3F85E50D2395381F00B4613F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AnnotationsFilter.strings; sourceTree = "<group>"; };
 		3F8A60EF23428A0E0052C559 /* Annotations.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Annotations.storyboard; sourceTree = "<group>"; };
 		3F92B9BB235859BE0003C207 /* FastlaneSnapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastlaneSnapshot.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F92B9BD235859BE0003C207 /* FastlaneSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastlaneSnapshot.swift; sourceTree = "<group>"; };
@@ -720,7 +721,7 @@
 		3F6832E8238FC5ED0068552E /* AnnotationsFilterViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3F6832E9238FC6290068552E /* AnnotationsFilter.storyboard */,
+				3F85E50B2395381A00B4613F /* AnnotationsFilter.storyboard */,
 				3F6832EB238FC6410068552E /* AnnotationsFilterViewController.swift */,
 			);
 			path = AnnotationsFilterViewController;
@@ -926,7 +927,7 @@
 				3FC56FF6234F545E0038D3B4 /* Features.storyboard in Resources */,
 				3F1022542385EAE50008EE96 /* SearchView.storyboard in Resources */,
 				3FC5700F234F59860038D3B4 /* AnnotationDetails.storyboard in Resources */,
-				3F6832EA238FC6290068552E /* AnnotationsFilter.storyboard in Resources */,
+				3F85E5092395381A00B4613F /* AnnotationsFilter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1183,6 +1184,15 @@
 				3F7DEA102389DE37004C33A2 /* fr */,
 			);
 			name = SortView.storyboard;
+			sourceTree = "<group>";
+		};
+		3F85E50B2395381A00B4613F /* AnnotationsFilter.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F85E50A2395381A00B4613F /* Base */,
+				3F85E50D2395381F00B4613F /* fr */,
+			);
+			name = AnnotationsFilter.storyboard;
 			sourceTree = "<group>";
 		};
 		3FC56FE4234F541F0038D3B4 /* Items.storyboard */ = {

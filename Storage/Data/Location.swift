@@ -46,21 +46,6 @@ class Location: NSObject, CLLocationManagerDelegate {
         let location = CLLocation(latitude: position.lat, longitude: position.lng)
         return currentLocation?.distance(from: location) ?? Double.infinity
     }
-    
-    func calculateDistance(distance: Double) -> String {
-        let numberFormatter = NumberFormatter()
-        var unit: String = ""
-        var number: NSNumber = 0
-        numberFormatter.maximumFractionDigits = 0
-        if distance >= 1000 {
-            number = NSNumber(floatLiteral: distance / 1000)
-            unit = " km"
-        } else {
-            number = NSNumber(floatLiteral: distance)
-            unit = " m"
-        }
-        return numberFormatter.string(from: number)! + unit
-    }
 }
 
 extension CLLocationCoordinate2D {
