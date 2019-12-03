@@ -16,8 +16,8 @@ extension DataBase {
         do {
             try dbQueue!.write({ db in
                 try db.execute(
-                    sql: "INSERT INTO Annotation (title, subtitle, comment, lat, lng, favorite, categories) VALUES (:title, :subtitle, :comment, :lat, :lng, :favorite, :categories)",
-                    arguments: ["title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment, "lat":annotation.lat, "lng":annotation.lng, "favorite":annotation.favorite, "categories":annotation.categories.intArrayToString()])
+                    sql: "INSERT INTO Annotation (title, subtitle, comment, lat, lng, categories) VALUES (:title, :subtitle, :comment, :lat, :lng, :categories)",
+                    arguments: ["title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment, "lat":annotation.lat, "lng":annotation.lng, "categories":annotation.categories.intArrayToString()])
             })
         } catch {
             NSLog(error.localizedDescription)
@@ -41,18 +41,6 @@ extension DataBase {
                 try db.execute(
                     sql: "UPDATE Annotation SET title = :title, subtitle = :subtitle, comment = :comment, categories = :categories WHERE id = :id",
                     arguments: ["id":annotation.id, "title":annotation.title, "subtitle":annotation.subtitle, "comment":annotation.comment, "categories":annotation.categories.intArrayToString()])
-            })
-        } catch {
-            NSLog(error.localizedDescription)
-        }
-    }
-    
-    func updateFavorite(_ annotation: Annotation) {
-        do {
-            try dbQueue!.write({ db in
-                try db.execute(
-                    sql: "UPDATE Annotation SET favorite = :favorite WHERE id = :id",
-                    arguments: ["id":annotation.id, "favorite":!annotation.favorite])
             })
         } catch {
             NSLog(error.localizedDescription)

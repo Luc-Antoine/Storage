@@ -44,10 +44,6 @@ class LastLocation: NSObject, CLLocationManagerDelegate {
         isAuthorised = (status == .authorizedWhenInUse)
     }
     
-    func updateLocation() {
-        locationManager(locationManager, didUpdateLocations: [])
-    }
-    
     func updateLastLocation(_ position: Position) {
         currentLocation = CLLocation(latitude: position.lat, longitude: position.lng)
     }

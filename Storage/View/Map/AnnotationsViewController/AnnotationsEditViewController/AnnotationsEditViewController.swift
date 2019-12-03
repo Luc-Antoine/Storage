@@ -12,10 +12,13 @@ class AnnotationsEditViewController: UIViewController {
 
     weak var delegate: AnnotationsEditViewControllerDelegate?
     
+    @IBOutlet weak var cancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         delegate?.annotationsTableViewEditing()
+        cancelButton.borderFocus()
     }
     
     @IBAction func removeView() {

@@ -126,7 +126,7 @@ class AnnotationsTableViewController: UITableViewController {
         sortAnnotations()
     }
     
-    private func sortAnnotations() {
+    func sortAnnotations() {
         guard lastLocation?.isAuthorised ?? false else { return }
         for i in 0 ..< annotations.count {
             annotations[i].distance = lastLocation?.distance(of: Position(lat: annotations[i].lat, lng: annotations[i].lng)) ?? 0
@@ -138,19 +138,11 @@ class AnnotationsTableViewController: UITableViewController {
 }
 
 protocol AnnotationCellDelegate: AnyObject {
-    func updateFavorite(_ row: Int)
     func selectAnnotation(_ index: Int)
     func reloadAnnotation(_ annotation: Annotation)
 }
 
 extension AnnotationsTableViewController: AnnotationCellDelegate {
-    func updateFavorite(_ row: Int) {
-        let annotation = annotations[row]
-        annotationList.updateFavorite(annotation)
-        annotations[row].favorite = !annotation.favorite
-        tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .none)
-    }
-    
     func selectAnnotation(_ index: Int) {
         lastIndexPath = IndexPath(row: index, section: 0)
     }
@@ -169,6 +161,7 @@ extension AnnotationsTableViewController: AnnotationCellDelegate {
 // MARK: - AnnotationsViewControllerDelegate
 
 protocol AnnotationsViewControllerDelegate: AnyObject {
+    func sortAnnotations()
     func reloadData()
     func addAnnotation(_ annotation: Annotation?)
     func update(_ title: String, _ subtitle: String, _ comment: String) -> Bool
@@ -232,7 +225,7 @@ extension AnnotationsTableViewController: AnnotationsViewControllerDelegate {
             researchingAnnotations = annotations
         } else {
             researchingAnnotations = annotations.filter({ (results) -> Bool in
-                return results.name.lowercased().contains(text.lowercased())
+                return results.title.lowercased().contains(text.lowercased())
             })
         }
         tableView.reloadData()

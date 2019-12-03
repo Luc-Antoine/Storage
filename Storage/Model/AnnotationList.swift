@@ -23,10 +23,6 @@ class AnnotationList {
         dataBase.update(annotation)
     }
     
-    func updateFavorite(_ annotation: Annotation) {
-        dataBase.updateFavorite(annotation)
-    }
-    
     func remove(_ annotations: [Annotation]) {
         guard annotations.count > 0 else { return }
         dataBase.delete(annotations)

@@ -16,18 +16,16 @@ struct Annotation {
     var comment: String
     let lat: Double
     let lng: Double
-    var favorite: Bool
     var categories: [Int]
     var distance: Double
     
-    init(id: Int, title: String, subtitle: String, comment: String, lat: Double, lng: Double, favorite: Bool, categories: [Int]) {
+    init(id: Int, title: String, subtitle: String, comment: String, lat: Double, lng: Double, categories: [Int]) {
         self.id = id
         self.title = title
         self.subtitle = subtitle
         self.comment = comment
         self.lat = lat
         self.lng = lng
-        self.favorite = favorite
         self.categories = categories
         self.distance = 0
     }
@@ -47,7 +45,6 @@ extension Annotation: FetchableRecord, PersistableRecord {
         comment = row["comment"]
         lat = row["lat"]
         lng = row["lng"]
-        favorite = row["favorite"]
         categories = String(row["categories"]).stringToIntArray()
         distance = 0
     }
@@ -57,8 +54,8 @@ extension Annotation: FetchableRecord, PersistableRecord {
     }
 }
 
-extension Annotation: Selectable {
-    var name: String {
-        return title
-    }
-}
+//extension Annotation: Selectable {
+//    var name: String {
+//        return title
+//    }
+//}

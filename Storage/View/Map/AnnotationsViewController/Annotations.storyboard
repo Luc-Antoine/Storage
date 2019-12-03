@@ -93,16 +93,6 @@
                                             <color key="textColor" red="0.01176470588" green="0.2156862745" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfc-vU-rkN">
-                                            <rect key="frame" x="365" y="10.5" width="44" height="44"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="NY7-bn-Qup"/>
-                                                <constraint firstAttribute="width" constant="44" id="iUX-eR-Fis"/>
-                                            </constraints>
-                                            <connections>
-                                                <action selector="favorites:" destination="EdC-rI-yYd" eventType="touchUpInside" id="Ddh-4B-0ha"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8d-SV-cgd">
                                             <rect key="frame" x="16" y="35" width="312" height="20"/>
                                             <color key="tintColor" red="0.094117647060000004" green="0.22352941179999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,10 +107,8 @@
                                     <constraints>
                                         <constraint firstItem="U8d-SV-cgd" firstAttribute="top" secondItem="Mwb-XL-DPj" secondAttribute="bottom" constant="4" id="53Q-Z6-bqH"/>
                                         <constraint firstAttribute="trailing" secondItem="Vfk-Pz-ILy" secondAttribute="trailing" constant="16" id="CW0-aX-DcA"/>
-                                        <constraint firstAttribute="trailing" secondItem="gfc-vU-rkN" secondAttribute="trailing" constant="5" id="FKR-q2-krO"/>
                                         <constraint firstItem="U8d-SV-cgd" firstAttribute="leading" secondItem="Mwb-XL-DPj" secondAttribute="leading" id="YpW-rc-hy6"/>
                                         <constraint firstItem="Vfk-Pz-ILy" firstAttribute="leading" secondItem="Mwb-XL-DPj" secondAttribute="trailing" id="aYY-jL-2Ey"/>
-                                        <constraint firstItem="gfc-vU-rkN" firstAttribute="centerY" secondItem="5A4-Jv-fae" secondAttribute="centerY" id="cSu-Z2-RBa"/>
                                         <constraint firstAttribute="bottom" secondItem="U8d-SV-cgd" secondAttribute="bottom" constant="10" id="cgu-GF-Cc8"/>
                                         <constraint firstItem="Vfk-Pz-ILy" firstAttribute="top" secondItem="Mwb-XL-DPj" secondAttribute="top" id="nct-bR-Jki"/>
                                         <constraint firstItem="Mwb-XL-DPj" firstAttribute="top" secondItem="5A4-Jv-fae" secondAttribute="top" constant="10" id="rqr-vY-urA"/>
@@ -129,7 +117,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="buttonFavorites" destination="gfc-vU-rkN" id="Wym-6Z-UvL"/>
                                     <outlet property="distanceAnnotation" destination="Vfk-Pz-ILy" id="KD0-uq-Pp0"/>
                                     <outlet property="subtitleAnnotation" destination="U8d-SV-cgd" id="MOm-Bp-xd5"/>
                                     <outlet property="titleAnnotation" destination="Mwb-XL-DPj" id="r8z-PB-D8R"/>

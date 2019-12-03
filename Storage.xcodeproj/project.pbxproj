@@ -53,7 +53,6 @@
 		3F2AD084234FBF2B00790FF0 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2AD086234FBF2B00790FF0 /* Map.storyboard */; };
 		3F2AD50523083140006E9077 /* ItemFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AD50423083140006E9077 /* ItemFeature.swift */; };
 		3F2AD507230838F2006E9077 /* DataBaseItemFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AD506230838F2006E9077 /* DataBaseItemFeature.swift */; };
-		3F2DA23523072F7800A0798B /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2DA23423072F7800A0798B /* FilesManager.swift */; };
 		3F2E0F091E3888FA00B63C71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E0F081E3888FA00B63C71 /* AppDelegate.swift */; };
 		3F2E0F0E1E3888FA00B63C71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2E0F0C1E3888FA00B63C71 /* Main.storyboard */; };
 		3F2E0F101E3888FA00B63C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2E0F0F1E3888FA00B63C71 /* Assets.xcassets */; };
@@ -75,6 +74,7 @@
 		3F67C2FB238E7A4E005261C1 /* AnnotationsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67C2FA238E7A4E005261C1 /* AnnotationsViewModelDelegate.swift */; };
 		3F6832EC238FC6410068552E /* AnnotationsFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6832EB238FC6410068552E /* AnnotationsFilterViewController.swift */; };
 		3F6832EE238FD3F90068552E /* AnnotationCategoriesToAnnotationsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6832ED238FD3F90068552E /* AnnotationCategoriesToAnnotationsViewControllerDelegate.swift */; };
+		3F6C8150239660A700B7088F /* AnnotationsEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6C8152239660A700B7088F /* AnnotationsEdit.storyboard */; };
 		3F767E2722785B4900CC32F2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F767E2622785B4900CC32F2 /* TabBarViewController.swift */; };
 		3F767E2D2278642300CC32F2 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F767E2C2278642300CC32F2 /* CategoriesTableViewController.swift */; };
 		3F7DEA072389DD03004C33A2 /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7DEA092389DD03004C33A2 /* SettingsView.storyboard */; };
@@ -118,7 +118,6 @@
 		3FEC2B6323043C98008C26F6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEC2B6223043C98008C26F6 /* String.swift */; };
 		3FF399BF234A12A600045F92 /* LastLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF399BE234A12A600045F92 /* LastLocation.swift */; };
 		3FF4E6B723423C9B00F32578 /* AnnotationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6B623423C9B00F32578 /* AnnotationsTableViewCell.swift */; };
-		3FF4E6BD23423D3400F32578 /* AnnotationsEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4E6BC23423D3400F32578 /* AnnotationsEdit.storyboard */; };
 		3FF4E6BF23423D3E00F32578 /* AnnotationsEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */; };
 		3FF4E6CD2342480500F32578 /* AnnotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CC2342480500F32578 /* AnnotationList.swift */; };
 		3FF4E6CF23425D3E00F32578 /* AnnotationDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */; };
@@ -201,7 +200,6 @@
 		3F2AD088234FBF2F00790FF0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Map.strings; sourceTree = "<group>"; };
 		3F2AD50423083140006E9077 /* ItemFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeature.swift; sourceTree = "<group>"; };
 		3F2AD506230838F2006E9077 /* DataBaseItemFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseItemFeature.swift; sourceTree = "<group>"; };
-		3F2DA23423072F7800A0798B /* FilesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		3F2E0F051E3888FA00B63C71 /* Storage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2E0F081E3888FA00B63C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F2E0F0D1E3888FA00B63C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -232,6 +230,8 @@
 		3F67C2FA238E7A4E005261C1 /* AnnotationsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsViewModelDelegate.swift; sourceTree = "<group>"; };
 		3F6832EB238FC6410068552E /* AnnotationsFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsFilterViewController.swift; sourceTree = "<group>"; };
 		3F6832ED238FD3F90068552E /* AnnotationCategoriesToAnnotationsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCategoriesToAnnotationsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		3F6C8151239660A700B7088F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AnnotationsEdit.storyboard; sourceTree = "<group>"; };
+		3F6C8154239660AD00B7088F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/AnnotationsEdit.strings; sourceTree = "<group>"; };
 		3F767E2622785B4900CC32F2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3F767E2C2278642300CC32F2 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		3F7DEA082389DD03004C33A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsView.storyboard; sourceTree = "<group>"; };
@@ -288,7 +288,6 @@
 		3FEC2B6223043C98008C26F6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3FF399BE234A12A600045F92 /* LastLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastLocation.swift; sourceTree = "<group>"; };
 		3FF4E6B623423C9B00F32578 /* AnnotationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsTableViewCell.swift; sourceTree = "<group>"; };
-		3FF4E6BC23423D3400F32578 /* AnnotationsEdit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnnotationsEdit.storyboard; sourceTree = "<group>"; };
 		3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsEditViewController.swift; sourceTree = "<group>"; };
 		3FF4E6CC2342480500F32578 /* AnnotationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationList.swift; sourceTree = "<group>"; };
 		3FF4E6CE23425D3E00F32578 /* AnnotationDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -464,7 +463,6 @@
 			children = (
 				3F5FB489238BE8DC00E82789 /* DataBase */,
 				3F02D8C82317BDC60095ED44 /* Demonstration.swift */,
-				3F2DA23423072F7800A0798B /* FilesManager.swift */,
 				3F2754501E8322CC00633E29 /* Location.swift */,
 				3FF399BE234A12A600045F92 /* LastLocation.swift */,
 				3F6216FB1E4B53D000D1584C /* UserDefaults.swift */,
@@ -612,7 +610,7 @@
 		3F5FB497238BEC1B00E82789 /* AnnotationsEditViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3FF4E6BC23423D3400F32578 /* AnnotationsEdit.storyboard */,
+				3F6C8152239660A700B7088F /* AnnotationsEdit.storyboard */,
 				3FF4E6BE23423D3E00F32578 /* AnnotationsEditViewController.swift */,
 			);
 			path = AnnotationsEditViewController;
@@ -906,7 +904,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF4E6BD23423D3400F32578 /* AnnotationsEdit.storyboard in Resources */,
+				3F6C8150239660A700B7088F /* AnnotationsEdit.storyboard in Resources */,
 				3FF6E0E61F1CC15A001F5D02 /* Localizable.strings in Resources */,
 				3F7DEA072389DD03004C33A2 /* SettingsView.storyboard in Resources */,
 				3F2AD084234FBF2B00790FF0 /* Map.storyboard in Resources */,
@@ -1051,7 +1049,6 @@
 				3F1022562385EAF60008EE96 /* SearchViewController.swift in Sources */,
 				3F2AD50523083140006E9077 /* ItemFeature.swift in Sources */,
 				3F271289238587B2002FFC7A /* SortViewDelegate.swift in Sources */,
-				3F2DA23523072F7800A0798B /* FilesManager.swift in Sources */,
 				3F9336BF1E432C33008A2AAA /* DataBase.swift in Sources */,
 				3FF4E6CF23425D3E00F32578 /* AnnotationDetailsTableViewController.swift in Sources */,
 				3F2E0F091E3888FA00B63C71 /* AppDelegate.swift in Sources */,
@@ -1166,6 +1163,15 @@
 				3F960D261F1CC195005170D8 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3F6C8152239660A700B7088F /* AnnotationsEdit.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F6C8151239660A700B7088F /* Base */,
+				3F6C8154239660AD00B7088F /* fr */,
+			);
+			name = AnnotationsEdit.storyboard;
 			sourceTree = "<group>";
 		};
 		3F7DEA092389DD03004C33A2 /* SettingsView.storyboard */ = {

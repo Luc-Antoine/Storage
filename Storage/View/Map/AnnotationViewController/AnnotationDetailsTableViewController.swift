@@ -15,7 +15,7 @@ class AnnotationDetailsTableViewController: UITableViewController {
     }
     
     weak var mapViewControllerDelegate: MapViewControllerDelegate?
-    weak var removeAnnotationDelegate: RemoveAnnotationDelegate?
+    weak var annotationDetailsDelegate: AnnotationDetailsDelegate?
     weak var lastLocationDelegate: LastLocationDelegate?
 
     var annotationsViewModel: AnnotationsViewModel?
@@ -82,7 +82,7 @@ class AnnotationDetailsTableViewController: UITableViewController {
             }
             return
         }
-        let newAnnotation = Annotation(id: annotation?.id ?? 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, favorite: annotation?.favorite ?? false, categories: [])
+        let newAnnotation = Annotation(id: annotation?.id ?? 0, title: titleTextField!.text!, subtitle: subtitleTextField!.text!, comment: commentTextView.text ?? "", lat: lat!, lng: lng!, categories: [])
         if annotation != nil {
             annotationList.update(newAnnotation)
             mapViewControllerDelegate?.updateAnnotation(newAnnotation)
@@ -123,14 +123,6 @@ class AnnotationDetailsTableViewController: UITableViewController {
             mapButton.isEnabled = true
             mapButton.image = UIImage(named: "Mappin")
         }
-    }
-    
-    // MARK: - Private functions
-    
-    private func removeAnnotation() {
-        annotationList.remove([annotation!])
-        removeAnnotationDelegate?.removeAnnotation(annotation: annotation!)
-        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Design
@@ -179,6 +171,7 @@ extension AnnotationDetailsTableViewController: AnnotationCategoriesDelegate {
         guard annotation != nil else { return }
         annotation!.categories = categoriesId
         annotationList.update(annotation!)
+        annotationDetailsDelegate?.update(annotation!)
     }
 }
 

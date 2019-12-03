@@ -81,6 +81,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func newAnnotationDetailsTableViewController(_ annotation: Annotation) {
         let newAnnotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
+        newAnnotationDetailsTableViewController.annotationDetailsDelegate = self
         let position = location.distance(of: Position.init(lat: annotation.lat, lng: annotation.lng))
         newAnnotationDetailsTableViewController.distance = annotationsViewModel?.formatter(position) ?? ""
         newAnnotationDetailsTableViewController.annotation = annotation
@@ -91,6 +92,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func newAnnotationDetailsTableViewController() {
         let newAnnotationDetailsTableViewController: AnnotationDetailsTableViewController = instantiate("AnnotationDetailsTableViewController", storyboard: "AnnotationDetails")
+        newAnnotationDetailsTableViewController.annotationDetailsDelegate = self
         newAnnotationDetailsTableViewController.lat = lat
         newAnnotationDetailsTableViewController.lng = lng
         newAnnotationDetailsTableViewController.fromMap = true
@@ -108,6 +110,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: - Functions
     
     func initMap() {
+        modaleContainerView.isHidden = true
         
         let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
         
@@ -156,15 +159,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         for i in 0..<annotations.count {
             let lat = annotations[i].lat
             let lng = annotations[i].lng
-            let favorites = annotations[i].favorite
             let pinLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lng)
             let pointAnnotation = CustomPointAnnotation()
             pointAnnotation.coordinate = pinLocation
-            if favorites {
-                pointAnnotation.imageName = "FavoritePin"
-            } else {
-                pointAnnotation.imageName = "Pin"
-            }
+            pointAnnotation.imageName = "Pin"
             pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
             mapView.addAnnotation(pinAnnotationView!.annotation!)
         }
@@ -326,7 +324,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 }
 
-// MARK: - Protocols
+// MARK: - MapViewControllerDelegate
 
 protocol MapViewControllerDelegate: AnyObject {
     func addAnnotation(_ annotation: Annotation)
@@ -355,26 +353,7 @@ extension MapViewController: MapViewControllerDelegate {
     }
 }
 
-protocol RemoveAnnotationDelegate: AnyObject {
-    func removeAnnotation(annotation: Annotation)
-}
-
-extension MapViewController: RemoveAnnotationDelegate {
-    
-    func removeAnnotation(annotation: Annotation) {
-        var index: Int = 0
-        
-        for i in 0..<self.annotations.count {
-            if self.annotations[i].id == annotation.id {
-                index = i
-                break
-            }
-        }
-        self.annotations.remove(at: index)
-        mapView.removeAnnotations(mapView.annotations)
-        showAnnotations()
-    }
-}
+// MARK: - AnnotationModaleWindowDelegate
 
 protocol AnnotationModaleWindowDelegate: AnyObject {
     func showAnnotation()
@@ -407,5 +386,19 @@ extension MapViewController: AnnotationsViewControllerToMapViewDelegate {
         lat = nil
         lng = nil
         pinAnnotationView = nil
+    }
+}
+
+// MARK: - AnnotationDetailsDelegate
+
+protocol AnnotationDetailsDelegate: AnyObject {
+    func update(_ annotation: Annotation)
+}
+
+extension MapViewController: AnnotationDetailsDelegate {
+    func update(_ annotation: Annotation) {
+        let index = annotations.firstIndex(of: annotation)
+        guard index != nil else { return }
+        annotations[index!] = annotation
     }
 }

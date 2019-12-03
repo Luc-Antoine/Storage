@@ -17,27 +17,10 @@ class AnnotationsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleAnnotation: UILabel!
     @IBOutlet weak var distanceAnnotation: UILabel!
     @IBOutlet weak var subtitleAnnotation: UILabel!
-    @IBOutlet weak var buttonFavorites: UIButton!
-    
-    @IBAction func favorites(_ sender: Any) {
-        update(!favorite)
-        delegate?.updateFavorite(index!)
-    }
     
     func configureCell(_ annotation: Annotation, _ distance: String) {
         titleAnnotation.text = annotation.title
         subtitleAnnotation.text = annotation.subtitle
         distanceAnnotation.text = distance
-        update(annotation.favorite)
-    }
-    
-    private func update(_ favorite: Bool) {
-        if favorite {
-            buttonFavorites.setImage(UIImage(named: "NewStarFavorite"), for: .normal)
-            self.favorite = true
-        } else {
-            buttonFavorites.setImage(UIImage(named: "NewStar"), for: .normal)
-            self.favorite = false
-        }
     }
 }
